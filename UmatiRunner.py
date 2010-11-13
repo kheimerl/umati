@@ -2,9 +2,12 @@
 
 import sys
 from PyQt4 import QtGui
-from umati import FrontendView
+from umati import UmatiMainView
 
 app = QtGui.QApplication(sys.argv)
-main = FrontendView.Frontend()
-main.show()
+mw = QtGui.QMainWindow()
+mw.ui = UmatiMainView.Ui_MainWindow()
+mw.ui.setupUi(mw)
+
+mw.show()
 sys.exit(app.exec_())
