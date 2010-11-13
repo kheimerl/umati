@@ -6,4 +6,4 @@ all: $(FILES)
 	pyuic4 $< -o $@
 
 clean:
-	rm $(FILES) *.pyc
+	rm $(FILES) *.pyc *~
