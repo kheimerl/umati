@@ -1,4 +1,4 @@
-FILES = UmatiChooserView.py UmatiMainView.py UmatiMathTaskView.py UmatiVendView.py
+FILES = UmatiChooserView.py UmatiMainView.py UmatiMathTaskView.py UmatiVendView.py UmatiSurveyView.py
 
 all: $(FILES)
 
