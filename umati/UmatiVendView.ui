@@ -22,6 +22,9 @@
      <height>111</height>
     </rect>
    </property>
+   <property name="mode">
+    <enum>QLCDNumber::Hex</enum>
+   </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
@@ -37,7 +40,7 @@
      <enum>QLayout::SetDefaultConstraint</enum>
     </property>
     <item row="0" column="0">
-     <widget class="QPushButton" name="pushButton_a">
+     <widget class="QPushButton" name="pushButton_A">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -103,7 +106,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QPushButton" name="pushButton_b">
+     <widget class="QPushButton" name="pushButton_B">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -157,7 +160,7 @@
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QPushButton" name="pushButton_c">
+     <widget class="QPushButton" name="pushButton_C">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -290,7 +293,7 @@
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QPushButton" name="pushButton_d">
+     <widget class="QPushButton" name="pushButton_D">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -308,7 +311,7 @@
      </widget>
     </item>
     <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton_e">
+     <widget class="QPushButton" name="pushButton_E">
       <property name="minimumSize">
        <size>
         <width>0</width>

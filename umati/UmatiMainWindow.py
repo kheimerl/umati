@@ -56,3 +56,12 @@ class MainWindow(QtGui.QMainWindow):
     def setSurveyTaskVisible(self):
         self.__setItemVisible(self.survey_task, [self.chooser, self.vend,
                                                  self.math_task])
+
+    def vendItem(self, value):
+        if (self.ui.lcdNumber.intValue() >= value):
+            self.ui.lcdNumber.display(self.ui.lcdNumber.intValue() - value)
+            return True
+        return False
+
+    def taskCompleted(self, value):
+        self.ui.lcdNumber.display(self.ui.lcdNumber.intValue() + value)

@@ -1,5 +1,6 @@
 from PyQt4 import QtGui, QtCore
 import UmatiMathTaskView
+import Util
 
 class MathTaskGui(QtGui.QWidget):
 
@@ -25,3 +26,5 @@ class MathTaskGui(QtGui.QWidget):
 
     def send(self):
         print ("Supposed to send result now, update task count and stuff")
+        Util.getMainWindow(self).taskCompleted(1)
+        self.clear()
