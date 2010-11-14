@@ -229,7 +229,7 @@
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QPushButton" name="pushButton_s">
+     <widget class="QPushButton" name="pushButton_submit">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -243,6 +243,24 @@
       </property>
       <property name="text">
        <string>Submit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pushButton_clear">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Clear</string>
       </property>
      </widget>
     </item>

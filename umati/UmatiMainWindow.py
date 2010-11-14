@@ -31,10 +31,8 @@ class MainWindow(QtGui.QMainWindow):
         #start with chooser visible
         self.setChooserVisible()
         
-        QtCore.QObject.connect(self.ui.vendButton, QtCore.SIGNAL('clicked()'),
-                               self.setVendVisible)
-        QtCore.QObject.connect(self.ui.resetButton, QtCore.SIGNAL('clicked()'),
-                               self.setChooserVisible)
+        self.ui.vendButton.clicked.connect(self.setVendVisible)
+        self.ui.resetButton.clicked.connect(self.setChooserVisible)
 
         WINDOW = self
 
