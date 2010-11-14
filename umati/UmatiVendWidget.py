@@ -1,5 +1,6 @@
 from PyQt4 import QtGui
 import UmatiVendView
+import Util
 
 class VendGui(QtGui.QWidget):
 

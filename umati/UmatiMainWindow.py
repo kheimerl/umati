@@ -1,13 +1,24 @@
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
+
 import UmatiMainView
 import UmatiChooserWidget
 import UmatiVendWidget
 import UmatiMathTaskWidget
 import UmatiSurveyTaskWidget
 
+WINDOW = None
+
+def getMainWindow():
+    global WINDOW
+    if (WINDOW):
+        return WINDOW
+    else:
+        raise Exception('No Main Window!')
+
 class MainWindow(QtGui.QMainWindow):
     
     def __init__(self):
+        global WINDOW
         QtGui.QMainWindow.__init__(self)
         self.ui = UmatiMainView.Ui_MainWindow()
         self.ui.setupUi(self)
@@ -17,7 +28,15 @@ class MainWindow(QtGui.QMainWindow):
         self.vend = UmatiVendWidget.VendGui(self.ui.BodyFrame)
         self.math_task = UmatiMathTaskWidget.MathTaskGui(self.ui.BodyFrame)
         self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self.ui.BodyFrame)
+        #start with chooser visible
         self.setChooserVisible()
+        
+        QtCore.QObject.connect(self.ui.vendButton, QtCore.SIGNAL('clicked()'),
+                               self.setVendVisible)
+        QtCore.QObject.connect(self.ui.resetButton, QtCore.SIGNAL('clicked()'),
+                               self.setChooserVisible)
+
+        WINDOW = self
 
     def __setItemVisible(self, item, others):
         item.show()
