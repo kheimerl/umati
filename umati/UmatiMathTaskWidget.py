@@ -44,10 +44,11 @@ class MathTaskGui(QtGui.QWidget):
         self.ui.numberField.display(0)
 
     def send(self):
-        print ("Supposed to send result now, update task count and stuff")
-        Util.getMainWindow(self).taskCompleted(1)
-        self.generateMathTask()
-        self.clear()
+        if (self.ui.numberField.intValue() != 0):
+            print ("Supposed to send result now, update task count and stuff")
+            Util.getMainWindow(self).taskCompleted(1)
+            self.generateMathTask()
+            self.clear()
 
     def generateMathTask(self):
         self.curTask = MathTask()

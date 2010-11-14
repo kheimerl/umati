@@ -84,7 +84,7 @@
       <number>0</number>
      </property>
      <property name="numDigits">
-      <number>1</number>
+      <number>2</number>
      </property>
     </widget>
     <widget class="Line" name="line">
