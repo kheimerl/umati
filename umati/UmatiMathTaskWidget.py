@@ -1,6 +1,23 @@
 from PyQt4 import QtGui, QtCore
 import UmatiMathTaskView
 import Util
+import random
+
+MAX_VAR = 4000
+
+class MathTask:
+
+    def __init__(self, command, answer):
+        self.cmd = cmd
+        self.ans = answer
+
+    #generate random math question
+    def __init__(self):
+        #just addition for now
+        x = random.randint(0,MAX_VAR)
+        y = random.randint(0,MAX_VAR)
+        self.cmd = "%d + %d = ?" % (x,y)
+        self.ans = x+y
 
 class MathTaskGui(QtGui.QWidget):
 
@@ -17,6 +34,8 @@ class MathTaskGui(QtGui.QWidget):
         self.ui.pushButton_submit.clicked.connect(self.send)
         self.ui.pushButton_clear.clicked.connect(self.clear)
 
+        self.generateMathTask()
+
     def updateNumber(self, b):
         res = self.ui.numberField.intValue()*10 + b
         self.ui.numberField.display(res)
@@ -27,4 +46,9 @@ class MathTaskGui(QtGui.QWidget):
     def send(self):
         print ("Supposed to send result now, update task count and stuff")
         Util.getMainWindow(self).taskCompleted(1)
+        self.generateMathTask()
         self.clear()
+
+    def generateMathTask(self):
+        self.curTask = MathTask()
+        self.ui.questionBox.setText(self.curTask.cmd)
