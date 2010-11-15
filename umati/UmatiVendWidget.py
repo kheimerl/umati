@@ -33,7 +33,7 @@ class VendGui(QtGui.QWidget):
         self.__setNumberFieldDisplay("")
 
     def vend(self):
-        if (len(self.val) == 2):
+        if (len(self.val) in [2,3]):
             print ("vend to %s here" % self.val)
             self.mainWin.vendItem(1)
             self.clear()
