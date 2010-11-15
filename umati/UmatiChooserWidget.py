@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, QtCore, uic
-import Util
+from . import Util
 
 UI_FILE = 'umati/UmatiChooserView.ui'
 

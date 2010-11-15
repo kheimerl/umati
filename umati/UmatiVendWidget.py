@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, uic
-import Util
+from . import Util
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
@@ -13,7 +13,7 @@ class VendGui(QtGui.QWidget):
         self.clear()
         
         #buttons
-        for i in (map(str, range(1,11)) + ['A', 'B', 'C', 'D', 'E']):
+        for i in (list(map(str, range(1,11))) + ['A', 'B', 'C', 'D', 'E']):
             b = self.ui.__getattribute__('pushButton_' + i)
             b.val = i
             b.clicked.connect(lambda: self.update(self.sender().val))

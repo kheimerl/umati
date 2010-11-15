@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, uic
-import Util
+from . import Util
 
 class Question:
     

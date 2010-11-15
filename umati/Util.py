@@ -1,4 +1,7 @@
-import UmatiMainWindow
+try:
+    from . import UmatiMainWindow
+except ImportError:
+    pass
 
 def getMainWindow(widget):
-    return UmatiMainWindow.getMainWindow()
+    return umw.getMainWindow()

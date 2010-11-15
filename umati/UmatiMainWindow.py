@@ -1,9 +1,9 @@
 from PyQt4 import QtGui, QtCore, uic
 
-import UmatiChooserWidget
-import UmatiVendWidget
-import UmatiMathTaskWidget
-import UmatiSurveyTaskWidget
+from . import UmatiChooserWidget
+from . import UmatiVendWidget
+from . import UmatiMathTaskWidget
+from . import UmatiSurveyTaskWidget
 
 WINDOW = None
 

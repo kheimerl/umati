@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, QtCore, uic
-import Util
+from . import Util
 import random
 
 MAX_VAR = 4000
