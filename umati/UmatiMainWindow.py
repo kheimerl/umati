@@ -1,6 +1,5 @@
-from PyQt4 import QtGui, QtCore
+from PyQt4 import QtGui, QtCore, uic
 
-import UmatiMainView
 import UmatiChooserWidget
 import UmatiVendWidget
 import UmatiMathTaskWidget
@@ -15,12 +14,14 @@ def getMainWindow():
     else:
         raise Exception('No Main Window!')
 
+UI_FILE = 'umati/UmatiMainView.ui'
+
 class MainWindow(QtGui.QMainWindow):
     
     def __init__(self):
         global WINDOW
         QtGui.QMainWindow.__init__(self)
-        self.ui = UmatiMainView.Ui_MainWindow()
+        self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         
         #setup other parts

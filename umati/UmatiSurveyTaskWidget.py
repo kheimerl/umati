@@ -1,5 +1,4 @@
-from PyQt4 import QtGui
-import UmatiSurveyTaskView
+from PyQt4 import QtGui, uic
 import Util
 
 class Question:
@@ -30,11 +29,13 @@ class SurveyTask:
     def submit(self):
         pass
 
+UI_FILE = 'umati/UmatiSurveyTaskView.ui'
+
 class SurveyTaskGui(QtGui.QWidget):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
-        self.ui = UmatiSurveyTaskView.Ui_Form()
+        self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
 
         #little hack here, we insert a fake radio button

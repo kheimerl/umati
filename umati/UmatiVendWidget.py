@@ -1,12 +1,14 @@
-from PyQt4 import QtGui
-import UmatiVendView
+from PyQt4 import QtGui, uic
 import Util
+
+UI_FILE = 'umati/UmatiVendView.ui'
 
 class VendGui(QtGui.QWidget):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
-        self.ui = UmatiVendView.Ui_Form()
+        print (dir(uic))
+        self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.clear()
         

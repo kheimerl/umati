@@ -1,5 +1,4 @@
-from PyQt4 import QtGui, QtCore
-import UmatiMathTaskView
+from PyQt4 import QtGui, QtCore, uic
 import Util
 import random
 
@@ -19,11 +18,13 @@ class MathTask:
         self.cmd = "%d + %d = ?" % (x,y)
         self.ans = x+y
 
+UI_FILE = 'umati/UmatiMathTaskView.ui'
+
 class MathTaskGui(QtGui.QWidget):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
-        self.ui = UmatiMathTaskView.Ui_Form()
+        self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         
         for i in range(0,10):
