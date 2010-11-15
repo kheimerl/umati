@@ -1,5 +1,4 @@
 from PyQt4 import QtGui, QtCore, uic
-from . import Util
 import random
 
 MAX_VAR = 4000
@@ -22,10 +21,11 @@ UI_FILE = 'umati/UmatiMathTaskView.ui'
 
 class MathTaskGui(QtGui.QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, mainWin, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
+        self.mainWin = mainWin
         
         for i in range(0,10):
             b = self.ui.__getattribute__('pushButton_' + str(i))
@@ -47,7 +47,7 @@ class MathTaskGui(QtGui.QWidget):
     def send(self):
         if (self.ui.numberField.intValue() != 0):
             print ("Supposed to send result now, update task count and stuff")
-            Util.getMainWindow(self).taskCompleted(1)
+            self.mainWin.taskCompleted(1)
             self.generateMathTask()
             self.clear()
 

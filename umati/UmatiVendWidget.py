@@ -1,13 +1,12 @@
 from PyQt4 import QtGui, uic
-from . import Util
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
 class VendGui(QtGui.QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, mainWin, parent=None):
         QtGui.QWidget.__init__(self, parent)
-        print (dir(uic))
+        self.mainWin = mainWin
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.clear()
@@ -36,5 +35,5 @@ class VendGui(QtGui.QWidget):
     def vend(self):
         if (len(self.val) == 2):
             print ("vend to %s here" % self.val)
-            Util.getMainWindow(self).vendItem(1)
+            self.mainWin.vendItem(1)
             self.clear()

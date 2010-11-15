@@ -1,5 +1,4 @@
 from PyQt4 import QtGui, uic
-from . import Util
 
 class Question:
     
@@ -33,10 +32,11 @@ UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
 class SurveyTaskGui(QtGui.QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, mainWin, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
+        self.mainWin = mainWin
 
         #little hack here, we insert a fake radio button
         #to deal with qt not allowing there to be none selected sometimes
@@ -82,9 +82,8 @@ class SurveyTaskGui(QtGui.QWidget):
             else:
                 self.cur_task.submit()
                 self.reset()
-                mw = Util.getMainWindow(self)
-                mw.taskCompleted(5)
-                mw.setChooserVisible()
+                self.mainWin.taskCompleted(5)
+                self.mainWin.setChooserVisible()
 
     def back(self):
         if (self.cur_index > 0):

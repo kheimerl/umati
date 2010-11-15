@@ -25,10 +25,10 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.setupUi(self)
         
         #setup other parts
-        self.chooser = UmatiChooserWidget.ChooserGui(self.ui.BodyFrame)
-        self.vend = UmatiVendWidget.VendGui(self.ui.BodyFrame)
-        self.math_task = UmatiMathTaskWidget.MathTaskGui(self.ui.BodyFrame)
-        self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self.ui.BodyFrame)
+        self.chooser = UmatiChooserWidget.ChooserGui(self, self.ui.BodyFrame)
+        self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
+        self.math_task = UmatiMathTaskWidget.MathTaskGui(self, self.ui.BodyFrame)
+        self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, self.ui.BodyFrame)
         #start with chooser visible
         self.setChooserVisible()
         
