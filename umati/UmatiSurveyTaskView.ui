@@ -96,7 +96,7 @@
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <widget class="QRadioButton" name="radioButton_0">
+     <widget class="QPushButton" name="pushButton_0">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -105,7 +105,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
+        <width>300</width>
         <height>70</height>
        </size>
       </property>
@@ -126,10 +126,16 @@
       <property name="text">
        <string>Answer 0</string>
       </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QRadioButton" name="radioButton_1">
+     <widget class="QPushButton" name="pushButton_1">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -138,7 +144,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
+        <width>300</width>
         <height>70</height>
        </size>
       </property>
@@ -159,10 +165,16 @@
       <property name="text">
        <string>Answer 1</string>
       </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QRadioButton" name="radioButton_2">
+     <widget class="QPushButton" name="pushButton_2">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -171,7 +183,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
+        <width>300</width>
         <height>70</height>
        </size>
       </property>
@@ -192,10 +204,16 @@
       <property name="text">
        <string>Answer 2</string>
       </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QRadioButton" name="radioButton_3">
+     <widget class="QPushButton" name="pushButton_3">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -204,7 +222,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
+        <width>300</width>
         <height>70</height>
        </size>
       </property>
@@ -225,10 +243,16 @@
       <property name="text">
        <string>Answer 3</string>
       </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="4" column="0">
-     <widget class="QRadioButton" name="radioButton_4">
+     <widget class="QPushButton" name="pushButton_4">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -237,7 +261,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>0</width>
+        <width>300</width>
         <height>70</height>
        </size>
       </property>
@@ -257,6 +281,12 @@
       </property>
       <property name="text">
        <string>Answer 4</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>true</bool>
       </property>
      </widget>
     </item>

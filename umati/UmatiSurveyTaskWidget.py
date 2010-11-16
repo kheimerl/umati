@@ -5,6 +5,7 @@ class Question:
     def __init__(self, q, opts):
         self.q = q
         self.opts = opts
+        self.ans = None
 
     def set_answer(self, ans):
         self.ans = ans
@@ -40,7 +41,7 @@ class SurveyTaskGui(QtGui.QWidget):
 
         #little hack here, we insert a fake radio button
         #to deal with qt not allowing there to be none selected sometimes
-        self.fake_radio = QtGui.QRadioButton(self.ui.radioButton_0.parent())
+        self.fake_radio = QtGui.QRadioButton(self.ui.pushButton_0.parent())
         self.fake_radio.hide()
         
         self.ui.pushButton_back.clicked.connect(self.back)
@@ -52,17 +53,22 @@ class SurveyTaskGui(QtGui.QWidget):
         self.ui.questionBox.setText(self.cur_task.qs[self.cur_index].q)
         self.fake_radio.setChecked(True)
         for i in range(0,5):
-            b = self.ui.__getattribute__('radioButton_' + str(i))
+            b = self.ui.__getattribute__('pushButton_' + str(i))
             if (i < len(self.cur_task.qs[self.cur_index].opts)):
                 b.setText(self.cur_task.qs[self.cur_index].opts[i])
                 b.setCheckable(True)
+                if (self.cur_task.qs[self.cur_index].ans and
+                    self.cur_task.qs[self.cur_index].ans == i):
+                    b.setChecked(True)
+                else:
+                    b.setChecked(False)
             else:
                 b.setText("")
                 b.setCheckable(False)
 
     def getChecked(self):
         for i in range(0,5):
-            b = self.ui.__getattribute__('radioButton_' + str(i))
+            b = self.ui.__getattribute__('pushButton_' + str(i))
             if (b.isChecked()):
                 return i
         return -1
@@ -76,7 +82,7 @@ class SurveyTaskGui(QtGui.QWidget):
         res = self.getChecked()
         if (res != -1):
             if (self.cur_index < self.cur_task.num_questions() - 1):
-                self.cur_task.qs[self.cur_index].set_answer(res)
+                self.set_answer(res)
                 self.cur_index += 1
                 self.setButtons()
             else:
@@ -87,8 +93,13 @@ class SurveyTaskGui(QtGui.QWidget):
 
     def back(self):
         if (self.cur_index > 0):
+            res = self.getChecked()
+            self.set_answer(res)
             self.cur_index -= 1
             self.setButtons()
-            ans = self.cur_task.qs[self.cur_index].ans
-            b = self.ui.__getattribute__('radioButton_' + str(ans))
-            b.setChecked(True)
+        else:
+            self.reset()
+            self.mainWin.setChooserVisible()
+
+    def set_answer(self, ans):
+         self.cur_task.qs[self.cur_index].set_answer(ans)
