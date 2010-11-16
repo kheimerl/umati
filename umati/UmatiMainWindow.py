@@ -45,18 +45,26 @@ class MainWindow(QtGui.QMainWindow):
             other.hide()
 
     def setChooserVisible(self):
+        self.ui.resetButton.hide()
+        self.ui.vendButton.show()
         self.__setItemVisible(self.chooser, [self.vend, self.math_task,
                                              self.survey_task])
 
     def setVendVisible(self):
+        self.ui.resetButton.show()
+        self.ui.vendButton.hide()
         self.__setItemVisible(self.vend, [self.chooser, self.math_task,
                                           self.survey_task])
 
     def setMathTaskVisible(self):
+        self.ui.resetButton.show()
+        self.ui.vendButton.show()
         self.__setItemVisible(self.math_task, [self.chooser, self.vend,
                                                self.survey_task])
 
     def setSurveyTaskVisible(self):
+        self.ui.resetButton.show()
+        self.ui.vendButton.show()
         self.__setItemVisible(self.survey_task, [self.chooser, self.vend,
                                                  self.math_task])
 
