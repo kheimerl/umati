@@ -34,10 +34,13 @@ class MainWindow(QtGui.QMainWindow):
         
         self.ui.vendButton.clicked.connect(self.setVendVisible)
         self.ui.resetButton.clicked.connect(self.setChooserVisible)
-
-        #self.showFullScreen()
+        self.ui.full_screen.clicked.connect(self.fullScreen)
 
         WINDOW = self
+
+    def fullScreen(self):
+        self.ui.full_screen.hide()
+        self.showFullScreen()
 
     def __setItemVisible(self, item, others):
         item.show()
