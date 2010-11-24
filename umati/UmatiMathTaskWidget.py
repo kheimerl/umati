@@ -17,6 +17,15 @@ class MathTask:
         self.cmd = "%d + %d = ?" % (x,y)
         self.ans = x+y
 
+    def check_res(self, ans):
+        #modified hamming distance
+        diffs = 0
+        #well this is awkward
+        for (ch1,ch2) in map(lambda x: (int(x[0]),int(x[1])), 
+                             zip(str(ans),str(self.ans))):
+            diffs += abs(ch1 - ch2)
+        return (diffs < len(str(self.ans)))
+
 UI_FILE = 'umati/UmatiMathTaskView.ui'
 
 class MathTaskGui(QtGui.QWidget):
@@ -46,8 +55,14 @@ class MathTaskGui(QtGui.QWidget):
 
     def send(self):
         if (self.ui.numberField.intValue() != 0):
-            print ("Supposed to send result now, update task count and stuff")
-            self.mainWin.taskCompleted(1)
+            if (self.curTask.check_res(self.ui.numberField.intValue())):
+                print ("Supposed to send result now, update task count and stuff")
+                self.mainWin.taskCompleted(1)
+            else:
+                QtGui.QMessageBox.information(self, "Good Try",
+                                              "Answer is clearly incorrect",
+                                              QtGui.QMessageBox.Ok)
+
             self.generateMathTask()
             self.clear()
 
