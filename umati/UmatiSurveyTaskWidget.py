@@ -57,6 +57,7 @@ class SurveyTaskGui(QtGui.QWidget):
             if (i < len(self.cur_task.qs[self.cur_index].opts)):
                 b.setText(self.cur_task.qs[self.cur_index].opts[i])
                 b.setCheckable(True)
+                b.clicked.connect(self.next)
                 if (self.cur_task.qs[self.cur_index].ans and
                     self.cur_task.qs[self.cur_index].ans == i):
                     b.setChecked(True)
