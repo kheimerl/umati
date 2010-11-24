@@ -79,5 +79,8 @@ class MainWindow(QtGui.QMainWindow):
             return True
         return False
 
+    def getValue(self):
+        return self.ui.lcdNumber.intValue()
+
     def taskCompleted(self, value):
         self.ui.lcdNumber.display(self.ui.lcdNumber.intValue() + value)
