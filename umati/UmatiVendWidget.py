@@ -1,4 +1,5 @@
 from PyQt4 import QtGui, uic
+import logging
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
@@ -6,6 +7,7 @@ class VendGui(QtGui.QWidget):
 
     def __init__(self, mainWin, parent=None):
         QtGui.QWidget.__init__(self, parent)
+        self.log = logging.getLogger("umati.UmatiVendWidget.VendGui")
         self.mainWin = mainWin
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)

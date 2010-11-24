@@ -1,4 +1,5 @@
 from PyQt4 import QtGui, uic
+import logging
 
 class Question:
     
@@ -10,10 +11,13 @@ class Question:
     def set_answer(self, ans):
         self.ans = ans
 
+TASK_VAL = 5
+
 class SurveyTask:
 
-    def __init__(self, questions):
+    def __init__(self, questions, survey_type):
         self.qs = questions
+        self.type = survey_type
 
     def __init__(self):
         self.qs = [Question("What color do you like best?",
@@ -22,12 +26,13 @@ class SurveyTask:
                     ["0-19", "20-40", "40-60", "60-80", "80+"]),
                    Question("How awesome is this thing?",
                     ["Really Awesome", "Totally Awesome", "Super Sweetly Awesome", "Awesomely Awesome"])]
+        self.type = "Basic"
 
     def num_questions(self):
         return len(self.qs)
 
     def submit(self):
-        pass
+        return True
 
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
@@ -35,6 +40,7 @@ class SurveyTaskGui(QtGui.QWidget):
 
     def __init__(self, mainWin, parent=None):
         QtGui.QWidget.__init__(self, parent)
+        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.mainWin = mainWin
@@ -87,9 +93,15 @@ class SurveyTaskGui(QtGui.QWidget):
                 self.cur_index += 1
                 self.setButtons()
             else:
-                self.cur_task.submit()
+                if (self.cur_task.submit()):
+                    self.log.info("Survey Task COMPLETE. T: %s V: %d" %
+                                  (self.cur_task.type, TASK_VAL))
+                    self.mainWin.taskCompleted(TASK_VAL)
+                else:
+                    self.log.info("Survey Task FAILED. T: %s V: %d" %
+                                  (self.cur_task.type, TASK_VAL))
+
                 self.reset()
-                self.mainWin.taskCompleted(5)
                 self.mainWin.setChooserVisible()
 
     def back(self):

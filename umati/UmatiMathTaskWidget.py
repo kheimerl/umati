@@ -1,7 +1,8 @@
 from PyQt4 import QtGui, QtCore, uic
-import random
+import random, logging
 
 MAX_VAR = 4000
+TASK_VAL = 1
 
 class MathTask:
 
@@ -32,6 +33,7 @@ class MathTaskGui(QtGui.QWidget):
 
     def __init__(self, mainWin, parent=None):
         QtGui.QWidget.__init__(self, parent)
+        self.log = logging.getLogger("umati.UmatiMathTaskWidget.MathTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.mainWin = mainWin
@@ -54,11 +56,17 @@ class MathTaskGui(QtGui.QWidget):
         self.ui.numberField.display(0)
 
     def send(self):
-        if (self.ui.numberField.intValue() != 0):
-            if (self.curTask.check_res(self.ui.numberField.intValue())):
-                print ("Supposed to send result now, update task count and stuff")
-                self.mainWin.taskCompleted(1)
+        res = self.ui.numberField.intValue()
+        if (res != 0):
+            if (self.curTask.check_res(res)):
+                self.log.info("Math Task COMPLETE. Q: %s A: %d G: %d V: %d" % 
+                              (self.curTask.cmd, self.curTask.ans, 
+                               res, TASK_VAL))
+                self.mainWin.taskCompleted(TASK_VAL)
             else:
+                self.log.info("Math Task FAILED. Q: %s A: %d G: %d V: %d" % 
+                              (self.curTask.cmd, self.curTask.ans, 
+                               res, TASK_VAL))
                 QtGui.QMessageBox.information(self, "Good Try",
                                               "Answer is clearly incorrect",
                                               QtGui.QMessageBox.Ok)

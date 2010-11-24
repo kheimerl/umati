@@ -1,4 +1,5 @@
 from PyQt4 import QtGui, QtCore, uic
+import logging
 
 from . import UmatiChooserWidget
 from . import UmatiVendWidget
@@ -21,6 +22,7 @@ class MainWindow(QtGui.QMainWindow):
     def __init__(self):
         global WINDOW
         QtGui.QMainWindow.__init__(self)
+        self.log = logging.getLogger("umati.UmatiMainWindow.MainWindow")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         
