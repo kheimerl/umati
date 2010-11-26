@@ -55,6 +55,10 @@ class SurveyTaskGui(QtGui.QWidget):
 
         self.reset()
 
+    def show(self):
+        self.reset()
+        QtGui.QWidget.show(self)
+
     def setButtons(self):
         self.ui.questionBox.setText(self.cur_task.qs[self.cur_index].q)
         self.fake_radio.setChecked(True)
