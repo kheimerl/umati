@@ -1,5 +1,6 @@
 from PyQt4 import QtGui, uic
 import logging
+from . import UmatiMessageDialog
 
 class Question:
     
@@ -57,6 +58,10 @@ class SurveyTaskGui(QtGui.QWidget):
 
     def show(self):
         self.reset()
+        UmatiMessageDialog.information(self,"Please only ONE survey per person")
+        #QtGui.QMessageBox.information(self, "!!", 
+        #                              "Please take the survey ONLY ONCE", 
+        #                              QtGui.QMessageBox.Ok)
         QtGui.QWidget.show(self)
 
     def setButtons(self):

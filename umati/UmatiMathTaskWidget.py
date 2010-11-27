@@ -1,4 +1,5 @@
 from PyQt4 import QtGui, QtCore, uic
+from . import UmatiMessageDialog
 import random, logging
 
 class MathTask:
@@ -123,10 +124,11 @@ class MathTaskGui(QtGui.QWidget):
                 self.log.info("Math Task FAILED. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(),
                                res, val))
-                QtGui.QMessageBox.information(self, "Good Try",
-                                              "Answer is clearly incorrect",
-                                              QtGui.QMessageBox.Ok)
-
+                UmatiMessageDialog.information(self,"Answer is clearly incorrect")
+                #QtGui.QMessageBox.information(self, "Good Try",
+                #                              "Answer is clearly incorrect",
+                #                              QtGui.QMessageBox.Ok)
+                
             self.reset()
 
     def generateMathTask(self):
