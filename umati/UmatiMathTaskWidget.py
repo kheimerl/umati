@@ -45,9 +45,9 @@ class PrimeFactorTask(MathTask):
 
     MAX_FACTORS = 5
 
-    MAX_VALUE = 800
+    MAX_VALUE = 999
 
-    ERROR_RANGE = 2
+    ERROR_RANGE = 1
 
     TASK_VAL = 1
 
@@ -57,10 +57,10 @@ class PrimeFactorTask(MathTask):
         res = 1
         for i in range(0,PrimeFactorTask.MAX_FACTORS):
             new = PrimeFactorTask.low_primes[random.randint(0,len(PrimeFactorTask.low_primes)-1)]
+            if (res * new > PrimeFactorTask.MAX_VALUE):
+                break
             res *= new
             self.ans.append(new)
-            if (res > PrimeFactorTask.MAX_VALUE):
-                break
         self.cmd = "Provide all prime factors of %d" % res
         self.ans.sort()
 
