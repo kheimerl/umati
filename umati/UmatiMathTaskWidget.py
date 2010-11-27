@@ -7,6 +7,12 @@ class MathTask:
     def get_ans(self):
         return str(self.ans)
 
+    def check_res(self):
+        raise Exception("Unimplemented")
+
+    def get_task_val(self):
+        raise Exception("Unimplemented")
+
 class AdditionTask(MathTask):
 
     MAX_VAR = 4000
