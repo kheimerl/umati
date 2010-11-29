@@ -1,8 +1,9 @@
 char tray[3]; // array to hold the incoming serial string bytes
-              // a1 is a01 etc 
+// a1 is a01 etc 
 int trayLetter;
 int trayNumber;
-int motorTime= 10000;
+int motorTime= 3000;
+int loopTime=0; 
 void setup() { 
   pinMode(13, OUTPUT);  //a
   pinMode(12, OUTPUT);  //b
@@ -18,27 +19,36 @@ void setup() {
   pinMode(2, OUTPUT);   //9
   pinMode(1, OUTPUT);   //10
 
-  digitalWrite(13, HIGH);
-  digitalWrite(12, HIGH);
-  digitalWrite(11, HIGH);
-  
   Serial.begin(9600); //probably connect to python using this 
 } 
 
 void loop() { 
   //read the serial port and create a string out of what you read
-  int spos = readSerialString();
-  
-  if(tray[0] == 'a'){
+  int spos = -1;
+  while (spos == -1){
+    spos = ReadSerialString();
+  }
+  if(loopTime==0){
+    Spin();
+  }
+}
+
+
+void Spin(){
+  loopTime=1; 
+  if(tray[0] == 'b'){
     trayLetter= 13;
-  }else if(tray[0] =='b'){
+  }
+  else if(tray[0] =='c'){
     trayLetter= 12;
-  }else if(tray[0] == 'c'){
+  }
+  else if(tray[0] == 'd'){
     trayLetter= 11;
   }
-  
+
   //does some math with characters to get to the correct pin
   trayNumber=11-((tray[1]-48)*10 + tray[2]-48);
+
   digitalWrite(trayLetter, HIGH);                           // set the Letter Swtich On   
   digitalWrite(trayNumber, HIGH);   // set the Num Switch on
   delay(motorTime);                                       // wait for a second
@@ -47,18 +57,21 @@ void loop() {
 }
 
 //read a string from the serial and store it in an array
-int readSerialString () { 
+int ReadSerialString () { 
   int i=0;
   if(!Serial.available()) {
     return -1;
   }
   while (Serial.available() && i <3) {
     int c = Serial.read();
+    Serial.println(c);
     tray[i++] = c;
+    loopTime=0;
   }
-  Serial.println(tray);
+  //Serial.println(tray);
   return i;
 }
+
 
 
 

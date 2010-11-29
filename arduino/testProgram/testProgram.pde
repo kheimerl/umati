@@ -4,7 +4,8 @@
  
   This example code is in the public domain.
  */
- 
+
+char tray[3]; 
 int trayNum=9;
 int trayLetter=11;
 

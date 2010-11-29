@@ -1,5 +1,6 @@
 from PyQt4 import QtGui, uic
 import logging
+from . import Util
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
@@ -50,6 +51,7 @@ class VendGui(QtGui.QWidget):
                 self.log.info("Vending Item COMPLETED. I: %s C: %d" % 
                               (self.val, price))
                 self.mainWin.vendItem(price)
+                Util.sendVendCmd(self.val)
             else:
                 self.log.info("Vending Item FAILED. I: %s C: %d" % 
                               (self.val, price))
