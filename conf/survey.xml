@@ -1,0 +1,27 @@
+<survey type="Basic" value="5">
+  <question text="What gender do you identify with?">
+    <answer text="Male"/>
+    <answer text="Female"/>
+    <answer text="Other"/>
+  </question>
+  <question text="What color do you like best?">
+    <answer text="Red"/>
+    <answer text="Blue"/>
+    <answer text="Yellow"/>
+    <answer text="Green"/>
+    <answer text="Purple"/>
+  </question>
+  <question text="What is your age?">
+    <answer text="0-19"/>
+    <answer text="20-39"/>
+    <answer text="40-59"/>
+    <answer text="60-79"/>
+    <answer text="80+"/>
+  </question>
+  <question text="How awesome is this thing?">
+    <answer text="Really Awesome"/>
+    <answer text="Totally Awesome"/>
+    <answer text="Super Sweetly Awesome"/>
+    <answer text="Awesomely Awesome"/>
+  </question>
+</survey>  

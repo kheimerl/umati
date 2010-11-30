@@ -1,34 +1,28 @@
 from PyQt4 import QtGui, uic
-import logging
+import logging, xml.dom.minidom
 from . import UmatiMessageDialog
 
 class Question:
     
-    def __init__(self, q, opts):
-        self.q = q
-        self.opts = opts
+    def __init__(self, node):
         self.ans = None
+        self.q = node.getAttribute("text")
+        self.opts = []
+        for opt in node.getElementsByTagName("answer"):
+            self.opts.append(opt.getAttribute("text"))
 
     def set_answer(self, ans):
         self.ans = ans
 
-TASK_VAL = 5
-
 class SurveyTask:
 
-    def __init__(self, questions, survey_type):
-        self.qs = questions
-        self.type = survey_type
-
-    def __init__(self):
-        self.qs = [Question("What color do you like best?",
-                    ["Red", "Blue", "Yellow", "Green", "Purple"]),
-                   Question("What is your age?",
-                    ["0-19", "20-40", "40-60", "60-80", "80+"]),
-                   Question("How awesome is this thing?",
-                    ["Really Awesome", "Totally Awesome", "Super Sweetly Awesome", "Awesomely Awesome"])]
-        self.type = "Basic"
-
+    def __init__(self, head):
+        self.value = int(head.getAttribute("value"))
+        self.type = head.getAttribute("type")
+        self.qs = []
+        for q in head.getElementsByTagName("question"):
+            self.qs.append(Question(q))
+                           
     def num_questions(self):
         return len(self.qs)
 
@@ -42,6 +36,7 @@ class SurveyTaskGui(QtGui.QWidget):
     def __init__(self, mainWin, surveyLoc, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
+        self.surveyLoc = surveyLoc
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.mainWin = mainWin
@@ -90,7 +85,7 @@ class SurveyTaskGui(QtGui.QWidget):
         return -1
 
     def reset(self):
-        self.cur_task = SurveyTask()
+        self.cur_task = SurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
         self.cur_index = 0
         self.setButtons()
     
@@ -104,11 +99,11 @@ class SurveyTaskGui(QtGui.QWidget):
             else:
                 if (self.cur_task.submit()):
                     self.log.info("Survey Task COMPLETE. T: %s V: %d" %
-                                  (self.cur_task.type, TASK_VAL))
-                    self.mainWin.taskCompleted(TASK_VAL)
+                                  (self.cur_task.type, self.cur_task.value))
+                    self.mainWin.taskCompleted(self.cur_task.value)
                 else:
                     self.log.info("Survey Task FAILED. T: %s V: %d" %
-                                  (self.cur_task.type, TASK_VAL))
+                                  (self.cur_task.type, self.cur_task.value))
 
                 self.reset()
                 self.mainWin.setChooserVisible()
