@@ -95,10 +95,11 @@ UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
 class SurveyTaskGui(QtGui.QWidget):
 
-    def __init__(self, mainWin, surveyLoc, parent=None):
+    def __init__(self, mainWin, surveyLoc, parent=None, method="linear"):
         QtGui.QWidget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
         self.surveyLoc = surveyLoc
+        self.method = method
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.mainWin = mainWin
@@ -144,7 +145,10 @@ class SurveyTaskGui(QtGui.QWidget):
         return -1
 
     def reset(self):
-        self.cur_task = RandomSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
+        if (self.method == "linear"):
+            self.cur_task = LinearSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
+        if (self.method == "random"):
+            self.cur_task = RandomSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
         self.setButtons(self.cur_task.next())
     
     def next(self):
