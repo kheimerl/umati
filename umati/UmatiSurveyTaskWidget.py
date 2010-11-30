@@ -7,14 +7,20 @@ class Question:
     def __init__(self, node):
         self.ans = None
         self.q = node.getAttribute("text")
+        self.right = None
         self.opts = []
         for opt in node.getElementsByTagName("answer"):
             self.opts.append(opt.getAttribute("text"))
+            if (opt.getAttribute("correct") == "True"):
+                self.right = opt.getAttribute("text")
 
     def set_answer(self, ans):
         self.ans = ans
 
-class SurveyTask:
+    def get_correct(self):
+        return self.right
+
+class LinearSurveyTask:
 
     def __init__(self, head):
         self.value = int(head.getAttribute("value"))
@@ -85,7 +91,7 @@ class SurveyTaskGui(QtGui.QWidget):
         return -1
 
     def reset(self):
-        self.cur_task = SurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
+        self.cur_task = LinearSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
         self.cur_index = 0
         self.setButtons()
     
