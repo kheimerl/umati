@@ -5,7 +5,7 @@ from . import UmatiMessageDialog
 class Question:
     
     def __init__(self, node):
-        self.ans = None
+        self.ans = -1
         self.q = node.getAttribute("text")
         self.right = None
         self.opts = []
@@ -20,21 +20,42 @@ class Question:
     def get_correct(self):
         return self.right
 
+    def __repr__(self):
+        return str(self.ans)
+
 class LinearSurveyTask:
 
     def __init__(self, head):
+        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
         self.value = int(head.getAttribute("value"))
         self.type = head.getAttribute("type")
+        self.index = -1
         self.qs = []
         for q in head.getElementsByTagName("question"):
             self.qs.append(Question(q))
                            
-    def num_questions(self):
-        return len(self.qs)
-
     def submit(self):
+        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.qs), self.value))
         return True
+    
+    def next(self):
+        self.index += 1
+        if (self.index >= len(self.qs)):
+            self.index = len(self.qs)
+            return None
+        return self.qs[self.index]
 
+    def prev(self):
+        self.index -= 1
+        if (self.index < 0):
+            self.index = -1
+            return None
+        return self.qs[self.index]
+
+    #uses current iteration location
+    def set_q_answer(self, ans):
+        self.qs[self.index].set_answer(ans)
+        
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
 class SurveyTaskGui(QtGui.QWidget):
@@ -55,27 +76,24 @@ class SurveyTaskGui(QtGui.QWidget):
         self.ui.pushButton_back.clicked.connect(self.back)
         self.ui.pushButton_next.clicked.connect(self.next)
 
-        self.reset()
+        for i in range(0,5):
+            self.ui.__getattribute__('pushButton_' + str(i)).clicked.connect(self.next)
 
     def show(self):
         self.reset()
         UmatiMessageDialog.information(self,"Please only ONE survey per person")
-        #QtGui.QMessageBox.information(self, "!!", 
-        #                              "Please take the survey ONLY ONCE", 
-        #                              QtGui.QMessageBox.Ok)
         QtGui.QWidget.show(self)
 
-    def setButtons(self):
-        self.ui.questionBox.setText(self.cur_task.qs[self.cur_index].q)
+    def setButtons(self, q):
+        self.ui.questionBox.setText(q.q)
         self.fake_radio.setChecked(True)
         for i in range(0,5):
             b = self.ui.__getattribute__('pushButton_' + str(i))
-            if (i < len(self.cur_task.qs[self.cur_index].opts)):
-                b.setText(self.cur_task.qs[self.cur_index].opts[i])
+            if (i < len(q.opts)):
+                b.setText(q.opts[i])
                 b.setCheckable(True)
-                b.clicked.connect(self.next)
-                if (self.cur_task.qs[self.cur_index].ans and
-                    self.cur_task.qs[self.cur_index].ans == i):
+                if (q.ans and
+                    q.ans == i):
                     b.setChecked(True)
                 else:
                     b.setChecked(False)
@@ -92,37 +110,29 @@ class SurveyTaskGui(QtGui.QWidget):
 
     def reset(self):
         self.cur_task = LinearSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
-        self.cur_index = 0
-        self.setButtons()
+        self.setButtons(self.cur_task.next())
     
     def next(self):
         res = self.getChecked()
-        if (res != -1):
-            if (self.cur_index < self.cur_task.num_questions() - 1):
-                self.set_answer(res)
-                self.cur_index += 1
-                self.setButtons()
-            else:
-                if (self.cur_task.submit()):
-                    self.log.info("Survey Task COMPLETE. T: %s V: %d" %
-                                  (self.cur_task.type, self.cur_task.value))
-                    self.mainWin.taskCompleted(self.cur_task.value)
-                else:
-                    self.log.info("Survey Task FAILED. T: %s V: %d" %
-                                  (self.cur_task.type, self.cur_task.value))
-
-                self.reset()
-                self.mainWin.setChooserVisible()
-
-    def back(self):
-        if (self.cur_index > 0):
-            res = self.getChecked()
-            self.set_answer(res)
-            self.cur_index -= 1
-            self.setButtons()
+        self.cur_task.set_q_answer(res)
+        q = self.cur_task.next()
+        if (q): #finished
+            self.setButtons(q)
         else:
-            self.reset()
+            if (self.cur_task.submit()):
+                self.log.info("Survey Task COMPLETE. T: %s V: %d" %
+                              (self.cur_task.type, self.cur_task.value))
+                self.mainWin.taskCompleted(self.cur_task.value)
+            else:
+                self.log.info("Survey Task FAILED. T: %s V: %d" %
+                              (self.cur_task.type, self.cur_task.value))
             self.mainWin.setChooserVisible()
 
-    def set_answer(self, ans):
-         self.cur_task.qs[self.cur_index].set_answer(ans)
+    def back(self):
+        res = self.getChecked()
+        self.cur_task.set_q_answer(res)
+        q = self.cur_task.prev()
+        if (q):
+            self.setButtons(q)
+        else: #too far back
+            self.mainWin.setChooserVisible()
