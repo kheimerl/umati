@@ -1,18 +1,23 @@
 from PyQt4 import QtGui, uic
-import logging, xml.dom.minidom, random
+import logging, xml.dom.minidom, random, re
 from . import UmatiMessageDialog
 
 class Question:
     
+    index_re = re.compile("(I+\.)")
+
     def __init__(self, node):
         self.ans = -1
-        self.q = node.getAttribute("text")
+        self.q = self.__add_newlines(node.getAttribute("text"))
         self.right = None
         self.opts = []
         for opt in node.getElementsByTagName("answer"):
             self.opts.append(opt.getAttribute("text"))
             if (opt.getAttribute("correct") == "True"):
                 self.right = opt.getAttribute("text")
+
+    def __add_newlines(self, text):
+        return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
 
     def set_answer(self, ans):
         self.ans = ans
@@ -35,7 +40,7 @@ class LinearSurveyTask:
             self.qs.append(Question(q))
   
     def submit(self):
-        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.qs), self.value))
+        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, unicode(self.qs), self.value))
         return True
     
     def next(self):
@@ -79,6 +84,7 @@ class SurveyTaskGui(QtGui.QWidget):
         self.method = method
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
+        self.ui.questionBox.setReadOnly(True)
         self.mainWin = mainWin
 
         #little hack here, we insert a fake radio button

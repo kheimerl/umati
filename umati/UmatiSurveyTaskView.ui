@@ -268,7 +268,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QTextBrowser" name="questionBox">
+  <widget class="QTextEdit" name="questionBox">
    <property name="geometry">
     <rect>
      <x>5</x>
