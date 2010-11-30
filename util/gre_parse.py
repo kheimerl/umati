@@ -5,19 +5,19 @@ import re, sys
 DELIM_RE = re.compile('QQQ\n')
 ANS_PARSE = re.compile('\([A|B|C|D|E]\) (.*)\n')
 
-output = 'output.xml'
 cur = ''
-
-out = open(output, 'w')
+print('<survey type="CSGRE" value="5">')
 
 for line in open(sys.argv[1]):
     y = ANS_PARSE.match(line)
     if (DELIM_RE.search(line)):
-        out.write("</question>\n\n")
+        print("  </question>\n")
     elif (y):
         if (cur != ''):
-            out.write('<question text="%s">\n' % cur.strip())
+            print('  <question text="%s">' % cur.strip())
             cur = ''
-        out.write('<answer text="%s"/>\n' % y.group(1))
+        print('    <answer text="%s"/>' % y.group(1))
     else:
         cur += line
+
+print('</survey>')

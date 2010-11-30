@@ -1,3 +1,10 @@
+Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?
+(A) 80%
+(B) 90%
+(C) 98%
+(D) 99.8%
+(E) 100%
+QQQ
 The object-oriented paradigm includes which of the following properties?
 I. Encapsulation
 II. Inheritance

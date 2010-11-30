@@ -21,42 +21,7 @@ class Question:
         return self.right
 
     def __repr__(self):
-        return str(self.q + "R:" + str(self.ans))
-
-class RandomSurveyTask:
-
-    finish = 2
-
-    def __init__(self, head):
-        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
-        self.value = int(head.getAttribute("value"))
-        self.type = head.getAttribute("type")
-        self.qs = []
-        self.done = []
-        self.count = 0
-        self.cur = None
-        for q in head.getElementsByTagName("question"):
-            self.qs.append(Question(q)) 
-
-    def next(self):
-        if (self.count >= RandomSurveyTask.finish):
-            return None
-        self.count += 1
-        index = random.randint(0,len(self.qs)-1)
-        self.cur = self.qs.pop(index)
-        self.done.append(self.cur)
-        return self.cur
- 
-    def prev(self):
-        return None
-
-    def submit(self):
-        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.done), self.value))
-        return True
-
-    #uses current iteration location
-    def set_q_answer(self, ans):
-        self.cur.set_answer(ans)
+        return unicode(self.q + "R:" + unicode(self.ans))
 
 class LinearSurveyTask:
 
@@ -90,12 +55,24 @@ class LinearSurveyTask:
     #uses current iteration location
     def set_q_answer(self, ans):
         self.qs[self.index].set_answer(ans)
+
+class RandomSurveyTask(LinearSurveyTask):
+
+    finish = 2
+
+    def __init__(self, head):
+        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
+        LinearSurveyTask.__init__(self, head)
+        temp_qs = self.qs
+        self.qs = []
+        for i in range(0,RandomSurveyTask.finish):
+            self.qs.append(temp_qs.pop(random.randint(0,len(temp_qs)-1)))
         
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
 class SurveyTaskGui(QtGui.QWidget):
 
-    def __init__(self, mainWin, surveyLoc, parent=None, method="linear"):
+    def __init__(self, mainWin, surveyLoc, parent=None, method="random"):
         QtGui.QWidget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
         self.surveyLoc = surveyLoc
@@ -121,7 +98,8 @@ class SurveyTaskGui(QtGui.QWidget):
         QtGui.QWidget.show(self)
 
     def setButtons(self, q):
-        self.ui.questionBox.setText(q.q)
+        self.ui.questionBox.clear()
+        self.ui.questionBox.insertPlainText(q.q)
         self.fake_radio.setChecked(True)
         for i in range(0,5):
             b = self.ui.__getattribute__('pushButton_' + str(i))
