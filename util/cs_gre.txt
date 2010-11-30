@@ -1,0 +1,147 @@
+The object-oriented paradigm includes which of the following properties?
+I. Encapsulation
+II. Inheritance
+III. Recursion
+(A) I only
+(B) II only
+(C) I and II only
+(D) II and III only
+(E) I, II, and III
+QQQ
+Which of the following algorithms has running time Q n2 in the worst case but Q (n log n ) on average?
+(A) Bubblesort
+(B) Mergesort
+(C) Heapsort
+(D) Quicksort
+(E) Tournament sort
+QQQ
+Which of the following is the name of the data structure in a compiler that is responsible for managing information about variables and their attributes?
+(A) Abstract Syntax Tree (AST)
+(B) Attribute Grammar
+(C) Symbol Table
+(D) Semantic Stack
+(E) Parse Table
+QQQ
+Which of the following statements about Ethernets is typically FALSE?
+(A) Ethernets use circuit switching to send messages.
+(B) Ethernets use buses with multiple masters.
+(C) Ethernet protocols use a collision-detection method to ensure that messages are transmitted properly.
+(D) Networks connected by Ethernets are limited in length to a few hundred meters.
+(E) Packets sent on Ethernets are limited in size.
+QQQ
+Which of the following is (are) true about virtual memory systems that use pages?
+I. The virtual address space can be larger than the amount of physical memory.
+II. Programs must be resident in main memory throughout their execution.
+III. Pages correspond to semantic characteristics of the program.
+(A) I only
+(B) II only
+(C) I and II
+(D) I and III
+(E) II and III
+QQQ
+One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as “true,” “false,” and “unknown.” If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?
+(A) 4
+(B) 5
+(C) 6
+(D) 7
+(E) 8
+QQQ
+Hash tables can contribute to an efficient average-case solution for all of the problems described below EXCEPT:
+(A) Counting distinct values: Given a set of n keys, determine the number of distinct key values.
+(B) Dynamic dictionary: Support the operations of insert, delete, and search in a dictionary.
+(C) Range search: Given values a and b, find all the records whose key value is in the range a, b .
+(D) Symbol table lookup: Given a program identifier, find its type and address.
+(E) Finding intersections: Given two sets of keys, find all key values in common to both sets.
+QQQ
+In the Internet Protocol (IP) suite of protocols, which of the following best describes the purpose of the Address Resolution Protocol?
+(A) To translate Web addresses to host names
+(B) To determine the IP address of a given host name
+(C) To determine the hardware address of a given host name
+(D) To determine the hardware address of a given IP address
+(E) To determine the appropriate route for a datagram
+QQQ
+Let G = (V , E ) be a finite directed acyclic graph with E > 0. Which of the following must be true?
+I. G has a vertex with no incoming edge.
+II. G has a vertex with no outgoing edge.
+III. G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.
+(A) I only
+(B) II only
+(C) III only
+(D) I and II only
+(E) I, II, and III
+QQQ
+Let A and B be two sets of words (strings) from S *, for some alphabet of symbols S. Suppose that B is a subset of A. Which of the following statements must always be true of A and B ?
+I. If A is finite, then B is finite.
+II. If A is regular, then B is regular.
+III. If A is context-free, then B is context-free.
+(A) I only
+(B) II only
+(C) III only
+(D) I and II only
+(E) I, II, and III
+QQQ
+Mergesort works by splitting a list of n numbers in half, sorting each half recursively, and merging the two halves. Which of the following data structures will allow mergesort to work in O (n log n ) time?
+I. A singly linked list
+II. A doubly linked list
+III. An array
+(A) None
+(B) III only
+(C) I and II only
+(D) II and III only
+(E) I, II, and III
+QQQ
+Which of the following statements about datagrams sent by a node in a network using IPv4 protocol is (are) true?
+I. Datagrams at the source must be the size of the smallest maximum transmission unit (MTU) of all the
+links on a path to the destination.
+II. Datagrams may be fragmented during routing.
+III. Datagrams are reassembled only at the destination.
+(A) I only
+(B) II only
+(C) III only
+(D) I and III
+(E) II and III
+QQQ
+Two processors, M-5 and M-7, implement the same instruction set. Processor M-5 uses a 5-stage pipeline and a clock cycle of 10 nanoseconds. Processor M-7 uses a 7-stage pipeline and a clock cycle of 7.5 nanoseconds. Which of the following is (are) true?
+I. M-7’s pipeline has better maximum throughput than M-5’s pipeline.
+II. The latency of a single instruction is shorter on M-7’s pipeline than on M-5’s pipeline.
+III. Programs executing on M-7 will always run faster than programs executing on M-5.
+(A) I only
+(B) II only
+Unauthorized copying or reuse of
+any part of this page is illegal.
+26
+(C) I and III only
+(D) II and III only
+(E) I, II, and III
+QQQ
+Consider the collection of all undirected graphs with 10 nodes and 6 edges. Let M and m, respectively, be the maximum and minimum number of connected components in any graph in the collection. If a graph has no self-loops and there is at most one edge between any pair of nodes, which of the following is true?
+(A) M = 10, m = 10
+(B) M = 10, m = 1
+(C) M = 7, m = 4
+(D) M = 6, m = 4
+(E) M = 6, m = 3
+QQQ
+Which of the following statements about a remote procedure call is true?
+(A) It is used to call procedures with addresses that are farther than 2^16 bytes away.
+(B) It cannot return a value.
+(C) It cannot pass parameters by reference.
+(D) It cannot call procedures implemented in a different language.
+(E) It is used to call procedures at an outer nesting level.
+QQQ
+Which of the following is NOT a property of bitmap graphics?
+(A) Fast hardware exists to move blocks of pixels efficiently.
+(B) Realistic lighting and shading can be done.
+(C) All line segments can be displayed as straight.
+(D) Polygons can be filled with solid colors and textures.
+(E) The complexity of the image representation is independent of the image.
+QQQ
+In a pipelined RISC computer where all arithmetic instructions have the same CPI (cycles per instruction), which of the following actions would improve the execution time of a typical program?
+I. Increasing the clock cycle rate
+II. Disallowing any forwarding in the pipeline
+III. Doubling the sizes of the instruction cache and the data cache without changing the clock cycle time
+(A) I only
+(B) II only
+(C) III only
+(D) I and II
+(E) I and III
+QQQ

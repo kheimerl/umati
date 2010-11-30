@@ -1,0 +1,147 @@
+<survey type="CS GRE" value="5">
+
+  <question text="Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?">
+    <answer text="80%"/>
+    <answer text="90%"/>
+    <answer text="98%"/>
+    <answer text="99.8%"/>
+    <answer text="100%"/>
+  </question>
+  
+  <question text="The object-oriented paradigm includes which of the following properties?I. EncapsulationII. InheritanceIII. Recursion">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <answer text="I and II only"/>
+    <answer text="II and III only"/>
+    <answer text="I, II, and III"/>
+  </question>
+  
+  <question text="Which of the following algorithms has running time Q n2 in the worst case but Q (n log n ) on average?">
+    <answer text="Bubblesort"/>
+    <answer text="Mergesort"/>
+    <answer text="Heapsort"/>
+    <answer text="Quicksort"/>
+    <answer text="Tournament sort"/>
+  </question>
+  
+  <question text="Which of the following is the name of the data structure in a compiler that is responsible for managing information about variables and their attributes?">
+    <answer text="Abstract Syntax Tree (AST)"/>
+    <answer text="Attribute Grammar"/>
+    <answer text="Symbol Table"/>
+    <answer text="Semantic Stack"/>
+    <answer text="Parse Table"/>
+  </question>
+  
+  <question text="Which of the following statements about Ethernets is typically FALSE?">
+    <answer text="Ethernets use circuit switching to send messages."/>
+    <answer text="Ethernets use buses with multiple masters."/>
+    <answer text="Ethernet protocols use a collision-detection method to ensure that messages are transmitted properly."/>
+    <answer text="Networks connected by Ethernets are limited in length to a few hundred meters."/>
+    <answer text="Packets sent on Ethernets are limited in size."/>
+  </question>
+
+  <question text="Which of the following is (are) true about virtual memory systems that use pages?I. The virtual address space can be larger than the amount of physical memory.II. Programs must be resident in main memory throughout their execution.III. Pages correspond to semantic characteristics of the program.">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <answer text="I and II"/>
+    <answer text="I and III"/>
+    <answer text="II and III"/>
+  </question>
+
+  <question text="One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as “true,” “false,” and “unknown.” If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?">
+    <answer text="4"/>
+    <answer text="5"/>
+    <answer text="6"/>
+    <answer text="7"/>
+    <answer text="8"/>
+  </question>
+
+  <question text="Hash tables can contribute to an efficient average-case solution for all of the problems described below EXCEPT:">
+    <answer text="Counting distinct values: Given a set of n keys, determine the number of distinct key values."/>
+    <answer text="Dynamic dictionary: Support the operations of insert, delete, and search in a dictionary."/>
+    <answer text="Range search: Given values a and b, find all the records whose key value is in the range a, b ."/>
+    <answer text="Symbol table lookup: Given a program identifier, find its type and address."/>
+    <answer text="Finding intersections: Given two sets of keys, find all key values in common to both sets."/>
+  </question>
+  
+  <question text="In the Internet Protocol (IP) suite of protocols, which of the following best describes the purpose of the Address Resolution Protocol?">
+    <answer text="To translate Web addresses to host names"/>
+    <answer text="To determine the IP address of a given host name"/>
+    <answer text="To determine the hardware address of a given host name"/>
+    <answer text="To determine the hardware address of a given IP address"/>
+    <answer text="To determine the appropriate route for a datagram"/>
+  </question>
+
+  <question text="Let G = (V , E ) be a finite directed acyclic graph with E > 0. Which of the following must be true?I. G has a vertex with no incoming edge.II. G has a vertex with no outgoing edge.III. G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <answer text="III only"/>
+    <answer text="I and II only"/>
+    <answer text="I, II, and III"/>
+  </question>
+  
+  <question text="Let A and B be two sets of words (strings) from S *, for some alphabet of symbols S. Suppose that B is a subset of A. Which of the following statements must always be true of A and B ?I. If A is finite, then B is finite.II. If A is regular, then B is regular.III. If A is context-free, then B is context-free.">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <answer text="III only"/>
+    <answer text="I and II only"/>
+    <answer text="I, II, and III"/>
+  </question>
+
+  <question text="Mergesort works by splitting a list of n numbers in half, sorting each half recursively, and merging the two halves. Which of the following data structures will allow mergesort to work in O (n log n ) time?I. A singly linked listII. A doubly linked listIII. An array">
+    <answer text="None"/>
+    <answer text="III only"/>
+    <answer text="I and II only"/>
+    <answer text="II and III only"/>
+    <answer text="I, II, and III"/>
+  </question>
+  
+  <question text="Which of the following statements about datagrams sent by a node in a network using IPv4 protocol is (are) true?I. Datagrams at the source must be the size of the smallest maximum transmission unit (MTU) of all thelinks on a path to the destination.II. Datagrams may be fragmented during routing.III. Datagrams are reassembled only at the destination.">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <answer text="III only"/>
+    <answer text="I and III"/>
+    <answer text="II and III"/>
+  </question>
+
+  <question text="Two processors, M-5 and M-7, implement the same instruction set. Processor M-5 uses a 5-stage pipeline and a clock cycle of 10 nanoseconds. Processor M-7 uses a 7-stage pipeline and a clock cycle of 7.5 nanoseconds. Which of the following is (are) true?I. M-7’s pipeline has better maximum throughput than M-5’s pipeline.II. The latency of a single instruction is shorter on M-7’s pipeline than on M-5’s pipeline.III. Programs executing on M-7 will always run faster than programs executing on M-5.">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <question text="Unauthorized copying or reuse ofany part of this page is illegal.26"/>
+    <answer text="I and III only"/>
+    <answer text="II and III only"/>
+    <answer text="I, II, and III"/>
+  </question>
+
+  <question text="Consider the collection of all undirected graphs with 10 nodes and 6 edges. Let M and m, respectively, be the maximum and minimum number of connected components in any graph in the collection. If a graph has no self-loops and there is at most one edge between any pair of nodes, which of the following is true?">
+    <answer text="M = 10, m = 10"/>
+    <answer text="M = 10, m = 1"/>
+    <answer text="M = 7, m = 4"/>
+    <answer text="M = 6, m = 4"/>
+    <answer text="M = 6, m = 3"/>
+  </question>
+
+  <question text="Which of the following statements about a remote procedure call is true?">
+    <answer text="It is used to call procedures with addresses that are farther than 2^16 bytes away."/>
+    <answer text="It cannot return a value."/>
+    <answer text="It cannot pass parameters by reference."/>
+    <answer text="It cannot call procedures implemented in a different language."/>
+    <answer text="It is used to call procedures at an outer nesting level."/>
+  </question>
+
+  <question text="Which of the following is NOT a property of bitmap graphics?">
+    <answer text="Fast hardware exists to move blocks of pixels efficiently."/>
+    <answer text="Realistic lighting and shading can be done."/>
+    <answer text="All line segments can be displayed as straight."/>
+    <answer text="Polygons can be filled with solid colors and textures."/>
+    <answer text="The complexity of the image representation is independent of the image."/>
+  </question>
+
+  <question text="In a pipelined RISC computer where all arithmetic instructions have the same CPI (cycles per instruction), which of the following actions would improve the execution time of a typical program?I. Increasing the clock cycle rateII. Disallowing any forwarding in the pipelineIII. Doubling the sizes of the instruction cache and the data cache without changing the clock cycle time">
+    <answer text="I only"/>
+    <answer text="II only"/>
+    <answer text="III only"/>
+    <answer text="I and II"/>
+    <answer text="I and III"/>
+  </question>
+</survey>
