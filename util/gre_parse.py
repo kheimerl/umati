@@ -13,11 +13,11 @@ out = open(output, 'w')
 for line in open(sys.argv[1]):
     y = ANS_PARSE.match(line)
     if (DELIM_RE.search(line)):
-        out.write("</question>\n")
+        out.write("</question>\n\n")
     elif (y):
         if (cur != ''):
-            out.write('<question text="%s">\n' % cur)
+            out.write('<question text="%s">\n' % cur.strip())
             cur = ''
         out.write('<answer text="%s"/>\n' % y.group(1))
     else:
-        cur += line.strip()
+        cur += line

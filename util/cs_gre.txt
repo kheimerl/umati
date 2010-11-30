@@ -107,9 +107,6 @@ II. The latency of a single instruction is shorter on M-7’s pipeline than on M
 III. Programs executing on M-7 will always run faster than programs executing on M-5.
 (A) I only
 (B) II only
-Unauthorized copying or reuse of
-any part of this page is illegal.
-26
 (C) I and III only
 (D) II and III only
 (E) I, II, and III
@@ -145,3 +142,4 @@ III. Doubling the sizes of the instruction cache and the data cache without chan
 (D) I and II
 (E) I and III
 QQQ
+Ended at Page 34

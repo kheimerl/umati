@@ -19,12 +19,12 @@
      <x>0</x>
      <y>10</y>
      <width>461</width>
-     <height>81</height>
+     <height>141</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>25</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="text">
@@ -40,10 +40,10 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>530</y>
-     <width>441</width>
-     <height>91</height>
+     <x>0</x>
+     <y>550</y>
+     <width>461</width>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -89,9 +89,9 @@
    <property name="geometry">
     <rect>
      <x>2</x>
-     <y>110</y>
-     <width>451</width>
-     <height>411</height>
+     <y>170</y>
+     <width>452</width>
+     <height>376</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -105,7 +105,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>450</width>
         <height>70</height>
        </size>
       </property>
@@ -117,7 +117,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="layoutDirection">
@@ -144,7 +144,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>450</width>
         <height>70</height>
        </size>
       </property>
@@ -156,7 +156,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="layoutDirection">
@@ -183,7 +183,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>450</width>
         <height>70</height>
        </size>
       </property>
@@ -195,7 +195,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="layoutDirection">
@@ -222,7 +222,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>450</width>
         <height>70</height>
        </size>
       </property>
@@ -234,7 +234,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="layoutDirection">
@@ -261,7 +261,7 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>300</width>
+        <width>450</width>
         <height>70</height>
        </size>
       </property>
@@ -273,7 +273,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>20</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="layoutDirection">

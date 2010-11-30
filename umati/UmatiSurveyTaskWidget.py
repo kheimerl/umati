@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, uic
-import logging, xml.dom.minidom
+import logging, xml.dom.minidom, random
 from . import UmatiMessageDialog
 
 class Question:
@@ -21,7 +21,42 @@ class Question:
         return self.right
 
     def __repr__(self):
-        return str(self.ans)
+        return str(self.q + "R:" + str(self.ans))
+
+class RandomSurveyTask:
+
+    finish = 2
+
+    def __init__(self, head):
+        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
+        self.value = int(head.getAttribute("value"))
+        self.type = head.getAttribute("type")
+        self.qs = []
+        self.done = []
+        self.count = 0
+        self.cur = None
+        for q in head.getElementsByTagName("question"):
+            self.qs.append(Question(q)) 
+
+    def next(self):
+        if (self.count >= RandomSurveyTask.finish):
+            return None
+        self.count += 1
+        index = random.randint(0,len(self.qs)-1)
+        self.cur = self.qs.pop(index)
+        self.done.append(self.cur)
+        return self.cur
+ 
+    def prev(self):
+        return None
+
+    def submit(self):
+        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.done), self.value))
+        return True
+
+    #uses current iteration location
+    def set_q_answer(self, ans):
+        self.cur.set_answer(ans)
 
 class LinearSurveyTask:
 
@@ -33,7 +68,7 @@ class LinearSurveyTask:
         self.qs = []
         for q in head.getElementsByTagName("question"):
             self.qs.append(Question(q))
-                           
+  
     def submit(self):
         self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.qs), self.value))
         return True
@@ -109,7 +144,7 @@ class SurveyTaskGui(QtGui.QWidget):
         return -1
 
     def reset(self):
-        self.cur_task = LinearSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
+        self.cur_task = RandomSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
         self.setButtons(self.cur_task.next())
     
     def next(self):
