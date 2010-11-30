@@ -39,7 +39,7 @@ UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
 class SurveyTaskGui(QtGui.QWidget):
 
-    def __init__(self, mainWin, parent=None):
+    def __init__(self, mainWin, surveyLoc, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()

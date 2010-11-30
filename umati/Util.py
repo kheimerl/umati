@@ -7,7 +7,11 @@ LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 SERIAL_LOC = 'COM3'
 SERIAL_BR = 9600
 
-ser = serial.Serial(SERIAL_LOC, SERIAL_BR)
+ser = None
+try: 
+    ser = serial.Serial(SERIAL_LOC, SERIAL_BR)
+except serial.serialutil.SerialException:
+    print ("Serial port failed to open")
 
 def getLogLevel(log_level):
     if (log_level == "DEBUG"):
@@ -25,13 +29,9 @@ def getLogLevel(log_level):
 
 def sendVendCmd(cmd):
     global ser
-    if not (ser):
-        pass
-        #ser = serial.Serial(SERIAL_LOC, SERIAL_BR)
-    if (len(cmd) == 2):
-        cmd = cmd[0] + '0' + cmd[1]
-    cmd = cmd.lower().encode('ascii')
-    ser.write(cmd)
-    #ser.flush()
-    #print (cmd)
+    if (ser):
+        if (len(cmd) == 2):
+            cmd = cmd[0] + '0' + cmd[1]
+        cmd = cmd.lower().encode('ascii')
+        ser.write(cmd)
 

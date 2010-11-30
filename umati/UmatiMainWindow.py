@@ -19,7 +19,7 @@ UI_FILE = 'umati/UmatiMainView.ui'
 
 class MainWindow(QtGui.QMainWindow):
     
-    def __init__(self):
+    def __init__(self, surveyLoc = None):
         global WINDOW
         QtGui.QMainWindow.__init__(self)
         self.log = logging.getLogger("umati.UmatiMainWindow.MainWindow")
@@ -30,7 +30,13 @@ class MainWindow(QtGui.QMainWindow):
         self.chooser = UmatiChooserWidget.ChooserGui(self, self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
         self.math_task = UmatiMathTaskWidget.MathTaskGui(self, self.ui.BodyFrame)
-        self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, self.ui.BodyFrame)
+        if (surveyLoc):
+            self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, 
+                                                                   surveyLoc,
+                                                                   parent=self.ui.BodyFrame)
+        else:
+            self.survey_task = None
+
         #start with chooser visible
         self.setChooserVisible()
         
@@ -68,10 +74,11 @@ class MainWindow(QtGui.QMainWindow):
                                                self.survey_task])
 
     def setSurveyTaskVisible(self):
-        self.ui.resetButton.show()
-        self.ui.vendButton.show()
-        self.__setItemVisible(self.survey_task, [self.chooser, self.vend,
-                                                 self.math_task])
+        if (self.survey_task):
+            self.ui.resetButton.show()
+            self.ui.vendButton.show()
+            self.__setItemVisible(self.survey_task, [self.chooser, self.vend,
+                                                     self.math_task])
 
     def vendItem(self, value):
         if (self.ui.lcdNumber.intValue() >= value):
