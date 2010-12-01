@@ -134,10 +134,10 @@
    <widget class="QFrame" name="BodyFrame">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>140</y>
-      <width>461</width>
-      <height>631</height>
+      <width>481</width>
+      <height>641</height>
      </rect>
     </property>
     <property name="frameShape">

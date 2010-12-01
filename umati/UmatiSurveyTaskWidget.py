@@ -38,7 +38,7 @@ class Question:
         return self.right
 
     def __repr__(self):
-        return unicode(self.q + "\nG:" + unicode(self.opts[self.ans]) + "\nA:" +self.right)
+        return str(self.q + "\nG:" + str(self.opts[self.ans]) + "\nA:" +self.right)
 
 class LinearSurveyTask:
 
@@ -52,7 +52,7 @@ class LinearSurveyTask:
             self.qs.append(Question(q))
   
     def submit(self):
-        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, unicode(self.qs), self.value))
+        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.qs), self.value))
         return True
     
     def next(self):
@@ -73,6 +73,9 @@ class LinearSurveyTask:
     def set_q_answer(self, ans):
         self.qs[self.index].set_answer(ans)
 
+    def get_info(self):
+        return "Please only ONE survey per person"
+
 class RandomSurveyTask(LinearSurveyTask):
 
     finish = 2
@@ -84,6 +87,9 @@ class RandomSurveyTask(LinearSurveyTask):
         self.qs = []
         for i in range(0,RandomSurveyTask.finish):
             self.qs.append(temp_qs.pop(random.randint(0,len(temp_qs)-1)))
+
+    def get_info(self):
+        return None
         
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
@@ -112,7 +118,9 @@ class SurveyTaskGui(QtGui.QWidget):
 
     def show(self):
         self.reset()
-        UmatiMessageDialog.information(self,"Please only ONE survey per person")
+        message = self.cur_task.get_info()
+        if (message):
+            UmatiMessageDialog.information(self, message)
         QtGui.QWidget.show(self)
 
     def setButtons(self, q):
