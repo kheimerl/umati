@@ -11,8 +11,10 @@ class Question:
     def __init__(self, node):
         self.ans = -1
         self.q = self.__add_newlines(node.getAttribute("text"))
+        self.id = node.getAttribute("id")
         self.right = ''
         self.opts = []
+        opt_count = 0
         for opt in node.getElementsByTagName("answer"):
             #this is an ungodly fucking hack
             res = opt.getAttribute("text")
@@ -26,7 +28,8 @@ class Question:
                 i += Question.word_wrap
             self.opts.append(res)
             if (opt.getAttribute("right") == "T"):
-                self.right = res
+                self.right = opt_count
+            opt_count += 1
 
     def __add_newlines(self, text):
         return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
@@ -38,7 +41,7 @@ class Question:
         return self.right
 
     def __repr__(self):
-        return str(self.q + "\nG:" + str(self.opts[self.ans]) + "\nA:" +self.right)
+        return str(self.id + " G:" + str(self.ans) + " A:" + str(self.right))
 
 class LinearSurveyTask:
 
