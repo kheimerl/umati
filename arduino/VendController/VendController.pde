@@ -63,13 +63,14 @@ void Spin(){
   trayNumber=11-((tray[1]-48)*10 + tray[2]-48);
 
   motorStartTime= millis(); 
-  while(sensorValue < 700 && millis() - motorStartTime < maxMotorTime){
-    digitalWrite(trayLetter, HIGH);   // set the Letter Swtich On   
-    digitalWrite(trayNumber, HIGH);   // set the Num Switch on
+  
+  digitalWrite(trayLetter, HIGH);   // set the Letter Swtich On   
+  digitalWrite(trayNumber, HIGH);   // set the Num Switch on
+  
+  while(sensorValue < 700 && millis() - motorStartTime < maxMotorTime){  
     sensorValue = analogRead(sensorPin);
   }
-
-
+  
   digitalWrite(trayLetter, LOW);    // set the Letter Switch off  
   digitalWrite(trayNumber, LOW);    // set the Num Switch off
 
