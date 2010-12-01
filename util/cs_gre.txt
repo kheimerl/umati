@@ -1,93 +1,93 @@
-Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?
+1)Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?
 (A) 80%
 (B) 90%
 (C) 98%
-(D) 99.8%
+(T) 99.8%
 (E) 100%
 QQQ
-The object-oriented paradigm includes which of the following properties?
+2)The object-oriented paradigm includes which of the following properties?
 I. Encapsulation
 II. Inheritance
 III. Recursion
 (A) I only
 (B) II only
-(C) I and II only
+(T) I and II only
 (D) II and III only
 (E) I, II, and III
 QQQ
-Which of the following algorithms has running time Q n2 in the worst case but Q (n log n ) on average?
+3)Which of the following algorithms has running time O(n^2) in the worst case but O(n log n )on average?
 (A) Bubblesort
 (B) Mergesort
 (C) Heapsort
-(D) Quicksort
+(T) Quicksort
 (E) Tournament sort
 QQQ
-Which of the following is the name of the data structure in a compiler that is responsible for managing information about variables and their attributes?
+4)Which of the following is the name of the data structure in a compiler that is responsible for managing information about variables and their attributes?
 (A) Abstract Syntax Tree (AST)
 (B) Attribute Grammar
-(C) Symbol Table
+(T) Symbol Table
 (D) Semantic Stack
 (E) Parse Table
 QQQ
-Which of the following statements about Ethernets is typically FALSE?
-(A) Ethernets use circuit switching to send messages.
+9)Which of the following statements about Ethernets is typically FALSE?
+(T) Ethernets use circuit switching to send messages.
 (B) Ethernets use buses with multiple masters.
 (C) Ethernet protocols use a collision-detection method to ensure that messages are transmitted properly.
 (D) Networks connected by Ethernets are limited in length to a few hundred meters.
 (E) Packets sent on Ethernets are limited in size.
 QQQ
-Which of the following is (are) true about virtual memory systems that use pages?
+11)Which of the following is (are) true about virtual memory systems that use pages?
 I. The virtual address space can be larger than the amount of physical memory.
 II. Programs must be resident in main memory throughout their execution.
 III. Pages correspond to semantic characteristics of the program.
-(A) I only
+(T) I only
 (B) II only
 (C) I and II
 (D) I and III
 (E) II and III
 QQQ
-One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as “true,” “false,” and “unknown.” If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?
+13)One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as “true,” “false,” and “unknown.” If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?
 (A) 4
 (B) 5
-(C) 6
+(T) 6
 (D) 7
 (E) 8
 QQQ
-Hash tables can contribute to an efficient average-case solution for all of the problems described below EXCEPT:
+14)Hash tables can contribute to an efficient average-case solution for all of the problems described below EXCEPT:
 (A) Counting distinct values: Given a set of n keys, determine the number of distinct key values.
 (B) Dynamic dictionary: Support the operations of insert, delete, and search in a dictionary.
-(C) Range search: Given values a and b, find all the records whose key value is in the range a, b .
+(T) Range search: Given values a and b, find all the records whose key value is in the range a, b .
 (D) Symbol table lookup: Given a program identifier, find its type and address.
 (E) Finding intersections: Given two sets of keys, find all key values in common to both sets.
 QQQ
-In the Internet Protocol (IP) suite of protocols, which of the following best describes the purpose of the Address Resolution Protocol?
+16)In the Internet Protocol (IP) suite of protocols, which of the following best describes the purpose of the Address Resolution Protocol?
 (A) To translate Web addresses to host names
 (B) To determine the IP address of a given host name
 (C) To determine the hardware address of a given host name
-(D) To determine the hardware address of a given IP address
+(T) To determine the hardware address of a given IP address
 (E) To determine the appropriate route for a datagram
 QQQ
-Let G = (V , E ) be a finite directed acyclic graph with E > 0. Which of the following must be true?
+19)Let G = (V,E) be a finite directed acyclic graph with |E| > 0. Which of the following must be true?
 I. G has a vertex with no incoming edge.
 II. G has a vertex with no outgoing edge.
 III. G has an isolated vertex, that is, one with neither an incoming edge nor an outgoing edge.
 (A) I only
 (B) II only
 (C) III only
-(D) I and II only
+(T) I and II only
 (E) I, II, and III
 QQQ
-Let A and B be two sets of words (strings) from S *, for some alphabet of symbols S. Suppose that B is a subset of A. Which of the following statements must always be true of A and B ?
+26)Let A and B be two sets of words (strings) from S *, for some alphabet of symbols S. Suppose that B is a subset of A. Which of the following statements must always be true of A and B ?
 I. If A is finite, then B is finite.
 II. If A is regular, then B is regular.
 III. If A is context-free, then B is context-free.
-(A) I only
+(T) I only
 (B) II only
 (C) III only
 (D) I and II only
 (E) I, II, and III
 QQQ
-Mergesort works by splitting a list of n numbers in half, sorting each half recursively, and merging the two halves. Which of the following data structures will allow mergesort to work in O (n log n ) time?
+29)Mergesort works by splitting a list of n numbers in half, sorting each half recursively, and merging the two halves. Which of the following data structures will allow mergesort to work in O (n log n ) time?
 I. A singly linked list
 II. A doubly linked list
 III. An array
@@ -95,51 +95,76 @@ III. An array
 (B) III only
 (C) I and II only
 (D) II and III only
-(E) I, II, and III
+(T) I, II, and III
 QQQ
-Which of the following statements about datagrams sent by a node in a network using IPv4 protocol is (are) true?
-I. Datagrams at the source must be the size of the smallest maximum transmission unit (MTU) of all the
-links on a path to the destination.
+31)Which of the following statements about datagrams sent by a node in a network using IPv4 protocol is (are) true?
+I. Datagrams at the source must be the size of the smallest maximum transmission unit (MTU) of all the links on a path to the destination.
 II. Datagrams may be fragmented during routing.
 III. Datagrams are reassembled only at the destination.
 (A) I only
 (B) II only
 (C) III only
 (D) I and III
-(E) II and III
+(T) II and III
 QQQ
-Two processors, M-5 and M-7, implement the same instruction set. Processor M-5 uses a 5-stage pipeline and a clock cycle of 10 nanoseconds. Processor M-7 uses a 7-stage pipeline and a clock cycle of 7.5 nanoseconds. Which of the following is (are) true?
+32)Of the following problems concerning a given undirected graph G, which is currently known to be solvable in
+polynomial time?
+(A) Finding a longest simple cycle in G
+(T) Finding a shortest cycle in G
+(C) Finding ALL spanning trees of G
+(D) Finding a largest clique in G
+(E) Finding a node coloring of G (where adjacent nodes receive distinct colors) with the minimum number of colors
+QQQ
+33)Two processors, M-5 and M-7, implement the same instruction set. Processor M-5 uses a 5-stage pipeline and a clock cycle of 10 nanoseconds. Processor M-7 uses a 7-stage pipeline and a clock cycle of 7.5 nanoseconds. Which of the following is (are) true?
 I. M-7’s pipeline has better maximum throughput than M-5’s pipeline.
 II. The latency of a single instruction is shorter on M-7’s pipeline than on M-5’s pipeline.
 III. Programs executing on M-7 will always run faster than programs executing on M-5.
-(A) I only
+(T) I only
 (B) II only
 (C) I and III only
 (D) II and III only
 (E) I, II, and III
 QQQ
-Consider the collection of all undirected graphs with 10 nodes and 6 edges. Let M and m, respectively, be the maximum and minimum number of connected components in any graph in the collection. If a graph has no self-loops and there is at most one edge between any pair of nodes, which of the following is true?
+37)Which of the following problems can be solved by a standard greedy algorithm?
+I. Finding a minimum spanning tree in an undirected graph with positive-integer edge weights
+II. Finding a maximum clique in an undirected graph
+III. Finding a maximum flow from a source node to a sink node in a directed graph with positive-integer edge capacities
+(T) I only
+(B) II only
+(C) III only
+(D) I and II only
+(E) I, II, and III
+QQQ
+40)In systems with support for automatic memory management, a garbage collector typically has the responsibility for reclaiming allocated memory objects whose contents cannot affect any future legal computation. Such objects are identified by determining that they cannot be reached from a root set. Which of the following is NOT
+part of the root set in a typical garbage collector?
+(A) Actual parameters of the active procedures
+(T) Dynamically allocated objects on the heap
+(C) Global variables of the program
+(D) Local variables on the call stack
+(E) Values in machine registers
+QQQ
+43)Consider the collection of all undirected graphs with 10 nodes and 6 edges. Let M and m, respectively, be the maximum and minimum number of connected components in any graph in the collection. If a graph has no self-loops and there is at most one edge between any pair of nodes, which of the following is true?
 (A) M = 10, m = 10
 (B) M = 10, m = 1
-(C) M = 7, m = 4
+(T) M = 7, m = 4
 (D) M = 6, m = 4
 (E) M = 6, m = 3
 QQQ
-Which of the following statements about a remote procedure call is true?
+46)Which of the following statements about a remote procedure call is true?
 (A) It is used to call procedures with addresses that are farther than 2^16 bytes away.
 (B) It cannot return a value.
-(C) It cannot pass parameters by reference.
+(T) It cannot pass parameters by reference.
 (D) It cannot call procedures implemented in a different language.
 (E) It is used to call procedures at an outer nesting level.
 QQQ
-Which of the following is NOT a property of bitmap graphics?
+48)Which of the following is NOT a property of bitmap graphics?
 (A) Fast hardware exists to move blocks of pixels efficiently.
 (B) Realistic lighting and shading can be done.
-(C) All line segments can be displayed as straight.
+(T) All line segments can be displayed as straight.
 (D) Polygons can be filled with solid colors and textures.
 (E) The complexity of the image representation is independent of the image.
 QQQ
-In a pipelined RISC computer where all arithmetic instructions have the same CPI (cycles per instruction), which of the following actions would improve the execution time of a typical program?
+49)In a pipelined RISC computer where all arithmetic instructions have the same CPI (cycles per instruction), which of the following actions would improve the execution time of a typical program?
 I. Increasing the clock cycle rate
 II. Disallowing any forwarding in the pipeline
 III. Doubling the sizes of the instruction cache and the data cache without changing the clock cycle time
@@ -147,6 +172,83 @@ III. Doubling the sizes of the instruction cache and the data cache without chan
 (B) II only
 (C) III only
 (D) I and II
+(T) I and III
+QQQ
+53)Which of the following is NOT a reasonable justification for choosing to busy-wait on an asynchronous event?
+(A) The wait is expected to be short.
+(B) A busy-wait loop is easier to code than an interrupt handler.
+(C) There is no other work for the processor to do.
+(D) The task must meet some hard real-time deadlines.
+(T) The program executes on a time-sharing system.
+QQQ
+54)The Singleton design pattern is used to guarantee that only a single instance of a class may be instantiated. Which of the following is (are) true of this design pattern?
+I. The Singleton class has a static factory method to provide its instance.
+II. The Singleton class can be a subclass of another class.
+III. The Singleton class has a private constructor.
+(A) I only
+(B) II only
+(C) III only
+(D) I and III only
+(T) I, II, and III
+QQQ
+58)An Euler circuit of an undirected graph is a circuit in which each edge of the graph appears exactly once. Which of the following undirected graphs must have an Euler circuit?
+I. A complete graph with 12 vertices
+II. A complete graph with 13 vertices
+III. A tree with 13 vertices
+(A) I only
+(T) II only
+(C) III only
+(D) I and II
 (E) I and III
 QQQ
-Ended at Page 34
+60)Consider the following possible data structures for a set of n distinct integers. For which of these data structures is the number of steps needed to find and remove the 7th largest element O(log n) in the worst case?
+I. A min-heap
+II. An array of length n sorted in increasing order
+III. A balanced binary search tree
+(A) I only
+(B) II only
+(C) I and II
+(D) I and III
+(T) II and III
+QQQ
+61)Which of the following problems is (are) decidable?
+I. Given a (finite) string w, is w a prefix of the decimal expansion of pi ?
+II. Given a program and an input, is the program’s output the decimal expansion of pi?
+III. Given a program that takes as input a prefix of the decimal expansion of pi, is the program’s output always the same for every prefix?
+(T) I only
+(B) II only
+(C) III only
+(D) I and II only
+(E) I, II, and III
+QQQ
+63)Which of the following characteristics of a programming language is best specified using a context-free grammar?
+(A) Identifier length
+(B) Maximum level of nesting
+(T) Operator precedence
+(D) Type compatibility
+(E) Type conversion
+QQQ
+68)Which of the following comes closest to being a perfectly secure encryption scheme?
+(A) The Caesar Cipher, a substitution cipher
+(B) DES (Data Encryption Standard), a symmetric-key algorithm
+(C) Enigma, a transposition cipher
+(T) One-time pad
+(E) RSA, a public-key algorithm
+QQQ
+69)Suppose Q and R are languages. Assuming P != NP, which of the following implies that R is not in P ?
+(A) R is in NP.
+(B) Q is in NP and Q is polynomial-time reducible to R.
+(C) Q is in NP and R is polynomial-time reducible to Q.
+(T) Q is NP-complete and Q is polynomial-time reducible to R.
+(E) Q is NP-complete and R is polynomial-time reducible to Q.
+QQQ
+70)Let N be the set of all natural numbers. Which of the following sets are countable?
+I. The set of all functions from N to {0, 1}
+II. The set of all functions from {0, 1} to N
+III. The largest subset of N
+(A) None
+(B) I and II only
+(C) I and III only
+(T) II and III only
+(E) I, II, and III
+QQQ

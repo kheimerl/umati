@@ -11,7 +11,7 @@ class Question:
     def __init__(self, node):
         self.ans = -1
         self.q = self.__add_newlines(node.getAttribute("text"))
-        self.right = None
+        self.right = ''
         self.opts = []
         for opt in node.getElementsByTagName("answer"):
             #this is an ungodly fucking hack
@@ -25,7 +25,7 @@ class Question:
                     res = res[:i] + "\n" + res[i:]
                 i += Question.word_wrap
             self.opts.append(res)
-            if (opt.getAttribute("correct") == "True"):
+            if (opt.getAttribute("right") == "T"):
                 self.right = res
 
     def __add_newlines(self, text):
@@ -38,7 +38,7 @@ class Question:
         return self.right
 
     def __repr__(self):
-        return unicode(self.q + "R:" + unicode(self.ans))
+        return unicode(self.q + "\nG:" + unicode(self.opts[self.ans]) + "\nA:" +self.right)
 
 class LinearSurveyTask:
 

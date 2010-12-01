@@ -3,7 +3,7 @@
 import re, sys
 
 DELIM_RE = re.compile('QQQ\n')
-ANS_PARSE = re.compile('\([A|B|C|D|E]\) (.*)\n')
+ANS_PARSE = re.compile('\(([A|B|C|D|E|T])\) (.*)\n')
 
 cur = ''
 print('<survey type="CSGRE" value="5">')
@@ -16,7 +16,11 @@ for line in open(sys.argv[1]):
         if (cur != ''):
             print('  <question text="%s">' % cur.strip())
             cur = ''
-        print('    <answer text="%s"/>' % y.group(1))
+        
+        if (y.group(1) == "T"):
+            print('    <answer text="%s" right="T"/>' % y.group(2))
+        else:
+            print('    <answer text="%s" right="F"/>' % y.group(2))
     else:
         cur += line
 
