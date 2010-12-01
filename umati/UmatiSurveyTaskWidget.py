@@ -27,7 +27,6 @@ class Question:
             self.opts.append(res)
             if (opt.getAttribute("correct") == "True"):
                 self.right = res
-            print (res)
 
     def __add_newlines(self, text):
         return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
