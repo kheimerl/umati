@@ -1,52 +1,52 @@
 <survey type="Basic" value="5">
-  <question text="What gender do you identify with?">
+  <question text="What gender do you identify with?" id="0">
     <answer text="Male"/>
     <answer text="Female"/>
     <answer text="Other"/>
   </question>
-  <question text="What is your age?">
+  <question text="What is your age?" id="1">
     <answer text="0-18"/>
     <answer text="18-22"/>
     <answer text="22-39"/>
     <answer text="40-59"/>
     <answer text="60+"/>
   </question>
-  <question text="What is the highest level of education you have completed?">
+  <question text="What is the highest level of education you have completed?" id="2">
     <answer text="High School"/>
     <answer text="Bachelors"/>
     <answer text="Masters"/>
     <answer text="PhD"/>
   </question>
-  <question text="What is your current relationship with UC Berkeley?">
+  <question text="What is your current relationship with UC Berkeley?" id="3">
     <answer text="Undergraduate Student"/>
     <answer text="Graduate Student"/>
     <answer text="Professor"/>
     <answer text="Staff"/>
     <answer text="Other"/>
   </question>
-  <question text="What UC Berkeley Department, if any, are you related to?">
+  <question text="What UC Berkeley Department, if any, are you related to?" id="4">
     <answer text="EE"/>
     <answer text="CS"/>
     <answer text="Business School"/>
     <answer text="Other Department on Campus"/>
     <answer text="Not Related"/>
   </question>
-  <question text="Do you know what crowdsourcing is?">
+  <question text="Do you know what crowdsourcing is?" id="5">
     <answer text="Yes"/>
     <answer text="No"/>
   </question>
-  <question text="Have you ever used Mechanical Turk (or any other crowdsourcing engine) and if so, what did you do?">
+  <question text="Have you ever used Mechanical Turk (or any other crowdsourcing engine) and if so, what did you do?" id="6">
     <answer text="Yes, created tasks"/>
     <answer text="Yes, completed tasks"/>
     <answer text="Yes, created and completed tasks"/>
     <answer text="No"/>
     <answer text="Maybe, Not Sure"/>
   </question>
-  <question text="Have you ever taken this survey before?">
+  <question text="Have you ever taken this survey before?" id="7">
     <answer text="Yes"/>
     <answer text="No"/>
   </question>
-  <question text="What is your primary motivation for using this machine">
+  <question text="What is your primary motivation for using this machine" id="8">
     <answer text="Interested in crowdsourcing"/>
     <answer text="Want food"/>
     <answer text="Have free time"/>
