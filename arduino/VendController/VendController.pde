@@ -2,11 +2,11 @@ char tray[3]; // array to hold the incoming serial string bytes
 // a1 is a01 etc 
 int trayLetter;
 int trayNumber;
-int motorTime= 3000;
+
 int loopFlag=0; 
 int sensorPin=2; 
-int sensorValue=0;
-int maxMotorTime= 20000; //sets threshhold Motor Time
+int sensorValue=300;
+long maxMotorTime= 110000; //sets threshhold Motor Time
 int motorStartTime=0;
 void setup() { 
   pinMode(15, OUTPUT);  //a
@@ -46,28 +46,29 @@ void Spin(){
   if(tray[0] == 'a'){
     trayLetter= 15;
   }
-  else if(tray[0] =='b'){
+  else if(tray[0] =='e'){
     trayLetter= 14;
   }
-  else if(tray[0] == 'c'){
+  else if(tray[0] == 'b'){
     trayLetter= 13;
   }
-  else if(tray[0] =='d'){
+  else if(tray[0] =='c'){
     trayLetter= 12;
   }
-  else if(tray[0] == 'e'){
+  else if(tray[0] == 'd'){
     trayLetter= 11;
   }
 
   //does some math with characters to get to the correct pin
   trayNumber=11-((tray[1]-48)*10 + tray[2]-48);
-
-  motorStartTime= millis(); 
   
   digitalWrite(trayLetter, HIGH);   // set the Letter Swtich On   
   digitalWrite(trayNumber, HIGH);   // set the Num Switch on
   
-  while(sensorValue < 700 && millis() - motorStartTime < maxMotorTime){  
+  int i=0;
+
+  while(sensorValue > 200 && i < maxMotorTime ){  
+    i++;
     sensorValue = analogRead(sensorPin);
   }
   
