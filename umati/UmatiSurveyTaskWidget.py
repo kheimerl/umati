@@ -6,15 +6,28 @@ class Question:
     
     index_re = re.compile("(I+\.)")
 
+    word_wrap = 50 #characters
+    
     def __init__(self, node):
         self.ans = -1
         self.q = self.__add_newlines(node.getAttribute("text"))
         self.right = None
         self.opts = []
         for opt in node.getElementsByTagName("answer"):
-            self.opts.append(opt.getAttribute("text"))
+            #this is an ungodly fucking hack
+            res = opt.getAttribute("text")
+            i = Question.word_wrap
+            while (True):
+                i = res.find(" ", i)
+                if (i == -1):
+                    break
+                else:
+                    res = res[:i] + "\n" + res[i:]
+                i += Question.word_wrap
+            self.opts.append(res)
             if (opt.getAttribute("correct") == "True"):
-                self.right = opt.getAttribute("text")
+                self.right = res
+            print (res)
 
     def __add_newlines(self, text):
         return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
