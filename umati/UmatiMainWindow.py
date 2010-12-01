@@ -30,16 +30,11 @@ class MainWindow(QtGui.QMainWindow):
         self.chooser = UmatiChooserWidget.ChooserGui(self, self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
         if (mathLoc):
-            self.math_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, 
-                                                                 mathLoc,
-                                                                 parent= self.ui.BodyFrame)
+            self.math_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, mathLoc, parent= self.ui.BodyFrame, method = "random")
         else:
-            self.math_task = UmatiMathTaskWidget.MathTaskGui(self,
-                                                             parent= self.ui.BodyFrame)
+            self.math_task = UmatiMathTaskWidget.MathTaskGui(self, parent= self.ui.BodyFrame)
         if (surveyLoc):
-            self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, 
-                                                                   surveyLoc,
-                                                                   parent=self.ui.BodyFrame)
+            self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, surveyLoc, parent=self.ui.BodyFrame, method="linear")
         else:
             self.survey_task = None
 

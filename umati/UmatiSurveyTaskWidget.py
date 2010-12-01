@@ -53,6 +53,9 @@ class LinearSurveyTask:
   
     def submit(self):
         self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.qs), self.value))
+        for q in self.qs:
+            if (q.ans == -1):
+                return False
         return True
     
     def next(self):
@@ -71,7 +74,8 @@ class LinearSurveyTask:
 
     #uses current iteration location
     def set_q_answer(self, ans):
-        self.qs[self.index].set_answer(ans)
+        if (self.index < len(self.qs)):
+            self.qs[self.index].set_answer(ans)
 
     def get_info(self):
         return "Please only ONE survey per person"
@@ -95,7 +99,7 @@ UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
 class SurveyTaskGui(QtGui.QWidget):
 
-    def __init__(self, mainWin, surveyLoc, parent=None, method="random"):
+    def __init__(self, mainWin, surveyLoc, parent=None, method="linear"):
         QtGui.QWidget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
         self.surveyLoc = surveyLoc
@@ -166,10 +170,10 @@ class SurveyTaskGui(QtGui.QWidget):
                 self.log.info("Survey Task COMPLETE. T: %s V: %d" %
                               (self.cur_task.type, self.cur_task.value))
                 self.mainWin.taskCompleted(self.cur_task.value)
+                self.mainWin.setChooserVisible()
             else:
-                self.log.info("Survey Task FAILED. T: %s V: %d" %
-                              (self.cur_task.type, self.cur_task.value))
-            self.mainWin.setChooserVisible()
+                UmatiMessageDialog.information(self, "Please Complete All Questions!")
+                self.back()
 
     def back(self):
         res = self.getChecked()
