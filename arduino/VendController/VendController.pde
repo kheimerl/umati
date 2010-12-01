@@ -43,6 +43,7 @@ void loop() {
 
 void Spin(){
   loopFlag=1; 
+  Serial.println("Spin");
   if(tray[0] == 'a'){
     trayLetter= 15;
   }
@@ -67,11 +68,13 @@ void Spin(){
   
   int i=0;
 
+  sensorValue = analogRead(sensorPin);
+  
   while(sensorValue > 200 && i < maxMotorTime ){  
     i++;
     sensorValue = analogRead(sensorPin);
   }
-  
+
   digitalWrite(trayLetter, LOW);    // set the Letter Switch off  
   digitalWrite(trayNumber, LOW);    // set the Num Switch off
 
@@ -85,7 +88,8 @@ int ReadSerialString () {
   }
   while (Serial.available() && i <3) {
     int c = Serial.read();
-    Serial.println(c);
+    //delay(100);
+    Serial.println(char(c));
     tray[i++] = c;
     loopFlag=0;
   }
