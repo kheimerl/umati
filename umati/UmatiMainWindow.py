@@ -19,7 +19,7 @@ UI_FILE = 'umati/UmatiMainView.ui'
 
 class MainWindow(QtGui.QMainWindow):
     
-    def __init__(self, surveyLoc = None):
+    def __init__(self, surveyLoc = None, mathLoc = None):
         global WINDOW
         QtGui.QMainWindow.__init__(self)
         self.log = logging.getLogger("umati.UmatiMainWindow.MainWindow")
@@ -29,7 +29,13 @@ class MainWindow(QtGui.QMainWindow):
         #setup other parts
         self.chooser = UmatiChooserWidget.ChooserGui(self, self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
-        self.math_task = UmatiMathTaskWidget.MathTaskGui(self, self.ui.BodyFrame)
+        if (mathLoc):
+            self.math_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, 
+                                                                 mathLoc,
+                                                                 parent= self.ui.BodyFrame)
+        else:
+            self.math_task = UmatiMathTaskWidget.MathTaskGui(self,
+                                                             parent= self.ui.BodyFrame)
         if (surveyLoc):
             self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, 
                                                                    surveyLoc,
