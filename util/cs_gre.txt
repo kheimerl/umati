@@ -46,7 +46,7 @@ III. Pages correspond to semantic characteristics of the program.
 (D) I and III
 (E) II and III
 QQQ
-13)One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as “true,” “false,” and “unknown.” If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?
+13)One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as "true," "false," and "unknown." If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?
 (A) 4
 (B) 5
 (T) 6
