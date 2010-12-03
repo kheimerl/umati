@@ -1,0 +1,319 @@
+[2010-12-03 11:54:07] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 193) - --[Initializing]----------
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 194) -  Input: umati_survey.input
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 195) -  Properties: umati_survey.properties
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 196) -  Question File: umati_survey.question
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 202) -  Preview mode disabled
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 229) - --[Loading HITs]----------
+[2010-12-03 11:54:09] INFO  (LoadHITs.java: 231) -   Start time: Fri Dec 03 11:54:09 PST 2010
+[2010-12-03 11:54:10] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 11:54:10] INFO  (RequesterService.java: 1283) - Created HIT 1: HITId=1G15BTWUMEVGRH76ITKGXFTEVWB0ZU
+[2010-12-03 11:54:10] INFO  (RequesterService.java: 1283) - Created HIT 2: HITId=1DYKMETPLET54X7B2AH4F9NQVAIX7T
+[2010-12-03 11:54:11] INFO  (RequesterService.java: 1283) - Created HIT 3: HITId=1K6UDM2J0ZYJWLMYAIBO5L92IHY106
+[2010-12-03 11:54:11] INFO  (RequesterService.java: 1283) - Created HIT 4: HITId=1HZFV60N1WF095SWZ7RIJFKHE4S3OQ
+[2010-12-03 11:54:11] INFO  (RequesterService.java: 1283) - Created HIT 5: HITId=1JSE2EU22L5J3A7G61FOJQSCN94119
+[2010-12-03 11:54:11] INFO  (RequesterService.java: 1327) - 
+You may see your HIT(s) with HITTypeId '18GD6KMZ13ONOXYN8FS31DZ8N90JYM' here: 
+[2010-12-03 11:54:11] INFO  (RequesterService.java: 1328) - 
+  http://workersandbox.mturk.com/mturk/preview?groupId=18GD6KMZ13ONOXYN8FS31DZ8N90JYM
+
+[2010-12-03 11:54:11] INFO  (LoadHITs.java: 239) -   End time: Fri Dec 03 11:54:11 PST 2010
+[2010-12-03 11:54:11] INFO  (LoadHITs.java: 240) - --[Done Loading HITs]----------
+[2010-12-03 11:54:11] INFO  (LoadHITs.java: 241) -   Total load time: 1 seconds.
+[2010-12-03 11:54:11] INFO  (LoadHITs.java: 243) -   Successfully loaded 5 HITs.
+[2010-12-03 14:02:46] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 14:02:47] INFO  (DeleteHITs.java: 67) - --- Starting to delete HITs ---
+[2010-12-03 14:02:47] INFO  (AbstractCmd.java: 224) - You are about to delete 5 HITs.
+[2010-12-03 14:02:47] INFO  (AbstractCmd.java: 225) - To confirm this operation, please press ENTER (or press Ctrl+C to abort): 
+[2010-12-03 14:02:52] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 14:02:52] INFO  (DeleteHITs.java: 102) - [1G15BTWUMEVGRH76ITKGXFTEVWB0ZU] Successfully deleted HIT (1/5)
+[2010-12-03 14:02:52] INFO  (DeleteHITs.java: 102) - [1DYKMETPLET54X7B2AH4F9NQVAIX7T] Successfully deleted HIT (2/5)
+[2010-12-03 14:02:53] INFO  (DeleteHITs.java: 102) - [1K6UDM2J0ZYJWLMYAIBO5L92IHY106] Successfully deleted HIT (3/5)
+[2010-12-03 14:02:53] INFO  (DeleteHITs.java: 102) - [1HZFV60N1WF095SWZ7RIJFKHE4S3OQ] Successfully deleted HIT (4/5)
+[2010-12-03 14:02:53] INFO  (DeleteHITs.java: 102) - [1JSE2EU22L5J3A7G61FOJQSCN94119] Successfully deleted HIT (5/5)
+[2010-12-03 14:02:53] INFO  (DeleteHITs.java: 74) - --- Finished to delete HITs ---
+[2010-12-03 14:02:53] INFO  (DeleteHITs.java: 75) -   5 HITs have been deleted or were deleted previously.
+[2010-12-03 14:02:53] INFO  (DeleteHITs.java: 76) -   0 errors occured.
+[2010-12-03 14:23:23] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 14:23:24] INFO  (LoadHITs.java: 193) - --[Initializing]----------
+[2010-12-03 14:23:24] INFO  (LoadHITs.java: 194) -  Input: umati_survey.input
+[2010-12-03 14:23:24] INFO  (LoadHITs.java: 195) -  Properties: umati_survey.properties
+[2010-12-03 14:23:24] INFO  (LoadHITs.java: 196) -  Question File: umati_survey.question
+[2010-12-03 14:23:24] INFO  (LoadHITs.java: 202) -  Preview mode disabled
+[2010-12-03 14:23:25] INFO  (LoadHITs.java: 229) - --[Loading HITs]----------
+[2010-12-03 14:23:25] INFO  (LoadHITs.java: 231) -   Start time: Fri Dec 03 14:23:25 PST 2010
+[2010-12-03 14:23:25] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 14:23:27] INFO  (RequesterService.java: 1283) - Created HIT 1: HITId=10I1BM0B4UO4LKH0TTE49UXFDGQDFC
+[2010-12-03 14:23:27] INFO  (RequesterService.java: 1283) - Created HIT 2: HITId=1IMI7MM6LKJCF6H4YIUYRCCF1FBDEU
+[2010-12-03 14:23:27] INFO  (RequesterService.java: 1283) - Created HIT 3: HITId=1TK6NI4BDCEYWU0ESXFK5JE1NABG9X
+[2010-12-03 14:23:27] INFO  (RequesterService.java: 1283) - Created HIT 4: HITId=1UKAMBIWSACSYWBYXFLKTOYGOLIK2C
+[2010-12-03 14:23:27] INFO  (RequesterService.java: 1283) - Created HIT 5: HITId=10QELFNKFWNQDJHT1CEDZIOV2VTI3A
+[2010-12-03 14:23:29] INFO  (RequesterService.java: 1283) - Created HIT 6: HITId=107P2K0OYP6GTJSZC6D6ZJ3OBKCMSM
+[2010-12-03 14:23:29] INFO  (RequesterService.java: 1283) - Created HIT 7: HITId=10KDC3M7WGEC1DAJK3TK1EPLTSTGAC
+[2010-12-03 14:23:29] INFO  (RequesterService.java: 1283) - Created HIT 8: HITId=10R2XLIQ0GSHKNFBQHTGWP9RBAEGB7
+[2010-12-03 14:23:30] INFO  (RequesterService.java: 1283) - Created HIT 9: HITId=1W15B05UEZGAZKDV4DKMRFXREVQGDE
+[2010-12-03 14:23:30] INFO  (RequesterService.java: 1283) - Created HIT 10: HITId=17GNFH1U0UX0US7H4HPB79F9TVEGCE
+[2010-12-03 14:23:30] INFO  (RequesterService.java: 1327) - 
+You may see your HIT(s) with HITTypeId '1NDWE1KEZSYMSF0KS9ENYRH1KIXAJ3' here: 
+[2010-12-03 14:23:30] INFO  (RequesterService.java: 1328) - 
+  http://workersandbox.mturk.com/mturk/preview?groupId=1NDWE1KEZSYMSF0KS9ENYRH1KIXAJ3
+
+[2010-12-03 14:23:30] INFO  (LoadHITs.java: 239) -   End time: Fri Dec 03 14:23:30 PST 2010
+[2010-12-03 14:23:30] INFO  (LoadHITs.java: 240) - --[Done Loading HITs]----------
+[2010-12-03 14:23:30] INFO  (LoadHITs.java: 241) -   Total load time: 5 seconds.
+[2010-12-03 14:23:30] INFO  (LoadHITs.java: 243) -   Successfully loaded 10 HITs.
+[2010-12-03 14:29:45] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 14:29:46] INFO  (GetResults.java: 119) - --[Retrieving Results]----------
+[2010-12-03 14:29:46] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 14:29:47] INFO  (GetResults.java: 162) - Retrieved HIT 1/10, 10I1BM0B4UO4LKH0TTE49UXFDGQDFC
+[2010-12-03 14:29:47] INFO  (GetResults.java: 162) - Retrieved HIT 2/10, 1IMI7MM6LKJCF6H4YIUYRCCF1FBDEU
+[2010-12-03 14:29:47] INFO  (GetResults.java: 162) - Retrieved HIT 3/10, 1TK6NI4BDCEYWU0ESXFK5JE1NABG9X
+[2010-12-03 14:29:47] INFO  (GetResults.java: 162) - Retrieved HIT 4/10, 1UKAMBIWSACSYWBYXFLKTOYGOLIK2C
+[2010-12-03 14:29:48] INFO  (GetResults.java: 162) - Retrieved HIT 5/10, 10QELFNKFWNQDJHT1CEDZIOV2VTI3A
+[2010-12-03 14:29:48] INFO  (GetResults.java: 162) - Retrieved HIT 6/10, 107P2K0OYP6GTJSZC6D6ZJ3OBKCMSM
+[2010-12-03 14:29:48] INFO  (GetResults.java: 162) - Retrieved HIT 7/10, 10KDC3M7WGEC1DAJK3TK1EPLTSTGAC
+[2010-12-03 14:29:48] INFO  (GetResults.java: 162) - Retrieved HIT 8/10, 10R2XLIQ0GSHKNFBQHTGWP9RBAEGB7
+[2010-12-03 14:29:49] INFO  (GetResults.java: 162) - Retrieved HIT 9/10, 1W15B05UEZGAZKDV4DKMRFXREVQGDE
+[2010-12-03 14:29:49] INFO  (GetResults.java: 162) - Retrieved HIT 10/10, 17GNFH1U0UX0US7H4HPB79F9TVEGCE
+[2010-12-03 14:29:49] INFO  (GetResults.java: 123) - --[Done Retrieving Results]----------
+[2010-12-03 14:29:49] INFO  (GetResults.java: 130) - 
+Results have been written to file 'umati_survey.results'.
+
+[2010-12-03 14:29:49] INFO  (GetResults.java: 134) - Assignments completed: 5/10 (50%)
+[2010-12-03 14:29:49] INFO  (GetResults.java: 137) -          Time elapsed: 0:06:23 (h:mm:ss)
+[2010-12-03 14:29:49] INFO  (GetResults.java: 142) -   Average submit time: 13.2 seconds
+[2010-12-03 14:33:59] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 14:34:00] INFO  (DeleteHITs.java: 67) - --- Starting to delete HITs ---
+[2010-12-03 14:34:00] INFO  (AbstractCmd.java: 224) - You are about to delete 10 HITs.
+[2010-12-03 14:34:00] INFO  (AbstractCmd.java: 225) - To confirm this operation, please press ENTER (or press Ctrl+C to abort): 
+[2010-12-03 14:34:10] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 14:34:11] INFO  (DeleteHITs.java: 102) - [1IMI7MM6LKJCF6H4YIUYRCCF1FBDEU] Successfully deleted HIT (1/10)
+[2010-12-03 14:34:12] INFO  (DeleteHITs.java: 102) - [10I1BM0B4UO4LKH0TTE49UXFDGQDFC] Successfully deleted HIT (2/10)
+[2010-12-03 14:34:12] INFO  (DeleteHITs.java: 102) - [1TK6NI4BDCEYWU0ESXFK5JE1NABG9X] Successfully deleted HIT (3/10)
+[2010-12-03 14:34:13] INFO  (DeleteHITs.java: 102) - [10QELFNKFWNQDJHT1CEDZIOV2VTI3A] Successfully deleted HIT (4/10)
+[2010-12-03 14:34:14] INFO  (DeleteHITs.java: 102) - [1UKAMBIWSACSYWBYXFLKTOYGOLIK2C] Successfully deleted HIT (5/10)
+[2010-12-03 14:34:15] INFO  (DeleteHITs.java: 102) - [10KDC3M7WGEC1DAJK3TK1EPLTSTGAC] Successfully deleted HIT (6/10)
+[2010-12-03 14:34:15] INFO  (DeleteHITs.java: 102) - [107P2K0OYP6GTJSZC6D6ZJ3OBKCMSM] Successfully deleted HIT (7/10)
+[2010-12-03 14:34:16] INFO  (DeleteHITs.java: 102) - [1W15B05UEZGAZKDV4DKMRFXREVQGDE] Successfully deleted HIT (8/10)
+[2010-12-03 14:34:17] INFO  (DeleteHITs.java: 102) - [10R2XLIQ0GSHKNFBQHTGWP9RBAEGB7] Successfully deleted HIT (9/10)
+[2010-12-03 14:34:18] INFO  (DeleteHITs.java: 102) - [17GNFH1U0UX0US7H4HPB79F9TVEGCE] Successfully deleted HIT (10/10)
+[2010-12-03 14:34:18] INFO  (DeleteHITs.java: 74) - --- Finished to delete HITs ---
+[2010-12-03 14:34:18] INFO  (DeleteHITs.java: 75) -   10 HITs have been deleted or were deleted previously.
+[2010-12-03 14:34:18] INFO  (DeleteHITs.java: 76) -   0 errors occured.
+[2010-12-03 14:34:33] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 193) - --[Initializing]----------
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 194) -  Input: umati_survey.input
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 195) -  Properties: umati_survey.properties
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 196) -  Question File: umati_survey.question
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 202) -  Preview mode disabled
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 229) - --[Loading HITs]----------
+[2010-12-03 14:34:34] INFO  (LoadHITs.java: 231) -   Start time: Fri Dec 03 14:34:34 PST 2010
+[2010-12-03 14:34:35] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 14:34:35] INFO  (RequesterService.java: 1283) - Created HIT 1: HITId=1PI64H9RF3CBVF0X1QJW9NG1GVPI4V
+[2010-12-03 14:34:36] INFO  (RequesterService.java: 1283) - Created HIT 2: HITId=1E92EUKIZAJHJE7H1FZPCY38UZIK3N
+[2010-12-03 14:34:36] INFO  (RequesterService.java: 1283) - Created HIT 3: HITId=1HJ1U458JIQFRQRV08V6XXFCE7RGE7
+[2010-12-03 14:34:36] INFO  (RequesterService.java: 1283) - Created HIT 4: HITId=131UXW6PZH821AQL1T48M3VE8ZEK48
+[2010-12-03 14:34:37] INFO  (RequesterService.java: 1283) - Created HIT 5: HITId=1VTDZIDP66TKXTULFYNIRV1S8V9K5D
+[2010-12-03 14:34:37] INFO  (RequesterService.java: 1283) - Created HIT 6: HITId=1HAP63GRMSXTRY4XFV26EFMFGRKI50
+[2010-12-03 14:34:37] INFO  (RequesterService.java: 1283) - Created HIT 7: HITId=1ZFKY4JD2SV7X4RRVJFCFF0CQ86GFP
+[2010-12-03 14:34:37] INFO  (RequesterService.java: 1283) - Created HIT 8: HITId=1W20MQI6JPIH8J5E16IW9OZAD3QMTB
+[2010-12-03 14:34:38] INFO  (RequesterService.java: 1283) - Created HIT 9: HITId=19TRSAGYBDFPA24BKECB6L0FCMVI6G
+[2010-12-03 14:34:38] INFO  (RequesterService.java: 1283) - Created HIT 10: HITId=1F55P5O4JRMOZG86OJ24CF9STV3DHA
+[2010-12-03 14:34:38] INFO  (RequesterService.java: 1327) - 
+You may see your HIT(s) with HITTypeId '1NDWE1KEZSYMSF0KS9ENYRH1KIXAJ3' here: 
+[2010-12-03 14:34:38] INFO  (RequesterService.java: 1328) - 
+  http://workersandbox.mturk.com/mturk/preview?groupId=1NDWE1KEZSYMSF0KS9ENYRH1KIXAJ3
+
+[2010-12-03 14:34:38] INFO  (LoadHITs.java: 239) -   End time: Fri Dec 03 14:34:38 PST 2010
+[2010-12-03 14:34:38] INFO  (LoadHITs.java: 240) - --[Done Loading HITs]----------
+[2010-12-03 14:34:38] INFO  (LoadHITs.java: 241) -   Total load time: 3 seconds.
+[2010-12-03 14:34:38] INFO  (LoadHITs.java: 243) -   Successfully loaded 10 HITs.
+[2010-12-03 14:35:03] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 14:35:04] INFO  (DeleteHITs.java: 67) - --- Starting to delete HITs ---
+[2010-12-03 14:35:04] INFO  (AbstractCmd.java: 224) - You are about to delete 10 HITs.
+[2010-12-03 14:35:04] INFO  (AbstractCmd.java: 225) - To confirm this operation, please press ENTER (or press Ctrl+C to abort): 
+[2010-12-03 14:35:19] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 14:35:21] INFO  (DeleteHITs.java: 102) - [1E92EUKIZAJHJE7H1FZPCY38UZIK3N] Successfully deleted HIT (1/10)
+[2010-12-03 14:35:21] INFO  (DeleteHITs.java: 102) - [1PI64H9RF3CBVF0X1QJW9NG1GVPI4V] Successfully deleted HIT (2/10)
+[2010-12-03 14:35:22] INFO  (DeleteHITs.java: 102) - [131UXW6PZH821AQL1T48M3VE8ZEK48] Successfully deleted HIT (3/10)
+[2010-12-03 14:35:23] INFO  (DeleteHITs.java: 102) - [1HJ1U458JIQFRQRV08V6XXFCE7RGE7] Successfully deleted HIT (4/10)
+[2010-12-03 14:35:23] INFO  (DeleteHITs.java: 102) - [1VTDZIDP66TKXTULFYNIRV1S8V9K5D] Successfully deleted HIT (5/10)
+[2010-12-03 14:35:24] INFO  (DeleteHITs.java: 102) - [1HAP63GRMSXTRY4XFV26EFMFGRKI50] Successfully deleted HIT (6/10)
+[2010-12-03 14:35:24] INFO  (DeleteHITs.java: 102) - [1ZFKY4JD2SV7X4RRVJFCFF0CQ86GFP] Successfully deleted HIT (7/10)
+[2010-12-03 14:35:25] INFO  (DeleteHITs.java: 102) - [1W20MQI6JPIH8J5E16IW9OZAD3QMTB] Successfully deleted HIT (8/10)
+[2010-12-03 14:35:26] INFO  (DeleteHITs.java: 102) - [1F55P5O4JRMOZG86OJ24CF9STV3DHA] Successfully deleted HIT (9/10)
+[2010-12-03 14:35:28] ERROR (DeleteHITs.java: 107) - [19TRSAGYBDFPA24BKECB6L0FCMVI6G] FAILURE Deleting HIT: HIT still being worked on. Not deleted. (10/10)
+[2010-12-03 14:35:28] INFO  (DeleteHITs.java: 74) - --- Finished to delete HITs ---
+[2010-12-03 14:35:28] INFO  (DeleteHITs.java: 75) -   9 HITs have been deleted or were deleted previously.
+[2010-12-03 14:35:28] INFO  (DeleteHITs.java: 76) -   1 errors occured.
+[2010-12-03 15:05:11] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 15:05:12] INFO  (DeleteHITs.java: 67) - --- Starting to delete HITs ---
+[2010-12-03 15:05:12] INFO  (AbstractCmd.java: 224) - You are about to delete 10 HITs.
+[2010-12-03 15:05:12] INFO  (AbstractCmd.java: 225) - To confirm this operation, please press ENTER (or press Ctrl+C to abort): 
+[2010-12-03 15:05:14] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 15:05:15] INFO  (DeleteHITs.java: 102) - [1E92EUKIZAJHJE7H1FZPCY38UZIK3N] HIT already deleted. Skipping HIT (1/10)
+[2010-12-03 15:05:15] INFO  (DeleteHITs.java: 102) - [1PI64H9RF3CBVF0X1QJW9NG1GVPI4V] HIT already deleted. Skipping HIT (2/10)
+[2010-12-03 15:05:16] INFO  (DeleteHITs.java: 102) - [1HJ1U458JIQFRQRV08V6XXFCE7RGE7] HIT already deleted. Skipping HIT (3/10)
+[2010-12-03 15:05:16] INFO  (DeleteHITs.java: 102) - [131UXW6PZH821AQL1T48M3VE8ZEK48] HIT already deleted. Skipping HIT (4/10)
+[2010-12-03 15:05:17] INFO  (DeleteHITs.java: 102) - [1HAP63GRMSXTRY4XFV26EFMFGRKI50] HIT already deleted. Skipping HIT (5/10)
+[2010-12-03 15:05:17] INFO  (DeleteHITs.java: 102) - [1VTDZIDP66TKXTULFYNIRV1S8V9K5D] HIT already deleted. Skipping HIT (6/10)
+[2010-12-03 15:05:17] INFO  (DeleteHITs.java: 102) - [1ZFKY4JD2SV7X4RRVJFCFF0CQ86GFP] HIT already deleted. Skipping HIT (7/10)
+[2010-12-03 15:05:17] INFO  (DeleteHITs.java: 102) - [19TRSAGYBDFPA24BKECB6L0FCMVI6G] Successfully deleted HIT (8/10)
+[2010-12-03 15:05:18] INFO  (DeleteHITs.java: 102) - [1F55P5O4JRMOZG86OJ24CF9STV3DHA] HIT already deleted. Skipping HIT (9/10)
+[2010-12-03 15:05:18] INFO  (DeleteHITs.java: 102) - [1W20MQI6JPIH8J5E16IW9OZAD3QMTB] HIT already deleted. Skipping HIT (10/10)
+[2010-12-03 15:05:18] INFO  (DeleteHITs.java: 74) - --- Finished to delete HITs ---
+[2010-12-03 15:05:18] INFO  (DeleteHITs.java: 75) -   10 HITs have been deleted or were deleted previously.
+[2010-12-03 15:05:18] INFO  (DeleteHITs.java: 76) -   0 errors occured.
+[2010-12-03 15:05:26] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 15:05:27] INFO  (LoadHITs.java: 193) - --[Initializing]----------
+[2010-12-03 15:05:27] INFO  (LoadHITs.java: 194) -  Input: umati_survey.input
+[2010-12-03 15:05:27] INFO  (LoadHITs.java: 195) -  Properties: umati_survey.properties
+[2010-12-03 15:05:27] INFO  (LoadHITs.java: 196) -  Question File: umati_survey.question
+[2010-12-03 15:05:27] INFO  (LoadHITs.java: 202) -  Preview mode disabled
+[2010-12-03 15:05:28] INFO  (LoadHITs.java: 229) - --[Loading HITs]----------
+[2010-12-03 15:05:28] INFO  (LoadHITs.java: 231) -   Start time: Fri Dec 03 15:05:28 PST 2010
+[2010-12-03 15:05:28] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 15:05:29] INFO  (RequesterService.java: 1283) - Created HIT 1: HITId=1UK1Y5U9XSHEQJDCU5PESLSP886IC8
+[2010-12-03 15:05:32] INFO  (RequesterService.java: 1283) - Created HIT 2: HITId=16YSXVJ4X52MHHE5BODMGX5FQA9N13
+[2010-12-03 15:05:32] INFO  (RequesterService.java: 1283) - Created HIT 3: HITId=17C883RLVJVMASTNF59M2SM5LI3N00
+[2010-12-03 15:05:32] INFO  (RequesterService.java: 1283) - Created HIT 4: HITId=11E49O83HS8MM9BUG8EVUH1KIRVKBE
+[2010-12-03 15:05:32] INFO  (RequesterService.java: 1283) - Created HIT 5: HITId=10EK4FBCXXSYRXUTSWXUWO6T5HHDOY
+[2010-12-03 15:05:33] INFO  (RequesterService.java: 1283) - Created HIT 6: HITId=1J5JUOY9BX0OVBJQU1KPCRA7T8IID8
+[2010-12-03 15:05:33] INFO  (RequesterService.java: 1283) - Created HIT 7: HITId=1140FDKNT5YTXW1NHUIAAS5WN4SGLU
+[2010-12-03 15:05:34] INFO  (RequesterService.java: 1283) - Created HIT 8: HITId=1KE57JYNP09D3EJ8H6JPA5KLN9IGMW
+[2010-12-03 15:05:34] INFO  (RequesterService.java: 1283) - Created HIT 9: HITId=1SIHPN26JC2T62W1USD0LGFKIGNN2K
+[2010-12-03 15:05:36] INFO  (RequesterService.java: 1283) - Created HIT 10: HITId=1UJXDXYJKBTJLW48T7YPNK9LSZSGNW
+[2010-12-03 15:05:36] INFO  (RequesterService.java: 1327) - 
+You may see your HIT(s) with HITTypeId '1NDWE1KEZSYMSF0KS9ENYRH1KIXAJ3' here: 
+[2010-12-03 15:05:36] INFO  (RequesterService.java: 1328) - 
+  http://workersandbox.mturk.com/mturk/preview?groupId=1NDWE1KEZSYMSF0KS9ENYRH1KIXAJ3
+
+[2010-12-03 15:05:36] INFO  (LoadHITs.java: 239) -   End time: Fri Dec 03 15:05:36 PST 2010
+[2010-12-03 15:05:36] INFO  (LoadHITs.java: 240) - --[Done Loading HITs]----------
+[2010-12-03 15:05:36] INFO  (LoadHITs.java: 241) -   Total load time: 8 seconds.
+[2010-12-03 15:05:36] INFO  (LoadHITs.java: 243) -   Successfully loaded 10 HITs.
+[2010-12-03 15:06:50] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 15:06:51] INFO  (GetResults.java: 119) - --[Retrieving Results]----------
+[2010-12-03 15:06:51] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 15:06:52] INFO  (GetResults.java: 162) - Retrieved HIT 1/10, 1UK1Y5U9XSHEQJDCU5PESLSP886IC8
+[2010-12-03 15:06:52] INFO  (GetResults.java: 162) - Retrieved HIT 2/10, 16YSXVJ4X52MHHE5BODMGX5FQA9N13
+[2010-12-03 15:06:53] INFO  (GetResults.java: 162) - Retrieved HIT 3/10, 17C883RLVJVMASTNF59M2SM5LI3N00
+[2010-12-03 15:06:53] INFO  (GetResults.java: 162) - Retrieved HIT 4/10, 11E49O83HS8MM9BUG8EVUH1KIRVKBE
+[2010-12-03 15:06:53] INFO  (GetResults.java: 162) - Retrieved HIT 5/10, 10EK4FBCXXSYRXUTSWXUWO6T5HHDOY
+[2010-12-03 15:06:54] INFO  (GetResults.java: 162) - Retrieved HIT 6/10, 1J5JUOY9BX0OVBJQU1KPCRA7T8IID8
+[2010-12-03 15:06:54] INFO  (GetResults.java: 162) - Retrieved HIT 7/10, 1140FDKNT5YTXW1NHUIAAS5WN4SGLU
+[2010-12-03 15:06:54] INFO  (GetResults.java: 162) - Retrieved HIT 8/10, 1KE57JYNP09D3EJ8H6JPA5KLN9IGMW
+[2010-12-03 15:06:54] INFO  (GetResults.java: 162) - Retrieved HIT 9/10, 1SIHPN26JC2T62W1USD0LGFKIGNN2K
+[2010-12-03 15:06:55] INFO  (GetResults.java: 162) - Retrieved HIT 10/10, 1UJXDXYJKBTJLW48T7YPNK9LSZSGNW
+[2010-12-03 15:06:55] INFO  (GetResults.java: 123) - --[Done Retrieving Results]----------
+[2010-12-03 15:06:55] INFO  (GetResults.java: 130) - 
+Results have been written to file 'umati_survey.results'.
+
+[2010-12-03 15:06:55] INFO  (GetResults.java: 134) - Assignments completed: 1/10 (10%)
+[2010-12-03 15:06:55] INFO  (GetResults.java: 137) -          Time elapsed: 0:01:26 (h:mm:ss)
+[2010-12-03 15:06:55] INFO  (GetResults.java: 142) -   Average submit time: 18.0 seconds
+[2010-12-03 15:07:43] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 15:07:44] INFO  (GetResults.java: 119) - --[Retrieving Results]----------
+[2010-12-03 15:07:44] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 15:07:45] INFO  (GetResults.java: 162) - Retrieved HIT 1/10, 1UK1Y5U9XSHEQJDCU5PESLSP886IC8
+[2010-12-03 15:07:45] INFO  (GetResults.java: 162) - Retrieved HIT 2/10, 16YSXVJ4X52MHHE5BODMGX5FQA9N13
+[2010-12-03 15:07:45] INFO  (GetResults.java: 162) - Retrieved HIT 3/10, 17C883RLVJVMASTNF59M2SM5LI3N00
+[2010-12-03 15:07:46] INFO  (GetResults.java: 162) - Retrieved HIT 4/10, 11E49O83HS8MM9BUG8EVUH1KIRVKBE
+[2010-12-03 15:07:46] INFO  (GetResults.java: 162) - Retrieved HIT 5/10, 10EK4FBCXXSYRXUTSWXUWO6T5HHDOY
+[2010-12-03 15:07:46] INFO  (GetResults.java: 162) - Retrieved HIT 6/10, 1J5JUOY9BX0OVBJQU1KPCRA7T8IID8
+[2010-12-03 15:07:47] INFO  (GetResults.java: 162) - Retrieved HIT 7/10, 1140FDKNT5YTXW1NHUIAAS5WN4SGLU
+[2010-12-03 15:07:47] INFO  (GetResults.java: 162) - Retrieved HIT 8/10, 1KE57JYNP09D3EJ8H6JPA5KLN9IGMW
+[2010-12-03 15:07:48] INFO  (GetResults.java: 162) - Retrieved HIT 9/10, 1SIHPN26JC2T62W1USD0LGFKIGNN2K
+[2010-12-03 15:07:49] INFO  (GetResults.java: 162) - Retrieved HIT 10/10, 1UJXDXYJKBTJLW48T7YPNK9LSZSGNW
+[2010-12-03 15:07:49] INFO  (GetResults.java: 123) - --[Done Retrieving Results]----------
+[2010-12-03 15:07:49] INFO  (GetResults.java: 130) - 
+Results have been written to file 'umati_survey.results'.
+
+[2010-12-03 15:07:49] INFO  (GetResults.java: 134) - Assignments completed: 2/10 (20%)
+[2010-12-03 15:07:49] INFO  (GetResults.java: 137) -          Time elapsed: 0:02:20 (h:mm:ss)
+[2010-12-03 15:07:49] INFO  (GetResults.java: 142) -   Average submit time: 17.0 seconds
+[2010-12-03 15:07:56] INFO  (AbstractCmd.java: 138) - Sandbox override
+[2010-12-03 15:07:57] INFO  (GetResults.java: 119) - --[Retrieving Results]----------
+[2010-12-03 15:07:57] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 2 threads
+[2010-12-03 15:07:57] INFO  (GetResults.java: 162) - Retrieved HIT 1/10, 1UK1Y5U9XSHEQJDCU5PESLSP886IC8
+[2010-12-03 15:07:58] INFO  (GetResults.java: 162) - Retrieved HIT 2/10, 16YSXVJ4X52MHHE5BODMGX5FQA9N13
+[2010-12-03 15:07:58] INFO  (GetResults.java: 162) - Retrieved HIT 3/10, 17C883RLVJVMASTNF59M2SM5LI3N00
+[2010-12-03 15:07:58] INFO  (GetResults.java: 162) - Retrieved HIT 4/10, 11E49O83HS8MM9BUG8EVUH1KIRVKBE
+[2010-12-03 15:07:59] INFO  (GetResults.java: 162) - Retrieved HIT 5/10, 10EK4FBCXXSYRXUTSWXUWO6T5HHDOY
+[2010-12-03 15:07:59] INFO  (GetResults.java: 162) - Retrieved HIT 6/10, 1J5JUOY9BX0OVBJQU1KPCRA7T8IID8
+[2010-12-03 15:07:59] INFO  (GetResults.java: 162) - Retrieved HIT 7/10, 1140FDKNT5YTXW1NHUIAAS5WN4SGLU
+[2010-12-03 15:07:59] INFO  (GetResults.java: 162) - Retrieved HIT 8/10, 1KE57JYNP09D3EJ8H6JPA5KLN9IGMW
+[2010-12-03 15:08:00] INFO  (GetResults.java: 162) - Retrieved HIT 9/10, 1SIHPN26JC2T62W1USD0LGFKIGNN2K
+[2010-12-03 15:08:00] INFO  (GetResults.java: 162) - Retrieved HIT 10/10, 1UJXDXYJKBTJLW48T7YPNK9LSZSGNW
+[2010-12-03 15:08:00] INFO  (GetResults.java: 123) - --[Done Retrieving Results]----------
+[2010-12-03 15:08:00] INFO  (GetResults.java: 130) - 
+Results have been written to file 'umati_survey.results'.
+
+[2010-12-03 15:08:00] INFO  (GetResults.java: 134) - Assignments completed: 2/10 (20%)
+[2010-12-03 15:08:00] INFO  (GetResults.java: 137) -          Time elapsed: 0:02:31 (h:mm:ss)
+[2010-12-03 15:08:00] INFO  (GetResults.java: 142) -   Average submit time: 17.0 seconds
+[2010-12-03 15:09:28] INFO  (LoadHITs.java: 193) - --[Initializing]----------
+[2010-12-03 15:09:28] INFO  (LoadHITs.java: 194) -  Input: umati_survey.input
+[2010-12-03 15:09:28] INFO  (LoadHITs.java: 195) -  Properties: umati_survey.properties
+[2010-12-03 15:09:28] INFO  (LoadHITs.java: 196) -  Question File: umati_survey.question
+[2010-12-03 15:09:28] INFO  (LoadHITs.java: 202) -  Preview mode disabled
+[2010-12-03 15:09:29] INFO  (LoadHITs.java: 229) - --[Loading HITs]----------
+[2010-12-03 15:09:29] INFO  (LoadHITs.java: 231) -   Start time: Fri Dec 03 15:09:29 PST 2010
+[2010-12-03 15:09:29] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 10 threads
+[2010-12-03 15:09:30] INFO  (RequesterService.java: 1283) - Created HIT 1: HITId=1W80YPLZRSIFIIU88C27CNV9UF1NWG
+[2010-12-03 15:09:31] INFO  (RequesterService.java: 1283) - Created HIT 2: HITId=15DRB6G1KZJGAW284H1633YOL7KBA4
+[2010-12-03 15:09:31] INFO  (RequesterService.java: 1283) - Created HIT 3: HITId=1DG2KQM6GX39HI9AID3MCIAABNJ66O
+[2010-12-03 15:09:31] INFO  (RequesterService.java: 1283) - Created HIT 4: HITId=1DJVZB586Z7WTHBKZBX7651QT7SL1D
+[2010-12-03 15:09:31] INFO  (RequesterService.java: 1283) - Created HIT 5: HITId=1LX0YJMZRCLDYE9WDUTHKCWAFS8658
+[2010-12-03 15:09:31] INFO  (RequesterService.java: 1283) - Created HIT 6: HITId=12OVMRU39248XC9PTDYST3DTPP5BQA
+[2010-12-03 15:09:31] INFO  (RequesterService.java: 1283) - Created HIT 7: HITId=1W15B05UEZGAZKDV4DKMUFXRMN9GDS
+[2010-12-03 15:09:33] INFO  (RequesterService.java: 1283) - Created HIT 8: HITId=1Q9NNYGSVC92THO7L1L19YDZHIDIXO
+[2010-12-03 15:09:33] INFO  (RequesterService.java: 1283) - Created HIT 9: HITId=12QIJPX06SVU7IZYIHYTE69G3H7NX9
+[2010-12-03 15:09:33] INFO  (RequesterService.java: 1283) - Created HIT 10: HITId=1KR52Y4RGCWN4HJHBWPF7FZS8G7IWV
+[2010-12-03 15:09:33] INFO  (RequesterService.java: 1327) - 
+You may see your HIT(s) with HITTypeId '1EWYYEAJ0N60LRANA89I3YG4PP5TUZ' here: 
+[2010-12-03 15:09:33] INFO  (RequesterService.java: 1328) - 
+  http://www.mturk.com/mturk/preview?groupId=1EWYYEAJ0N60LRANA89I3YG4PP5TUZ
+
+[2010-12-03 15:09:33] INFO  (LoadHITs.java: 239) -   End time: Fri Dec 03 15:09:33 PST 2010
+[2010-12-03 15:09:33] INFO  (LoadHITs.java: 240) - --[Done Loading HITs]----------
+[2010-12-03 15:09:33] INFO  (LoadHITs.java: 241) -   Total load time: 4 seconds.
+[2010-12-03 15:09:33] INFO  (LoadHITs.java: 243) -   Successfully loaded 10 HITs.
+[2010-12-03 15:17:00] INFO  (GetResults.java: 119) - --[Retrieving Results]----------
+[2010-12-03 15:17:00] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 10 threads
+[2010-12-03 15:17:01] INFO  (GetResults.java: 162) - Retrieved HIT 1/10, 1W80YPLZRSIFIIU88C27CNV9UF1NWG
+[2010-12-03 15:17:01] INFO  (GetResults.java: 162) - Retrieved HIT 2/10, 15DRB6G1KZJGAW284H1633YOL7KBA4
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 3/10, 1DG2KQM6GX39HI9AID3MCIAABNJ66O
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 4/10, 1DJVZB586Z7WTHBKZBX7651QT7SL1D
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 5/10, 1LX0YJMZRCLDYE9WDUTHKCWAFS8658
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 6/10, 12OVMRU39248XC9PTDYST3DTPP5BQA
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 7/10, 1W15B05UEZGAZKDV4DKMUFXRMN9GDS
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 8/10, 1Q9NNYGSVC92THO7L1L19YDZHIDIXO
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 9/10, 12QIJPX06SVU7IZYIHYTE69G3H7NX9
+[2010-12-03 15:17:02] INFO  (GetResults.java: 162) - Retrieved HIT 10/10, 1KR52Y4RGCWN4HJHBWPF7FZS8G7IWV
+[2010-12-03 15:17:02] INFO  (GetResults.java: 123) - --[Done Retrieving Results]----------
+[2010-12-03 15:17:02] INFO  (GetResults.java: 130) - 
+Results have been written to file 'umati_survey.results'.
+
+[2010-12-03 15:17:02] INFO  (GetResults.java: 134) - Assignments completed: 6/10 (60%)
+[2010-12-03 15:17:02] INFO  (GetResults.java: 137) -          Time elapsed: 0:07:32 (h:mm:ss)
+[2010-12-03 15:17:02] INFO  (GetResults.java: 142) -   Average submit time: 71.0 seconds
+[2010-12-03 15:17:29] INFO  (GetResults.java: 119) - --[Retrieving Results]----------
+[2010-12-03 15:17:29] DEBUG (WorkQueue.java: 53) - Instantiating work queue with 10 threads
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 1/10, 1W80YPLZRSIFIIU88C27CNV9UF1NWG
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 2/10, 15DRB6G1KZJGAW284H1633YOL7KBA4
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 3/10, 1DG2KQM6GX39HI9AID3MCIAABNJ66O
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 4/10, 1DJVZB586Z7WTHBKZBX7651QT7SL1D
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 5/10, 1LX0YJMZRCLDYE9WDUTHKCWAFS8658
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 6/10, 12OVMRU39248XC9PTDYST3DTPP5BQA
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 7/10, 1W15B05UEZGAZKDV4DKMUFXRMN9GDS
+[2010-12-03 15:17:30] INFO  (GetResults.java: 162) - Retrieved HIT 8/10, 1Q9NNYGSVC92THO7L1L19YDZHIDIXO
+[2010-12-03 15:17:31] INFO  (GetResults.java: 162) - Retrieved HIT 9/10, 12QIJPX06SVU7IZYIHYTE69G3H7NX9
+[2010-12-03 15:17:31] INFO  (GetResults.java: 162) - Retrieved HIT 10/10, 1KR52Y4RGCWN4HJHBWPF7FZS8G7IWV
+[2010-12-03 15:17:31] INFO  (GetResults.java: 123) - --[Done Retrieving Results]----------
+[2010-12-03 15:17:31] INFO  (GetResults.java: 130) - 
+Results have been written to file 'umati_survey.results'.
+
+[2010-12-03 15:17:31] INFO  (GetResults.java: 134) - Assignments completed: 7/10 (70%)
+[2010-12-03 15:17:31] INFO  (GetResults.java: 137) -          Time elapsed: 0:08:01 (h:mm:ss)
+[2010-12-03 15:17:31] INFO  (GetResults.java: 142) -   Average submit time: 73.7 seconds
