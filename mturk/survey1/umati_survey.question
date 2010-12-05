@@ -12,7 +12,7 @@
     </Text>
   </Overview>
   <Question>
-    <QuestionIdentifier>${qid}</QuestionIdentifier>
+    <QuestionIdentifier>${qid1}</QuestionIdentifier>
     <QuestionContent>
             <Text>${question1}</Text>
     </QuestionContent>
@@ -47,7 +47,7 @@
     </AnswerSpecification>
   </Question>
   <Question>
-    <QuestionIdentifier>${qid}</QuestionIdentifier>
+    <QuestionIdentifier>${qid2}</QuestionIdentifier>
     <QuestionContent>
             <Text>${question2}</Text>
     </QuestionContent>
@@ -82,7 +82,7 @@
     </AnswerSpecification>
   </Question>
   <Question>
-    <QuestionIdentifier>${qid}</QuestionIdentifier>
+    <QuestionIdentifier>${qid3}</QuestionIdentifier>
     <QuestionContent>
             <Text>${question3}</Text>
     </QuestionContent>
