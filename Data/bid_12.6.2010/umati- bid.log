@@ -1,0 +1,238 @@
+2010-12-01 21:26:16,848 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[21 G:2 A:4, 19 G:2 A:2] V:2
+2010-12-01 21:26:17,108 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 21:37:08,696 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[7 G:3 A:2, 20 G:2 A:4] V:2
+2010-12-01 21:37:08,696 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:04:08,686 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[27 G:3 A:3, 21 G:3 A:4] V:2
+2010-12-01 22:04:08,686 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:06:46,782 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[10 G:4 A:0, 13 G:1 A:1] V:2
+2010-12-01 22:06:46,782 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:08:08,690 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[12 G:-1 A:4, 11 G:-1 A:4] V:2
+2010-12-01 22:09:50,457 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[12 G:4 A:4, 11 G:2 A:4] V:2
+2010-12-01 22:09:50,457 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:09:53,381 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[10 G:0 A:0, 27 G:0 A:3] V:2
+2010-12-01 22:09:53,381 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:11:05,104 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[8 G:3 A:3, 3 G:0 A:2] V:2
+2010-12-01 22:11:05,104 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:12:15,645 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[8 G:3 A:3, 5 G:0 A:0] V:2
+2010-12-01 22:12:15,645 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 22:41:59,194 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 22:41:59,466 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 22:42:04,423 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 22:46:12,599 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 22:46:21,983 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C2 C: 1
+2010-12-01 22:46:32,427 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 22:47:20,127 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 22:48:32,841 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:1 A:, 1 G:1 A:, 2 G:1 A:, 3 G:1 A:, 4 G:1 A:, 5 G:1 A:, 6 G:1 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-01 22:48:32,841 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 22:48:42,073 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 23:08:54,528 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:2 A:, 2 G:2 A:, 3 G:1 A:, 4 G:1 A:, 5 G:0 A:, 6 G:0 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-01 23:08:54,558 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:08:59,454 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 23:09:07,315 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-01 23:09:55,134 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 23:09:55,164 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:09:58,900 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 23:10:35,092 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 23:10:45,006 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-01 23:10:52,457 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C3 C: 1
+2010-12-01 23:11:06,977 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C2 C: 1
+2010-12-01 23:11:16,842 - umati.UmatiVendWidget.VendGui - INFO - Vending Item FAILED. I: B3 C: 1
+2010-12-01 23:11:23,671 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 23:11:23,671 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:11:42,769 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 23:11:59,604 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:12:09,427 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D2 C: 1
+2010-12-01 23:12:19,292 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D3 C: 1
+2010-12-01 23:12:45,980 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-01 23:13:11,838 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 23:13:11,838 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:13:17,025 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-01 23:13:23,974 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-01 23:13:28,641 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 23:15:59,108 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 23:16:15,161 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 23:16:21,680 - umati.UmatiVendWidget.VendGui - INFO - Vending Item FAILED. I: B3 C: 1
+2010-12-01 23:16:31,355 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 23:16:31,355 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:16:34,869 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-01 23:16:55,740 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-01 23:28:31,891 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 23:28:37,157 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-01 23:28:41,744 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-01 23:28:55,815 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 23:28:55,815 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:29:00,913 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C3 C: 1
+2010-12-01 23:29:06,970 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 23:29:15,783 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-01 23:29:49,512 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D3 C: 1
+2010-12-01 23:30:03,161 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D2 C: 1
+2010-12-01 23:30:20,838 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-01 23:30:20,838 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-01 23:30:25,755 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:30:40,295 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-01 23:30:59,823 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C3 C: 1
+2010-12-01 23:31:28,053 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:33:22,038 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:39:54,322 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[23 G:0 A:1, 10 G:0 A:0] V:2
+2010-12-01 23:39:54,322 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 23:40:00,540 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:40:08,653 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:40:13,680 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[0 G:0 A:3, 19 G:0 A:2] V:2
+2010-12-01 23:40:13,680 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 23:40:18,036 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D2 C: 1
+2010-12-01 23:40:50,743 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:41:07,937 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[24 G:0 A:4, 8 G:0 A:3] V:2
+2010-12-01 23:41:07,937 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-01 23:41:11,082 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-01 23:50:56,354 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D2 C: 1
+2010-12-02 00:24:18,042 - umati.UmatiVendWidget.VendGui - INFO - Vending Item FAILED. I: C5 C: 1
+2010-12-02 00:42:20,128 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[22 G:3 A:4, 24 G:3 A:4] V:2
+2010-12-02 00:42:20,128 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 00:42:32,526 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-02 00:46:03,619 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-02 00:46:58,017 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:1 A:, 2 G:1 A:, 3 G:0 A:, 4 G:1 A:, 5 G:0 A:, 6 G:3 A:, 7 G:1 A:, 8 G:2 A:] V:5
+2010-12-02 00:46:58,028 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-02 02:08:50,512 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:2 A:, 2 G:1 A:, 3 G:1 A:, 4 G:1 A:, 5 G:0 A:, 6 G:1 A:, 7 G:1 A:, 8 G:2 A:] V:5
+2010-12-02 02:08:50,512 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-02 02:10:01,313 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:1 A:, 2 G:0 A:, 3 G:1 A:, 4 G:3 A:, 5 G:0 A:, 6 G:3 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-02 02:10:01,313 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-02 02:10:20,450 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B4 C: 1
+2010-12-02 02:10:33,609 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-02 02:11:53,365 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[26 G:2 A:2, 11 G:3 A:4] V:2
+2010-12-02 02:11:53,365 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 04:54:37,775 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:2 A:, 2 G:2 A:, 3 G:1 A:, 4 G:3 A:, 5 G:0 A:, 6 G:2 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-02 04:54:37,775 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-02 06:26:06,147 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-02 06:28:42,010 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[21 G:0 A:4, 11 G:1 A:4] V:2
+2010-12-02 06:28:42,010 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 06:30:35,463 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[28 G:4 A:3, 20 G:1 A:4] V:2
+2010-12-02 06:30:35,463 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 06:30:39,240 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[12 G:0 A:4, 14 G:0 A:0] V:2
+2010-12-02 06:30:39,240 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 06:30:41,433 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[18 G:1 A:2, 26 G:2 A:2] V:2
+2010-12-02 06:30:41,433 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 08:51:49,890 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[8 G:0 A:3, 2 G:3 A:3] V:2
+2010-12-02 08:51:49,890 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 08:52:35,986 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[3 G:2 A:2, 28 G:3 A:3] V:2
+2010-12-02 08:52:35,986 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 08:52:53,111 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[26 G:-1 A:2, 9 G:-1 A:3] V:2
+2010-12-02 08:58:28,042 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[25 G:0 A:0, 23 G:1 A:1] V:2
+2010-12-02 08:58:28,042 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-02 18:03:27,492 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[13 G:1 A:1, 8 G:-1 A:3] V:2
+2010-12-02 21:48:04,780 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-03 00:11:24,387 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[16 G:1 A:1, 9 G:1 A:3] V:2
+2010-12-03 00:11:24,387 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 03:17:13,128 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:1 A:, 1 G:1 A:, 2 G:1 A:, 3 G:0 A:, 4 G:3 A:, 5 G:0 A:, 6 G:3 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-03 03:17:13,128 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-03 03:18:21,286 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:2 A:2, 8 G:0 A:3] V:2
+2010-12-03 03:18:21,286 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 03:19:12,148 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-03 04:15:55,812 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[21 G:2 A:4, 3 G:2 A:2] V:2
+2010-12-03 04:15:55,812 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 04:16:36,431 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[29 G:0 A:3, 27 G:3 A:3] V:2
+2010-12-03 04:16:36,431 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 20:32:15,707 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[3 G:2 A:2, 28 G:2 A:3] V:2
+2010-12-03 20:32:15,707 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 20:32:49,486 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:1 A:, 2 G:1 A:, 3 G:1 A:, 4 G:1 A:, 5 G:1 A:, 6 G:3 A:, 7 G:1 A:, 8 G:3 A:] V:5
+2010-12-03 20:32:49,486 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-03 21:31:50,096 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[2 G:1 A:3, 8 G:4 A:3] V:2
+2010-12-03 21:31:50,096 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 21:32:33,769 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[24 G:4 A:4, 4 G:0 A:0] V:2
+2010-12-03 21:32:33,769 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 21:42:40,342 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[11 G:0 A:4, 19 G:2 A:2] V:2
+2010-12-03 21:42:40,342 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 21:43:06,338 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 21:43:23,334 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-03 22:17:50,697 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:-1 A:4] V:2
+2010-12-03 22:18:23,584 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:3 A:4] V:2
+2010-12-03 22:18:25,947 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:3 A:4] V:2
+2010-12-03 22:18:27,779 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:2 A:4] V:2
+2010-12-03 22:18:29,221 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:1 A:4] V:2
+2010-12-03 22:18:30,444 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:0 A:4] V:2
+2010-12-03 22:18:31,585 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[17 G:-1 A:2, 24 G:4 A:4] V:2
+2010-12-03 22:19:26,094 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:CSGRE R:[16 G:4 A:1, 4 G:0 A:0] V:2
+2010-12-03 22:19:26,094 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: CSGRE V: 2
+2010-12-03 22:33:16,657 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B4 C: 1
+2010-12-03 22:33:20,453 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 22:33:22,726 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 22:34:24,164 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 22:34:27,118 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 22:35:24,312 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 22:35:28,306 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-03 22:41:16,618 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 22:41:17,970 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 22:41:18,190 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 22:41:18,371 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 22:41:18,551 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 22:41:23,979 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 22:41:24,358 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-03 23:54:53,448 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 23:54:54,581 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 23:54:54,760 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 23:54:54,930 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 23:54:55,101 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-03 23:54:55,282 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-04 02:05:02,325 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:1 A:, 1 G:1 A:, 2 G:1 A:, 3 G:1 A:, 4 G:1 A:, 5 G:1 A:, 6 G:1 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-04 02:05:02,605 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-04 02:05:06,730 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:07:05,701 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:07:13,604 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:07:28,025 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C1 C: 1
+2010-12-04 02:08:43,173 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:08:50,203 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-04 02:08:50,203 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-04 02:08:59,466 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:11:20,588 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-04 02:11:20,618 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-04 02:11:24,654 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:11:45,605 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:15:25,450 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:0 A:, 2 G:0 A:, 3 G:0 A:, 4 G:0 A:, 5 G:0 A:, 6 G:0 A:, 7 G:0 A:, 8 G:0 A:] V:5
+2010-12-04 02:15:25,470 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-04 02:15:28,946 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 02:53:58,036 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 108 A: [2, 2, 3, 3, 3] G: 3 V: 1
+2010-12-04 02:54:17,523 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 675 A: [3, 3, 3, 5, 5] G: 5 V: 1
+2010-12-04 03:52:38,858 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-04 03:52:48,052 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D1 C: 1
+2010-12-04 06:25:47,592 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 630 A: [2, 3, 3, 5, 7] G: 3 V: 1
+2010-12-04 06:25:56,073 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 270 A: [2, 3, 3, 3, 5] G: 39271025 V: 1
+2010-12-04 06:26:42,801 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:2 A:, 2 G:2 A:, 3 G:1 A:, 4 G:1 A:, 5 G:0 A:, 6 G:0 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-04 06:26:42,801 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-04 06:26:51,914 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-04 19:03:13,920 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 735 A: [3, 5, 7, 7] G: 5 V: 1
+2010-12-04 19:03:17,516 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task COMPLETE. Q: Provide all prime factors of 750 A: [2, 3, 5, 5, 5] G: 55555 V: 1
+2010-12-04 19:03:27,759 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 72 A: [2, 2, 2, 3, 3] G: 23 V: 1
+2010-12-04 19:03:33,588 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 490 A: [2, 5, 7, 7] G: 23223232 V: 1
+2010-12-04 19:04:03,020 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:1 A:, 2 G:1 A:, 3 G:0 A:, 4 G:1 A:, 5 G:0 A:, 6 G:3 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-04 19:04:03,020 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-05 18:55:43,088 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C3 C: 1
+2010-12-05 18:56:12,311 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:1 A:, 2 G:1 A:, 3 G:0 A:, 4 G:1 A:, 5 G:0 A:, 6 G:3 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-05 18:56:12,321 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-05 18:56:34,112 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-05 19:25:09,168 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 588 A: [2, 2, 3, 7, 7] G: 333 V: 1
+2010-12-05 20:36:36,503 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:1 A:, 1 G:0 A:, 2 G:1 A:, 3 G:1 A:, 4 G:4 A:, 5 G:1 A:, 6 G:3 A:, 7 G:1 A:, 8 G:2 A:] V:5
+2010-12-05 20:36:36,503 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-05 21:37:42,184 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:0 A:, 1 G:1 A:, 2 G:1 A:, 3 G:0 A:, 4 G:2 A:, 5 G:1 A:, 6 G:3 A:, 7 G:0 A:, 8 G:1 A:] V:5
+2010-12-05 21:37:42,184 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-05 21:38:06,549 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-05 21:38:17,095 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-05 21:58:04,492 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 147 A: [3, 7, 7] G: 1 V: 1
+2010-12-05 21:58:12,783 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 875 A: [5, 5, 5, 7] G: 875 V: 1
+2010-12-05 21:58:18,361 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 525 A: [3, 5, 5, 7] G: 5 V: 1
+2010-12-05 22:50:12,339 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 630 A: [2, 3, 3, 5, 7] G: 1 V: 1
+2010-12-05 22:50:35,342 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task COMPLETE. Q: Provide all prime factors of 210 A: [2, 3, 5, 7] G: 7352 V: 1
+2010-12-05 22:52:07,885 - umati.UmatiSurveyTaskWidget.LinearSurveyTask - INFO - Survey Submission: T:Basic R:[0 G:1 A:, 1 G:1 A:, 2 G:0 A:, 3 G:0 A:, 4 G:3 A:, 5 G:1 A:, 6 G:3 A:, 7 G:1 A:, 8 G:1 A:] V:5
+2010-12-05 22:52:07,885 - umati.UmatiSurveyTaskWidget.SurveyTaskGui - INFO - Survey Task COMPLETE. T: Basic V: 5
+2010-12-05 22:52:22,617 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B4 C: 1
+2010-12-05 22:52:42,766 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C2 C: 1
+2010-12-05 22:53:01,072 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D3 C: 1
+2010-12-05 22:53:48,480 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 350 A: [2, 5, 5, 7] G: 1 V: 1
+2010-12-05 22:53:53,137 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 280 A: [2, 2, 2, 5, 7] G: 2 V: 1
+2010-12-05 22:54:15,049 - umati.UmatiMathTaskWidget.MathTaskGui - INFO - Math Task FAILED. Q: Provide all prime factors of 210 A: [2, 3, 5, 7] G: 1237 V: 1
+2010-12-05 23:55:34,589 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C3 C: 1
+2010-12-05 23:55:39,026 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: C3 C: 1
+2010-12-05 23:55:46,135 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: D4 C: 1
+2010-12-06 19:59:30,960 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-06 20:52:35,009 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B2 C: 1
+2010-12-07 00:22:05,664 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
+2010-12-07 01:24:44,400 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B3 C: 1
+2010-12-07 01:24:47,062 - umati.UmatiVendWidget.VendGui - INFO - Vending Item COMPLETED. I: B1 C: 1
