@@ -4,7 +4,7 @@ from . import Util
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
-PRICE = 1
+PRICE = 5
 
 class VendGui(QtGui.QWidget):
 

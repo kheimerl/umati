@@ -85,7 +85,7 @@ class LinearSurveyTask:
 
 class RandomSurveyTask(LinearSurveyTask):
 
-    finish = 2
+    finish = 5
 
     def __init__(self, head):
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
