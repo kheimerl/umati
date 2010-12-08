@@ -6,7 +6,10 @@ import numpy
 import numpy.numarray as na
 import scipy.stats.morestats
 
-ans_dict = {}
+#from the actual file
+ans_dict = {1:2,
+            6:2,
+            15:0}
 
 class Question:
 
@@ -60,6 +63,13 @@ def parse_log(log):
 
     return res
 
+#here's where we transform the data as we see fit
+def transform(l, question):
+    if (question.ans != -1):
+        l.append(question.ans == question.guess)
+    else:
+        print (question)
+        
 if (len(sys.argv) < 2):
     print ("Provide log first, then 'n' then turk")
 else:
@@ -71,8 +81,18 @@ else:
             mode = "turk"
         else:
             if (mode == "turk"):
-                turk_res += parse_turk(x)
+                res_list = parse_turk(x)
+                for res in res_list:
+                    transform(turk_res, res)
             else:
-                log_res += parse_log(x)
+                res_list = parse_log(x)
+                for res in res_list:
+                    transform(log_res, res)
 
-    print(turk_res)
+    for item in [(turk_res,"Turk"),
+                 (log_res, "Log")]:
+        print ("Mode:%s Correct:%f Var:%f Total:%d" % (item[1], 
+                                                       numpy.mean(item[0]), 
+                                                       numpy.var(item[0]),
+                                                       len(item[0])))
+    print (scipy.stats.morestats.oneway(turk_res, log_res))
