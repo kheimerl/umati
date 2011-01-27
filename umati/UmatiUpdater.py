@@ -12,10 +12,9 @@ class Updater(threading.Thread):
 
     def run(self):
         while not self.__done:
-            pass
-            #x = sys.stdin.readline().strip()
-            #if (x != ""):
-             #   print(x)
+            x = sys.stdin.readline().strip()
+            if (x != ""):
+                print(x)
 
     def stop(self):
         self.__done = False
