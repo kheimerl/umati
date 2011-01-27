@@ -4,7 +4,7 @@ import sys
 import logging
 import getopt
 from PyQt4 import QtGui
-from umati import UmatiMainWindow, Util, UmatiUpdater
+from umati import UmatiController, Util
 
 opts, args = getopt.getopt(sys.argv[1:], 
                            "l:s:m:h", ["help", "logLevel=", "survey=", "math="])
@@ -40,12 +40,5 @@ logging.basicConfig(filename=Util.LOG_LOC,
                     level=log_level, 
                     format=Util.LOG_FORMAT)
 
-app = QtGui.QApplication(sys.argv)
-mw = UmatiMainWindow.MainWindow(surveyLoc = survey_conf, mathLoc = math_conf)
-
-mw.show()
-
-up = UmatiUpdater.Updater()
-up.start()
-
-sys.exit(app.exec_())
+uc = UmatiController.Controller(survey_conf, math_conf)
+uc.start()
