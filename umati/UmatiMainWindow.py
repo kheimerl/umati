@@ -3,8 +3,6 @@ import logging
 
 from . import UmatiChooserWidget
 from . import UmatiVendWidget
-from . import UmatiMathTaskWidget
-from . import UmatiSurveyTaskWidget
 
 WINDOW = None
 
@@ -27,17 +25,8 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.setupUi(self)
         
         #setup other parts
-        self.chooser = UmatiChooserWidget.ChooserGui(self, self.ui.BodyFrame)
+        self.chooser = UmatiChooserWidget.ChooserGui(self, mathLoc, surveyLoc, self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
-        if (mathLoc):
-            self.math_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, mathLoc, parent= self.ui.BodyFrame, method = "random")
-        else:
-            self.math_task = UmatiMathTaskWidget.MathTaskGui(self, parent= self.ui.BodyFrame)
-        if (surveyLoc):
-            self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, surveyLoc, parent=self.ui.BodyFrame, method="linear")
-        else:
-            self.survey_task = None
-
         #start with chooser visible
         self.setChooserVisible()
         
@@ -59,27 +48,12 @@ class MainWindow(QtGui.QMainWindow):
     def setChooserVisible(self):
         self.ui.resetButton.hide()
         self.ui.vendButton.show()
-        self.__setItemVisible(self.chooser, [self.vend, self.math_task,
-                                             self.survey_task])
+        self.__setItemVisible(self.chooser, [self.vend])
 
     def setVendVisible(self):
         self.ui.resetButton.show()
         self.ui.vendButton.hide()
-        self.__setItemVisible(self.vend, [self.chooser, self.math_task,
-                                          self.survey_task])
-
-    def setMathTaskVisible(self):
-        self.ui.resetButton.show()
-        self.ui.vendButton.show()
-        self.__setItemVisible(self.math_task, [self.chooser, self.vend,
-                                               self.survey_task])
-
-    def setSurveyTaskVisible(self):
-        if (self.survey_task):
-            self.ui.resetButton.show()
-            self.ui.vendButton.show()
-            self.__setItemVisible(self.survey_task, [self.chooser, self.vend,
-                                                     self.math_task])
+        self.__setItemVisible(self.vend, [self.chooser]) 
 
     def vendItem(self, value):
         if (self.ui.lcdNumber.intValue() >= value):
