@@ -4,7 +4,7 @@ import sys
 import logging
 import getopt
 from PyQt4 import QtGui
-from umati import UmatiMainWindow, Util
+from umati import UmatiMainWindow, Util, UmatiUpdater
 
 opts, args = getopt.getopt(sys.argv[1:], 
                            "l:s:m:h", ["help", "logLevel=", "survey=", "math="])
@@ -13,8 +13,8 @@ def usage():
     print ("The Umati Vending Machine User Interface")
     print ("-h | --help Show this message")
     print ("-l LOGLEVEL | --logLevel=[DEBUG|INFO|WARNING|ERROR|CRITICAL] Default is INFO")
-    print ("-s LOC | --survey=LOC")
-    print ("-m LOC | --math=LOC")
+    print ("-s LOC | --survey=LOC The location of the survey XML file")
+    print ("-m LOC | --math=LOC The location of the math XML file")
     exit(2)
 
 log_level = "INFO"
@@ -42,6 +42,10 @@ logging.basicConfig(filename=Util.LOG_LOC,
 
 app = QtGui.QApplication(sys.argv)
 mw = UmatiMainWindow.MainWindow(surveyLoc = survey_conf, mathLoc = math_conf)
+
 mw.show()
+
+up = UmatiUpdater.Updater()
+up.start()
 
 sys.exit(app.exec_())

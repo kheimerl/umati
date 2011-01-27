@@ -3,6 +3,7 @@ import logging
 
 from . import UmatiChooserWidget
 from . import UmatiVendWidget
+from . import UmatiSplashWidget
 
 WINDOW = None
 
@@ -27,8 +28,10 @@ class MainWindow(QtGui.QMainWindow):
         #setup other parts
         self.chooser = UmatiChooserWidget.ChooserGui(self, mathLoc, surveyLoc, self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
-        #start with chooser visible
-        self.setChooserVisible()
+        self.splash = UmatiSplashWidget.SplashGui(self, self.ui.BodyFrame)
+
+        #start with splash screen
+        self.setSplashVisible()
         
         self.ui.vendButton.clicked.connect(self.setVendVisible)
         self.ui.resetButton.clicked.connect(self.setChooserVisible)
@@ -46,14 +49,20 @@ class MainWindow(QtGui.QMainWindow):
             other.hide()
 
     def setChooserVisible(self):
+        self.ui.topFrame.show()
         self.ui.resetButton.hide()
         self.ui.vendButton.show()
-        self.__setItemVisible(self.chooser, [self.vend])
+        self.__setItemVisible(self.chooser, [self.vend, self.splash])
 
     def setVendVisible(self):
+        self.ui.topFrame.show()
         self.ui.resetButton.show()
         self.ui.vendButton.hide()
-        self.__setItemVisible(self.vend, [self.chooser]) 
+        self.__setItemVisible(self.vend, [self.chooser, self.splash]) 
+
+    def setSplashVisible(self):
+        self.ui.topFrame.hide()
+        self.__setItemVisible(self.splash, [self.vend, self.chooser])
 
     def vendItem(self, value):
         if (self.ui.lcdNumber.intValue() >= value):
