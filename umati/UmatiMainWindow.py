@@ -97,12 +97,6 @@ class MainWindow(QtGui.QMainWindow):
         else: #if no survey, go to chooser
             self.setChooserVisible()
 
-    def vendItem(self, value):
-        if (self.ui.lcdNumber.intValue() >= value):
-            self.ui.lcdNumber.display(self.ui.lcdNumber.intValue() - value)
-            return True
-        return False
-
     def getValue(self):
         return self.ui.lcdNumber.intValue()
 

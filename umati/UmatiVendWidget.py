@@ -4,8 +4,6 @@ from . import Util, UmatiWidget
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
-PRICE = 5
-
 class VendGui(UmatiWidget.Widget):
 
     def __init__(self, mainWin, parent=None):
@@ -14,7 +12,6 @@ class VendGui(UmatiWidget.Widget):
         self.mainWin = mainWin
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
-        self.set_prices()
         self.clear()
         
         #buttons
@@ -25,12 +22,6 @@ class VendGui(UmatiWidget.Widget):
         
         self.ui.pushButton_clear.clicked.connect(self.clear)
         self.ui.pushButton_vend.clicked.connect(self.vend)
-        
-    def set_prices(self):
-        self.prices = {}
-        for let  in ['A', 'B', 'C', 'D', 'E', 'F']:
-            for num in list(map(str, range(1,11))):
-                self.prices[let+num] = PRICE
 
     def update(self, val):
         if ((len(self.val) == 0 and val.isupper()) or 
@@ -46,14 +37,9 @@ class VendGui(UmatiWidget.Widget):
 
     def vend(self):
         if (len(self.val) in [2,3]):
-            price = self.prices[self.val]
-            if (price <= self.mainWin.getValue()):
-                self.log.info("Vending Item COMPLETED. I: %s C: %d" % 
-                              (self.val, price))
-                self.mainWin.vendItem(price)
-                Util.sendVendCmd(self.val)
+            if (self.controller.vendItem(self.val)):
+                self.log.info("Vending Item COMPLETED. I: %s" % self.val)
             else:
-                self.log.info("Vending Item FAILED. I: %s C: %d" % 
-                              (self.val, price))
+                self.log.info("Vending Item FAILED. I: %s" % self.val)
 
             self.clear()
