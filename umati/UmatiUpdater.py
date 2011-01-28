@@ -1,7 +1,11 @@
 import threading
 import sys
 import time
-from SimpleXMLRPCServer import SimpleXMLRPCServer
+#python3 nonsense
+try: 
+    from SimpleXMLRPCServer import SimpleXMLRPCServer
+except ImportError:
+    from xmlrpc.server import SimpleXMLRPCServer
 
 #countdown thread, resets machine when finished
 class Countdown(threading.Thread):
@@ -97,7 +101,10 @@ if __name__ == '__main__':
     if (up == "Basic"):
         print ("No Tests for Basic")
     elif (up == "Network"):
-        import xmlrpclib
-        s = xmlrpclib.ServerProxy("http://localhost:" + str(NetworkUpdater.PORT))
+        try:
+            import xmlrpclib as xmlclient
+        except ImportError:
+            import xmlrpc.client as xmlclient
+        s = xmlclient.ServerProxy("http://localhost:" + str(NetworkUpdater.PORT))
         s.connect(command)
         print ("test complete")
