@@ -1,25 +1,54 @@
 import threading
 import sys
+import time
 from SimpleXMLRPCServer import SimpleXMLRPCServer
 
-class BasicUpdater(threading.Thread):
+class Countdown(threading.Thread):
 
     COUNTDOWN = 5 * 60
+
+    def __init__(self, parent):
+        threading.Thread.__init__(self)
+        self.daemon = True
+        self.done = False
+        self.tm = Countdown.COUNTDOWN
+        self.parent = parent
+
+    def run(self):
+        while not self.done:
+            while (self.tm > 0):
+                self.tm -= 1
+                print (self.tm)
+                time.sleep(1)
+            self.parent.timeout()
+            self.reset()
+
+    def reset(self):
+        self.tm = Countdown.COUNTDOWN
+
+    def stop(self):
+        self.done = True
+
+class BasicUpdater(threading.Thread):
 
     def __init__(self, cont):
         threading.Thread.__init__(self)
         self.done = False
         self.daemon = True
         self.cont = cont
+        self.cd = Countdown(self)
 
     def run(self):
-        raise Error("not implemented")
+        self.cd.start()
+
+    def timeout(self):
+        self.cont.timeout()
 
     def stop(self):
         self.done = False
         
     def reset_countdown(self):
-        self.timeleft = BasicUpdater.COUNTDOWN
+        self.cd.reset()
 
 class NetworkUpdater(BasicUpdater):
     
@@ -31,6 +60,7 @@ class NetworkUpdater(BasicUpdater):
         self.server.register_function(self.connect)
         
     def run(self):
+        BasicUpdater.run(self)
         self.server.serve_forever()
             
     def connect(self, client):
