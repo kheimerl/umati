@@ -4,6 +4,9 @@ import random, logging
 
 class MathTask:
 
+    def __init__(self):
+        self.task_type = "Math"
+
     def get_ans(self):
         return str(self.ans)
 
@@ -20,6 +23,7 @@ class AdditionTask(MathTask):
 
     #generate random math question
     def __init__(self):
+        MathTask.__init__(self)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.AdditionTask")
         #just addition for now
         x = random.randint(0,AdditionTask.MAX_VAR)
@@ -52,6 +56,7 @@ class PrimeFactorTask(MathTask):
     TASK_VAL = 1
 
     def __init__(self):
+        MathTask.__init__(self)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.PrimeFactorTask")
         self.ans = []
         res = 1

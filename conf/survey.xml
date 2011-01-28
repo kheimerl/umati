@@ -1,4 +1,4 @@
-<survey type="Basic" value="5">
+<survey type="preliminary" value="5">
   <question text="What gender do you identify with?" id="0">
     <answer text="Male"/>
     <answer text="Female"/>

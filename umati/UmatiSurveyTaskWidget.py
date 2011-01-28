@@ -49,6 +49,7 @@ class LinearSurveyTask:
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
         self.value = int(head.getAttribute("value"))
         self.type = head.getAttribute("type")
+        self.task_type = "Survey"
         self.index = -1
         self.qs = []
         for q in head.getElementsByTagName("question"):
@@ -81,7 +82,7 @@ class LinearSurveyTask:
             self.qs[self.index].set_answer(ans)
 
     def get_info(self):
-        return "Please only ONE survey per person"
+        return None
 
 class RandomSurveyTask(LinearSurveyTask):
 

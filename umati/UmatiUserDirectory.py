@@ -26,3 +26,7 @@ class UserDirectory:
 
     def update_user(self, user):
         self.db[user.tag] = user
+
+    def changed(self):
+        p = pickle.Pickler(open(UserDirectory.FILE_LOC, 'wb'))
+        p.dump(self.db)
