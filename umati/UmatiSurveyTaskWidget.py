@@ -183,4 +183,4 @@ class SurveyTaskGui(UmatiWidget.Widget):
         if (q):
             self.setButtons(q)
         else: #too far back
-            self.mainWin.setChooserVisible()
+            pass

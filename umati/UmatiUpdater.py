@@ -1,4 +1,4 @@
-import threading
+from PyQt4.Qt import QThread
 import sys
 import time
 #python3 nonsense
@@ -8,12 +8,12 @@ except ImportError:
     from xmlrpc.server import SimpleXMLRPCServer
 
 #countdown thread, resets machine when finished
-class Countdown(threading.Thread):
+class Countdown(QThread):
 
     COUNTDOWN = 5 * 60
 
     def __init__(self, parent):
-        threading.Thread.__init__(self)
+        QThread.__init__(self)
         self.daemon = True
         self.done = False
         self.tm = Countdown.COUNTDOWN
@@ -34,10 +34,10 @@ class Countdown(threading.Thread):
         self.done = True
 
 #catches actions and hands them to the UI
-class BasicUpdater(threading.Thread):
+class BasicUpdater(QThread):
 
     def __init__(self, cont):
-        threading.Thread.__init__(self)
+        QThread.__init__(self)
         self.done = False
         self.daemon = True
         self.cont = cont
