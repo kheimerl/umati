@@ -24,7 +24,7 @@ class MainWindow(QtGui.QMainWindow):
         self.log = logging.getLogger("umati.UmatiMainWindow.MainWindow")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
-        
+
         #setup other parts
         self.chooser = UmatiChooserWidget.ChooserGui(self, mathLoc, surveyLoc, self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, self.ui.BodyFrame)
@@ -50,7 +50,7 @@ class MainWindow(QtGui.QMainWindow):
 
     def setChooserVisible(self):
         self.ui.topFrame.show()
-        self.ui.resetButton.hide()
+        self.ui.resetButton.show()
         self.ui.vendButton.show()
         self.__setItemVisible(self.chooser, [self.vend, self.splash])
 

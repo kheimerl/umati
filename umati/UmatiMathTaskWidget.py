@@ -1,5 +1,5 @@
-from PyQt4 import QtGui, QtCore, uic
-from . import UmatiMessageDialog, Util
+from PyQt4 import QtCore, uic
+from . import UmatiMessageDialog, UmatiWidget
 import random, logging
 
 class MathTask:
@@ -83,14 +83,13 @@ class PrimeFactorTask(MathTask):
 
 UI_FILE = 'umati/UmatiMathTaskView.ui'
 
-class MathTaskGui(QtGui.QWidget):
+class MathTaskGui(UmatiWidget.Widget):
 
     def __init__(self, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+        UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.MathTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
-        self.controller = Util.getUmatiController()
         
         for i in range(0,10):
             b = self.ui.__getattribute__('pushButton_' + str(i))
@@ -104,7 +103,7 @@ class MathTaskGui(QtGui.QWidget):
 
     def show(self):
         self.reset()
-        QtGui.QWidget.show(self)
+        UmatiWidget.Widget.show(self)
 
     def updateNumber(self, b):
         res = self.ui.numberField.intValue()*10 + b

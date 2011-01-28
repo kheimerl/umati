@@ -1,16 +1,17 @@
-from PyQt4 import QtGui, QtCore, uic
+from PyQt4 import uic
 import logging
 
 from . import UmatiMathTaskWidget
 from . import UmatiSurveyTaskWidget
+from . import UmatiWidget
 
 
 UI_FILE = 'umati/UmatiChooserView.ui'
 
-class ChooserGui(QtGui.QWidget):
+class ChooserGui(UmatiWidget.Widget):
 
     def __init__(self, mainWin, mathLoc, surveyLoc, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+        UmatiWidget.Widget.__init__(self, parent)
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.mainWin = mainWin
@@ -30,21 +31,21 @@ class ChooserGui(QtGui.QWidget):
 
     def mathVisible(self):
         self.survey_task.hide()
-        QtGui.QWidget.hide(self)
+        UmatiWidget.Widget.hide(self)
         self.math_task.show()
         
     def surveyVisible(self):
         self.math_task.hide()
-        QtGui.QWidget.hide(self)
+        UmatiWidget.Widget.hide(self)
         self.survey_task.show()
 
     def hide(self):
         self.math_task.hide()
         self.survey_task.hide()
-        QtGui.QWidget.hide(self)
+        UmatiWidget.Widget.hide(self)
 
     def show(self):
         self.math_task.hide()
         self.survey_task.hide()
-        QtGui.QWidget.show(self)
+        UmatiWidget.Widget.show(self)
 

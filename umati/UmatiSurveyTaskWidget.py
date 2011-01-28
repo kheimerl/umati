@@ -1,6 +1,6 @@
 from PyQt4 import QtGui, uic
 import logging, xml.dom.minidom, random, re
-from . import UmatiMessageDialog, Util
+from . import UmatiMessageDialog, UmatiWidget
 
 class Question:
     
@@ -100,17 +100,16 @@ class RandomSurveyTask(LinearSurveyTask):
         
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
-class SurveyTaskGui(QtGui.QWidget):
+class SurveyTaskGui(UmatiWidget.Widget):
 
     def __init__(self, surveyLoc, parent=None, method="linear"):
-        QtGui.QWidget.__init__(self, parent)
+        UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
         self.surveyLoc = surveyLoc
         self.method = method
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.ui.questionBox.setReadOnly(True)
-        self.controller = Util.getUmatiController()
 
         #little hack here, we insert a fake radio button
         #to deal with qt not allowing there to be none selected sometimes
@@ -128,7 +127,7 @@ class SurveyTaskGui(QtGui.QWidget):
         message = self.cur_task.get_info()
         if (message):
             UmatiMessageDialog.information(self, message)
-        QtGui.QWidget.show(self)
+        UmatiWidget.Widget.show(self)
 
     def setButtons(self, q):
         self.ui.questionBox.clear()
@@ -172,7 +171,7 @@ class SurveyTaskGui(QtGui.QWidget):
             if (self.cur_task.submit()):
                 self.log.info("Survey Task COMPLETE. T: %s V: %d" %
                               (self.cur_task.type, self.cur_task.value))
-                self.controller.task_completed(self.cur_task, self.cur_task.value, reset=True)
+                self.controller.task_completed(self.cur_task, self.cur_task.value)
             else:
                 UmatiMessageDialog.information(self, "Please Complete All Questions!")
                 self.back()

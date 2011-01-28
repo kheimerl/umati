@@ -15,10 +15,10 @@ class Controller():
             built = True
         Util.setUmatiController(self)
         self.app = QtGui.QApplication(sys.argv)
+        self.up = UmatiUpdater.NetworkUpdater(self)
         self.mw = UmatiMainWindow.MainWindow(surveyLoc = surveyLoc, mathLoc = mathLoc)
 
         #this will be config set one day
-        self.up = UmatiUpdater.NetworkUpdater(self)
 
     def start(self):
         self.mw.show()

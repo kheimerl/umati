@@ -1,15 +1,15 @@
-from PyQt4 import QtGui, uic
+from PyQt4 import uic
 import logging
-from . import Util
+from . import Util, UmatiWidget
 
 UI_FILE = 'umati/UmatiVendView.ui'
 
 PRICE = 5
 
-class VendGui(QtGui.QWidget):
+class VendGui(UmatiWidget.Widget):
 
     def __init__(self, mainWin, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+        UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiVendWidget.VendGui")
         self.mainWin = mainWin
         self.ui = uic.loadUiType(UI_FILE)[0]()
