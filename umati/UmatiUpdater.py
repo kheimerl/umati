@@ -3,6 +3,7 @@ import sys
 import time
 from SimpleXMLRPCServer import SimpleXMLRPCServer
 
+#countdown thread, resets machine when finished
 class Countdown(threading.Thread):
 
     COUNTDOWN = 5 * 60
@@ -18,7 +19,6 @@ class Countdown(threading.Thread):
         while not self.done:
             while (self.tm > 0):
                 self.tm -= 1
-                print (self.tm)
                 time.sleep(1)
             self.parent.timeout()
             self.reset()
@@ -29,6 +29,7 @@ class Countdown(threading.Thread):
     def stop(self):
         self.done = True
 
+#catches actions and hands them to the UI
 class BasicUpdater(threading.Thread):
 
     def __init__(self, cont):
