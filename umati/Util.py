@@ -35,3 +35,13 @@ def sendVendCmd(cmd):
         cmd = cmd.lower().encode('ascii')
         ser.write(cmd)
 
+control = None
+
+#this is an unenforced singleton
+def getUmatiController():
+    global control
+    return control
+
+def setUmatiController(controller):
+    global control
+    control = controller

@@ -1,5 +1,5 @@
 from PyQt4 import QtGui, QtCore, uic
-from . import UmatiMessageDialog
+from . import UmatiMessageDialog, Util
 import random, logging
 
 class MathTask:
@@ -85,12 +85,12 @@ UI_FILE = 'umati/UmatiMathTaskView.ui'
 
 class MathTaskGui(QtGui.QWidget):
 
-    def __init__(self, mainWin, parent=None):
+    def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.MathTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
-        self.mainWin = mainWin
+        self.controller = Util.getUmatiController()
         
         for i in range(0,10):
             b = self.ui.__getattribute__('pushButton_' + str(i))
@@ -125,7 +125,7 @@ class MathTaskGui(QtGui.QWidget):
                 self.log.info("Math Task COMPLETE. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(), 
                                res, val))
-                self.mainWin.taskCompleted(val)
+                self.controller.task_completed(self.curTask, val, reset=False)
             else:
                 self.log.info("Math Task FAILED. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(),

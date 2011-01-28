@@ -17,14 +17,13 @@ class ChooserGui(QtGui.QWidget):
         self.log = logging.getLogger("umati.UmatiChooserWidget.ChooserGui")
 
         if (mathLoc):
-            self.math_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, mathLoc, parent = parent, method = "random")
+            self.math_task = UmatiSurveyTaskWidget.SurveyTaskGui(mathLoc, parent = parent, method = "random")
         else:
-            self.math_task = UmatiMathTaskWidget.MathTaskGui(self, parent= parent)
+            self.math_task = UmatiMathTaskWidget.MathTaskGui(parent= parent)
         if (surveyLoc):
-            self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(self, surveyLoc, parent = parent, method="linear")
+            self.survey_task = UmatiSurveyTaskWidget.SurveyTaskGui(surveyLoc, parent = parent, method="linear")
         else:
             self.survey_task = None
-
         
         self.ui.mathButton.clicked.connect(self.mathVisible)
         self.ui.surveyButton.clicked.connect(self.surveyVisible)

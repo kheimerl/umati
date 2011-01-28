@@ -6,10 +6,11 @@ class BasicUpdater(threading.Thread):
 
     COUNTDOWN = 5 * 60
 
-    def __init__(self):
+    def __init__(self, cont):
         threading.Thread.__init__(self)
         self.done = False
         self.daemon = True
+        self.cont = cont
 
     def run(self):
         raise Error("not implemented")
@@ -24,8 +25,8 @@ class NetworkUpdater(BasicUpdater):
     
     PORT = 9090
 
-    def __init__(self):
-        BasicUpdater.__init__(self)
+    def __init__(self, cont):
+        BasicUpdater.__init__(self, cont)
         self.server = SimpleXMLRPCServer(("localhost", NetworkUpdater.PORT))
         self.server.register_function(self.connect)
         
@@ -33,7 +34,7 @@ class NetworkUpdater(BasicUpdater):
         self.server.serve_forever()
             
     def connect(self, client):
-        print (client)
+        self.cont.new_connection(client)
         return True
 
 #unit tests
