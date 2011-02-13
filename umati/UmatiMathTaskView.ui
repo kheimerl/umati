@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
-    <height>631</height>
+    <width>481</width>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,9 +20,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>230</y>
-     <width>461</width>
-     <height>391</height>
+     <y>300</y>
+     <width>481</width>
+     <height>411</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -270,8 +270,8 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>110</y>
-     <width>331</width>
+     <y>190</y>
+     <width>351</width>
      <height>111</height>
     </rect>
    </property>
@@ -284,8 +284,8 @@
     <rect>
      <x>1</x>
      <y>9</y>
-     <width>461</width>
-     <height>91</height>
+     <width>481</width>
+     <height>171</height>
     </rect>
    </property>
    <property name="font">
@@ -307,7 +307,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>110</y>
+     <y>190</y>
      <width>131</width>
      <height>111</height>
     </rect>
@@ -327,11 +327,6 @@
     <string>Clear</string>
    </property>
   </widget>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>numberField</zorder>
-  <zorder>questionBox</zorder>
-  <zorder>pushButton_submit</zorder>
-  <zorder>pushButton_clear</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
-    <height>631</height>
+    <width>481</width>
+    <height>711</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>560</y>
-     <width>461</width>
+     <y>640</y>
+     <width>481</width>
      <height>71</height>
     </rect>
    </property>
@@ -64,10 +64,10 @@
   <widget class="QWidget" name="gridLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>2</x>
-     <y>190</y>
-     <width>452</width>
-     <height>371</height>
+     <x>0</x>
+     <y>260</y>
+     <width>481</width>
+     <height>376</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout_2">
@@ -271,10 +271,10 @@
   <widget class="QTextEdit" name="questionBox">
    <property name="geometry">
     <rect>
-     <x>5</x>
+     <x>-5</x>
      <y>10</y>
-     <width>451</width>
-     <height>181</height>
+     <width>491</width>
+     <height>251</height>
     </rect>
    </property>
    <property name="font">

@@ -36,7 +36,8 @@ class MainWindow(QtGui.QMainWindow):
             self.survey = None
 
         self.ui.vendButton.clicked.connect(self.setVendVisible)
-        self.ui.resetButton.clicked.connect(self.setChooserVisible)
+        self.ui.resetButton.clicked.connect(self.setSplashVisible)
+        self.ui.taskButton.clicked.connect(self.setChooserVisible)
         self.ui.full_screen.clicked.connect(self.fullScreen)
 
         #qt ugliness, we keep it here
