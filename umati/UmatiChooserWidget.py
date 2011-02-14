@@ -21,6 +21,16 @@ class ChooserGui(UmatiWidget.Widget):
                 taskgui = mod.TaskGui(task, parent=parent)
                 taskgui.hide()
                 b = QtGui.QPushButton(task.getAttribute("name"))
+                #shits super annoying
+                x = b.sizePolicy()
+                x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)
+                b.setSizePolicy(x)
+                #again again
+                x = b.font()
+                x.setPointSize(30)
+                b.setFont(x)
+                #and that ugliness is done
+                
                 b.clicked.connect(partial(self.select_task, len(self.tasks)))
                 self.ui.layout.insertWidget(0, b)
                 self.tasks.append(taskgui)
