@@ -1,6 +1,7 @@
 <umati>
   <prelim_tasks>
     <task name="Intro" class="UmatiSurveyTaskWidget">
+      <!-- this is ugly for now: put them in prelim bucket and add prelim type -->
       <survey value="5" mode="linear" type="preliminary">
 	
 	<question text="What gender do you identify with?" id="0">
