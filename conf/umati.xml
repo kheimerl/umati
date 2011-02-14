@@ -1,4 +1,6 @@
 <umati>
+  <splash text="Scan your card to start getting snacks!!"/>
+  <vend />
   <prelim_tasks>
     <task name="Intro" class="UmatiSurveyTaskWidget">
       <!-- this is ugly for now: put them in prelim bucket and add prelim type -->

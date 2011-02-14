@@ -6,7 +6,7 @@ UI_FILE = 'umati/UmatiVendView.ui'
 
 class VendGui(UmatiWidget.Widget):
 
-    def __init__(self, mainWin, parent=None):
+    def __init__(self, conf, mainWin, parent=None):
         UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiVendWidget.VendGui")
         self.mainWin = mainWin

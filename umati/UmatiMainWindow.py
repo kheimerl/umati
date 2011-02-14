@@ -28,8 +28,10 @@ class MainWindow(QtGui.QMainWindow):
         #setup other parts
         self.chooser = UmatiChooserWidget.ChooserGui(conf.getElementsByTagName("main_tasks"), 
                                                      parent = self.ui.BodyFrame)
-        self.vend = UmatiVendWidget.VendGui(self, parent = self.ui.BodyFrame)
-        self.splash = UmatiSplashWidget.SplashGui(self, parent = self.ui.BodyFrame)
+        self.vend = UmatiVendWidget.VendGui(conf.getElementsByTagName("vending"), 
+                                            self, parent = self.ui.BodyFrame)
+        self.splash = UmatiSplashWidget.SplashGui(conf.getElementsByTagName("splash"), 
+                                                  self, parent = self.ui.BodyFrame)
         prelim_tasks = conf.getElementsByTagName("prelim_tasks")
         if (len(prelim_tasks) > 0):
             self.prelim = UmatiChooserWidget.ChooserGui(prelim_tasks, 
