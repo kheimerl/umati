@@ -2,30 +2,31 @@ from . import UmatiMainWindow, Util, UmatiUpdater, UmatiUserDirectory
 from PyQt4 import QtGui, QtCore
 import sys, logging
 
-built = False
+module_built = False
 
 PRICE = 5
 
 class Controller(QtCore.QObject):
 
-    def __init__(self, surveyLoc, mathLoc):
-        global built
+    def __init__(self, conf):
+        global module_built
         QtCore.QObject.__init__(self)
         #enforcing singleton
-        if (built):
+        if (module_built):
             raise Exception("Attempted to instantiate multiple umati controllers")
         else:
-            built = True
+            module_built = True
         self.log = logging.getLogger("umati.UmatiController.Controller")
         Util.setUmatiController(self)
         self.app = QtGui.QApplication(sys.argv)
         self.up = UmatiUpdater.NetworkUpdater(self)
-        self.mw = UmatiMainWindow.MainWindow(surveyLoc = surveyLoc, mathLoc = mathLoc)
+        self.mw = UmatiMainWindow.MainWindow(conf)
         self.db = UmatiUserDirectory.UserDirectory()
 
         #this will be moved to it's own class
         self.set_prices()
 
+    #from conf eventually
     def set_prices(self):
         self.prices = {}
         for let  in ['A', 'B', 'C', 'D', 'E', 'F']:
@@ -39,8 +40,8 @@ class Controller(QtCore.QObject):
 
     def __update_user(self, task, value):
         self.user.credits += value
-        if (task and task.task_type == "Survey" and task.type == "preliminary"):
-            self.user.surveyed = True
+        if (task and task.type == "preliminary"):
+            self.user.init_done = True
         self.db.changed()
         self.mw.setCredits(self.user.credits)
 
@@ -63,10 +64,10 @@ class Controller(QtCore.QObject):
         #here we check if the tag is new or not, eventually
         self.user = self.db.get_user(tag)
         self.mw.setCredits(self.user.credits)
-        if (self.user.surveyed):
+        if (self.user.init_done):
             self.mw.setChooserVisible()
         else:
-            self.mw.setSurveyVisible()
+            self.mw.setPrelimVisible()
         
     def timeout(self):
         self.user = None

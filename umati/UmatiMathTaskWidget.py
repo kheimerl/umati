@@ -1,10 +1,11 @@
 from PyQt4 import QtCore, uic
-from . import UmatiMessageDialog, UmatiWidget
+from . import UmatiMessageDialog, UmatiWidget, UmatiTask
 import random, logging
 
-class MathTask:
+class MathTask(UmatiTask.Task):
 
     def __init__(self):
+        UmatiTask.Task.__init__(self)
         self.task_type = "Math"
 
     def get_ans(self):
@@ -25,6 +26,7 @@ class AdditionTask(MathTask):
     def __init__(self):
         MathTask.__init__(self)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.AdditionTask")
+        self.task_type = "Addition Math Task"
         #just addition for now
         x = random.randint(0,AdditionTask.MAX_VAR)
         y = random.randint(0,AdditionTask.MAX_VAR)
@@ -58,6 +60,7 @@ class PrimeFactorTask(MathTask):
     def __init__(self):
         MathTask.__init__(self)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.PrimeFactorTask")
+        self.task_type = "Prime Factor Task"
         self.ans = []
         res = 1
         for i in range(0,PrimeFactorTask.MAX_FACTORS):
@@ -88,9 +91,9 @@ class PrimeFactorTask(MathTask):
 
 UI_FILE = 'umati/UmatiMathTaskView.ui'
 
-class MathTaskGui(UmatiWidget.Widget):
+class TaskGui(UmatiWidget.Widget):
 
-    def __init__(self, parent=None):
+    def __init__(self, conf, parent=None):
         UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.MathTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()

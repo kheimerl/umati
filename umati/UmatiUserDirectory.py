@@ -6,7 +6,7 @@ class User:
     def __init__(self, tag, creds):
         self.tag = tag
         self.credits = creds
-        self.surveyed = False
+        self.init_done = False
 
 class UserDirectory:
 

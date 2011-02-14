@@ -1,6 +1,6 @@
 from PyQt4 import QtGui, uic
 import logging, xml.dom.minidom, random, re
-from . import UmatiMessageDialog, UmatiWidget
+from . import UmatiMessageDialog, UmatiWidget, UmatiTask
 
 class Question:
     
@@ -43,9 +43,10 @@ class Question:
     def __repr__(self):
         return str(self.id + " G:" + str(self.ans) + " A:" + str(self.right))
 
-class LinearSurveyTask:
+class LinearSurveyTask(UmatiTask.Task):
 
     def __init__(self, head):
+        UmatiTask.Task.__init__(self)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
         self.value = int(head.getAttribute("value"))
         self.type = head.getAttribute("type")
@@ -101,13 +102,12 @@ class RandomSurveyTask(LinearSurveyTask):
         
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
-class SurveyTaskGui(UmatiWidget.Widget):
+class TaskGui(UmatiWidget.Widget):
 
-    def __init__(self, surveyLoc, parent=None, method="linear"):
+    def __init__(self, conf, parent=None):
         UmatiWidget.Widget.__init__(self, parent)
-        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.SurveyTaskGui")
-        self.surveyLoc = surveyLoc
-        self.method = method
+        self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.TaskGui")
+        self.conf = conf.getElementsByTagName("survey")[0]
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.ui.questionBox.setReadOnly(True)
@@ -156,10 +156,10 @@ class SurveyTaskGui(UmatiWidget.Widget):
         return -1
 
     def reset(self):
-        if (self.method == "linear"):
-            self.cur_task = LinearSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
-        if (self.method == "random"):
-            self.cur_task = RandomSurveyTask(xml.dom.minidom.parse(self.surveyLoc).firstChild)
+        if (self.conf.getAttribute("mode") == "linear"):
+            self.cur_task = LinearSurveyTask(self.conf)
+        else: #default to this
+            self.cur_task = RandomSurveyTask(self.conf)
         self.setButtons(self.cur_task.next())
     
     def next(self):

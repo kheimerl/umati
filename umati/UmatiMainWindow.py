@@ -4,7 +4,6 @@ import logging
 from . import UmatiChooserWidget
 from . import UmatiVendWidget
 from . import UmatiSplashWidget
-from . import UmatiSurveyTaskWidget
 
 WINDOW = None
 
@@ -19,7 +18,7 @@ UI_FILE = 'umati/UmatiMainView.ui'
 
 class MainWindow(QtGui.QMainWindow):
     
-    def __init__(self, surveyLoc = None, mathLoc = None):
+    def __init__(self, conf):
         global WINDOW
         QtGui.QMainWindow.__init__(self)
         self.log = logging.getLogger("umati.UmatiMainWindow.MainWindow")
@@ -27,13 +26,16 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.setupUi(self)
 
         #setup other parts
-        self.chooser = UmatiChooserWidget.ChooserGui(mathLoc, parent = self.ui.BodyFrame)
+        self.chooser = UmatiChooserWidget.ChooserGui(conf.getElementsByTagName("main_tasks"), 
+                                                     parent = self.ui.BodyFrame)
         self.vend = UmatiVendWidget.VendGui(self, parent = self.ui.BodyFrame)
         self.splash = UmatiSplashWidget.SplashGui(self, parent = self.ui.BodyFrame)
-        if (surveyLoc):
-            self.survey = UmatiSurveyTaskWidget.SurveyTaskGui(surveyLoc, method="linear", parent=self.ui.BodyFrame)
+        prelim_tasks = conf.getElementsByTagName("prelim_tasks")
+        if (len(prelim_tasks) > 0):
+            self.prelim = UmatiChooserWidget.ChooserGui(prelim_tasks, 
+                                                        parent = self.ui.BodyFrame)
         else:
-            self.survey = None
+            self.prelim = None
 
         self.ui.vendButton.clicked.connect(self.setVendVisible)
         self.ui.resetButton.clicked.connect(self.setSplashVisible)
@@ -45,7 +47,7 @@ class MainWindow(QtGui.QMainWindow):
         self.connect(self, QtCore.SIGNAL('vend_vis'), self.__setVendVisible)
         self.connect(self, QtCore.SIGNAL('chooser_vis'), self.__setChooserVisible)
         self.connect(self, QtCore.SIGNAL('splash_vis'), self.__setSplashVisible)
-        self.connect(self, QtCore.SIGNAL('survey_vis'), self.__setSurveyVisible)
+        self.connect(self, QtCore.SIGNAL('prelim_vis'), self.__setPrelimVisible)
         self.connect(self, QtCore.SIGNAL('set_credits'), self.__setCredits)
 
         self.setSplashVisible()
@@ -68,7 +70,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.topFrame.show()
         self.ui.resetButton.show()
         self.ui.vendButton.show()
-        self.__setItemVisible(self.chooser, [self.vend, self.splash, self.survey])
+        self.__setItemVisible(self.chooser, [self.vend, self.splash, self.prelim])
 
     def setVendVisible(self):
         self.emit(QtCore.SIGNAL('vend_vis'))
@@ -77,25 +79,25 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.topFrame.show()
         self.ui.resetButton.show()
         self.ui.vendButton.hide()
-        self.__setItemVisible(self.vend, [self.chooser, self.splash, self.survey]) 
+        self.__setItemVisible(self.vend, [self.chooser, self.splash, self.prelim]) 
 
     def setSplashVisible(self):
         self.emit(QtCore.SIGNAL('splash_vis'))
 
     def __setSplashVisible(self):
         self.ui.topFrame.hide()
-        self.__setItemVisible(self.splash, [self.vend, self.chooser, self.survey])
+        self.__setItemVisible(self.splash, [self.vend, self.chooser, self.prelim])
 
-    def setSurveyVisible(self):
-        self.emit(QtCore.SIGNAL('survey_vis'))
+    def setPrelimVisible(self):
+        self.emit(QtCore.SIGNAL('prelim_vis'))
 
-    def __setSurveyVisible(self):
-        if (self.survey):
+    def __setPrelimVisible(self):
+        if (self.prelim):
             self.ui.topFrame.show()
             self.ui.resetButton.show()
             self.ui.vendButton.hide()
-            self.__setItemVisible(self.survey, [self.chooser, self.splash, self.vend]) 
-        else: #if no survey, go to chooser
+            self.__setItemVisible(self.prelim, [self.chooser, self.splash, self.vend]) 
+        else: #if no prelim tasks, go to chooser
             self.setChooserVisible()
 
     def getValue(self):

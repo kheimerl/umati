@@ -3,6 +3,7 @@
 import sys
 import logging
 import getopt
+import xml.dom.minidom
 from PyQt4 import QtGui
 from umati import UmatiController, Util
 
@@ -13,21 +14,17 @@ def usage():
     print ("The Umati Vending Machine User Interface")
     print ("-h | --help Show this message")
     print ("-l LOGLEVEL | --logLevel=[DEBUG|INFO|WARNING|ERROR|CRITICAL] Default is INFO")
-    print ("-s LOC | --survey=LOC The location of the survey XML file")
-    print ("-m LOC | --math=LOC The location of the math XML file")
+    print ("-c CONF | --conf=Conf File location")
     exit(2)
 
 log_level = "INFO"
-survey_conf = "conf/survey.xml"
-math_conf = None
+conf = "conf/umati.xml"
 
 for o,a in opts:
     if o in ("-l", "--logLevel="):
         log_level = a
-    elif o in ("-s", "--survey="):
-        survey_conf = a
-    elif o in ("-m", "--math="):
-        math_conf = a
+    elif o in ("-c", "--conf="):
+        conf = a
     else:
         usage()
 
@@ -40,5 +37,13 @@ logging.basicConfig(filename=Util.LOG_LOC,
                     level=log_level, 
                     format=Util.LOG_FORMAT)
 
-uc = UmatiController.Controller(survey_conf, math_conf)
+try:
+    conf = xml.dom.minidom.parse(conf)
+except xml.parsers.expat.ExpatError as e:
+    print ("XML File Malformed")
+    print (e)
+    usage()
+    sys.exit(1)
+
+uc = UmatiController.Controller(conf)
 uc.start()
