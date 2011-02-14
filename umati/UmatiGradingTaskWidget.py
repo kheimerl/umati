@@ -6,7 +6,7 @@ from . import UmatiWidget
 
 UI_FILE = 'umati/UmatiGradingTaskView.ui'
 
-class GradingGui(UmatiWidget.Widget):
+class TaskGui(UmatiWidget.Widget):
 
     def __init__(self, conf, parent=None):
         UmatiWidget.Widget.__init__(self, parent)
