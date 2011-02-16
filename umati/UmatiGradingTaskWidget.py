@@ -1,5 +1,6 @@
-from PyQt4 import uic, QtGui
+from PyQt4 import uic, QtGui, QtCore
 import logging, random
+from functools import partial
 
 from . import UmatiWidget
 
@@ -33,14 +34,22 @@ class TaskGui(UmatiWidget.Widget):
         self.ui.slider.valueChanged.connect(self.__updateGrade)
         
     def __setupTextFields(self):
-        self.questionField = QtGui.QTextBrowser(parent=self.ui.mainArea)
-        self.goldField = QtGui.QTextBrowser(parent=self.ui.mainArea)    
-        self.studentField = QtGui.QTextBrowser(parent=self.ui.mainArea)
-        self.ui.mainArea.addSubWindow(self.studentField)
-        self.ui.mainArea.addSubWindow(self.goldField)
-        self.ui.mainArea.addSubWindow(self.questionField)
+        for (field, but) in [("questionField", self.ui.questButton),
+                             ("goldField", self.ui.profButton),
+                             ("studentField", self.ui.studentButton)]:
+            self.__dict__[field] = QtGui.QTextBrowser(parent=self.ui.mainArea)
+            window = self.ui.mainArea.addSubWindow(self.__dict__[field])
+            window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+            but.clicked.connect(partial(self.__switchField, window))
         self.ui.mainArea.tileSubWindows()
                 
+    def __switchField(self, field):
+        if (field.isHidden()):
+            field.show()
+        else:
+            field.hide()
+        self.ui.mainArea.tileSubWindows()
+
     def __updateGrade(self):
         self.ui.grade.setNum(self.ui.slider.value())
 
