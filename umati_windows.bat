@@ -1,1 +1,1 @@
-C:\Python31\python.exe UmatiRunner.py -m conf\cs_gre.xml
+C:\Python31\python.exe UmatiRunner.py
