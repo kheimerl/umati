@@ -2,6 +2,7 @@ from PyQt4.Qt import QThread
 from PyQt4 import QtGui
 import sys
 import time
+import logging
 #python3 nonsense
 try: 
     from SimpleXMLRPCServer import SimpleXMLRPCServer
@@ -84,6 +85,7 @@ class KeyboardUpdater(BasicUpdater):
             if (self.str != "" and time.time() > self.update_time + KeyboardUpdater.UPDATE_MAX): #.5 seconds since last update
                 tmpstr = self.str
                 self.str = ""
+                self.log.info("Scanned %s" % tmpstr)
                 self.cont.new_connection(tmpstr)
             else:
                 time.sleep(KeyboardUpdater.UPDATE_MAX)
@@ -95,6 +97,7 @@ class KeyboardUpdater(BasicUpdater):
 
     def __init__(self, cont):
         BasicUpdater.__init__(self, cont)
+        self.log = logging.getLogger("umati.UmatiUpdater.KeyboardUpdater")
         self.wid = KeyboardWidget(self)
         self.str = ""
         
