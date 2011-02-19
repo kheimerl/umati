@@ -74,22 +74,40 @@ class NetworkUpdater(BasicUpdater):
         return True
 
 class KeyboardUpdater(BasicUpdater):
-    
+
+    UPDATE_MAX = 0.5
+    GRANULARITY = 0.1
+
     def run(self):
-        pass
+        BasicUpdater.run(self)
+        while not (self.done):
+            if (self.str != "" and time.time() > self.update_time + KeyboardUpdater.UPDATE_MAX): #.5 seconds since last update
+                tmpstr = self.str
+                self.str = ""
+                self.cont.new_connection(tmpstr)
+            else:
+                time.sleep(KeyboardUpdater.UPDATE_MAX)
+
+    def updateStr(self, str):
+        #will need locks eventually
+        self.str += str
+        self.update_time = time.time()
 
     def __init__(self, cont):
         BasicUpdater.__init__(self, cont)
-        self.wid = KeyboardWidget()
+        self.wid = KeyboardWidget(self)
+        self.str = ""
+        
 
 class KeyboardWidget(QtGui.QWidget):
     
-    def __init__(self):
+    def __init__(self, updater):
         QtGui.QWidget.__init__(self)
+        self.updater = updater
         self.grabKeyboard() #get all the keyboard events
 
     def keyPressEvent(self, event):
-        print (event.type())
+        self.updater.updateStr(event.text())
 
 #unit tests
 if __name__ == '__main__':
