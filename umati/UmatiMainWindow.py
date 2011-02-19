@@ -110,3 +110,6 @@ class MainWindow(QtGui.QMainWindow):
 
     def __setCredits(self, creds):
         self.ui.lcdNumber.display(creds)
+        
+    def keyPressEvent(self, event):
+        print (event)

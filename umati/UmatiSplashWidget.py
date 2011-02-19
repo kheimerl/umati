@@ -1,12 +1,13 @@
 from PyQt4 import QtGui, uic
+from . import UmatiWidget
 import logging
 
 UI_FILE = 'umati/UmatiSplashView.ui'
 
-class SplashGui(QtGui.QWidget):
+class SplashGui(UmatiWidget.Widget):
 
     def __init__(self, conf, mainWin, parent=None):
-        QtGui.QWidget.__init__(self, parent)
+        UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSplashWidget.SplashGui")
         self.mainWin = mainWin
         self.ui = uic.loadUiType(UI_FILE)[0]()

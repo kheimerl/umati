@@ -19,7 +19,7 @@ class Controller(QtCore.QObject):
         self.log = logging.getLogger("umati.UmatiController.Controller")
         Util.setUmatiController(self)
         self.app = QtGui.QApplication(sys.argv)
-        self.up = UmatiUpdater.NetworkUpdater(self)
+        self.up = UmatiUpdater.KeyboardUpdater(self)
         self.mw = UmatiMainWindow.MainWindow(conf)
         self.db = UmatiUserDirectory.UserDirectory()
 

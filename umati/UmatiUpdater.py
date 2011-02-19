@@ -1,4 +1,5 @@
 from PyQt4.Qt import QThread
+from PyQt4 import QtGui
 import sys
 import time
 #python3 nonsense
@@ -71,6 +72,24 @@ class NetworkUpdater(BasicUpdater):
     def connect(self, client):
         self.cont.new_connection(client)
         return True
+
+class KeyboardUpdater(BasicUpdater):
+    
+    def run(self):
+        pass
+
+    def __init__(self, cont):
+        BasicUpdater.__init__(self, cont)
+        self.wid = KeyboardWidget()
+
+class KeyboardWidget(QtGui.QWidget):
+    
+    def __init__(self):
+        QtGui.QWidget.__init__(self)
+        self.grabKeyboard() #get all the keyboard events
+
+    def keyPressEvent(self, event):
+        print (event.type())
 
 #unit tests
 if __name__ == '__main__':
