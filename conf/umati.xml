@@ -1,6 +1,6 @@
 <umati>
-  <vending/>
-  <user_directory/>
+  <vending loc="umati_vend_db"/>
+  <user_directory loc="umati_user_db"/>
   <updater type="Keyboard"/>
   <interface>
     <splash text="Scan your card to start getting snacks!!"/>

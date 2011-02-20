@@ -13,14 +13,20 @@ class VendDB:
     FILE_LOC = "umati_vend_db"
 
     def __init__(self, conf):
-        if (os.path.exists(VendDB.FILE_LOC)):
-            p = pickle.Unpickler(open(VendDB.FILE_LOC, 'rb'))
+        path = conf.getAttribute("loc")
+        if (path == ""):
+            path = VendDB.FILE_LOC
+        
+        if (os.path.exists(path)):
+            p = pickle.Unpickler(open(path, 'rb'))
             self.db = p.load()
         else:
             self.db = {}
 
-    def getPriceFromLocation(loc):
+    def getPriceFromLocation(self, loc):
+        loc = loc.lower()
+        print(loc)
         if loc not in self.db:
             return None
         else:
-            return self.db[loc]
+            return self.db[loc].price

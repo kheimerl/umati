@@ -24,16 +24,6 @@ class Controller(QtCore.QObject):
         self.user_db = UmatiUserDirectory.UserDirectory(Util.get_tag(conf, "user_directory"))
         self.vend_db = UmatiVendDB.VendDB(Util.get_tag(conf, "vending"))
 
-        #this will be moved to it's own class
-        self.set_prices()
-
-    #from conf eventually
-    def set_prices(self):
-        self.prices = {}
-        for let  in ['A', 'B', 'C', 'D', 'E', 'F']:
-            for num in list(map(str, range(1,11))):
-                self.prices[let+num] = PRICE
-
     def start(self):
         self.mw.show()
         self.up.start()
@@ -47,9 +37,10 @@ class Controller(QtCore.QObject):
         self.mw.setCredits(self.user.credits)
 
     def vendItem(self, target):
-        if (target in self.prices and 
-            self.user.credits >= self.prices[target]):
-            self.__update_user(None, -(self.prices[target]))
+        price = self.vend_db.getPriceFromLocation(target)
+        if (price and 
+            self.user.credits >= price):
+            self.__update_user(None, -(price))
             #could also check if item in stock here
             Util.sendVendCmd(target)
             return True

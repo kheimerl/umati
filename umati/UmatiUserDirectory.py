@@ -13,8 +13,12 @@ class UserDirectory:
     FILE_LOC = "umati_user_db"
 
     def __init__(self, conf):
-        if (os.path.exists(UserDirectory.FILE_LOC)):
-            p = pickle.Unpickler(open(UserDirectory.FILE_LOC, 'rb'))
+        self.path = conf.getAttribute("loc")
+        if (self.path == ""):
+            self.path = UserDirectory.FILE_LOC
+
+        if (os.path.exists(self.path)):
+            p = pickle.Unpickler(open(self.path, 'rb'))
             self.db = p.load()
         else:
             self.db = {}
@@ -28,5 +32,5 @@ class UserDirectory:
         self.db[user.tag] = user
 
     def changed(self):
-        p = pickle.Pickler(open(UserDirectory.FILE_LOC, 'wb'))
+        p = pickle.Pickler(open(self.path, 'wb'))
         p.dump(self.db)
