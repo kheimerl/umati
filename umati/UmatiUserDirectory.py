@@ -12,7 +12,7 @@ class UserDirectory:
 
     FILE_LOC = "umati_user_db"
 
-    def __init__(self):
+    def __init__(self, conf):
         if (os.path.exists(UserDirectory.FILE_LOC)):
             p = pickle.Unpickler(open(UserDirectory.FILE_LOC, 'rb'))
             self.db = p.load()

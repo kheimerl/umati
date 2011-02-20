@@ -112,6 +112,15 @@ class KeyboardWidget(QtGui.QWidget):
     def keyPressEvent(self, event):
         self.updater.updateStr(event.text())
 
+def Updater(controller, conf):
+    type = conf.getAttribute("type")
+    if (type == "Keyboard"):
+        return KeyboardUpdater(controller)
+    elif(type == "Network"):
+        return NetworkUpdater(controller)
+    else:
+        raise Exception("No associated updater")
+
 #unit tests
 if __name__ == '__main__':
     

@@ -1,4 +1,4 @@
-from . import UmatiMainWindow, Util, UmatiUpdater, UmatiUserDirectory
+from . import UmatiMainWindow, Util, UmatiUpdater, UmatiUserDirectory, UmatiVendDB
 from PyQt4 import QtGui, QtCore
 import sys, logging
 
@@ -19,9 +19,10 @@ class Controller(QtCore.QObject):
         self.log = logging.getLogger("umati.UmatiController.Controller")
         Util.setUmatiController(self)
         self.app = QtGui.QApplication(sys.argv)
-        self.up = UmatiUpdater.KeyboardUpdater(self)
-        self.mw = UmatiMainWindow.MainWindow(conf)
-        self.db = UmatiUserDirectory.UserDirectory()
+        self.up = UmatiUpdater.Updater(self, Util.get_tag(conf, "updater"))
+        self.mw = UmatiMainWindow.MainWindow(Util.get_tag(conf, "interface"))
+        self.user_db = UmatiUserDirectory.UserDirectory(Util.get_tag(conf, "user_directory"))
+        self.vend_db = UmatiVendDB.VendDB(Util.get_tag(conf, "vending"))
 
         #this will be moved to it's own class
         self.set_prices()
@@ -42,7 +43,7 @@ class Controller(QtCore.QObject):
         self.user.credits += value
         if (task and task.type == "preliminary"):
             self.user.init_done = True
-        self.db.changed()
+        self.user_db.changed()
         self.mw.setCredits(self.user.credits)
 
     def vendItem(self, target):
@@ -62,7 +63,7 @@ class Controller(QtCore.QObject):
 
     def new_connection(self, tag):
         #here we check if the tag is new or not, eventually
-        self.user = self.db.get_user(tag)
+        self.user = self.user_db.get_user(tag)
         self.mw.setCredits(self.user.credits)
         if (self.user.init_done):
             self.mw.setChooserVisible()

@@ -28,7 +28,7 @@ class MainWindow(QtGui.QMainWindow):
         #setup other parts
         self.chooser = UmatiChooserWidget.ChooserGui(conf.getElementsByTagName("main_tasks"), 
                                                      parent = self.ui.BodyFrame)
-        self.vend = UmatiVendWidget.VendGui(conf.getElementsByTagName("vending"), 
+        self.vend = UmatiVendWidget.VendGui(conf.getElementsByTagName("vend_gui"), 
                                             self, parent = self.ui.BodyFrame)
         self.splash = UmatiSplashWidget.SplashGui(conf.getElementsByTagName("splash"), 
                                                   self, parent = self.ui.BodyFrame)

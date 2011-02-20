@@ -45,3 +45,10 @@ def getUmatiController():
 def setUmatiController(controller):
     global control
     control = controller
+
+def get_tag(conf, tag):
+    x = conf.getElementsByTagName(tag)
+    if (not x or len(x) != 1):
+        raise Exception("Bad XML for tag:%s" % tag)
+    else:
+        return x[0]
