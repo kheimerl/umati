@@ -13,6 +13,7 @@ class Question():
         self.q = conf.getAttribute("question")
         self.gold = conf.getAttribute("gold")
         self.number = int(conf.getAttribute("number"))
+        self.img_loc = "all_Moves.png"
 
     def getNextAnswer(self):
         return None
@@ -34,24 +35,16 @@ class TaskGui(UmatiWidget.Widget):
         self.ui.slider.valueChanged.connect(self.__updateGrade)
         
     def __setupTextFields(self):
-        for (field, but, obj) in [("questionField", self.ui.questButton, QtGui.QTextBrowser),
-                                  ("goldField", self.ui.profButton, QtGui.QTextBrowser),
-                                  ("studentField", self.ui.studentButton, QtGui.QScrollArea)]:
-            self.__dict__[field] = obj(parent=self.ui.mainArea)
-            window = self.ui.mainArea.addSubWindow(self.__dict__[field])
-            window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-            but.clicked.connect(partial(self.__switchField, window))
-        label = QtGui.QLabel(parent = self.studentField)
-        label.setPixmap(QtGui.QPixmap("all_Moves.png"))
-        self.studentField.setViewport(QtGui.QLabel())
-        self.ui.mainArea.tileSubWindows()
+        for (field, but) in [(self.ui.questionField, self.ui.questButton),
+                             (self.ui.goldField, self.ui.profButton),
+                             (self.ui.studentField, self.ui.studentButton)]:
+            but.clicked.connect(partial(self.__switchField, field))
                 
     def __switchField(self, field):
-        if (field.isHidden()):
+         if (field.isHidden()):
             field.show()
-        else:
+         else:
             field.hide()
-        self.ui.mainArea.tileSubWindows()
 
     def __updateGrade(self):
         self.ui.grade.setNum(self.ui.slider.value())
@@ -59,8 +52,9 @@ class TaskGui(UmatiWidget.Widget):
     def __pickQuestion(self):
         #probably an "if random" eventually
         self.current_q = self.qs[random.randint(0,len(self.qs)-1)]
-        self.questionField.setText(self.current_q.q)
-        self.goldField.setText(self.current_q.gold)
+        self.ui.questionField.setText(self.current_q.q)
+        self.ui.goldField.setText(self.current_q.gold)
+        self.ui.studentField.setPixmap(QtGui.QPixmap(self.current_q.img_loc))
         self.ui.slider.setRange(0,self.current_q.number)
 
     def show(self):
