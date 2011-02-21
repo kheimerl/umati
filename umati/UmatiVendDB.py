@@ -21,7 +21,7 @@ class VendDB:
             p = pickle.Unpickler(open(path, 'rb'))
             self.db = p.load()
         else:
-            self.db = {}
+            raise Exception("Vend DB Not Found")
 
     def getPriceFromLocation(self, loc):
         loc = loc.lower()
