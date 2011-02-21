@@ -4,10 +4,11 @@ int trayLetter;
 int trayNumber;
 
 int loopFlag=0; 
-int sensorPin=2; 
-int sensorValue=300;
+int sensorPin=2;
 long maxMotorTime= 110000; //sets threshhold Motor Time
 int motorStartTime=0;
+int laserDifference = 10;
+int biasDegree = 25;
 void setup() { 
   pinMode(15, OUTPUT);  //a
   pinMode(14, OUTPUT);  //b
@@ -24,7 +25,6 @@ void setup() {
   pinMode(3, OUTPUT);   //8
   pinMode(2, OUTPUT);   //9
   pinMode(1, OUTPUT);   //10
-
   Serial.begin(9600); //probably connect to python using this 
 } 
 
@@ -66,14 +66,23 @@ void Spin(){
   digitalWrite(trayLetter, HIGH);   // set the Letter Swtich On   
   digitalWrite(trayNumber, HIGH);   // set the Num Switch on
   
-  int i=0;
+  long i=0;
 
-  sensorValue = analogRead(sensorPin);
-  
-  while(sensorValue > 200 && i < maxMotorTime ){  
+  float sensorValueMax = analogRead(sensorPin);
+  long sensorValue = sensorValueMax;
+
+  while(sensorValue > sensorValueMax-laserDifference && 
+        i < maxMotorTime ){  
     i++;
+    //running biased average
+    sensorValueMax = ((sensorValueMax * biasDegree) + sensorValue)/(biasDegree+1);
+    Serial.print(sensorValue);
+    Serial.print(' ');
+    Serial.println(sensorValueMax);
     sensorValue = analogRead(sensorPin);
   }
+  Serial.println(sensorValueMax);
+  Serial.println(sensorValue);
 
   digitalWrite(trayLetter, LOW);    // set the Letter Switch off  
   digitalWrite(trayNumber, LOW);    // set the Num Switch off
