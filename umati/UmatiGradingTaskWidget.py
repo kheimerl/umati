@@ -34,13 +34,16 @@ class TaskGui(UmatiWidget.Widget):
         self.ui.slider.valueChanged.connect(self.__updateGrade)
         
     def __setupTextFields(self):
-        for (field, but) in [("questionField", self.ui.questButton),
-                             ("goldField", self.ui.profButton),
-                             ("studentField", self.ui.studentButton)]:
-            self.__dict__[field] = QtGui.QTextBrowser(parent=self.ui.mainArea)
+        for (field, but, obj) in [("questionField", self.ui.questButton, QtGui.QTextBrowser),
+                                  ("goldField", self.ui.profButton, QtGui.QTextBrowser),
+                                  ("studentField", self.ui.studentButton, QtGui.QScrollArea)]:
+            self.__dict__[field] = obj(parent=self.ui.mainArea)
             window = self.ui.mainArea.addSubWindow(self.__dict__[field])
             window.setWindowFlags(QtCore.Qt.FramelessWindowHint)
             but.clicked.connect(partial(self.__switchField, window))
+        label = QtGui.QLabel(parent = self.studentField)
+        label.setPixmap(QtGui.QPixmap("all_Moves.png"))
+        self.studentField.setViewport(QtGui.QLabel())
         self.ui.mainArea.tileSubWindows()
                 
     def __switchField(self, field):
