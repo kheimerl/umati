@@ -45,6 +45,10 @@ class Controller(QtCore.QObject):
             Util.sendVendCmd(target)
             return True
         else:
+            if not price:
+                self.log.info("Item not vended, not found: %s" % target)
+            else:
+                self.log.info("Item not vended, no credits: %s" % target)
             return False
 
     def task_completed(self, task, value, reset=True):
