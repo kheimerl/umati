@@ -33,18 +33,24 @@ class TaskGui(UmatiWidget.Widget):
         for q in self.conf.getElementsByTagName("question"):
             self.qs.append(Question(q))
         self.ui.slider.valueChanged.connect(self.__updateGrade)
+        self.num_hidden = 0;
         
     def __setupTextFields(self):
         for (field, but) in [(self.ui.questionField, self.ui.questButton),
                              (self.ui.goldField, self.ui.profButton),
                              (self.ui.studentField, self.ui.studentButton)]:
-            but.clicked.connect(partial(self.__switchField, field))
+            but.clicked.connect(partial(self.__switchField, field, but))
                 
-    def __switchField(self, field):
-         if (field.isHidden()):
+    def __switchField(self, field, button):
+        if (field.isHidden()):
             field.show()
-         else:
-            field.hide()
+            self.num_hidden -= 1
+        else:
+            if (self.num_hidden != 2):
+                field.hide()
+                self.num_hidden += 1
+            else:
+                button.setChecked(False)
 
     def __updateGrade(self):
         self.ui.grade.setNum(self.ui.slider.value())
