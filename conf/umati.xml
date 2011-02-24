@@ -102,7 +102,12 @@
      [d]  None.  find() and remove() on a heap take worst-case Theta(n) time,
           and they're more complicated than in an unordered array.  insert()
           on a heap takes worst-case Theta(log n) time, versus Theta(1) for an
-          unordered array."/>
+          unordered array.">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/all_Moves.png"/>
+	      <img src="http://vmphone2.cs.berkeley.edu/all_Moves.png"/>
+	    </imgs>
+	  </question>
 	</grading>
       </task>
       <task name="CS GRE" class="UmatiSurveyTaskWidget">

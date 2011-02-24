@@ -13,10 +13,15 @@ class Question():
         self.q = conf.getAttribute("question")
         self.gold = conf.getAttribute("gold")
         self.number = int(conf.getAttribute("number"))
-        self.img_loc = "http://vmphone2.cs.berkeley.edu/all_Moves.png"
+        self.imgs = []
+        for img in conf.getElementsByTagName("img"):
+            self.imgs.append(img.getAttribute("src"))
 
     def getNextAnswer(self):
-        return None
+        if (len(self.imgs) > 1):
+            return self.imgs[random.randint(0,len(self.imgs)-1)]
+        else:
+            return None
 
 class TaskGui(UmatiWidget.Widget):
 
@@ -66,7 +71,7 @@ class TaskGui(UmatiWidget.Widget):
         self.current_q = self.qs[random.randint(0,len(self.qs)-1)]
         self.ui.questionField.setText(self.current_q.q)
         self.ui.goldField.setText(self.current_q.gold)
-        self.ui.studentField.setUrl(QtCore.QUrl(self.current_q.img_loc))
+        self.ui.studentField.setUrl(QtCore.QUrl(self.current_q.getNextAnswer()))
         self.ui.slider.setRange(0,self.current_q.number)
 
     def show(self):
