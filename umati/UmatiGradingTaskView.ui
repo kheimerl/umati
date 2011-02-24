@@ -29,6 +29,11 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="questButton">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Question</string>
          </property>
@@ -39,6 +44,11 @@
        </item>
        <item>
         <widget class="QPushButton" name="profButton">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Professor</string>
          </property>
@@ -49,6 +59,11 @@
        </item>
        <item>
         <widget class="QPushButton" name="studentButton">
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Student</string>
          </property>
@@ -85,7 +100,7 @@
        </property>
        <property name="minimumSize">
         <size>
-         <width>300</width>
+         <width>200</width>
          <height>50</height>
         </size>
        </property>
@@ -100,6 +115,18 @@
        </property>
        <property name="tickPosition">
         <enum>QSlider::TicksBothSides</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Record</string>
        </property>
       </widget>
      </item>
