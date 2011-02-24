@@ -129,49 +129,12 @@
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QTextBrowser" name="questionField">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>300</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QTextBrowser" name="goldField">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>300</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="QWebView" name="studentField">
-       <property name="url">
-        <url>
-         <string>about:blank</string>
-        </url>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="topLayout"/>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

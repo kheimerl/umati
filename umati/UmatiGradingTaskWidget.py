@@ -1,5 +1,5 @@
-from PyQt4 import uic, QtGui, QtCore
-import logging, random
+from PyQt4 import uic, QtGui, QtCore, QtWebKit
+import logging, random, time
 from functools import partial
 
 from . import UmatiWidget
@@ -36,10 +36,16 @@ class TaskGui(UmatiWidget.Widget):
         self.num_hidden = 0;
         
     def __setupTextFields(self):
-        for (field, but) in [(self.ui.questionField, self.ui.questButton),
-                             (self.ui.goldField, self.ui.profButton),
-                             (self.ui.studentField, self.ui.studentButton)]:
-            but.clicked.connect(partial(self.__switchField, field, but))
+        for (field, but, obj, layout) in [("questionField", self.ui.questButton, 
+                                           PanningTextBrowser(self), self.ui.topLayout),
+                                          ("goldField", self.ui.profButton, 
+                                           PanningTextBrowser(self), self.ui.topLayout),
+                                          ("studentField", self.ui.studentButton, 
+                                           PanningWebBrowser(self), self.ui.centerLayout)]:
+            self.ui.__dict__[field] = obj
+            obj.setMinimumHeight(275)
+            layout.addWidget(obj)
+            but.clicked.connect(partial(self.__switchField, obj, but))
                 
     def __switchField(self, field, button):
         if (field.isHidden()):
@@ -66,3 +72,71 @@ class TaskGui(UmatiWidget.Widget):
     def show(self):
         UmatiWidget.Widget.show(self)
         self.__pickQuestion()
+
+#utility classes, extending QtStuff
+
+class PanningTextBrowser(QtGui.QTextBrowser):
+    
+    def __init__(self, parent=None):
+        QtGui.QTextBrowser.__init__(self, parent)
+        self.pressed = None
+
+    def mousePressEvent(self, event):
+        self.pressed = (event.x(), event.y())
+ 
+    def mouseMoveEvent(self, event):
+        if (self.pressed):
+            hbar = self.horizontalScrollBar()
+            vbar = self.verticalScrollBar()
+            if (hbar):
+                hbar.setValue(hbar.value() + (self.pressed[0] - event.x()))
+            if (vbar):
+                vbar.setValue(vbar.value() + (self.pressed[1] - event.y()))
+            self.pressed = (event.x(), event.y())
+ 
+    def mouseReleaseEvent(self, event):
+        self.pressed = None
+ 
+class PanningWebBrowser(QtWebKit.QWebView):
+
+    DOUBLE_CLICK_TIME = 0.25
+    RESET_TIME = 0.5
+
+    def __init__(self, parent=None):
+        QtWebKit.QWebView.__init__(self, parent)
+        self.pressed = None
+        self.press_count = 0 #count number of presses
+        self.last_press = 0 #last time we completed a press event
+        self.press_time = 0 #last time we pressed down
+        self.page().mainFrame().setZoomFactor(2.0)
+        self.zoomed = True
+
+    def mousePressEvent(self, event):
+        self.pressed = (event.x(), event.y())
+        self.press_time = time.time()
+        if (self.press_time - self.last_press > PanningWebBrowser.RESET_TIME):
+            self.press_count = 0
+
+    def mouseMoveEvent(self, event):
+        if (self.pressed):
+            frame = self.page().mainFrame()
+            if (frame):
+                cur_pos = frame.scrollPosition()
+                frame.setScrollPosition(QtCore.QPoint(
+                        cur_pos.x() + self.pressed[0] - event.x(),
+                        cur_pos.y() + self.pressed[1] - event.y()))
+            self.pressed = (event.x(), event.y())
+
+    def mouseReleaseEvent(self, event):
+        self.pressed = None
+        if (time.time() - self.press_time < PanningWebBrowser.DOUBLE_CLICK_TIME):
+            self.press_count += 1
+            self.last_press = time.time()
+        if (self.press_count == 2):
+            self.press_count = 0
+            if (self.zoomed):
+                self.page().mainFrame().setZoomFactor(1.0)
+                self.zoomed = False
+            else:
+                self.page().mainFrame().setZoomFactor(2.0)
+                self.zoomed = True
