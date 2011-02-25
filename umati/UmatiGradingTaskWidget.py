@@ -73,6 +73,12 @@ class TaskGui(UmatiWidget.Widget):
         self.ui.goldField.setText(self.current_q.gold)
         self.ui.studentField.setUrl(QtCore.QUrl(self.current_q.getNextAnswer()))
         self.ui.slider.setRange(0,self.current_q.number)
+        for field in [self.ui.questionField, self.ui.goldField,
+                      self.ui.studentField]:
+            field.show()
+        for but in [self.ui.questButton, self.ui.profButton,
+                    self.ui.studentButton]:
+            but.setChecked(False)
 
     def show(self):
         UmatiWidget.Widget.show(self)

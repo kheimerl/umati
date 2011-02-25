@@ -6,9 +6,9 @@
     <splash text="Scan your card to start getting snacks!!"/>
     <vend_gui/>
     <prelim_tasks>
-      <task name="Intro" class="UmatiSurveyTaskWidget">
+      <task class="UmatiSurveyTaskWidget">
 	<!-- this is ugly for now: put them in prelim bucket and add prelim type -->
-	<survey value="5" mode="linear" type="preliminary">
+	<survey value="5" mode="linear" prelim="true" name="Intro">
 	  
 	  <question text="What gender do you identify with?" id="0">
 	    <answer text="Male"/> <answer text="Female"/>
@@ -75,8 +75,10 @@
       </task>
     </prelim_tasks>
     <main_tasks>
-      <task name="Prime Factors" class="UmatiMathTaskWidget"/>
-      <task name="CS61B" class="UmatiGradingTaskWidget">
+      <task title="Calculate Primes" class="UmatiMathTaskWidget">
+	<math name="Primes" value="1"/>
+      </task>
+      <task title="CS61B Grading" class="UmatiGradingTaskWidget">
 	<grading value="1" mode="random">
 	  <question range="6" number="8" question="Suppose an application uses only three operations:  insert(), find(), and
      remove().
@@ -110,8 +112,8 @@
 	  </question>
 	</grading>
       </task>
-      <task name="CS GRE" class="UmatiSurveyTaskWidget">
-	<survey value="5" mode="random">
+      <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget">
+	<survey value="1" mode="random" name="CSGRE" num="1">
 	  
 	  <question text="1)Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?" id="0">
 	    <answer text="80%" right="F"/>

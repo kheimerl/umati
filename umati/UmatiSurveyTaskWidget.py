@@ -46,18 +46,17 @@ class Question:
 class LinearSurveyTask(UmatiTask.Task):
 
     def __init__(self, head):
-        UmatiTask.Task.__init__(self)
+        UmatiTask.Task.__init__(self, head)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
         self.value = int(head.getAttribute("value"))
-        self.type = head.getAttribute("type")
-        self.task_type = "Survey"
+        self.task_name = head.getAttribute("name")
         self.index = -1
         self.qs = []
         for q in head.getElementsByTagName("question"):
             self.qs.append(Question(q))
   
     def submit(self):
-        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.type, str(self.qs), self.value))
+        self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.getType(), str(self.qs), self.getValue()))
         for q in self.qs:
             if (q.ans == -1):
                 return False
@@ -85,20 +84,38 @@ class LinearSurveyTask(UmatiTask.Task):
     def get_info(self):
         return None
 
-class RandomSurveyTask(LinearSurveyTask):
+    def getValue(self):
+        return self.value
 
-    finish = 5
+    def getName(self):
+        return self.task_name
+
+    def getType(self):
+        return "Linear_Survey"
+
+class RandomSurveyTask(LinearSurveyTask):
 
     def __init__(self, head):
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
         LinearSurveyTask.__init__(self, head)
+        self.num = int(head.getAttribute("num"))
         temp_qs = self.qs
         self.qs = []
-        for i in range(0,RandomSurveyTask.finish):
+        for i in range(0,self.num):
             self.qs.append(temp_qs.pop(random.randint(0,len(temp_qs)-1)))
 
     def get_info(self):
         return None
+
+    def getType(self):
+        return "Random_Survey"
+
+    def getName(self):
+        temp = []
+        for q in self.qs:
+            temp.append(q.id)
+        temp.sort()
+        return LinearSurveyTask.getName(self) + str(temp)
         
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
@@ -171,8 +188,8 @@ class TaskGui(UmatiWidget.Widget):
         else:
             if (self.cur_task.submit()):
                 self.log.info("Survey Task COMPLETE. T: %s V: %d" %
-                              (self.cur_task.type, self.cur_task.value))
-                self.controller.task_completed(self.cur_task, self.cur_task.value)
+                              (self.cur_task.getType, self.cur_task.getValue()))
+                self.controller.task_completed(self.cur_task, self.cur_task.getValue())
             else:
                 UmatiMessageDialog.information(self, "Please Complete All Questions!")
                 self.back()

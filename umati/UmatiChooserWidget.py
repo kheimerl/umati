@@ -20,7 +20,7 @@ class ChooserGui(UmatiWidget.Widget):
                 mod = __import__("umati." + c, fromlist='').__dict__[c]
                 taskgui = mod.TaskGui(task, parent=parent)
                 taskgui.hide()
-                b = QtGui.QPushButton(task.getAttribute("name"))
+                b = QtGui.QPushButton(task.getAttribute("title"))
                 #shits super annoying
                 x = b.sizePolicy()
                 x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)

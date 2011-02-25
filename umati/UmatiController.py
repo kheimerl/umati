@@ -29,11 +29,8 @@ class Controller(QtCore.QObject):
         self.up.start()
         sys.exit(self.app.exec_())
 
-    def __update_user(self, task, value):
-        self.user.credits += value
-        if (task and task.type == "preliminary"):
-            self.user.init_done = True
-        self.user_db.changed()
+    def __update_user(self, task):
+        self.user.task_completed(task)
         self.mw.setCredits(self.user.credits)
 
     def vendItem(self, target):
@@ -52,7 +49,10 @@ class Controller(QtCore.QObject):
             return False
 
     def task_completed(self, task, value, reset=True):
-        self.__update_user(task, value)
+        print (task.getType())
+        print (task.getValue())
+        print (task.getName())
+        self.__update_user(task)
         if (reset):
             self.mw.setChooserVisible()
 

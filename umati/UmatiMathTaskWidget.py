@@ -4,9 +4,10 @@ import random, logging
 
 class MathTask(UmatiTask.Task):
 
-    def __init__(self):
-        UmatiTask.Task.__init__(self)
-        self.task_type = "Math"
+    def __init__(self, conf):
+        UmatiTask.Task.__init__(self, conf)
+        self.value = int(conf.getAttribute("value"))
+        self.name = conf.getAttribute("name")
 
     def get_ans(self):
         return str(self.ans)
@@ -14,19 +15,21 @@ class MathTask(UmatiTask.Task):
     def check_res(self):
         raise Exception("Unimplemented")
 
-    def get_task_val(self):
-        raise Exception("Unimplemented")
+    def getName(self):
+        return self.name
+    
+    def getValue(self):
+        return self.value
 
 class AdditionTask(MathTask):
 
     MAX_VAR = 4000
-    TASK_VAL = 1
 
     #generate random math question
-    def __init__(self):
-        MathTask.__init__(self)
+    def __init__(self, conf):
+        MathTask.__init__(self, conf)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.AdditionTask")
-        self.task_type = "Addition Math Task"
+        self.task_type = "Addition_Math_Task"
         #just addition for now
         x = random.randint(0,AdditionTask.MAX_VAR)
         y = random.randint(0,AdditionTask.MAX_VAR)
@@ -42,8 +45,11 @@ class AdditionTask(MathTask):
             diffs += abs(ch1 - ch2)
         return (diffs < len(str(self.ans)))
 
-    def get_task_val(self):
-        return AdditionTask.TASK_VAL
+    def getType(self):
+        return self.task_type
+
+    def getName(self):
+        return MathTask.getName(self) + str(self.ans)
 
 class PrimeFactorTask(MathTask):
     
@@ -55,10 +61,8 @@ class PrimeFactorTask(MathTask):
 
     ERROR_RANGE = 1
 
-    TASK_VAL = 1
-
-    def __init__(self):
-        MathTask.__init__(self)
+    def __init__(self, conf):
+        MathTask.__init__(self, conf)
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.PrimeFactorTask")
         self.task_type = "Prime Factor Task"
         self.ans = []
@@ -86,8 +90,11 @@ class PrimeFactorTask(MathTask):
             return False
         return True
 
-    def get_task_val(self):
-        return PrimeFactorTask.TASK_VAL
+    def getName(self):
+        return MathTask.getName(self) + str(self.ans)
+
+    def getType(self):
+        return self.task_type
 
 UI_FILE = 'umati/UmatiMathTaskView.ui'
 
@@ -98,6 +105,7 @@ class TaskGui(UmatiWidget.Widget):
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.MathTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
+        self.task_conf = conf.getElementsByTagName("math")[0]
         
         for i in range(0,10):
             b = self.ui.__getattribute__('pushButton_' + str(i))
@@ -126,7 +134,7 @@ class TaskGui(UmatiWidget.Widget):
 
     def send(self):
         res = self.ui.numberField.intValue()
-        val = self.curTask.get_task_val()
+        val = self.curTask.getValue()
         if (res != 0):
             if (self.curTask.check_res(res)):
                 self.log.info("Math Task COMPLETE. Q: %s A: %s G: %d V: %d" % 
@@ -145,5 +153,8 @@ class TaskGui(UmatiWidget.Widget):
             self.reset()
 
     def generateMathTask(self):
-        self.curTask = PrimeFactorTask()
+        if (self.task_conf.getAttribute("name") == "Primes"):
+            self.curTask = PrimeFactorTask(self.task_conf)
+        else:
+            self.curTask = AdditionTask(self.task_conf)
         self.ui.questionBox.setText(self.curTask.cmd)
