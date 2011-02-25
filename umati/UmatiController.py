@@ -50,9 +50,6 @@ class Controller(QtCore.QObject):
             return False
 
     def task_completed(self, task, reset=True):
-        print (task.getType())
-        print (task.getValue())
-        print (task.getName())
         self.__update_user(task)
         if (reset):
             self.mw.setChooserVisible()

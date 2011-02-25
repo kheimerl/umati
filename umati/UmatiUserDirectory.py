@@ -1,5 +1,5 @@
 import os.path
-import pickle
+import pickle, time
 
 class User:
     
@@ -16,8 +16,8 @@ class User:
             if (task.prelim == "true"):
                 self.init_done = True
             if task.getType() not in self.tasks_completed:
-                self.tasks_completed[task.getType()] = {}
-            self.tasks_completed[task.getType()] = task.getName()
+                self.tasks_completed[task.getType()] = []
+            self.tasks_completed[task.getType()].append((task.getName(), task.getAns(), time.time()))
         self.db.changed()
 
     def __repr__(self):
@@ -54,6 +54,5 @@ class UserDirectory:
         self.db[user.tag] = user
 
     def changed(self):
-        print(self.db)
         p = pickle.Pickler(open(self.path, 'wb'))
         p.dump(self.db)

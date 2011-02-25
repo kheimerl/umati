@@ -34,6 +34,10 @@ class GradingTask(UmatiTask.Task):
             qs.append(Question(q))
         self.current_q = qs[random.randint(0,len(qs)-1)]
         self.cur_img = None
+        self.ans = None
+
+    def setAns(self, ans):
+        self.ans = ans
 
     def getQuestionText(self):
         return self.current_q.q
@@ -56,6 +60,9 @@ class GradingTask(UmatiTask.Task):
 
     def getName(self):
         return str(self.current_q.number) + ":" + self.cur_img
+
+    def getAns(self):
+        return str(self.ans)
 
 class TaskGui(UmatiWidget.Widget):
 
@@ -118,6 +125,7 @@ class TaskGui(UmatiWidget.Widget):
 
     def __submit(self):
         self.log.info("Grading Task COMPLETE. Q: %s A: %d" % (self.cur_task.getName(), self.ui.slider.value()))
+        self.cur_task.setAns(self.ui.slider.value())
         self.controller.task_completed(self.cur_task, reset=False)
         self.__newQuestion()
 

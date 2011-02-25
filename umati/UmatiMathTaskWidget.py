@@ -49,7 +49,10 @@ class AdditionTask(MathTask):
         return self.task_type
 
     def getName(self):
-        return MathTask.getName(self) + str(self.ans)
+        return MathTask.getName(self) + " " + self.cmd
+
+    def getAns(self):
+        return str(self.ans)
 
 class PrimeFactorTask(MathTask):
     
@@ -95,6 +98,9 @@ class PrimeFactorTask(MathTask):
 
     def getType(self):
         return self.task_type
+
+    def getAns(self):
+        return str(self.ans)
 
 UI_FILE = 'umati/UmatiMathTaskView.ui'
 

@@ -11,3 +11,6 @@ class Task:
 
     def getType(self):
         raise Exception("Not Implemented")
+    
+    def getAns(self):
+        raise Exception("Not Implemented")

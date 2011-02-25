@@ -93,6 +93,12 @@ class LinearSurveyTask(UmatiTask.Task):
     def getType(self):
         return "Linear_Survey"
 
+    def getAns(self):
+        res = []
+        for q in self.qs:
+            res.append(q.ans)
+        return str(res)
+
 class RandomSurveyTask(LinearSurveyTask):
 
     def __init__(self, head):
@@ -116,6 +122,12 @@ class RandomSurveyTask(LinearSurveyTask):
             temp.append(q.id)
         temp.sort()
         return LinearSurveyTask.getName(self) + str(temp)
+
+    def getAns(self):
+        temp = []
+        for q in self.qs:
+            temp.append(str(q.id) + " " + str(q.ans))
+        return str(temp)
         
 UI_FILE = 'umati/UmatiSurveyTaskView.ui'
 
