@@ -37,7 +37,8 @@ class Controller(QtCore.QObject):
         price = self.vend_db.getPriceFromLocation(target)
         if (price and 
             self.user.credits >= price):
-            self.__update_user(None, -(price))
+            self.user.changeCredits(-price)
+            self.mw.setCredits(self.user.credits)
             #could also check if item in stock here
             Util.sendVendCmd(target)
             return True
@@ -48,7 +49,7 @@ class Controller(QtCore.QObject):
                 self.log.info("Item not vended, no credits: %s" % target)
             return False
 
-    def task_completed(self, task, value, reset=True):
+    def task_completed(self, task, reset=True):
         print (task.getType())
         print (task.getValue())
         print (task.getName())

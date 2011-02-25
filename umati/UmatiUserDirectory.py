@@ -12,7 +12,7 @@ class User:
 
     def task_completed(self, task):
         if (task):
-            self.credits += task.getValue()
+            self.changeCredits(task.getValue())
             if (task.prelim == "true"):
                 self.init_done = True
             if task.getType() not in self.tasks_completed:
@@ -25,6 +25,10 @@ class User:
                    % (self.tag, self.credits,
                       str(self.init_done), 
                       str(self.tasks_completed)))
+
+    def changeCredits(self, price):
+        self.credits += price
+        self.db.changed()
 
 class UserDirectory:
 

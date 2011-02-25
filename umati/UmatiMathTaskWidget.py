@@ -140,7 +140,7 @@ class TaskGui(UmatiWidget.Widget):
                 self.log.info("Math Task COMPLETE. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(), 
                                res, val))
-                self.controller.task_completed(self.curTask, val, reset=False)
+                self.controller.task_completed(self.curTask, reset=False)
             else:
                 self.log.info("Math Task FAILED. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(),

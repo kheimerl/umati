@@ -2,7 +2,7 @@ from PyQt4 import uic, QtGui, QtCore, QtWebKit
 import logging, random, time
 from functools import partial
 
-from . import UmatiWidget
+from . import UmatiWidget, UmatiTask
 
 UI_FILE = 'umati/UmatiGradingTaskView.ui'
 
@@ -13,6 +13,7 @@ class Question():
         self.q = conf.getAttribute("question")
         self.gold = conf.getAttribute("gold")
         self.number = int(conf.getAttribute("number"))
+        self.maxGrade = int(conf.getAttribute("range"))
         self.imgs = []
         for img in conf.getElementsByTagName("img"):
             self.imgs.append(img.getAttribute("src"))
@@ -22,6 +23,39 @@ class Question():
             return self.imgs[random.randint(0,len(self.imgs)-1)]
         else:
             return None
+
+class GradingTask(UmatiTask.Task):
+    
+    def __init__(self, conf):
+        UmatiTask.Task.__init__(self,conf)
+        self.value = int(conf.getAttribute("value"))
+        qs = []
+        for q in conf.getElementsByTagName("question"):
+            qs.append(Question(q))
+        self.current_q = qs[random.randint(0,len(qs)-1)]
+        self.cur_img = None
+
+    def getQuestionText(self):
+        return self.current_q.q
+
+    def getGoldText(self):
+        return self.current_q.gold
+
+    def getAnswerLoc(self):
+        self.cur_img = self.current_q.getNextAnswer()
+        return self.cur_img
+
+    def getMaxGrade(self):
+        return self.current_q.maxGrade
+
+    def getType(self):
+        return "Grading"
+
+    def getValue(self):
+        return self.value
+
+    def getName(self):
+        return str(self.current_q.number) + ":" + self.cur_img
 
 class TaskGui(UmatiWidget.Widget):
 
@@ -34,11 +68,8 @@ class TaskGui(UmatiWidget.Widget):
         self.conf = conf.getElementsByTagName("grading")[0]
         self.value = conf.getAttribute("value")
         self.mode = conf.getAttribute("mode")
-        self.qs = []
-        for q in self.conf.getElementsByTagName("question"):
-            self.qs.append(Question(q))
         self.ui.slider.valueChanged.connect(self.__updateGrade)
-        self.num_hidden = 0;
+        self.ui.submit.clicked.connect(self.__submit)
         
     def __setupTextFields(self):
         for (field, but, obj, layout) in [("questionField", self.ui.questButton, 
@@ -51,6 +82,8 @@ class TaskGui(UmatiWidget.Widget):
             obj.setMinimumHeight(275)
             layout.addWidget(obj)
             but.clicked.connect(partial(self.__switchField, obj, but))
+            self.num_hidden = 0;
+
                 
     def __switchField(self, field, button):
         if (field.isHidden()):
@@ -66,13 +99,16 @@ class TaskGui(UmatiWidget.Widget):
     def __updateGrade(self):
         self.ui.grade.setNum(self.ui.slider.value())
 
-    def __pickQuestion(self):
-        #probably an "if random" eventually
-        self.current_q = self.qs[random.randint(0,len(self.qs)-1)]
-        self.ui.questionField.setText(self.current_q.q)
-        self.ui.goldField.setText(self.current_q.gold)
-        self.ui.studentField.setUrl(QtCore.QUrl(self.current_q.getNextAnswer()))
-        self.ui.slider.setRange(0,self.current_q.number)
+    def __newTask(self):
+        self.cur_task = GradingTask(self.conf)
+        self.ui.questionField.setText(self.cur_task.getQuestionText())
+        self.ui.goldField.setText(self.cur_task.getGoldText())
+        self.ui.slider.setRange(0,self.cur_task.getMaxGrade())
+        self.__newQuestion()
+
+    def __newQuestion(self):
+        self.ui.studentField.setUrl(QtCore.QUrl(self.cur_task.getAnswerLoc()))
+        self.ui.slider.setValue(0)
         for field in [self.ui.questionField, self.ui.goldField,
                       self.ui.studentField]:
             field.show()
@@ -80,9 +116,14 @@ class TaskGui(UmatiWidget.Widget):
                     self.ui.studentButton]:
             but.setChecked(False)
 
+    def __submit(self):
+        self.log.info("Grading Task COMPLETE. Q: %s A: %d" % (self.cur_task.getName(), self.ui.slider.value()))
+        self.controller.task_completed(self.cur_task, reset=False)
+        self.__newQuestion()
+
     def show(self):
         UmatiWidget.Widget.show(self)
-        self.__pickQuestion()
+        self.__newTask()
 
 #utility classes, extending QtStuff
 

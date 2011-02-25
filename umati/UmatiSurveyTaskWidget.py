@@ -189,7 +189,7 @@ class TaskGui(UmatiWidget.Widget):
             if (self.cur_task.submit()):
                 self.log.info("Survey Task COMPLETE. T: %s V: %d" %
                               (self.cur_task.getType, self.cur_task.getValue()))
-                self.controller.task_completed(self.cur_task, self.cur_task.getValue())
+                self.controller.task_completed(self.cur_task)
             else:
                 UmatiMessageDialog.information(self, "Please Complete All Questions!")
                 self.back()
