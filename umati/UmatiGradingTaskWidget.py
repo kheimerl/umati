@@ -79,13 +79,25 @@ class TaskGui(UmatiWidget.Widget):
         self.ui.submit.clicked.connect(self.__submit)
         
     def __setupTextFields(self):
-        for (field, but, obj, layout) in [("questionField", self.ui.questButton, 
-                                           PanningTextBrowser(self), self.ui.topLayout),
-                                          ("goldField", self.ui.profButton, 
-                                           PanningTextBrowser(self), self.ui.topLayout),
-                                          ("studentField", self.ui.studentButton, 
-                                           PanningWebBrowser(self), self.ui.centerLayout)]:
+        for (field, but, obj, layout, 
+             color_get, color_set) in [("questionField", self.ui.questButton, 
+                                        PanningTextBrowser(self), self.ui.topLayout, 
+                                        QtGui.QColor.red, QtGui.QColor.setRed),
+                                       ("goldField", self.ui.profButton, 
+                                        PanningTextBrowser(self), self.ui.topLayout, 
+                                        QtGui.QColor.green, QtGui.QColor.setGreen),
+                                       ("studentField", self.ui.studentButton, 
+                                        PanningWebBrowser(self), self.ui.centerLayout, 
+                                        QtGui.QColor.blue, QtGui.QColor.setBlue)]:
             self.ui.__dict__[field] = obj
+            #make 
+            for (widget, tag) in [(obj, QtGui.QPalette.Base),
+                                  (but, QtGui.QPalette.Button)]:
+                pal = widget.palette()
+                col = pal.color(tag)
+                color_set(col, color_get(col) + 20)
+                pal.setColor(tag, col)
+                widget.setPalette(pal)
             obj.setMinimumHeight(275)
             layout.addWidget(obj)
             but.clicked.connect(partial(self.__switchField, obj, but))
