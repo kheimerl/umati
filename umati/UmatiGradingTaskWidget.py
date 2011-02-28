@@ -95,7 +95,7 @@ class TaskGui(UmatiWidget.Widget):
                                   (but, QtGui.QPalette.Button)]:
                 pal = widget.palette()
                 col = pal.color(tag)
-                color_set(col, color_get(col) + 20)
+                color_set(col, color_get(col) - 20)
                 pal.setColor(tag, col)
                 widget.setPalette(pal)
             obj.setMinimumHeight(275)
