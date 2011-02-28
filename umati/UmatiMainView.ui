@@ -96,6 +96,9 @@
         <property name="text">
          <string>Vend</string>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item row="0" column="2">
@@ -113,6 +116,9 @@
         </property>
         <property name="text">
          <string>Exit</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -132,14 +138,13 @@
         <property name="text">
          <string>Tasks</string>
         </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
      </layout>
     </widget>
-    <zorder>lcdNumber</zorder>
-    <zorder>line</zorder>
-    <zorder>gridLayoutWidget_2</zorder>
-    <zorder>BodyFrame</zorder>
    </widget>
    <widget class="QFrame" name="BodyFrame">
     <property name="geometry">

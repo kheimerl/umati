@@ -70,8 +70,8 @@ class MainWindow(QtGui.QMainWindow):
 
     def __setChooserVisible(self):
         self.ui.topFrame.show()
-        self.ui.resetButton.show()
-        self.ui.vendButton.show()
+        self.ui.taskButton.setChecked(True)
+        self.ui.vendButton.setChecked(False)
         self.__setItemVisible(self.chooser, [self.vend, self.splash, self.prelim])
 
     def setVendVisible(self):
@@ -79,8 +79,8 @@ class MainWindow(QtGui.QMainWindow):
 
     def __setVendVisible(self):
         self.ui.topFrame.show()
-        self.ui.resetButton.show()
-        self.ui.vendButton.hide()
+        self.ui.taskButton.setChecked(False)
+        self.ui.vendButton.setChecked(True)
         self.__setItemVisible(self.vend, [self.chooser, self.splash, self.prelim]) 
 
     def setSplashVisible(self):
@@ -96,8 +96,7 @@ class MainWindow(QtGui.QMainWindow):
     def __setPrelimVisible(self):
         if (self.prelim):
             self.ui.topFrame.show()
-            self.ui.resetButton.show()
-            self.ui.vendButton.hide()
+            self.ui.vendButton.setChecked(False)
             self.__setItemVisible(self.prelim, [self.chooser, self.splash, self.vend]) 
         else: #if no prelim tasks, go to chooser
             self.setChooserVisible()
