@@ -36,7 +36,6 @@ class GradingTask(UmatiTask.Task):
         self.cur_img = None
         self.ans = None
         self.inst = conf.getAttribute("instructions")
-        print(self.inst)
 
     def setAns(self, ans):
         self.ans = ans
