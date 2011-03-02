@@ -90,14 +90,16 @@ class TaskGui(UmatiWidget.Widget):
                                         PanningWebBrowser(self), self.ui.centerLayout, 
                                         QtGui.QColor.blue, QtGui.QColor.setBlue)]:
             self.ui.__dict__[field] = obj
-            #make 
-            for (widget, tag) in [(obj, QtGui.QPalette.Base),
-                                  (but, QtGui.QPalette.Button)]:
-                pal = widget.palette()
+            for tag in [QtGui.QPalette.Base, QtGui.QPalette.Light]:
+                pal = obj.palette()
                 col = pal.color(tag)
                 color_set(col, color_get(col) - 20)
                 pal.setColor(tag, col)
-                widget.setPalette(pal)
+                obj.setPalette(pal)
+                if (tag == QtGui.QPalette.Base):
+                    but.setStyleSheet(
+                        "QPushButton { background-color: %s }" %
+                        col.name())
             obj.setMinimumHeight(275)
             layout.addWidget(obj)
             but.clicked.connect(partial(self.__switchField, obj, but))
@@ -168,7 +170,7 @@ class PanningTextBrowser(QtGui.QTextBrowser):
  
     def mouseReleaseEvent(self, event):
         self.pressed = None
- 
+
 class PanningWebBrowser(QtWebKit.QWebView):
 
     DOUBLE_CLICK_TIME = 0.25
