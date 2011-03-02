@@ -4,7 +4,8 @@ import logging
 UI_FILE = 'umati/UmatiMessageView.ui'
 
 def information(parent, message):
-    MessageBox(parent, message).show()
+    if (message):
+        MessageBox(parent, message).show()
 
 class MessageBox(QtGui.QDialog):
 

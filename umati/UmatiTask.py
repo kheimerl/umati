@@ -14,3 +14,6 @@ class Task:
     
     def getAns(self):
         raise Exception("Not Implemented")
+    
+    def instructions(self):
+        return None

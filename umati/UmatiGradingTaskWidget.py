@@ -2,7 +2,7 @@ from PyQt4 import uic, QtGui, QtCore
 import logging, random, time
 from functools import partial
 
-from . import UmatiWidget, UmatiTask
+from . import UmatiWidget, UmatiTask, UmatiMessageDialog
 
 UI_FILE = 'umati/UmatiGradingTaskView.ui'
 
@@ -63,6 +63,9 @@ class GradingTask(UmatiTask.Task):
 
     def getAns(self):
         return str(self.ans)
+
+    def instructions(self):
+        return "Test"
 
 class TaskGui(UmatiWidget.Widget):
 
@@ -146,4 +149,6 @@ class TaskGui(UmatiWidget.Widget):
     def show(self):
         UmatiWidget.Widget.show(self)
         self.__newTask()
+        if (len(self.controller.get_completed_tasks(self.cur_task.getType())) == 0):
+            UmatiMessageDialog.information(self, self.cur_task.instructions())
 
