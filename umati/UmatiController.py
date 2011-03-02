@@ -54,6 +54,12 @@ class Controller(QtCore.QObject):
         if (reset):
             self.mw.setChooserVisible()
 
+    def get_completed_tasks(self, task_type):
+        if task_type in self.user.tasks_completed:
+            return self.user.tasks_completed[task_type]
+        else:
+            return []
+
     def new_connection(self, tag):
         #here we check if the tag is new or not, eventually
         self.user = self.user_db.get_user(tag)
