@@ -1,5 +1,6 @@
 from PyQt4 import QtGui, QtCore, uic, QtWebKit
 from . import Util
+import time
 
 class Widget(QtGui.QWidget):
 

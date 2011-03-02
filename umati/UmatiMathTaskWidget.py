@@ -8,6 +8,7 @@ class MathTask(UmatiTask.Task):
         UmatiTask.Task.__init__(self, conf)
         self.value = int(conf.getAttribute("value"))
         self.name = conf.getAttribute("name")
+        self.inst = conf.getAttribute("instructions")
 
     def get_ans(self):
         return str(self.ans)
@@ -20,6 +21,9 @@ class MathTask(UmatiTask.Task):
     
     def getValue(self):
         return self.value
+
+    def instructions(self):
+        return self.inst
 
 class AdditionTask(MathTask):
 
@@ -126,6 +130,8 @@ class TaskGui(UmatiWidget.Widget):
     def show(self):
         self.reset()
         UmatiWidget.Widget.show(self)
+        if (len(self.controller.get_completed_tasks(self.curTask.getType())) == 0):
+            UmatiMessageDialog.information(self, self.curTask.instructions(), title="Intructions")
 
     def updateNumber(self, b):
         res = self.ui.numberField.intValue()*10 + b

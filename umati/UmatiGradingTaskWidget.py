@@ -1,5 +1,5 @@
 from PyQt4 import uic, QtGui, QtCore
-import logging, random, time
+import logging, random
 from functools import partial
 
 from . import UmatiWidget, UmatiTask, UmatiMessageDialog
@@ -35,6 +35,8 @@ class GradingTask(UmatiTask.Task):
         self.current_q = qs[random.randint(0,len(qs)-1)]
         self.cur_img = None
         self.ans = None
+        self.inst = conf.getAttribute("instructions")
+        print(self.inst)
 
     def setAns(self, ans):
         self.ans = ans
@@ -65,7 +67,7 @@ class GradingTask(UmatiTask.Task):
         return str(self.ans)
 
     def instructions(self):
-        return "Test"
+        return self.inst
 
 class TaskGui(UmatiWidget.Widget):
 
@@ -150,5 +152,5 @@ class TaskGui(UmatiWidget.Widget):
         UmatiWidget.Widget.show(self)
         self.__newTask()
         if (len(self.controller.get_completed_tasks(self.cur_task.getType())) == 0):
-            UmatiMessageDialog.information(self, self.cur_task.instructions())
+            UmatiMessageDialog.information(self, self.cur_task.instructions(), title="Intructions")
 
