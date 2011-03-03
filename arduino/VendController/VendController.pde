@@ -4,14 +4,15 @@ int trayLetter;
 int trayNumber;
 
 int loopFlag=0; 
-int sensorPin=2;
-long maxMotorTime= 110000; //sets threshhold Motor Time
-int motorStartTime=0;
-int laserDifference = 10;
-int biasDegree = 25;
+const int sensorPin = A2;
+const int knockPin = A0;
+const long maxMotorTime= 110000; //sets threshhold Motor Time
+const int laserDifference = 10;
+const int knockThresh = 75;
+const int biasDegree = 25;
 void setup() { 
   pinMode(15, OUTPUT);  //a
-  pinMode(14, OUTPUT);  //b
+  //pinMode(14, OUTPUT);  //b breaks the vibration sensor in -k
   pinMode(13, OUTPUT);  //c
   pinMode(12, OUTPUT);  //d
   pinMode(11, OUTPUT);  //e
@@ -25,7 +26,7 @@ void setup() {
   pinMode(3, OUTPUT);   //8
   pinMode(2, OUTPUT);   //9
   pinMode(1, OUTPUT);   //10
-  Serial.begin(9600); //probably connect to python using this 
+  Serial.begin(19200); //probably connect to python using this 
 } 
 
 void loop() { 
@@ -67,22 +68,31 @@ void Spin(){
   digitalWrite(trayNumber, HIGH);   // set the Num Switch on
   
   long i=0;
-
+  
+  //first the laser sensor
   float sensorValueMax = analogRead(sensorPin);
   long sensorValue = sensorValueMax;
 
-  while(sensorValue > sensorValueMax-laserDifference && 
+  //then the knock sensor
+  float knockSensorVal = analogRead(knockPin);
+
+  while((sensorValue > sensorValueMax-laserDifference)  && 
+        (knockSensorVal < knockThresh) &&
         i < maxMotorTime ){  
     i++;
     //running biased average
     sensorValueMax = ((sensorValueMax * biasDegree) + sensorValue)/(biasDegree+1);
     Serial.print(sensorValue);
     Serial.print(' ');
-    Serial.println(sensorValueMax);
+    Serial.print(sensorValueMax);
+    Serial.print(' ');
+    Serial.println(knockSensorVal);
+    knockSensorVal = analogRead(knockPin);
     sensorValue = analogRead(sensorPin);
   }
   Serial.println(sensorValueMax);
   Serial.println(sensorValue);
+  Serial.println(knockSensorVal);
 
   digitalWrite(trayLetter, LOW);    // set the Letter Switch off  
   digitalWrite(trayNumber, LOW);    // set the Num Switch off
@@ -105,10 +115,3 @@ int ReadSerialString () {
   //Serial.println(tray);
   return i;
 }
-
-
-
-
-
-
-
