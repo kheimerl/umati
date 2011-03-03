@@ -24,6 +24,9 @@ class Question():
         else:
             return None
 
+    def __cleanText(self, text):
+        pass
+
 class GradingTask(UmatiTask.Task):
     
     def __init__(self, conf):

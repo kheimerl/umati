@@ -168,8 +168,7 @@ class TaskGui(UmatiWidget.Widget):
             if (i < len(q.opts)):
                 b.setText(q.opts[i])
                 b.setCheckable(True)
-                if (q.ans and
-                    q.ans == i):
+                if (q.ans == i):
                     b.setChecked(True)
                 else:
                     b.setChecked(False)
@@ -193,18 +192,18 @@ class TaskGui(UmatiWidget.Widget):
     
     def next(self):
         res = self.getChecked()
-        self.cur_task.set_q_answer(res)
-        q = self.cur_task.next()
-        if (q): #finished
-            self.setButtons(q)
+        if (res == -1):
+            UmatiMessageDialog.information(self, "Please Complete All Questions!")
+            return
         else:
-            if (self.cur_task.submit()):
+            self.cur_task.set_q_answer(res)
+            q = self.cur_task.next()
+            if (q): #not finished
+                self.setButtons(q)
+            else:
                 self.log.info("Survey Task COMPLETE. T: %s V: %d" %
                               (self.cur_task.getType, self.cur_task.getValue()))
                 self.controller.task_completed(self.cur_task)
-            else:
-                UmatiMessageDialog.information(self, "Please Complete All Questions!")
-                self.back()
 
     def back(self):
         res = self.getChecked()
