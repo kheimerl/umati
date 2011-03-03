@@ -8,7 +8,7 @@ const int sensorPin = A2;
 const int knockPin = A0;
 const long maxMotorTime= 110000; //sets threshhold Motor Time
 const int laserDifference = 10;
-const int knockThresh = 75;
+const int knockThresh = 80;
 const int biasDegree = 25;
 void setup() { 
   pinMode(15, OUTPUT);  //a
