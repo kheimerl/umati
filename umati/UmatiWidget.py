@@ -82,5 +82,10 @@ class PanningWebBrowser(QtWebKit.QWebView):
                 self.page().mainFrame().setZoomFactor(1.0)
                 self.zoomed = False
             else:
-                self.page().mainFrame().setZoomFactor(2.0)
+                frame = self.page().mainFrame()
+                frame.setZoomFactor(2.0)
+                frame_size = frame.geometry()
+                frame.setScrollPosition(QtCore.QPoint(
+                        (frame_size.width()/event.x()) * frame_size.width(),
+                        (frame_size.height()/event.y()) * frame_size.width()))
                 self.zoomed = True

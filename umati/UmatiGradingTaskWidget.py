@@ -19,7 +19,6 @@ class Question():
         self.imgs = []
         for img in conf.getElementsByTagName("img"):
             self.imgs.append(img.getAttribute("src"))
-            print (self.imgs)
 
     def getNextAnswer(self):
         if (len(self.imgs) > 0):
