@@ -1,17 +1,19 @@
 from PyQt4 import uic, QtGui, QtCore
-import logging, random
+import logging, random, re
 from functools import partial
 
-from . import UmatiWidget, UmatiTask, UmatiMessageDialog
+from . import UmatiWidget, UmatiTask, UmatiMessageDialog, Util
 
 UI_FILE = 'umati/UmatiGradingTaskView.ui'
 
 class Question():
-    
+
+    index_re = re.compile("(\s{4,6})")
+
     #this guy would load stuff
     def __init__(self, conf):
-        self.q = conf.getAttribute("question")
-        self.gold = conf.getAttribute("gold")
+        self.q = self.__add_newlines(conf.getAttribute("question"))
+        self.gold = self.__add_newlines(conf.getAttribute("gold"))
         self.number = int(conf.getAttribute("number"))
         self.maxGrade = int(conf.getAttribute("range"))
         self.imgs = []
@@ -22,10 +24,11 @@ class Question():
         if (len(self.imgs) > 1):
             return self.imgs[random.randint(0,len(self.imgs)-1)]
         else:
-            return None
+            return 
 
-    def __cleanText(self, text):
-        pass
+    def __add_newlines(self, text):
+        return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
+
 
 class GradingTask(UmatiTask.Task):
     

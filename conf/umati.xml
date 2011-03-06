@@ -83,31 +83,17 @@
       </task>
       <task title="CS61B Grading" class="UmatiGradingTaskWidget">
 	<grading value="1" mode="random" instructions="You task is to grad a CS61B exam, question by question. You're given the question, the professor's answer, and the student's answer. You are to select a grade on the slider at the bottom, and hit submit.">
-	  <question range="6" number="8" question="Suppose an application uses only three operations:  insert(), find(), and
-     remove().
+	  <question range="6" number="8" 
+		    question="Suppose an application uses only three operations:  insert(), find(), and remove().
 
-     [a]  Under what circumstances would you use a splay tree instead of a hash
-          table?
-     [b]  Under what circumstances would you use a 2-3-4 tree instead of a
-          splay tree?
-     [c]  Under what circumstances would you use an unordered array instead of
-          a 2-3-4 tree?
-     [d]  Under what circumstances would you use a binary heap instead of an
-          unordered array?" gold="[a]  If you need inexact matches.  For example, if you want to find the
-          item less than or equal to 5 that's closest to 5.  Hash tables can
-          only do exact matches.  (If exact matches are all you need, however,
-          hash tables are faster.)
-     [b]  If each single operation absolutely must run in O(log n) time.  OR
-          If most operations are find()s, and the data access patterns are
-          uniformly random.  (2-3-4 trees are faster for these operations
-          because they don't restructure the tree.  But splay trees do better
-          if a small proportion of the items are targets of most of the finds.)
-     [c]  If memory use is the primary consideration (especially if a 2-3-4
-          tree holding all the items won't fit in memory).
-     [d]  None.  find() and remove() on a heap take worst-case Theta(n) time,
-          and they're more complicated than in an unordered array.  insert()
-          on a heap takes worst-case Theta(log n) time, versus Theta(1) for an
-          unordered array.">
+     [a]  Under what circumstances would you use a splay tree instead of a hash table?
+     [b]  Under what circumstances would you use a 2-3-4 tree instead of a splay tree?
+     [c]  Under what circumstances would you use an unordered array instead of a 2-3-4 tree?
+     [d]  Under what circumstances would you use a binary heap instead of an unordered array?" 
+		    gold="[a]  If you need inexact matches.  For example, if you want to find the item less than or equal to 5 that's closest to 5. Hash tables can only do exact matches.  (If exact matches are all you need, however, hash tables are faster.)
+     [b]  If each single operation absolutely must run in O(log n) time.  OR If most operations are find()s, and the data access patterns are uniformly random. (2-3-4 trees are faster for these operations because they don't restructure the tree.  But splay trees do better if a small proportion of the items are targets of most of the finds.)
+     [c]  If memory use is the primary consideration (especially if a 2-3-4 tree holding all the items won't fit in memory).
+     [d]  None.  find() and remove() on a heap take worst-case Theta(n) time, and they're more complicated than in an unordered array.  insert() on a heap takes worst-case Theta(log n) time, versus Theta(1) for an unordered array.">
 	    <imgs>
 	      <img src="http://vmphone2.cs.berkeley.edu/all_Moves.png"/>
 	      <img src="http://vmphone2.cs.berkeley.edu/all_Moves.png"/>
