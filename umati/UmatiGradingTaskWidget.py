@@ -8,26 +8,27 @@ UI_FILE = 'umati/UmatiGradingTaskView.ui'
 
 class Question():
 
-    index_re = re.compile("(\s{4,6})")
+    index_re = re.compile("(\s\s\s+)")
 
     #this guy would load stuff
     def __init__(self, conf):
         self.q = self.__add_newlines(conf.getAttribute("question"))
         self.gold = self.__add_newlines(conf.getAttribute("gold"))
-        self.number = int(conf.getAttribute("number"))
+        self.number = conf.getAttribute("number")
         self.maxGrade = int(conf.getAttribute("range"))
         self.imgs = []
         for img in conf.getElementsByTagName("img"):
             self.imgs.append(img.getAttribute("src"))
+            print (self.imgs)
 
     def getNextAnswer(self):
-        if (len(self.imgs) > 1):
+        if (len(self.imgs) > 0):
             return self.imgs[random.randint(0,len(self.imgs)-1)]
         else:
-            return 
+            return None
 
     def __add_newlines(self, text):
-        return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
+        return Question.index_re.sub(lambda x: "\n", text)
 
 
 class GradingTask(UmatiTask.Task):

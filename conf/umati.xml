@@ -83,6 +83,85 @@
       </task>
       <task title="CS61B Grading" class="UmatiGradingTaskWidget">
 	<grading value="1" mode="random" instructions="You task is to grad a CS61B exam, question by question. You're given the question, the professor's answer, and the student's answer. You are to select a grade on the slider at the bottom, and hit submit.">
+	  <question range="2" number="1a"
+		    question="Given an array containing the digits 71808294, show how the order of the digits changes during each step of insertion sort (show the array after each insertion)"
+		    gold="71808294
+          17808294
+          01788294
+          01278894
+          01247889">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1a/kurtis_1a.png"/>
+	    </imgs>
+	  </question>
+	  <question range="2" number="1b"
+		    question="Given an array containing the digits 71808294, show how the order of the digits changes during each step of selection sort (Show the array after each swap)"
+		    gold="71808294
+          01878294
+          01278894
+          01248897
+          01247898
+          01247889">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1b/kurtis_1b.png"/>
+	    </imgs>
+	  </question>
+	  <question range="2" number="1c"
+		    question="Given an array containing the digits 71808294, show how the order of the digits changes during each step of mergesort (Show the array after each swap)"
+		    gold="71808294
+          17,80,8294
+          17,08,8294
+          17,08,28,94
+          17,08,28,49
+          0178,28,49
+          0178,2489
+          01247889">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1c/kurtis_1c.png"/>
+	    </imgs>
+	  </question>
+	  <question range="2" number="1d"
+		    question="Given an array containing the digits 71808294, show how the order of the digits changes during each step of quicksort (always choosing the last element of any subarray to be the pivot"
+		    gold="71808294
+          21808794
+          21088794
+          210|4|8798
+          0|12|4|8798
+          012|4|7898
+          012|4|7|8|98
+          01247889">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1d/kurtis_1d.png"/>
+	    </imgs>
+	  </question>
+	  <question range="2" number="1e"
+		    question="Given an array containing the digits 71808294, show how the order of the digits changes during each step of heapsort (using the backward min-heap version)"
+		    gold="71808294 \
+          81807294  |
+          82807194  | bottomUpHeap()
+          82897104  |
+          82897140 /
+          08897241
+          01897842
+          01298874
+          01249887
+          01247898
+          01247898
+          01247889">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1e/kurtis_1e.png"/>
+	    </imgs>
+	  </question>
+	  <question range="10" number="2"
+		    question="Some sorting methods, like heapsort and array-based quicksort, are not naturally stable.  Suggest a way to make _any_ sorting algorithm stable by extending the keys (making them longer and adding extra information)."
+		    gold="Extend each item so that it has a 'secondary key,' which is the index of the item in the initial array/list.  If two items have the same primary key, the tie is broken using the secondary key, so no two items are ever considered equal.
+
+          5 8 7 5 8 8 3 7 =>  5/0 8/1 7/2 5/3 8/4 8/5 3/6 7/7">
+	    <imgs>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/2/kurtis_2.png"/>
+	    </imgs>
+	  </question>
+	  <!--
 	  <question range="6" number="8" 
 		    question="Suppose an application uses only three operations:  insert(), find(), and remove().
 
@@ -99,6 +178,7 @@
 	      <img src="http://vmphone2.cs.berkeley.edu/all_Moves.png"/>
 	    </imgs>
 	  </question>
+	  -->
 	</grading>
       </task>
       <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget">
