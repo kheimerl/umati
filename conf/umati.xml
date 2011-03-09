@@ -75,12 +75,14 @@
       </task>
     </prelim_tasks>
     <main_tasks>
+      <!--
       <task title="Calculate Primes" class="UmatiMathTaskWidget" >
 	<math name="Primes" value="1" instructions="When given a number, calculate all of the primes and select them (in any order) on the calculator. For example, when given 15, you may enter 53 or 35."/>
       </task>
       <task title="Add Two Numbers" class="UmatiMathTaskWidget">
 	<math name="Addition" value="1" />
       </task>
+      -->
       <task title="CS61B Grading" class="UmatiGradingTaskWidget">
 	<grading value="1" mode="random" instructions="You task is to grad a CS61B exam, question by question. You're given the question, the professor's answer, and the student's answer. You are to select a grade on the slider at the bottom, and hit submit.">
 	  <question range="2" number="1a"
@@ -187,6 +189,7 @@
 	  -->
 	</grading>
       </task>
+      <!--
       <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget">
 	<survey value="1" mode="random" name="CSGRE" num="1">
 	  
@@ -476,6 +479,7 @@ III. The largest subset of N" id="29">
 	
 	</survey>
       </task>
+      -->
     </main_tasks>
   </interface>
 </umati>

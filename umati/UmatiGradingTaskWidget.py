@@ -6,6 +6,9 @@ from . import UmatiWidget, UmatiTask, UmatiMessageDialog, Util
 
 UI_FILE = 'umati/UmatiGradingTaskView.ui'
 
+class NoQuestionsException(Exception):
+    pass
+
 class Question():
 
     index_re = re.compile("(\s\s\s+)")
@@ -16,19 +19,37 @@ class Question():
         self.gold = self.__add_newlines(conf.getAttribute("gold"))
         self.number = conf.getAttribute("number")
         self.maxGrade = int(conf.getAttribute("range"))
+        self.cur_img = None
         self.imgs = []
         for img in conf.getElementsByTagName("img"):
             self.imgs.append(img.getAttribute("src"))
 
-    def getNextAnswer(self):
-        if (len(self.imgs) > 0):
-            return self.imgs[random.randint(0,len(self.imgs)-1)]
+    def getNextAnswer(self, answered):
+        if (self.available(answered)):
+            if (len(self.imgs) > 0):
+                self.cur_img = self.imgs[random.randint(0,len(self.imgs)-1)] 
         else:
-            return None
+            self.cur_img = None
+        return self.cur_img
+
+    def getCurName(self):
+        return self.__genName(self.cur_img)
+
+    def __genName(self, img):
+        return (str(self.number) + ":" + img)
 
     def __add_newlines(self, text):
         return Question.index_re.sub(lambda x: "\n", text)
 
+    #given a set of answered tasks, determines if there are any new questions to be asked
+    def available(self, answered):
+        for task in answered:
+            for img in self.imgs:
+                #horribly inefficient
+                if task[0] == self.__genName(img):
+                    print (img)
+                    self.imgs.remove(img)
+        return (len(self.imgs) > 0)
 
 class GradingTask(UmatiTask.Task):
     
@@ -38,10 +59,19 @@ class GradingTask(UmatiTask.Task):
         qs = []
         for q in conf.getElementsByTagName("question"):
             qs.append(Question(q))
-        self.current_q = qs[random.randint(0,len(qs)-1)]
-        self.cur_img = None
+        self.current_q = self.__pickQuestion(qs)
+        if not(self.current_q):
+            raise NoQuestionsException()
         self.ans = None
         self.inst = conf.getAttribute("instructions")
+
+    def __pickQuestion(self, qs):
+        complete = self.controller.get_completed_tasks(self.getType())
+        for q in qs:
+            if q.available(complete):
+                return q
+        #should be at FOR level
+        return None
 
     def setAns(self, ans):
         self.ans = ans
@@ -53,8 +83,8 @@ class GradingTask(UmatiTask.Task):
         return self.current_q.gold
 
     def getAnswerLoc(self):
-        self.cur_img = self.current_q.getNextAnswer()
-        return self.cur_img
+        return self.current_q.getNextAnswer(
+            self.controller.get_completed_tasks(self.getType()))
 
     def getMaxGrade(self):
         return self.current_q.maxGrade
@@ -66,7 +96,7 @@ class GradingTask(UmatiTask.Task):
         return self.value
 
     def getName(self):
-        return str(self.current_q.number) + ":" + self.cur_img
+        return self.current_q.getCurName()
 
     def getAns(self):
         return str(self.ans)
@@ -138,7 +168,14 @@ class TaskGui(UmatiWidget.Widget):
         self.__newQuestion()
 
     def __newQuestion(self):
-        self.ui.studentField.setUrl(QtCore.QUrl(self.cur_task.getAnswerLoc()))
+        ans_loc = self.cur_task.getAnswerLoc()
+        if (ans_loc):
+            self.__genNewQuestion(ans_loc)
+        else:
+            self.controller.choose_task()
+
+    def __genNewQuestion(self, ans_loc):
+        self.ui.studentField.setUrl(QtCore.QUrl(ans_loc))
         self.ui.slider.setValue(0)
         for field in [self.ui.questionField, self.ui.goldField,
                       self.ui.studentField]:
@@ -148,14 +185,26 @@ class TaskGui(UmatiWidget.Widget):
             but.setChecked(False)
 
     def __submit(self):
-        self.log.info("Grading Task COMPLETE. Q: %s A: %d" % (self.cur_task.getName(), self.ui.slider.value()))
+        self.log.info("Grading Task COMPLETE. Q: %s A: %d" % 
+                      (self.cur_task.getName(), self.ui.slider.value()))
         self.cur_task.setAns(self.ui.slider.value())
         self.controller.task_completed(self.cur_task, reset=False)
         self.__newQuestion()
 
     def show(self):
         UmatiWidget.Widget.show(self)
-        self.__newTask()
-        if (len(self.controller.get_completed_tasks(self.cur_task.getType())) == 0):
-            UmatiMessageDialog.information(self, self.cur_task.instructions(), title="Intructions")
+        if(self.available()):
+            self.__newTask()
+            if (len(self.controller.get_completed_tasks(self.cur_task.getType())) == 0):
+                UmatiMessageDialog.information(self, self.cur_task.instructions(), title="Intructions")
+        else:
+            #no questions, go back to chooser
+            UmatiMessageDialog.information(self, "Sorry, there are no more questions available right now", title="Notice")
+            self.controller.choose_task()
 
+    def available(self):
+        try:
+            self.__newTask()
+        except NoQuestionsException:
+            return False
+        return True

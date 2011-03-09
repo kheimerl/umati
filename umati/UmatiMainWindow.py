@@ -61,9 +61,9 @@ class MainWindow(QtGui.QMainWindow):
         self.showFullScreen()
 
     def __setItemVisible(self, item, others):
-        item.show()
         for other in others:
             other.hide()
+        item.show()
 
     def setChooserVisible(self):
         self.emit(QtCore.SIGNAL('chooser_vis'))

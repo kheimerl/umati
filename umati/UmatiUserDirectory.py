@@ -20,6 +20,12 @@ class User:
             self.tasks_completed[task.getType()].append((task.getName(), task.getAns(), time.time()))
         self.db.changed()
 
+    def get_tasks_completed(self, task_type):
+        if task_type in self.tasks_completed:
+            return self.tasks_completed[task_type]
+        else:
+            return []
+
     def __repr__(self):
         return str("Name: %s Credits: %d Init:%s Tasks:%s"
                    % (self.tag, self.credits,

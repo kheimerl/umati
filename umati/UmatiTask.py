@@ -1,6 +1,9 @@
+from . import Util
+
 class Task:
 
     def __init__(self, conf):
+        self.controller = Util.getUmatiController()
         self.prelim = conf.getAttribute("prelim")
 
     def getValue(self):

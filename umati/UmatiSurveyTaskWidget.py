@@ -213,3 +213,6 @@ class TaskGui(UmatiWidget.Widget):
             self.setButtons(q)
         else: #too far back
             pass
+
+    def available(self):
+        return True

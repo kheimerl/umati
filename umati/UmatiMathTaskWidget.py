@@ -170,3 +170,6 @@ class TaskGui(UmatiWidget.Widget):
         else:
             self.curTask = AdditionTask(self.task_conf)
         self.ui.questionBox.setText(self.curTask.cmd)
+        
+    def available(self):
+        return True

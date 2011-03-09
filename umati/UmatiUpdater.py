@@ -12,7 +12,7 @@ except ImportError:
 #countdown thread, resets machine when finished
 class Countdown(QThread):
 
-    COUNTDOWN = 5 * 60
+    COUNTDOWN = 1 * 60
 
     def __init__(self, parent):
         QThread.__init__(self)

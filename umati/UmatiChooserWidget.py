@@ -2,7 +2,7 @@ from PyQt4 import uic, QtGui
 import logging, imp
 from functools import partial
 
-from . import UmatiWidget
+from . import UmatiWidget, UmatiMessageDialog
 
 UI_FILE = 'umati/UmatiChooserView.ui'
 
@@ -33,11 +33,11 @@ class ChooserGui(UmatiWidget.Widget):
                 
                 b.clicked.connect(partial(self.select_task, len(self.tasks)))
                 self.ui.layout.insertWidget(0, b)
-                self.tasks.append(taskgui)
+                self.tasks.append((taskgui,b))
 
     def select_task(self, task):
         self.hide()
-        self.tasks[task].show()
+        self.tasks[task][0].show()
 
     def hide(self):
         self.__hide_tasks()
@@ -45,12 +45,22 @@ class ChooserGui(UmatiWidget.Widget):
 
     def show(self):
         self.__hide_tasks()
-        if (len(self.tasks) != 1):
+        avail_tasks = []
+        for (task, but) in self.tasks:
+            if(task.available()):
+                but.show()
+                avail_tasks.append(task)
+            else:
+                but.hide()
+        if (len(avail_tasks) > 1):
             UmatiWidget.Widget.show(self)
-        else:
+        elif (len(avail_tasks) == 1):
             self.hide()
-            self.tasks[0].show()
+            avail_tasks[0].show()
+        else:
+            UmatiMessageDialog.information(self, "Sorry, there are no more tasks available right now", title="Notice")
+            self.controller.timeout()
 
     def __hide_tasks(self):
-        for t in self.tasks:
+        for (t,b) in self.tasks:
             t.hide()
