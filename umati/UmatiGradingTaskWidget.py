@@ -27,7 +27,7 @@ class Question():
     def getNextAnswer(self, answered):
         if (self.available(answered)):
             if (len(self.imgs) > 0):
-                self.cur_img = self.imgs[random.randint(0,len(self.imgs)-1)] 
+                self.cur_img = random.choice(self.imgs)
         else:
             self.cur_img = None
         return self.cur_img
