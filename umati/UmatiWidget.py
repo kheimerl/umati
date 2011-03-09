@@ -42,6 +42,7 @@ class PanningTextBrowser(QtGui.QTextBrowser):
         self.pressed = None
 
     def show(self):
+        QtGui.QTextBrowser.show(self)
         for bar in [self.horizontalScrollBar(),
                     self.verticalScrollBar()]:
             if (bar):

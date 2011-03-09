@@ -47,7 +47,6 @@ class Question():
             for img in self.imgs:
                 #horribly inefficient
                 if task[0] == self.__genName(img):
-                    print (img)
                     self.imgs.remove(img)
         return (len(self.imgs) > 0)
 
