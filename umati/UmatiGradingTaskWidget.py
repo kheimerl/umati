@@ -66,6 +66,7 @@ class GradingTask(UmatiTask.Task):
 
     def __pickQuestion(self, qs):
         complete = self.controller.get_completed_tasks(self.getType())
+        random.shuffle(qs)
         for q in qs:
             if q.available(complete):
                 return q
