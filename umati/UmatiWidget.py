@@ -41,6 +41,12 @@ class PanningTextBrowser(QtGui.QTextBrowser):
     def mouseReleaseEvent(self, event):
         self.pressed = None
 
+    def show(self):
+        for bar in [self.horizontalScrollBar(),
+                    self.verticalScrollBar()]:
+            if (bar):
+                bar.hide()
+
 class PanningWebBrowser(QtWebKit.QWebView):
 
     DOUBLE_CLICK_TIME = 0.25
@@ -53,6 +59,10 @@ class PanningWebBrowser(QtWebKit.QWebView):
         self.last_press = 0 #last time we completed a press event
         self.press_time = 0 #last time we pressed down
         self.page().mainFrame().setZoomFactor(2.0)
+        self.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Horizontal, 
+                                                   QtCore.Qt.ScrollBarAlwaysOff)
+        self.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Vertical, 
+                                                   QtCore.Qt.ScrollBarAlwaysOff)
         self.zoomed = True
 
     def mousePressEvent(self, event):

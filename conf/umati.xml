@@ -105,7 +105,7 @@
           01247889">
 	    <imgs>
 	      <img src="http://vmphone2.cs.berkeley.edu/umati/1b/kurtis_1b.png"/>
-	      <img src="http://vmphone2.cs.berkeley.edu/umati/1a/kuang_1b.png"/>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1b/kuang_1b.png"/>
 	    </imgs>
 	  </question>
 	  <question range="2" number="1c"
@@ -120,7 +120,7 @@
           01247889">
 	    <imgs>
 	      <img src="http://vmphone2.cs.berkeley.edu/umati/1c/kurtis_1c.png"/>
-	      <img src="http://vmphone2.cs.berkeley.edu/umati/1a/kuang_1c.png"/>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1c/kuang_1c.png"/>
 	    </imgs>
 	  </question>
 	  <question range="2" number="1d"
@@ -135,7 +135,7 @@
           01247889">
 	    <imgs>
 	      <img src="http://vmphone2.cs.berkeley.edu/umati/1d/kurtis_1d.png"/>
-	      <img src="http://vmphone2.cs.berkeley.edu/umati/1a/kuang_1d.png"/>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1d/kuang_1d.png"/>
 	    </imgs>
 	  </question>
 	  <question range="2" number="1e"
@@ -154,7 +154,7 @@
           01247889">
 	    <imgs>
 	      <img src="http://vmphone2.cs.berkeley.edu/umati/1e/kurtis_1e.png"/>
-	      <img src="http://vmphone2.cs.berkeley.edu/umati/1a/kuang_1e.png"/>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/1e/kuang_1e.png"/>
 	    </imgs>
 	  </question>
 	  <question range="10" number="2"
@@ -164,7 +164,7 @@
           5 8 7 5 8 8 3 7 =>  5/0 8/1 7/2 5/3 8/4 8/5 3/6 7/7">
 	    <imgs>
 	      <img src="http://vmphone2.cs.berkeley.edu/umati/2/kurtis_2.png"/>
-	      <img src="http://vmphone2.cs.berkeley.edu/umati/1a/kuang_2.png"/>
+	      <img src="http://vmphone2.cs.berkeley.edu/umati/2/kuang_2.png"/>
 	    </imgs>
 	  </question>
 	  <!--
