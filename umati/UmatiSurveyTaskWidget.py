@@ -136,7 +136,7 @@ class TaskGui(UmatiWidget.Widget):
     def __init__(self, conf, parent=None):
         UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.TaskGui")
-        self.conf = conf.getElementsByTagName("survey")[0]
+        self.conf = conf
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.ui.questionBox.setReadOnly(True)

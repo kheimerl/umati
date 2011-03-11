@@ -52,3 +52,9 @@ def get_tag(conf, tag):
         raise Exception("Bad XML for tag:%s" % tag)
     else:
         return x[0]
+
+def childNode(conf):
+    node = conf.firstChild
+    while (node.nodeType == node.TEXT_NODE):
+        node = node.nextSibling
+    return node

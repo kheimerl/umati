@@ -115,7 +115,7 @@ class TaskGui(UmatiWidget.Widget):
         self.log = logging.getLogger("umati.UmatiMathTaskWidget.MathTaskGui")
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
-        self.task_conf = conf.getElementsByTagName("math")[0]
+        self.task_conf = conf
         
         for i in range(0,10):
             b = self.ui.__getattribute__('pushButton_' + str(i))

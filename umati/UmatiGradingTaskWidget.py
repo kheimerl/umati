@@ -11,7 +11,8 @@ class NoQuestionsException(Exception):
 
 class Question():
 
-    index_re = re.compile("(\s\s\s+)")
+    whitespace_re = re.compile("(\s+)")
+    index_re = re.compile("(\~)")
 
     #this guy would load stuff
     def __init__(self, conf):
@@ -39,7 +40,7 @@ class Question():
         return (str(self.number) + ":" + img)
 
     def __add_newlines(self, text):
-        return Question.index_re.sub(lambda x: "\n", text)
+        return Question.index_re.sub(lambda x: "\n", Question.whitespace_re.sub(lambda x: " ", text))
 
     #given a set of answered tasks, determines if there are any new questions to be asked
     def available(self, answered):
@@ -112,9 +113,9 @@ class TaskGui(UmatiWidget.Widget):
         self.ui.setupUi(self)
         self.log = logging.getLogger("umati.UmatiGradingTaskWidget.GradingGui")
         self.__setupTextFields()
-        self.conf = conf.getElementsByTagName("grading")[0]
-        self.value = conf.getAttribute("value")
-        self.mode = conf.getAttribute("mode")
+        self.conf = conf
+        self.value = self.conf.getAttribute("value")
+        self.mode = self.conf.getAttribute("mode")
         self.ui.slider.valueChanged.connect(self.__updateGrade)
         self.ui.submit.clicked.connect(self.__submit)
         

@@ -1,8 +1,8 @@
 from PyQt4 import uic, QtGui
-import logging, imp
+import logging, imp, xml.dom.minidom
 from functools import partial
 
-from . import UmatiWidget, UmatiMessageDialog
+from . import UmatiWidget, UmatiMessageDialog, Util
 
 UI_FILE = 'umati/UmatiChooserView.ui'
 
@@ -18,7 +18,13 @@ class ChooserGui(UmatiWidget.Widget):
             for task in task_list.getElementsByTagName("task"):
                 c = task.getAttribute("class")
                 mod = __import__("umati." + c, fromlist='').__dict__[c]
-                taskgui = mod.TaskGui(task, parent=parent)
+                if (task.getAttribute("loc") == ''):
+                    taskgui = mod.TaskGui(Util.childNode(task), 
+                                          parent=parent)
+                else:
+                    taskgui = mod.TaskGui(xml.dom.minidom.parse(
+                            task.getAttribute("loc")).documentElement, 
+                                          parent=parent)
                 taskgui.hide()
                 b = QtGui.QPushButton(task.getAttribute("title"))
                 #shits super annoying

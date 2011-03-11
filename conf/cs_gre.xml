@@ -1,4 +1,5 @@
-<survey type="CSGRE" value="5">
+<survey value="1" mode="random" name="CSGRE" num="1">
+	  
   <question text="1)Suppose that a certain software product has a mean time between failures of 10,000 hours and has a mean time to repair of 20 hours. If the product is used by 100 customers, what is its availability?" id="0">
     <answer text="80%" right="F"/>
     <answer text="90%" right="F"/>
@@ -6,7 +7,7 @@
     <answer text="99.8%" right="T"/>
     <answer text="100%" right="F"/>
   </question>
-
+	
   <question text="2)The object-oriented paradigm includes which of the following properties?
 I. Encapsulation
 II. Inheritance
@@ -17,7 +18,7 @@ III. Recursion" id="1">
     <answer text="II and III only" right="F"/>
     <answer text="I, II, and III" right="F"/>
   </question>
-
+  
   <question text="3)Which of the following algorithms has running time O(n^2) in the worst case but O(n log n )on average?" id="2">
     <answer text="Bubblesort" right="F"/>
     <answer text="Mergesort" right="F"/>
@@ -25,7 +26,7 @@ III. Recursion" id="1">
     <answer text="Quicksort" right="T"/>
     <answer text="Tournament sort" right="F"/>
   </question>
-
+  
   <question text="4)Which of the following is the name of the data structure in a compiler that is responsible for managing information about variables and their attributes?" id="3">
     <answer text="Abstract Syntax Tree (AST)" right="F"/>
     <answer text="Attribute Grammar" right="F"/>
@@ -33,7 +34,7 @@ III. Recursion" id="1">
     <answer text="Semantic Stack" right="F"/>
     <answer text="Parse Table" right="F"/>
   </question>
-
+  
   <question text="9)Which of the following statements about Ethernets is typically FALSE?" id="4">
     <answer text="Ethernets use circuit switching to send messages." right="T"/>
     <answer text="Ethernets use buses with multiple masters." right="F"/>
@@ -41,7 +42,7 @@ III. Recursion" id="1">
     <answer text="Networks connected by Ethernets are limited in length to a few hundred meters." right="F"/>
     <answer text="Packets sent on Ethernets are limited in size." right="F"/>
   </question>
-
+  
   <question text="11)Which of the following is (are) true about virtual memory systems that use pages?
 I. The virtual address space can be larger than the amount of physical memory.
 II. Programs must be resident in main memory throughout their execution.
@@ -52,7 +53,7 @@ III. Pages correspond to semantic characteristics of the program." id="5">
     <answer text="I and III" right="F"/>
     <answer text="II and III" right="F"/>
   </question>
-
+  
   <question text="13)One approach to handling fuzzy logic data might be to design a computer using ternary (base-3) logic so that data could be stored as “true,” “false,” and “unknown.” If each ternary logic element is called a flit, how many flits are required to represent at least 256 different values?" id="6">
     <answer text="4" right="F"/>
     <answer text="5" right="F"/>
@@ -76,7 +77,7 @@ III. Pages correspond to semantic characteristics of the program." id="5">
     <answer text="To determine the hardware address of a given IP address" right="T"/>
     <answer text="To determine the appropriate route for a datagram" right="F"/>
   </question>
-
+  
   <question text="19)Let G = (V,E) be a finite directed acyclic graph with |E| > 0. Which of the following must be true?
 I. G has a vertex with no incoming edge.
 II. G has a vertex with no outgoing edge.
@@ -87,7 +88,7 @@ III. G has an isolated vertex, that is, one with neither an incoming edge nor an
     <answer text="I and II only" right="T"/>
     <answer text="I, II, and III" right="F"/>
   </question>
-
+  
   <question text="26)Let A and B be two sets of words (strings) from S *, for some alphabet of symbols S. Suppose that B is a subset of A. Which of the following statements must always be true of A and B ?
 I. If A is finite, then B is finite.
 II. If A is regular, then B is regular.
@@ -109,7 +110,7 @@ III. An array" id="11">
     <answer text="II and III only" right="F"/>
     <answer text="I, II, and III" right="T"/>
   </question>
-
+  
   <question text="31)Which of the following statements about datagrams sent by a node in a network using IPv4 protocol is (are) true?
 I. Datagrams at the source must be the size of the smallest maximum transmission unit (MTU) of all the links on a path to the destination.
 II. Datagrams may be fragmented during routing.
@@ -225,7 +226,7 @@ III. A tree with 13 vertices" id="23">
     <answer text="I and II" right="F"/>
     <answer text="I and III" right="F"/>
   </question>
-
+  
   <question text="60)Consider the following possible data structures for a set of n distinct integers. For which of these data structures is the number of steps needed to find and remove the 7th largest element O(log n) in the worst case?
 I. A min-heap
 II. An array of length n sorted in increasing order
@@ -255,7 +256,7 @@ III. Given a program that takes as input a prefix of the decimal expansion of pi
     <answer text="Type compatibility" right="F"/>
     <answer text="Type conversion" right="F"/>
   </question>
-
+	
   <question text="68)Which of the following comes closest to being a perfectly secure encryption scheme?" id="27">
     <answer text="The Caesar Cipher, a substitution cipher" right="F"/>
     <answer text="DES (Data Encryption Standard), a symmetric-key algorithm" right="F"/>
@@ -282,5 +283,5 @@ III. The largest subset of N" id="29">
     <answer text="II and III only" right="T"/>
     <answer text="I, II, and III" right="F"/>
   </question>
-
+	
 </survey>
