@@ -6,7 +6,7 @@
     <splash text="Scan your card to start getting snacks!!"/>
     <vend_gui/>
     <prelim_tasks>
-      <task class="UmatiSurveyTaskWidget" loc="conf/intro_survey.xml" />
+      <task class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
     </prelim_tasks>
     <main_tasks>
       <!--
@@ -17,8 +17,8 @@
 	<math name="Addition" value="1" />
       </task>
       -->
-      <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget" loc="conf/cs_gre.xml" />
-      <task title="CS61B Grading" class="UmatiGradingTaskWidget" loc="conf/61b_exam.xml"/>
+      <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget" xml="conf/cs_gre.xml" />
+      <task title="CS61B Grading" class="UmatiGradingTaskWidget" xml="conf/61b_exam.xml"/>
     </main_tasks>
   </interface>
 </umati>

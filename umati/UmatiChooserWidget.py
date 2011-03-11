@@ -18,12 +18,12 @@ class ChooserGui(UmatiWidget.Widget):
             for task in task_list.getElementsByTagName("task"):
                 c = task.getAttribute("class")
                 mod = __import__("umati." + c, fromlist='').__dict__[c]
-                if (task.getAttribute("loc") == ''):
+                if (task.getAttribute("xml") == ''):
                     taskgui = mod.TaskGui(Util.childNode(task), 
                                           parent=parent)
                 else:
                     taskgui = mod.TaskGui(xml.dom.minidom.parse(
-                            task.getAttribute("loc")).documentElement, 
+                            task.getAttribute("xml")).documentElement, 
                                           parent=parent)
                 taskgui.hide()
                 b = QtGui.QPushButton(task.getAttribute("title"))
