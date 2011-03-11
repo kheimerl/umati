@@ -16,8 +16,8 @@
       <task title="Add Two Numbers" class="UmatiMathTaskWidget">
 	<math name="Addition" value="1" />
       </task>
-      -->
       <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget" xml="conf/cs_gre.xml" />
+      -->
       <task title="CS61B Grading" class="UmatiGradingTaskWidget" xml="conf/61b_exam.xml"/>
     </main_tasks>
   </interface>

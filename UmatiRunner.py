@@ -39,7 +39,6 @@ logging.basicConfig(filename=Util.LOG_LOC,
 
 try:
     conf = xml.dom.minidom.parse(conf)
-    print(conf)
 except xml.parsers.expat.ExpatError as e:
     print ("XML File Malformed")
     print (e)
