@@ -116,7 +116,7 @@ class TaskGui(UmatiWidget.Widget):
         self.conf = conf
         self.value = self.conf.getAttribute("value")
         self.mode = self.conf.getAttribute("mode")
-        self.ui.slider.valueChanged.connect(self.__updateGrade)
+        self.ui.scroller.valueChanged.connect(self.__updateGrade)
         self.ui.submit.clicked.connect(self.__submit)
         
     def __setupTextFields(self):
@@ -159,13 +159,13 @@ class TaskGui(UmatiWidget.Widget):
                 button.setChecked(False)
 
     def __updateGrade(self):
-        self.ui.grade.setNum(self.ui.slider.value())
+        self.ui.grade.setNum(self.ui.scroller.value())
 
     def __newTask(self):
         self.cur_task = GradingTask(self.conf)
         self.ui.questionField.setText(self.cur_task.getQuestionText())
         self.ui.goldField.setText(self.cur_task.getGoldText())
-        self.ui.slider.setRange(0,self.cur_task.getMaxGrade())
+        self.ui.scroller.setRange(0,self.cur_task.getMaxGrade())
         self.__newQuestion()
 
     def __newQuestion(self):
@@ -177,7 +177,7 @@ class TaskGui(UmatiWidget.Widget):
 
     def __genNewQuestion(self, ans_loc):
         self.ui.studentField.setUrl(QtCore.QUrl(ans_loc))
-        self.ui.slider.setValue(0)
+        self.ui.scroller.setValue(0)
         for field in [self.ui.questionField, self.ui.goldField,
                       self.ui.studentField]:
             field.show()
@@ -187,8 +187,8 @@ class TaskGui(UmatiWidget.Widget):
 
     def __submit(self):
         self.log.info("Grading Task COMPLETE. Q: %s A: %d" % 
-                      (self.cur_task.getName(), self.ui.slider.value()))
-        self.cur_task.setAns(self.ui.slider.value())
+                      (self.cur_task.getName(), self.ui.scroller.value()))
+        self.cur_task.setAns(self.ui.scroller.value())
         self.controller.task_completed(self.cur_task, reset=False)
         self.__newQuestion()
 
