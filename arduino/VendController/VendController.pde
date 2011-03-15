@@ -8,7 +8,7 @@ const int sensorPin = A1;
 const int knockPin = A0;
 const long maxMotorTime= 1100000; //sets threshhold Motor Time
 const int laserDifference = 15;
-const int knockThresh = 400;
+const int knockThresh = 63;
 const int biasDegree = 25;
 void setup() { 
   //pinMode(15, OUTPUT);  //light sensor
@@ -113,6 +113,7 @@ void Spin(){
       //sensorValue = analogRead(sensorPin);
     }
     knockSensorVal = analogRead(knockPin);
+    //Serial.println(knockSensorVal);
   }
   Serial.println(sensorValueMax);
   Serial.println(sensorValue);
