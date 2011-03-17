@@ -10,6 +10,7 @@ class ChooserGui(UmatiWidget.Widget):
 
     def __init__(self, conf, parent=None):
         UmatiWidget.Widget.__init__(self, parent)
+        self.parent = parent
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.log = logging.getLogger("umati.UmatiChooserWidget.ChooserGui")
@@ -65,7 +66,7 @@ class ChooserGui(UmatiWidget.Widget):
             avail_tasks[0].show()
         else:
             UmatiMessageDialog.information(self, "Sorry, there are no more tasks available right now", title="Notice")
-            self.controller.timeout()
+            self.parent.parentWidget().parentWidget().setVendVisible()
 
     def __hide_tasks(self):
         for (t,b) in self.tasks:
