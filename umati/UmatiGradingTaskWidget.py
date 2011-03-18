@@ -9,6 +9,25 @@ UI_FILE = 'umati/UmatiGradingTaskView.ui'
 class NoQuestionsException(Exception):
     pass
 
+class Answer():
+    
+    def __init__(self, src):
+        self.src = src
+        self.type = "norm"
+
+    def isGold(self):
+        return False
+
+class GoldAnswer(Answer):
+    
+    def __init__(self, src, val):
+        Answer.__init__(self, src)
+        self.type = "gold"
+        self.val = val
+
+    def isGold(self):
+        return True;
+
 class Question():
 
     whitespace_re = re.compile("(\s+)")
@@ -23,33 +42,52 @@ class Question():
         self.cur_img = None
         self.imgs = []
         for img in conf.getElementsByTagName("img"):
-            self.imgs.append(img.getAttribute("src"))
+            self.imgs.append(Answer(img.getAttribute("src")))
+        self.golds = []
+        for gold in conf.getElementsByTagName("test"):
+            self.golds.append(GoldAnswer(gold.getAttribute("src"),
+                                         int(gold.getAttribute("val"))))
 
     def getNextAnswer(self, answered):
-        if (self.available(answered)):
-            if (len(self.imgs) > 0):
-                self.cur_img = random.choice(self.imgs)
+        if (self.__available(answered, self.golds)):
+            self.cur_img = random.choice(self.golds)
+        elif (self.__available(answered, self.imgs)):
+            self.cur_img = random.choice(self.imgs)
         else:
             self.cur_img = None
-        return self.cur_img
+        if (self.cur_img):
+            return self.cur_img.src
+        else:
+            return None
+
+    def isGold(self):
+        return self.cur_img.isGold()
+
+    def isCorrect(self, ans):
+        if (self.isGold()):
+            return (self.cur_img.val == ans)
+        return True
 
     def getCurName(self):
         return self.__genName(self.cur_img)
 
     def __genName(self, img):
-        return (str(self.number) + ":" + img)
+        return (str(self.number) + ":" + img.src + ":" + img.type)
 
     def __add_newlines(self, text):
         return Question.index_re.sub(lambda x: "\n", Question.whitespace_re.sub(lambda x: " ", text))
 
-    #given a set of answered tasks, determines if there are any new questions to be asked
     def available(self, answered):
+        return self.__available(answered, self.imgs)
+
+    #given a set of answered tasks, determines if there are any new questions to be asked
+    def __available(self, answered, targetList):
         for task in answered:
-            for img in self.imgs:
+            for img in targetList:
                 #horribly inefficient
                 if task[0] == self.__genName(img):
-                    self.imgs.remove(img)
-        return (len(self.imgs) > 0)
+                    targetList.remove(img)
+        return (len(targetList) > 0)
 
 class GradingTask(UmatiTask.Task):
     
@@ -84,8 +122,7 @@ class GradingTask(UmatiTask.Task):
         return self.current_q.gold
 
     def getAnswerLoc(self):
-        return self.current_q.getNextAnswer(
-            self.controller.get_completed_tasks(self.getType()))
+        return self.current_q.getNextAnswer(self.controller.get_completed_tasks(self.getType()))
 
     def getMaxGrade(self):
         return self.current_q.maxGrade
@@ -101,6 +138,12 @@ class GradingTask(UmatiTask.Task):
 
     def getAns(self):
         return str(self.ans)
+
+    def isGold(self):
+        return self.current_q.isGold()
+
+    def isCorrect(self):
+        return self.current_q.isCorrect(self.ans)
 
     def instructions(self):
         return self.inst
@@ -189,8 +232,8 @@ class TaskGui(UmatiWidget.Widget):
         self.log.info("Grading Task COMPLETE. Q: %s A: %d" % 
                       (self.cur_task.getName(), self.ui.scroller.value()))
         self.cur_task.setAns(self.ui.scroller.value())
-        self.controller.task_completed(self.cur_task, reset=False)
-        self.__newQuestion()
+        if(self.controller.task_completed(self.cur_task, reset=False)):
+            self.__newQuestion()
 
     def show(self):
         UmatiWidget.Widget.show(self)

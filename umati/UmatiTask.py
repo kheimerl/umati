@@ -17,6 +17,12 @@ class Task:
     
     def getAns(self):
         raise Exception("Not Implemented")
+
+    def isGold(self):
+        return False
+
+    def isCorrect(self):
+        return True
     
     def instructions(self):
         return None

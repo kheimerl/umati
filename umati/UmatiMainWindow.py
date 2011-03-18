@@ -4,6 +4,7 @@ import logging
 from . import UmatiChooserWidget
 from . import UmatiVendWidget
 from . import UmatiSplashWidget
+from . import UmatiMessageDialog
 
 WINDOW = None
 
@@ -51,6 +52,7 @@ class MainWindow(QtGui.QMainWindow):
         self.connect(self, QtCore.SIGNAL('splash_vis'), self.__setSplashVisible)
         self.connect(self, QtCore.SIGNAL('prelim_vis'), self.__setPrelimVisible)
         self.connect(self, QtCore.SIGNAL('set_credits'), self.__setCredits)
+        self.connect(self, QtCore.SIGNAL('information'), self.__information)
 
         self.setSplashVisible()
 
@@ -101,14 +103,20 @@ class MainWindow(QtGui.QMainWindow):
         else: #if no prelim tasks, go to chooser
             self.setChooserVisible()
 
-    def getValue(self):
-        return self.ui.lcdNumber.intValue()
-
     def setCredits(self, creds):
         self.emit(QtCore.SIGNAL('set_credits'), creds)
 
     def __setCredits(self, creds):
         self.ui.lcdNumber.display(creds)
         
+    def information(self, message):
+        self.emit(QtCore.SIGNAL('information'), message)
+    
+    def __information(self, message):
+        UmatiMessageDialog.information(self, message)
+
+    def getValue(self):
+        return self.ui.lcdNumber.intValue()
+
     def keyPressEvent(self, event):
         print (event)

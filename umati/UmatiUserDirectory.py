@@ -1,5 +1,6 @@
 import os.path
 import pickle, time
+from . import Util
 
 class User:
     
@@ -9,16 +10,19 @@ class User:
         self.db = db
         self.init_done = False
         self.tasks_completed = {}
+        self.gold_wrong = 0
 
     def task_completed(self, task):
         if (task):
             self.changeCredits(task.getValue())
             if (task.prelim == "true"):
                 self.init_done = True
+            if (task.isGold() and not task.isCorrect()):
+                self.gold_wrong += 1
             if task.getType() not in self.tasks_completed:
                 self.tasks_completed[task.getType()] = []
-            self.tasks_completed[task.getType()].append((task.getName(), task.getAns(), time.time()))
-        self.db.changed()
+            self.tasks_completed[task.getType()].append(
+                (task.getName(), task.getAns(), time.time()))
 
     def get_tasks_completed(self, task_type):
         if task_type in self.tasks_completed:
@@ -42,6 +46,7 @@ class UserDirectory:
 
     def __init__(self, conf):
         self.path = conf.getAttribute("loc")
+        self.max_wrong = int(conf.getAttribute("max_fails"))
         if (self.path == ""):
             self.path = UserDirectory.FILE_LOC
 
@@ -54,11 +59,22 @@ class UserDirectory:
     def get_user(self, tag):
         if tag not in self.db:
             self.db[tag] = User(tag, 0, self)
-        return self.db[tag]
+        user = self.db[tag]
+        if (self.user_good(user)):
+            return user
+        else:
+            return None
+
+    def task_completed(self, user, task):
+        user.task_completed(task)
+        self.changed()
 
     def update_user(self, user):
         self.db[user.tag] = user
 
+    def user_good(self, user):
+        return (user.gold_wrong < self.max_wrong)
+        
     def changed(self):
         p = pickle.Pickler(open(self.path, 'wb'))
         p.dump(self.db)
