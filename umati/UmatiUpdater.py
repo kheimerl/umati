@@ -14,11 +14,12 @@ class Countdown(QThread):
 
     COUNTDOWN = 1 * 60
 
-    def __init__(self, parent):
+    def __init__(self, parent, timeout):
         QThread.__init__(self)
         self.daemon = True
         self.done = False
-        self.tm = Countdown.COUNTDOWN
+        self.reset_timeout = int(timeout)
+        self.reset()
         self.parent = parent
 
     def run(self):
@@ -30,7 +31,7 @@ class Countdown(QThread):
             self.reset()
 
     def reset(self):
-        self.tm = Countdown.COUNTDOWN
+        self.tm = self.reset_timeout
 
     def stop(self):
         self.done = True
@@ -38,12 +39,13 @@ class Countdown(QThread):
 #catches actions and hands them to the UI
 class BasicUpdater(QThread):
 
-    def __init__(self, cont):
+    def __init__(self, cont, conf):
         QThread.__init__(self)
         self.done = False
         self.daemon = True
         self.cont = cont
-        self.cd = Countdown(self)
+        self.cd = Countdown(self, 
+                            conf.getAttribute("timeout"))
 
     def run(self):
         self.cd.start()
@@ -61,8 +63,8 @@ class NetworkUpdater(BasicUpdater):
     
     PORT = 9090
 
-    def __init__(self, cont):
-        BasicUpdater.__init__(self, cont)
+    def __init__(self, cont, conf):
+        BasicUpdater.__init__(self, cont, conf)
         self.server = SimpleXMLRPCServer(("localhost", NetworkUpdater.PORT))
         self.server.register_function(self.connect)
         
@@ -95,8 +97,8 @@ class KeyboardUpdater(BasicUpdater):
         self.str += str
         self.update_time = time.time()
 
-    def __init__(self, cont):
-        BasicUpdater.__init__(self, cont)
+    def __init__(self, cont, conf):
+        BasicUpdater.__init__(self, cont, conf)
         self.log = logging.getLogger("umati.UmatiUpdater.KeyboardUpdater")
         self.wid = KeyboardWidget(self)
         self.str = ""
@@ -115,9 +117,9 @@ class KeyboardWidget(QtGui.QWidget):
 def Updater(controller, conf):
     type = conf.getAttribute("type")
     if (type == "Keyboard"):
-        return KeyboardUpdater(controller)
+        return KeyboardUpdater(controller, conf)
     elif(type == "Network"):
-        return NetworkUpdater(controller)
+        return NetworkUpdater(controller, conf)
     else:
         raise Exception("No associated updater")
 
