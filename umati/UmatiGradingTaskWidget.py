@@ -1,5 +1,5 @@
 from PyQt4 import uic, QtGui, QtCore
-import logging, random, re
+import logging, random, xml.dom
 from functools import partial
 
 from . import UmatiWidget, UmatiTask, UmatiMessageDialog, Util
@@ -30,13 +30,10 @@ class GoldAnswer(Answer):
 
 class Question():
 
-    whitespace_re = re.compile("(\s+)")
-    index_re = re.compile("(\~)")
-
     #this guy would load stuff
     def __init__(self, conf):
-        self.q = self.__add_newlines(conf.getAttribute("question"))
-        self.gold = self.__add_newlines(conf.getAttribute("gold"))
+        self.q = self.__getSubtext(conf.getElementsByTagName("q")[0])
+        self.gold = self.__getSubtext(conf.getElementsByTagName("gold")[0])
         self.number = conf.getAttribute("number")
         self.maxGrade = int(conf.getAttribute("range"))
         self.cur_img = None
@@ -47,6 +44,12 @@ class Question():
         for gold in conf.getElementsByTagName("test"):
             self.golds.append(GoldAnswer(gold.getAttribute("src"),
                                          int(gold.getAttribute("val"))))
+
+    def __getSubtext(self, node):
+        for n in node.childNodes:
+            if (n.nodeType == xml.dom.Node.CDATA_SECTION_NODE):
+                return n.data
+        return ""
 
     def getNextAnswer(self, answered):
         if (self.__available(answered, self.golds)):
@@ -73,9 +76,6 @@ class Question():
 
     def __genName(self, img):
         return (str(self.number) + ":" + img.src + ":" + img.type)
-
-    def __add_newlines(self, text):
-        return Question.index_re.sub(lambda x: "\n", Question.whitespace_re.sub(lambda x: " ", text))
 
     def available(self, answered):
         return self.__available(answered, self.imgs)

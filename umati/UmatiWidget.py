@@ -59,12 +59,12 @@ class PanningWebBrowser(QtWebKit.QWebView):
         self.press_count = 0 #count number of presses
         self.last_press = 0 #last time we completed a press event
         self.press_time = 0 #last time we pressed down
-        self.page().mainFrame().setZoomFactor(2.0)
+        self.page().mainFrame().setZoomFactor(1.0)
         self.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Horizontal, 
                                                    QtCore.Qt.ScrollBarAlwaysOff)
         self.page().mainFrame().setScrollBarPolicy(QtCore.Qt.Vertical, 
                                                    QtCore.Qt.ScrollBarAlwaysOff)
-        self.zoomed = True
+        self.zoomed = False
 
     def mousePressEvent(self, event):
         self.pressed = (event.x(), event.y())
