@@ -1,5 +1,5 @@
 import os.path
-import pickle, time
+import pickle, time, re, logging
 from . import Util
 
 class User:
@@ -44,9 +44,12 @@ class UserDirectory:
 
     FILE_LOC = "umati_user_db"
 
+    CAL_ID_RE = re.compile("(\s*);(\d+)=(/d+)?")
+
     def __init__(self, conf):
         self.path = conf.getAttribute("loc")
         self.max_wrong = int(conf.getAttribute("max_fails"))
+        self.log = logging.getLogger("umati.UmatiUserDirectory.UserDirectory")
         if (self.path == ""):
             self.path = UserDirectory.FILE_LOC
 
@@ -57,12 +60,16 @@ class UserDirectory:
             self.db = {}
 
     def get_user(self, tag):
+        if not(UserDirectory.CAL_ID_RE.match(tag)):
+            self.log.warn("Invalid card scanned:%s" % tag)
+            return None
         if tag not in self.db:
             self.db[tag] = User(tag, 0, self)
         user = self.db[tag]
         if (self.user_good(user)):
             return user
         else:
+            self.log.warn("Cheating user blocked:%s" % tag)
             return None
 
     def task_completed(self, user, task):
