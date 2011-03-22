@@ -27,7 +27,7 @@
      <widget class="QLabel" name="splash">
       <property name="font">
        <font>
-        <pointsize>40</pointsize>
+        <pointsize>28</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
