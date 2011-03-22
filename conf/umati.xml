@@ -3,7 +3,8 @@
   <user_directory loc="umati_user_db" max_fails="2"/>
   <updater type="Keyboard" timeout="120"/>
   <interface>
-    <splash text="Scan your card to start getting snacks!!"/>
+    <splash text="Scan your card to start getting snacks!!"
+	    gif="umatiCardScan.gif"/>
     <vend_gui/>
     <prelim_tasks>
       <task class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />

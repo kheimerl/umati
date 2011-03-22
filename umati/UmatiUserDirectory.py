@@ -60,7 +60,7 @@ class UserDirectory:
             self.db = {}
 
     def get_user(self, tag):
-        if not(UserDirectory.CAL_ID_RE.match(tag)):
+        if not(UserDirectory.CAL_ID_RE.match(tag) or len(tag) == 2):
             self.log.warn("Invalid card scanned:%s" % tag)
             return None
         if tag not in self.db:
