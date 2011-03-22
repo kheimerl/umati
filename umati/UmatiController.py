@@ -31,14 +31,14 @@ class Controller(QtCore.QObject):
 
     def __update_user(self, task):
         self.user_db.task_completed(self.user, task)
-        self.mw.setCredits(self.user.credits)
+        self.mw.setCredits(self.user.getCredits())
 
     def vendItem(self, target):
         price = self.vend_db.getPriceFromLocation(target)
         if (price and 
-            self.user.credits >= price):
+            self.user.getCredits() >= price):
             self.db.change_credits(self.user, -price)
-            self.mw.setCredits(self.user.credits)
+            self.mw.setCredits(self.user.getCredits())
             #could also check if item in stock here
             Util.sendVendCmd(target)
             return True
@@ -71,7 +71,7 @@ class Controller(QtCore.QObject):
     def new_connection(self, tag):
         self.user = self.user_db.get_user(tag)
         if (self.user):
-            self.mw.setCredits(self.user.credits)
+            self.mw.setCredits(self.user.getCredits())
             if (self.user.init_done):
                 self.mw.setChooserVisible()
             else:

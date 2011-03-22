@@ -6,10 +6,13 @@ class User:
     
     def __init__(self, tag, creds, db):
         self.tag = tag
-        self.credits = creds
+        self.__credits = creds
         self.init_done = False
         self.tasks_completed = {}
         self.gold_wrong = 0
+
+    def getCredits(self):
+        return self.__credits
 
     def task_completed(self, task):
         if (task):
@@ -31,12 +34,12 @@ class User:
 
     def __repr__(self):
         return str("Name: %s Credits: %d Init:%s Tasks:%s"
-                   % (self.tag, self.credits,
+                   % (self.tag, self.__credits,
                       str(self.init_done), 
                       str(self.tasks_completed)))
 
     def change_credits(self, price):
-        self.credits += price
+        self.__credits += price
 
 class UserDirectory:
 
