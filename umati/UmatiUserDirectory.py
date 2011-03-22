@@ -7,14 +7,12 @@ class User:
     def __init__(self, tag, creds, db):
         self.tag = tag
         self.credits = creds
-        self.db = db
         self.init_done = False
         self.tasks_completed = {}
         self.gold_wrong = 0
 
     def task_completed(self, task):
         if (task):
-            self.changeCredits(task.getValue())
             if (task.prelim == "true"):
                 self.init_done = True
             if (task.isGold() and not task.isCorrect()):
@@ -23,6 +21,7 @@ class User:
                 self.tasks_completed[task.getType()] = []
             self.tasks_completed[task.getType()].append(
                 (task.getName(), task.getAns(), time.time()))
+            self.change_credits(task.getValue())
 
     def get_tasks_completed(self, task_type):
         if task_type in self.tasks_completed:
@@ -36,9 +35,8 @@ class User:
                       str(self.init_done), 
                       str(self.tasks_completed)))
 
-    def changeCredits(self, price):
+    def change_credits(self, price):
         self.credits += price
-        self.db.changed()
 
 class UserDirectory:
 
@@ -76,6 +74,10 @@ class UserDirectory:
         user.task_completed(task)
         self.changed()
 
+    def change_credits(self, user, creds):
+        user.change_credits(creds)
+        self.changed()
+
     def update_user(self, user):
         self.db[user.tag] = user
 
@@ -84,4 +86,5 @@ class UserDirectory:
         
     def changed(self):
         p = pickle.Pickler(open(self.path, 'wb'))
+        print (self.db)
         p.dump(self.db)

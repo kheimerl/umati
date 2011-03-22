@@ -37,7 +37,7 @@ class Controller(QtCore.QObject):
         price = self.vend_db.getPriceFromLocation(target)
         if (price and 
             self.user.credits >= price):
-            self.user.changeCredits(-price)
+            self.db.change_credits(self.user, -price)
             self.mw.setCredits(self.user.credits)
             #could also check if item in stock here
             Util.sendVendCmd(target)
