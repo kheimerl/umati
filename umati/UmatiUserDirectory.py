@@ -89,5 +89,4 @@ class UserDirectory:
         
     def changed(self):
         p = pickle.Pickler(open(self.path, 'wb'))
-        print (self.db)
         p.dump(self.db)
