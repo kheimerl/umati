@@ -6,9 +6,9 @@ int trayNumber;
 int loopFlag=0; 
 const int sensorPin = A1;
 const int knockPin = A0;
-const long maxMotorTime= 1100000; //sets threshhold Motor Time
+const long maxMotorTime= 60000; //sets threshhold Motor Time
 const int laserDifference = 15;
-const int knockThresh = 63;
+const int knockThresh = 150;
 const int biasDegree = 25;
 void setup() { 
   //pinMode(15, OUTPUT);  //light sensor
