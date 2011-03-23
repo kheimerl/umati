@@ -25,7 +25,6 @@ class VendDB:
 
     def getPriceFromLocation(self, loc):
         loc = loc.lower()
-        print(loc)
         if loc not in self.db:
             return None
         else:
