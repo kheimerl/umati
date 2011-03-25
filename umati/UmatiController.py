@@ -80,6 +80,10 @@ class Controller(QtCore.QObject):
             self.boot_user()
         
     def timeout(self):
+        if (self.user):
+            self.log.info("Timeout for user %s" % self.user.tag)
+        else:
+            self.log.info("Timeout")
         self.user = None
         self.mw.setSplashVisible()
 

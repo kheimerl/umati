@@ -74,6 +74,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.topFrame.show()
         self.ui.taskButton.setChecked(True)
         self.ui.vendButton.setChecked(False)
+        self.log.info("Going to chooser view")
         self.__setItemVisible(self.chooser, [self.vend, self.splash, self.prelim])
 
     def setVendVisible(self):
@@ -83,6 +84,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.topFrame.show()
         self.ui.taskButton.setChecked(False)
         self.ui.vendButton.setChecked(True)
+        self.log.info("Going to vend view")
         self.__setItemVisible(self.vend, [self.chooser, self.splash, self.prelim]) 
 
     def setSplashVisible(self):
@@ -90,6 +92,7 @@ class MainWindow(QtGui.QMainWindow):
 
     def __setSplashVisible(self):
         self.ui.topFrame.hide()
+        self.log.info("Going to splash view")
         self.__setItemVisible(self.splash, [self.vend, self.chooser, self.prelim])
 
     def setPrelimVisible(self):
@@ -117,6 +120,3 @@ class MainWindow(QtGui.QMainWindow):
 
     def getValue(self):
         return self.ui.lcdNumber.intValue()
-
-    def keyPressEvent(self, event):
-        print (event)
