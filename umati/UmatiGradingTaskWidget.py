@@ -188,7 +188,6 @@ class TaskGui(UmatiWidget.Widget):
             layout.addWidget(obj)
             but.clicked.connect(partial(self.__switchField, obj, but))
             self.num_hidden = 0;
-
                 
     def __switchField(self, field, button):
         if (field.isHidden()):
@@ -221,12 +220,16 @@ class TaskGui(UmatiWidget.Widget):
     def __genNewQuestion(self, ans_loc):
         self.ui.studentField.setUrl(QtCore.QUrl(ans_loc))
         self.ui.scroller.setValue(0)
-        for field in [self.ui.questionField, self.ui.goldField,
-                      self.ui.studentField]:
-            field.show()
+        self.__resetFields()
         for but in [self.ui.questButton, self.ui.profButton,
                     self.ui.studentButton]:
             but.setChecked(False)
+
+    def __resetFields(self):
+        for field in [self.ui.questionField, self.ui.goldField,
+                      self.ui.studentField]:
+            field.show()
+        self.num_hidden = 0
 
     def __submit(self):
         self.log.info("Grading Task COMPLETE. Q: %s A: %d" % 
