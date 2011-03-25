@@ -201,8 +201,11 @@ class TaskGui(UmatiWidget.Widget):
             if (q): #not finished
                 self.setButtons(q)
             else:
-                self.log.info("Survey Task COMPLETE. T: %s V: %d" %
-                              (self.cur_task.getType, self.cur_task.getValue()))
+                self.log.info("Survey Task COMPLETE. T: %s V:%d N:%s A: %s" %
+                              (self.cur_task.getType(), 
+                               self.cur_task.getValue(),
+                               self.cur_task.getName(),
+                               self.cur_task.getAns()))
                 self.controller.task_completed(self.cur_task)
 
     def back(self):
