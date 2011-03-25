@@ -65,6 +65,7 @@ class UserDirectory:
             self.log.warn("Invalid card scanned:%s" % tag)
             return None
         if tag not in self.db:
+            self.log.info("New user %s" % tag)
             self.db[tag] = User(tag, 0, self)
         user = self.db[tag]
         if (self.user_good(user)):

@@ -88,6 +88,7 @@ class Controller(QtCore.QObject):
         self.mw.setSplashVisible()
 
     def boot_user(self):
+        self.log.info("User removed from system")
         self.mw.information("You have been removed from the system for violations of the 'be awesome' code.")
         self.timeout()
         
