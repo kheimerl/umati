@@ -61,7 +61,7 @@ class UserDirectory:
 
     CAL_ID_RE = re.compile("(\s*);(\d+)=(/d+)?")
 
-    UPDATE_TIMEOUT = 60
+    UPDATE_TIMEOUT = 60*10
 
     def __init__(self, conf):
         self.path = conf.getAttribute("loc")
