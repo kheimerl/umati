@@ -4,11 +4,11 @@ int trayLetter;
 int trayNumber;
 
 int loopFlag=0; 
-const int sensorPin = A1;
-const int knockPin = A0;
-const long maxMotorTime= 60000; //sets threshhold Motor Time
+const int sensorPin = A0;
+const int knockPin = A1;
+const long maxMotorTime= 60500; //sets threshhold Motor Time
 const int laserDifference = 15;
-const int knockThresh = 150;
+const int knockThresh = 100;
 const int biasDegree = 25;
 void setup() { 
   //pinMode(15, OUTPUT);  //light sensor
@@ -107,13 +107,7 @@ void Spin(){
         (knockSensorVal < knockThresh) &&
         i < maxMotorTime ){  
     i++;
-    //running biased average
-    if (i % 5 == 0){
-      //sensorValueMax = ((sensorValueMax * biasDegree) + sensorValue)/(biasDegree+1);
-      //sensorValue = analogRead(sensorPin);
-    }
     knockSensorVal = analogRead(knockPin);
-    //Serial.println(knockSensorVal);
   }
   Serial.println(sensorValueMax);
   Serial.println(sensorValue);

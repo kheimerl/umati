@@ -244,6 +244,8 @@ class TaskGui(UmatiWidget.Widget):
             self.__newTask()
             if (len(self.controller.get_completed_tasks(self.cur_task.getType())) == 0):
                 UmatiMessageDialog.information(self, self.cur_task.instructions(), title="Intructions")
+            else:
+                UmatiMessageDialog.information(self, "New Question", title="Note")
         else:
             #no questions, go back to chooser
             UmatiMessageDialog.information(self, "Sorry, there are no more questions available right now", title="Notice")
