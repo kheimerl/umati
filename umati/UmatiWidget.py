@@ -62,6 +62,8 @@ class ZoomAndPannable():
 
 class PanningTextBrowser(QtGui.QTextBrowser, ZoomAndPannable):
 
+    ZOOM_FACTOR = 2
+
     def __init__(self, parent=None):
         QtGui.QTextBrowser.__init__(self, parent)
         ZoomAndPannable.__init__(self, False)
@@ -82,9 +84,9 @@ class PanningTextBrowser(QtGui.QTextBrowser, ZoomAndPannable):
     def zoom(self, zoom):
         ZoomAndPannable.zoom(self, zoom)
         if (zoom):
-            self.zoomIn(2)
+            self.zoomIn(PanningTextBrowser.ZOOM_FACTOR)
         else:
-            self.zoomOut(2)
+            self.zoomOut(PanningTextBrowser.ZOOM_FACTOR)
  
     def __changeFontSize(self, size):
         self.selectAll()
