@@ -1,5 +1,6 @@
 import os.path
 import pickle, time, re, logging
+from PyQt4.Qt import QThread, QMutex
 from . import Util
 
 class User:
@@ -41,11 +42,26 @@ class User:
     def change_credits(self, price):
         self.__credits += price
 
+class UpdaterThread(QThread):
+    
+    def __init__(self, ud):
+        QThread.__init__(self)
+        self.daemon = True
+        self.done = False
+        self.ud = ud
+
+    def run(self):
+        while not (self.done):
+            self.ud.dump()
+            time.sleep(60)
+
 class UserDirectory:
 
     FILE_LOC = "umati_user_db"
 
     CAL_ID_RE = re.compile("(\s*);(\d+)=(/d+)?")
+
+    UPDATE_TIMEOUT = 60
 
     def __init__(self, conf):
         self.path = conf.getAttribute("loc")
@@ -60,34 +76,63 @@ class UserDirectory:
         else:
             self.db = {}
 
+        self.__lock = QMutex()
+        self.__last_updated = time.time()
+        self.__hasChanged = False
+        self.updater = UpdaterThread(self)
+        self.updater.start()
+
     def get_user(self, tag):
+        self.__lock.lock()
+        res = None
         if not(UserDirectory.CAL_ID_RE.match(tag) or len(tag) == 2):
             self.log.warn("Invalid card scanned:%s" % tag)
-            return None
-        if tag not in self.db:
-            self.log.info("New user %s" % tag)
-            self.db[tag] = User(tag, 0, self)
-        user = self.db[tag]
-        if (self.user_good(user)):
-            return user
         else:
-            self.log.warn("Cheating user blocked:%s" % tag)
-            return None
-
+            if tag not in self.db:
+                self.log.info("New user %s" % tag)
+                self.db[tag] = User(tag, 0, self)
+            user = self.db[tag]
+            if (self.user_good(user)):
+                res = user
+            else:
+                self.log.warn("Cheating user blocked:%s" % tag)
+        self.__changed()
+        self.__lock.unlock()
+        return res
+        
     def task_completed(self, user, task):
+        self.__lock.lock()
         user.task_completed(task)
-        self.changed()
+        self.__changed()
+        self.__lock.unlock()
 
     def change_credits(self, user, creds):
+        self.__lock.lock()
         user.change_credits(creds)
-        self.changed()
+        self.__changed()
+        self.__lock.unlock()
 
     def update_user(self, user):
+        self.__lock.lock()
         self.db[user.tag] = user
+        self.__changed()
+        self.__lock.unlock()
 
     def user_good(self, user):
         return (user.gold_wrong < self.max_wrong)
         
-    def changed(self):
-        p = pickle.Pickler(open(self.path, 'wb'))
-        p.dump(self.db)
+    def __changed(self):
+        self.__hasChanged = True
+        self.__last_updated = time.time()
+
+    def dump(self):
+        self.__lock.lock()
+        if (self.__hasChanged and 
+            self.__last_updated + UserDirectory.UPDATE_TIMEOUT < time.time()):
+            self.log.info("DB Dumped")
+            print("DB Dumped")
+            p = pickle.Pickler(open(self.path, 'wb'))
+            p.dump(self.db)
+            self.__hasChanged = False
+            self.__last_updated = time.time()
+        self.__lock.unlock()
