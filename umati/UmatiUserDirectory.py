@@ -3,7 +3,7 @@ import pickle, time, re, logging
 from PyQt4.Qt import QThread, QMutex, QMutexLocker
 from . import Util
 
-class User:
+class User(object):
     
     def __init__(self, tag, creds, db):
         self.tag = tag
