@@ -45,6 +45,15 @@ def munge_per_question(user_db, filter_func = lambda x: True):
                     t.var(), t.size)#, morestats.bayes_mvs(t))
     return res
 
+def munge_basic_stats(user_db, filter_func = lambda x: True):
+    (num_users, num_qs) = (0,0)
+    for user in user_db.values():
+        if filter_func(user):
+            num_users += 1
+            if "Grading" in user.tasks_completed:
+                num_qs += len(user.tasks_completed["Grading"])
+    return (num_users, num_qs)
+            
 def chain_filters(user, filters = []):
     for filt in filters:
         if not (filt(user)):
@@ -63,6 +72,12 @@ def cs_only(user):
         return (user.tasks_completed["Linear_Survey"][0][1][13] == "1")
     return False
         
+#basic stats
+basic = munge_basic_stats(db, filter_func = remove_kurtis)
+print (basic)
+basic_nocheat = munge_basic_stats(db, filter_func = partial(chain_filters, filters=[remove_kurtis, remove_cheaters]))
+print(basic_nocheat)
+
 per_q = munge_per_question(db, filter_func = remove_kurtis)
 per_q_nocheat = munge_per_question(db, filter_func = partial(chain_filters, filters=[remove_kurtis, remove_cheaters]))
 per_q_nocheat_cs = munge_per_question(db, filter_func = partial(chain_filters, filters=[remove_cheaters, cs_only, remove_kurtis]))
