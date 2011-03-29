@@ -45,25 +45,31 @@ def munge_per_question(user_db, filter_func = lambda x: True):
                     t.var(), t.size)#, morestats.bayes_mvs(t))
     return res
 
-def chain_filters(user, func1=lambda x: True, 
-                  func2 = lambda x: True):
-    return func1(user) and func2(user)
+def chain_filters(user, filters = []):
+    for filt in filters:
+        if not (filt(user)):
+            return False
+    return True
 
 def remove_cheaters(user):
     return user.gold_wrong < 2
 
+def remove_kurtis(user):
+    return ";019582227=1140?" not in user.tag
+
 #fix this later
 def cs_only(user):
-    #print (user.tasks_completed.keys())
     if "Linear_Survey" in user.tasks_completed:
-        return True
-    elif "Intro2" in user.tasks_completed:
-        return True
-
-per_q = munge_per_question(db)
-per_q_nocheat = munge_per_question(db, filter_func = remove_cheaters)
-per_q_nocheat_cs = munge_per_question(db, filter_func = partial(chain_filters, func1=remove_cheaters, func2=cs_only))
+        return (user.tasks_completed["Linear_Survey"][0][1][13] == "1")
+    return False
+        
+per_q = munge_per_question(db, filter_func = remove_kurtis)
+per_q_nocheat = munge_per_question(db, filter_func = partial(chain_filters, filters=[remove_kurtis, remove_cheaters]))
+per_q_nocheat_cs = munge_per_question(db, filter_func = partial(chain_filters, filters=[remove_cheaters, cs_only, remove_kurtis]))
 for q, res  in per_q.iteritems():
     print ("Question:" + q)
     print ("Basic:" + str(res))
-    print ("No Cheat:" + str(per_q_nocheat[q]))
+    if (q in per_q_nocheat):
+        print ("No Cheat:" + str(per_q_nocheat[q]))
+    if (q in per_q_nocheat_cs):
+        print ("CS Only-No Cheat:" + str(per_q_nocheat_cs[q]))
