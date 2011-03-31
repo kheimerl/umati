@@ -18,11 +18,31 @@ function gup( name )
     return results[1];
 }
 
+var count = 0;
+var current_image
+
 function changeText(node, newText){
 	node.removeChild(node.firstChild);
 	node.appendChild(document.createTextNode(newText));
 }
 
+function ajaxSuccess(data, textStatus, jqXHR){
+	changeText(document.getElementById('professor'), professor);
+	changeText(document.getElementById('question'), question);
+	current_image = 0;
+	document.getElementById("student").src = students[0];
+	var i = 0;
+	while (i <= max_grade){
+		option = document.createElement('option');
+		option.appendChild(document.createTextNode(i+''));
+		document.getElementById('grade').appendChild(option);
+		i = i + 1;
+	}
+}
+
+function nextImage(){
+	count = count + 1;
+}
 //
 // This method decodes the query parameters that were URL-encoded
 //
@@ -49,19 +69,22 @@ function decode(strToDecode)
     <td bgcolor="#FF6600"><h2 id="professor">Professor's Answer: %d</h2></td>
   </tr>
   <tr>
-    <td bgcolor="#CCFF33"><img  width="100%" src="http://vmphone2.cs.berkeley.edu/umati/1/1_2.png"/></td>
+    <td bgcolor="#CCFF33"><img id="student" width="100%"/></td>
   </tr>
   <tr>
-    <td><form id="form1" name="form1" method="post" action="">
-    <input type="range" min="0" max="4" name="grade"/>
+    <td align="right"><form id="form1" name="form1" method="post" action="">
+      <h3>Grade:
+        <select name="grade" id="grade">
+        </select>
+        <input name="next" type="button" value="Submit" onclick="nextImage();"/>
+      </h3>
     </form></td>
   </tr>
 </table>
 <script language="Javascript">
-	$.get(decode(gup('url')));
-	changeText(document.getElementById('professor'), professor);
-	changeText(document.getElementById('question'), question);
-
+	var res = $.get(decode(gup('url')));
+	res.success(ajaxSuccess);
+	
     //
     // Check if the worker is PREVIEWING the HIT or if they've ACCEPTED the HIT
     //
