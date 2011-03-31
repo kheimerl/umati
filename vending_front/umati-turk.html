@@ -21,9 +21,14 @@ function gup( name )
 var count = 0;
 var result = [];
 
-function changeText(node, newText){
+function changeText(node, textList){
 	node.removeChild(node.firstChild);
-	node.appendChild(document.createTextNode(newText));
+        var i = 0;
+        while (i < textList.length){
+		   node.appendChild(document.createTextNode(textList[i]));
+		   node.appendChild(document.createElement('br'));
+		   i += 1;
+	}
 }
 
 function ajaxSuccess(data, textStatus, jqXHR){
