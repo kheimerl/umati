@@ -19,7 +19,7 @@ function gup( name )
 }
 
 var count = 0;
-var current_image
+var result = [];
 
 function changeText(node, newText){
 	node.removeChild(node.firstChild);
@@ -30,7 +30,7 @@ function ajaxSuccess(data, textStatus, jqXHR){
 	changeText(document.getElementById('professor'), professor);
 	changeText(document.getElementById('question'), question);
 	current_image = 0;
-	document.getElementById("student").src = students[0];
+	document.getElementById("student").src = students[current_image];
 	var i = 0;
 	while (i <= max_grade){
 		option = document.createElement('option');
@@ -41,7 +41,17 @@ function ajaxSuccess(data, textStatus, jqXHR){
 }
 
 function nextImage(){
-	count = count + 1;
+	document.getElementById('result').value += document.getElementById('result').value + (document.getElementById('grade').options[document.getElementById('grade').selectedIndex].text) + ",";
+	current_image += 1;
+	document.getElementById("student").disabled = true;
+	if (current_image < students.length){
+		document.getElementById("student").src = students[current_image];
+		document.getElementById('grade').selectedIndex = 0;
+	}
+	else {
+		//finish
+	}
+	document.getElementById("student").disabled = false;
 }
 //
 // This method decodes the query parameters that were URL-encoded
@@ -73,6 +83,8 @@ function decode(strToDecode)
   </tr>
   <tr>
     <td align="right"><form id="form1" name="form1" method="post" action="">
+	    <input type="hidden" id="assignmentId" name="assignmentId" value="">
+        <input type="hidden" id="result" name="result" value="">
       <h3>Grade:
         <select name="grade" id="grade">
         </select>
@@ -83,6 +95,7 @@ function decode(strToDecode)
 </table>
 <script language="Javascript">
 	var res = $.get(decode(gup('url')));
+	
 	res.success(ajaxSuccess);
 	
     //
