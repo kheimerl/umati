@@ -58,8 +58,9 @@ function decode(strToDecode)
   </tr>
 </table>
 <script language="Javascript">
-	changeText(document.getElementById('professor'), gup('max_grade'));
-	changeText(document.getElementById('question'), gup('max_grade'));
+	$.get(decode(gup(url)));
+	changeText(document.getElementById('professor'), professor);
+	changeText(document.getElementById('question'), question);
 
     //
     // Check if the worker is PREVIEWING the HIT or if they've ACCEPTED the HIT
