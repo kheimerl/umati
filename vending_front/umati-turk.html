@@ -49,7 +49,8 @@ function nextImage(){
 		document.getElementById('grade').selectedIndex = 0;
 	}
 	else {
-		//finish
+		document.getElementById('form_items').removeChild(document.getElementById('grade'));
+		document.getElementById('turk_form').submit();
 	}
 	document.getElementById("student").disabled = false;
 }
@@ -82,13 +83,13 @@ function decode(strToDecode)
     <td bgcolor="#CCFF33"><img id="student" width="100%"/></td>
   </tr>
   <tr>
-    <td align="right"><form id="form1" name="form1" method="post" action="">
+    <td align="right"><form id="turk_form" name="turk_form" method="POST" action="http://www.mturk.com/mturk/externalSubmit">
 	    <input type="hidden" id="assignmentId" name="assignmentId" value="">
         <input type="hidden" id="result" name="result" value="">
-      <h3>Grade:
+      <h3 id="form_items" >Grade:
         <select name="grade" id="grade">
         </select>
-        <input name="next" type="button" value="Submit" onclick="nextImage();"/>
+        <input id="next" name="next" type="button" value="Submit" onclick="nextImage();"/>
       </h3>
     </form></td>
   </tr>
@@ -104,10 +105,10 @@ function decode(strToDecode)
     if (gup('assignmentId') == "ASSIGNMENT_ID_NOT_AVAILABLE")
     {
   // If we're previewing, disable the button and give it a helpful message
-  document.getElementById('submitButton').disabled = true;
-  document.getElementById('submitButton').value = "You must ACCEPT the HIT before you can submit the results.";
+  document.getElementById('next').disabled = true;
+  document.getElementById('next').value = "You must ACCEPT the HIT first";
     } else {
-        var form = document.getElementById('mturk_form');
+        var form = document.getElementById('turk_form');
         if (document.referrer && ( document.referrer.indexOf('workersandbox') != -1) ) {
             form.action = "http://workersandbox.mturk.com/mturk/externalSubmit";
         }
