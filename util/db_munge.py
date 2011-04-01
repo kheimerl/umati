@@ -105,10 +105,8 @@ def start():
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["ugrad_only"], remove_kurtis]), "Umati-NC-UGradOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["grad_only"], remove_kurtis]), "Umati-NC-GradOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["staff_only"], remove_kurtis]), "Umati-NC-StaffOnly:"))
-        ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["knows_crowdsourcing"], remove_kurtis]), 
-                    "Umati-NC-Doesn'tKnowCrowd:"))
-        ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["new_to_crowdsourcing"], remove_kurtis]), 
-                    "Umati-NC-NewToCrowd:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["knows_crowdsourcing"], filters["new_to_crowdsourcing"], remove_kurtis]), "Umati-Doesn'tKnowCrowd:"))
+
     if (kurtis_db):
         ops.append((kurtis_db, lambda x: True, "Kurtis:"))
     if (turk_db):
