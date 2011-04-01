@@ -187,7 +187,7 @@ class TaskGui(UmatiWidget.Widget):
             obj.setMinimumHeight(275)
             layout.addWidget(obj)
             but.clicked.connect(partial(self.__switchField, obj, but))
-            self.num_hidden = 0;
+        self.num_hidden = 0;
                 
     def __switchField(self, field, button):
         if (field.isHidden()):
