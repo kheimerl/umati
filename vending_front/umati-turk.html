@@ -21,14 +21,11 @@ function gup( name )
 var count = 0;
 var result = [];
 
-function changeText(node, textList){
+function changeText(node, text){
 	node.removeChild(node.firstChild);
-        var i = 0;
-        while (i < textList.length){
-		   node.appendChild(document.createTextNode(textList[i]));
-		   node.appendChild(document.createElement('br'));
-		   i += 1;
-	}
+        pre = document.createElement('pre');
+        pre.appendChild(document.createTextNode(text));
+        node.appendChild(pre);
 }
 
 function ajaxSuccess(data, textStatus, jqXHR){
@@ -46,7 +43,7 @@ function ajaxSuccess(data, textStatus, jqXHR){
 }
 
 function nextImage(){
-	document.getElementById('result').value += document.getElementById('result').value + (document.getElementById('grade').options[document.getElementById('grade').selectedIndex].text) + ",";
+	document.getElementById('result').value += (document.getElementById('grade').options[document.getElementById('grade').selectedIndex].text) + ",";
 	current_image += 1;
 	document.getElementById("student").disabled = true;
 	if (current_image < students.length){
@@ -76,13 +73,13 @@ function decode(strToDecode)
 <body>
 <table width="800" border="0">
   <tr>
-    <td><h1>Please try to grade this particular exam question. The first area (Green) is the question given to the student. The second area (Orange) is the professor's example answer. The last area (Yellow) is a scan of the student's answer. Please do your best to grade the question appropriately.</h1></td>
+    <td><h1>Please try to grade this particular exam question. The first area (Green) is the question given to the student. The second area (Orange) is the professor's example answer. The last area (Yellow) is a scan of the student's answer. Please do your best to grade the question appropriately at the bottom of the screen. There are between 5 and 10 answers to each question. </h1></td>
   </tr>
   <tr>
-    <td bgcolor="#00FF66"><h2 id="question">Question: %d</h2></td>
+    <td bgcolor="#00FF66"><h4 id="question">Question: %d</h2></td>
   </tr>
   <tr>
-    <td bgcolor="#FF6600"><h2 id="professor">Professor's Answer: %d</h2></td>
+    <td bgcolor="#FF6600"><h4 id="professor">Professor's Answer: %d</h2></td>
   </tr>
   <tr>
     <td bgcolor="#CCFF33"><img id="student" width="100%"/></td>
@@ -101,7 +98,7 @@ function decode(strToDecode)
 </table>
 <script language="Javascript">
 	var res = $.get(decode(gup('url')));
-	
+	document.getElementById('assignmentId').value = gup('assignmentId');
 	res.success(ajaxSuccess);
 	
     //
