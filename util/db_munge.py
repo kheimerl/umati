@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, pickle, getopt
+import sys, getopt
 sys.path.append("..")
 from umati import UmatiUserDirectory
 from filters import *
@@ -8,8 +8,6 @@ from filters import *
 from scipy.stats import stats, morestats
 from numpy import *
 from functools import partial
-
-from lib2to3.fixes.fix_imports import MAPPING
 
 opts, args = getopt.getopt(sys.argv[1:], 
                            "u:k:t:e:h", ["umati_db=", "kurtis_db=", "turk_db=", "expert_db="])
@@ -20,10 +18,12 @@ turk_db = None
 expert_db = None
 
 def usage():
-    print ("The Umati Vending Machine User Interface")
+    print ("Munge Umati-DBs")
+    print ("-u --umati_db=FILE | umati_db file location")
+    print ("-k --kurtis_db=FILE | kurtis_db file location")
+    print ("-t --turk_db=FILE | turk_db file location")
+    print ("-e --expert_db=FILE | expert_db file location")
     print ("-h | --help Show this message")
-    print ("-l LOGLEVEL | --logLevel=[DEBUG|INFO|WARNING|ERROR|CRITICAL] Default is INFO")
-    print ("-c CONF | --conf=Conf File location")
     exit(2)
 
 for o,a in opts:
@@ -38,39 +38,14 @@ for o,a in opts:
     else:
         usage()
 
-def normalizeDB(db):
-    for user in db.values():
-        if "Grading" in user.tasks_completed:
-            for i in range(0, len(user.tasks_completed["Grading"])):
-                cur = user.tasks_completed["Grading"][i]
-                user.tasks_completed["Grading"][i] = (cur[0][-13:], cur[1], cur[2])
-    return db
-
-REVERSE_MAPPING={}
-for key,val in MAPPING.items():
-    REVERSE_MAPPING[val]=key
-
-class Python_3_Unpickler(pickle.Unpickler):
-    """Class for pickling objects from Python 3"""
-    def find_class(self,module,name):
-        if module in REVERSE_MAPPING:
-            module=REVERSE_MAPPING[module]
-        __import__(module)
-        mod = sys.modules[module]
-        klass = getattr(mod, name)
-        return klass
-
-def loads(f):
-    return Python_3_Unpickler(f).load()  
-
 if (umati_db):
-    umati_db = normalizeDB(loads(open(umati_db, 'rb')))
+    umati_db = normalizeDB(ploads(open(umati_db, 'rb')))
 if (kurtis_db):
-    kurtis_db = normalizeDB(loads(open(kurtis_db, 'rb')))
+    kurtis_db = normalizeDB(ploads(open(kurtis_db, 'rb')))
 if (turk_db):
-    turk_db = normalizeDB(loads(open(turk_db, 'rb')))
+    turk_db = normalizeDB(ploads(open(turk_db, 'rb')))
 if (expert_db):
-    expert_db = normalizeDB(loads(open(expert_db, 'rb')))
+    expert_db = normalizeDB(ploads(open(expert_db, 'rb')))
 
 all_questions=[]
 

@@ -1,4 +1,33 @@
 from functools import partial
+import pickle, sys
+
+from lib2to3.fixes.fix_imports import MAPPING
+
+REVERSE_MAPPING={}
+for key,val in MAPPING.items():
+    REVERSE_MAPPING[val]=key
+
+class Python_3_Unpickler(pickle.Unpickler):
+    """Class for pickling objects from Python 3"""
+    def find_class(self,module,name):
+        if module in REVERSE_MAPPING:
+            module=REVERSE_MAPPING[module]
+        __import__(module)
+        mod = sys.modules[module]
+        klass = getattr(mod, name)
+        return klass
+
+def ploads(f):
+    return Python_3_Unpickler(f).load()  
+
+#normalizes the image tags to be one standard
+def normalizeDB(db):
+    for user in db.values():
+        if "Grading" in user.tasks_completed:
+            for i in range(0, len(user.tasks_completed["Grading"])):
+                cur = user.tasks_completed["Grading"][i]
+                user.tasks_completed["Grading"][i] = (cur[0][-13:], cur[1], cur[2])
+    return db
 
 #filters
 def get_gender(surv_type, surv_str):
