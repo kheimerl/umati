@@ -3,7 +3,7 @@
 import sys, getopt
 sys.path.append("..")
 from umati import UmatiUserDirectory
-from filters import *
+from db_util import *
 
 from scipy.stats import stats, morestats
 from numpy import *
@@ -28,24 +28,15 @@ def usage():
 
 for o,a in opts:
     if o in ("-u", "--umati_db="):
-        umati_db = a
+        umati_db = normalizeDB(ploads(open(a, 'rb')))
     elif o in ("-k", "--kurtis_db="):
-        kurtis_db = a
+        kurtis_db = normalizeDB(ploads(open(a, 'rb')))
     elif o in ("-t", "--turk_db="):
-        turk_db = a
+        turk_db = normalizeDB(ploads(open(a, 'rb')))
     elif o in ("-e", "--expert_db="):
-        expert_db = a
+        expert_db = normalizeDB(ploads(open(a, 'rb')))
     else:
         usage()
-
-if (umati_db):
-    umati_db = normalizeDB(ploads(open(umati_db, 'rb')))
-if (kurtis_db):
-    kurtis_db = normalizeDB(ploads(open(kurtis_db, 'rb')))
-if (turk_db):
-    turk_db = normalizeDB(ploads(open(turk_db, 'rb')))
-if (expert_db):
-    expert_db = normalizeDB(ploads(open(expert_db, 'rb')))
 
 all_questions=[]
 

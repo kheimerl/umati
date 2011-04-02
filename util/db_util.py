@@ -1,5 +1,7 @@
 from functools import partial
 import pickle, sys
+sys.path.append("..")
+from umati import UmatiUserDirectory
 
 from lib2to3.fixes.fix_imports import MAPPING
 
@@ -89,11 +91,11 @@ def get_crowdsourcing_knowledge(surv_type, surv_str):
     return dic[surv_str[16]]
 
 def get_crowdsourcing_use(surv_type, surv_str):
-    dic = {"0":"Yes, created tasks",
-           "1":"Yes, completed tasks",
-           "2":"Yes, created and completed tasks",
+    dic = {"0":"Created tasks",
+           "1":"Completed tasks",
+           "2":"Created and completed tasks",
            "3":"No",
-           "4":"Maybe, Not Sure"}
+           "4":"Not Sure"}
     return dic[surv_str[19]]
 
 def chain_filters(user, filters = []):
