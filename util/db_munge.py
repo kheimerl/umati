@@ -77,7 +77,7 @@ def start():
         ops.append((kurtis_db, lambda x: True, "Kurtis:"))
     if (turk_db):
         ops.append((turk_db, lambda x: True, "Turkers:"))
-    if (turk_db):
+    if (expert_db):
         ops.append((expert_db, lambda x: True, "Turkers:"))
 
     for (db, filt, tag) in ops:

@@ -73,7 +73,7 @@ def get_survey_data(user):
     return res
 
 #schema
-output.write("Name,Method,File,Student,Question,Result,Time,Index,Gold_Wrong,Gender,Age,Education,Relationship,Department,Crowdsourcing_Knowledge,Crowdsourcing_Use\n")
+output.write("Name,Method,File,Student,Question,Result,Time,Index,Gold_Wrong,Total_Answered,Gender,Age,Education,Relationship,Department,Crowdsourcing_Knowledge,Crowdsourcing_Use\n")
 
 for db in [umati_db, kurtis_db, turk_db, expert_db]:
     if (db):
@@ -92,6 +92,7 @@ for db in [umati_db, kurtis_db, turk_db, expert_db]:
                                      str(question[2]) + "," +
                                      str(i) + "," +
                                      str(user.gold_wrong) + "," +
+                                     str(len(user.tasks_completed["Grading"])) + "," +
                                      get_survey_data(user) + "\n")
                         i += 1
                     except:

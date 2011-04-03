@@ -5,7 +5,7 @@ from . import Util
 
 class User(object):
     
-    def __init__(self, tag, creds, db):
+    def __init__(self, tag, creds):
         self.tag = tag
         self.__credits = creds
         self.init_done = False
@@ -90,7 +90,7 @@ class UserDirectory:
         else:
             if tag not in self.db:
                 self.log.info("New user %s" % tag)
-                self.db[tag] = User(tag, 0, self)
+                self.db[tag] = User(tag, 0)
             user = self.db[tag]
             if (self.user_good(user)):
                 res = user
