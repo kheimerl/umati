@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import csv, sys, getopt, pickle
+import csv, sys, getopt, pickle, time
 sys.path.append("..")
 from umati import UmatiUserDirectory
 
@@ -47,7 +47,8 @@ for turk_file in args:
             res[ID].tasks_completed["Grading"] = []
         ques = int(ans["Annotation"].split(r"/")[-1][:-3])
         for q in munge_turk_out(ques, ans["Answer 1"]):
-            res[ID].tasks_completed["Grading"].append((q[0], q[1], 0.0))
+            res[ID].tasks_completed["Grading"].append((q[0], q[1], 
+                                                       time.mktime(time.strptime(ans["SubmitTime"], "%a %b %d %H:%M:%S %Z %Y"))))
             if (":gold" in q[0]):
                 if (ques == 14 and q[1] != "14"):
                     res[ID].gold_wrong +=1 
