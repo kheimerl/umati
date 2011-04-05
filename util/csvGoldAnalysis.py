@@ -1,6 +1,30 @@
-import string
+#!/usr/bin/python
+import string, sys, getopt
 
-infile = open('umati.csv', 'r')
+opts, args = getopt.getopt(sys.argv[1:], 
+                           "c:o:h", ["csv=", "output=", "help"])
+
+def usage():
+    print ("Munge the converted csv file")
+    print ("-c --csv=FILE | shared csv file")
+    print ("-o --output=FILE | shared csv file")
+    print ("-h | --help Show this message")
+    exit(2)
+
+infile = None
+outfile = None
+
+for o,a in opts:
+    if o in ("-c", "--csv="):
+        infile = open(a, 'rb')
+    elif o in ("-o", "--output="):
+        outfile = open(a, 'w')
+    else:
+        usage()
+
+if not (infile and outfile):
+    usage()
+
 rawlines = infile.readlines()
 infile.close()
 
@@ -79,7 +103,6 @@ for line in lines:
         else:
             um_non[score] = um_non[score] + 1
 
-outfile = open('gold_v_non.txt', 'w')
 outfile.write('Score\tUmati_Gold\tUmati_Nongold\tMTurk_Gold\tMTurk_Nongold\n')
 for a in range(5):
     outline = str(a)+'\t'

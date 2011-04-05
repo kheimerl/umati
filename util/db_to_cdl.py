@@ -5,7 +5,7 @@ from db_util import *
 from umati import UmatiUserDirectory
 
 opts, args = getopt.getopt(sys.argv[1:], 
-                           "u:k:t:e:o:h", ["umati_db=", "kurtis_db=", "turk_db=", "expert_db="])
+                           "u:k:t:e:o:h", ["umati_db=", "kurtis_db=", "turk_db=", "expert_db=", "help"])
 
 umati_db = None
 kurtis_db = None
