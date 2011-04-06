@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import string, sys, getopt
-from math import log
+from math import log, exp
 
 opts, args = getopt.getopt(sys.argv[1:], 
                            "c:o:h", ["csv=", "output=", "help"])
@@ -11,6 +11,10 @@ def usage():
     print ("-o --output=FILE | shared csv file")
     print ("-h | --help Show this message")
     exit(2)
+
+def pval4(x):
+    """For a degree-4 chi squared value of x, what's the p-value? Run this and you will know."""
+    return exp(-1*float(x)/2)*(1 + float(x)/2)
 
 infile = None
 outfile = None
@@ -95,42 +99,47 @@ for line in lines:
         vec[score] = vec[score] + 1
         uquests[quest] = list(vec)
 
-outfile.write('ALL RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\n')
+outfile.write('ALL RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\n')
 for a in sorted(quests.keys()):
     vec = quests[a]
     outline = str(a)+'\t'
     kl = 0.0
+    chi2 = 0.0
     for b in range(5):
         p = float(vec[b])/sum(vec)
         kl = kl + p*log(5*p) + 0.2*log(0.2/p)
+        chi2 = chi2 + 5*((vec[b]-.5-0.2*sum(vec))**2)/sum(vec)
         outline = outline+str(p)+'\t'
-    outline = outline+str(kl)+'\n'
+    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\n'
     outfile.write(outline)
 
-outfile.write('UMATI RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\n')
+outfile.write('UMATI RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\n')
 for a in sorted(uquests.keys()):
     vec = uquests[a]
     outline = str(a)+'\t'
     kl = 0.0
+    chi2 = 0.0
     for b in range(5):
         p = float(vec[b])/sum(vec)
         kl = kl + p*log(5*p) + 0.2*log(0.2/p)
+        chi2 = chi2 + 5*((vec[b]-.5-0.2*sum(vec))**2)/sum(vec)
         outline = outline+str(p)+'\t'
-    outline = outline+str(kl)+'\n'
+    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\n'
     outfile.write(outline)
-
-outfile.write('MTURK RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\n')
+    
+outfile.write('MTURK RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\n')
 for a in sorted(mquests.keys()):
     vec = mquests[a]
     outline = str(a)+'\t'
     kl = 0.0
+    chi2 = 0.0
     for b in range(5):
         p = float(vec[b])/sum(vec)
         kl = kl + p*log(5*p) + 0.2*log(0.2/p)
+        chi2 = chi2 + 5*((vec[b]-.5-0.2*sum(vec))**2)/sum(vec)
         outline = outline+str(p)+'\t'
-    outline = outline+str(kl)+'\n'
+    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\n'
     outfile.write(outline)
-
 
 
     
