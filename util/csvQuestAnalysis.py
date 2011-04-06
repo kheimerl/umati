@@ -99,46 +99,49 @@ for line in lines:
         vec[score] = vec[score] + 1
         uquests[quest] = list(vec)
 
-outfile.write('ALL RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\n')
+outfile.write('ALL RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\tN\n')
 for a in sorted(quests.keys()):
     vec = quests[a]
     outline = str(a)+'\t'
     kl = 0.0
     chi2 = 0.0
+    N = sum(vec) - 2.5
     for b in range(5):
         p = float(vec[b])/sum(vec)
         kl = kl + p*log(5*p) + 0.2*log(0.2/p)
-        chi2 = chi2 + 5*((vec[b]-.5-0.2*sum(vec))**2)/sum(vec)
+        chi2 = chi2 + 5*((vec[b]-.5-0.2*N)**2)/N
         outline = outline+str(p)+'\t'
-    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\n'
+    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\t'+str(N)+'\n'
     outfile.write(outline)
 
-outfile.write('UMATI RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\n')
+outfile.write('UMATI RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\tN\n')
 for a in sorted(uquests.keys()):
     vec = uquests[a]
     outline = str(a)+'\t'
     kl = 0.0
     chi2 = 0.0
+    N = sum(vec)-2.5
     for b in range(5):
         p = float(vec[b])/sum(vec)
         kl = kl + p*log(5*p) + 0.2*log(0.2/p)
-        chi2 = chi2 + 5*((vec[b]-.5-0.2*sum(vec))**2)/sum(vec)
+        chi2 = chi2 + 5*((vec[b]-.5-0.2*N)**2)/N
         outline = outline+str(p)+'\t'
-    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\n'
+    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\t'+str(N)+'\n'
     outfile.write(outline)
     
-outfile.write('MTURK RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\n')
+outfile.write('MTURK RESPONDENTS\nQNum\t0\t1\t2\t3\t4\tKL Div.\tP-value\tN\n')
 for a in sorted(mquests.keys()):
     vec = mquests[a]
     outline = str(a)+'\t'
     kl = 0.0
     chi2 = 0.0
+    N = sum(vec) - 2.5
     for b in range(5):
         p = float(vec[b])/sum(vec)
         kl = kl + p*log(5*p) + 0.2*log(0.2/p)
-        chi2 = chi2 + 5*((vec[b]-.5-0.2*sum(vec))**2)/sum(vec)
+        chi2 = chi2 + 5*((vec[b]-.5-0.2*N)**2)/N
         outline = outline+str(p)+'\t'
-    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\n'
+    outline = outline+str(kl)+'\t'+str(pval4(chi2))+'\t'+str(N)+'\n'
     outfile.write(outline)
 
 
