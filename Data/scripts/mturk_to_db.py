@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import csv, sys, getopt, pickle, time
-sys.path.append("..")
+sys.path.append("../..")
 from umati import UmatiUserDirectory
 
 opts, args = getopt.getopt(sys.argv[1:], 

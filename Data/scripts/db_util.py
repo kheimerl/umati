@@ -1,6 +1,6 @@
 from functools import partial
 import pickle, sys
-sys.path.append("..")
+sys.path.append("../..")
 from umati import UmatiUserDirectory
 
 from lib2to3.fixes.fix_imports import MAPPING

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys, getopt
-sys.path.append("..")
+sys.path.append("../..")
 from umati import UmatiUserDirectory
 from db_util import *
 
