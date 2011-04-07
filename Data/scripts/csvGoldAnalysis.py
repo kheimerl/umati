@@ -51,7 +51,9 @@ infile.close()
 once = []
 twice = []
 lines = []
+ct = 0
 for line in rawlines[1:]:
+    ct = ct + 1
     spline = line.split(',')
     name = spline[0]
     if name in twice:
@@ -74,15 +76,29 @@ of response: Umati respondents on Kurtis's answers
 answers, and similar for MTurk respondents
 """
 
+"""
+Also, here's the (Student, Question) pairs
+for which answers were left blank
+"""
+blanks = [(1,1),
+(1,8),
+(3,1),
+(5,8),
+(7,8)]
+
 um_gold = []
+um_blank = []
 um_non = []
 mt_gold = []
+mt_blank = []
 mt_non = []
 for a in range(5):
     um_gold.append(0.5)
     um_non.append(0.5)
+    um_blank.append(0.5)
     mt_gold.append(0.5)
     mt_non.append(0.5)
+    mt_blank.append(0.5)
 
 for line in lines:
     spline = line.split(',')
@@ -90,25 +106,31 @@ for line in lines:
     if quest == 14:
         continue
     score = string.atoi(spline[5])
-    student = spline[3]
+    student = string.atoi(spline[3])
     meth = spline[1]
     if 'urk' in meth:
-        if string.atoi(student) == 9:
+        if student == 9:
             mt_gold[score] = mt_gold[score] + 1
+        elif (student, quest) in blanks:
+            mt_blank[score] = mt_blank[score] + 1
         else:
             mt_non[score] = mt_non[score] + 1
     else:
-        if string.atoi(student) == 9:
+        if student == 9:
             um_gold[score] = um_gold[score] + 1
+        elif (student, quest) in blanks:
+            um_blank[score] = um_blank[score] + 1
         else:
             um_non[score] = um_non[score] + 1
 
-outfile.write('Score\tUmati_Gold\tUmati_Nongold\tMTurk_Gold\tMTurk_Nongold\n')
+outfile.write('Score\tUmati_Gold\tUmati_Blank\tUmati_Non\tMTurk_Gold\tMTurk_Blank\tMTurk_Non\n')
 for a in range(5):
     outline = str(a)+'\t'
     outline = outline + str(um_gold[a]/sum(um_gold))+'\t'
+    outline = outline + str(um_blank[a]/sum(um_blank))+'\t'
     outline = outline + str(um_non[a]/sum(um_non))+'\t'
     outline = outline + str(mt_gold[a]/sum(mt_gold))+'\t'
+    outline = outline + str(mt_blank[a]/sum(mt_blank))+'\t'
     outline = outline + str(mt_non[a]/sum(mt_non))+'\t'
     outfile.write(outline[:-1]+'\n')
 outfile.close()
