@@ -16,7 +16,7 @@ outfile = None
 
 for o,a in opts:
     if o in ("-c", "--csv="):
-        infile = open(a, 'rb')
+        infile = open(a, 'U')
     elif o in ("-o", "--output="):
         outfile = open(a, 'w')
     else:
