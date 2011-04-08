@@ -33,17 +33,17 @@ def findMajor(dist, lo, hi):
         k = draw(dist)
         c[k] = c[k] + 1
     while it < hi:
-        it = it + 1
         k = draw(dist)
         c[k] = c[k] + 1
         for a in range(n):
             if 2*c[a] > sum(c): # DO we have a majority?
                 return it
+        it = it + 1
     return hi
         
 
 infile = None
-outfile = sys.stdout
+outfile = None
 
 for o,a in opts:
     if o in ("-c", "--csv="):
@@ -53,7 +53,7 @@ for o,a in opts:
     else:
         usage()
 
-if not (infile):
+if not (infile and outfile):
     usage()
 
 rawlines = infile.readlines()
