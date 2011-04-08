@@ -1,59 +1,45 @@
 #!/usr/bin/python
 import string, sys, getopt, random
 from math import log, exp
+from scipy import *
+from scipy.stats import stats
 
 opts, args = getopt.getopt(sys.argv[1:], 
-                           "c:o:h", ["csv=", "output=", "help"])
+                           "c:o:m:M:l:h", ["csv=", "output=", 
+                                           "min=", "max=",
+                                           "loops=", "help"])
 
 def usage():
     print ("Munge the converted csv file")
     print ("-c --csv=FILE | shared csv file")
     print ("-o --output=FILE | shared csv file")
+    print ("-m --min=INT | minimum needed for agreement: default 2")
+    print ("-M --max=INT | maximum pulls before giving up: default 10000")
+    print ("-l --loops=INT | number of total trials: default 100")
     print ("-h | --help Show this message")
     exit(2)
 
-def draw(v):
-    den = sum(v)
-    r = random.random()
-    k = 0
-    s = float(v[0])/den
-    while s < r:
-        k = k + 1
-        s = s + float(v[k])/den
-    return k
-
-def findMajor(dist, lo, hi):
-    c = [] #Counts
-    n = len(dist)
-    for a in range(n):
-        c.append(0)
-    it = 0
-    while it < lo:
-        it = it + 1
-        k = draw(dist)
-        c[k] = c[k] + 1
-    while it < hi:
-        k = draw(dist)
-        c[k] = c[k] + 1
-        for a in range(n):
-            if 2*c[a] > sum(c): # DO we have a majority?
-                return it
-        it = it + 1
-    return hi
-        
-
 infile = None
-outfile = None
+outfile = sys.stdout
+MIN_ITERS = 2 # The minumum number of samples for a majority to count
+MAX_ITERS = 10000   # The maximum number of samples allowed to find a majority
+NUM_MAJORITIES = 100   # The number of time-to-majorities we'd like
 
 for o,a in opts:
     if o in ("-c", "--csv="):
         infile = open(a, 'U')
     elif o in ("-o", "--output="):
         outfile = open(a, 'w')
+    elif o in ("-m", "--min="):
+        MIN_ITERS = int(a)
+    elif o in ("-M", "--max="):
+        MAX_ITERS = int(a)
+    elif o in ("-l", "--loops="):
+        NUM_MAJORITIES = int(a)
     else:
         usage()
 
-if not (infile and outfile):
+if not (infile):
     usage()
 
 rawlines = infile.readlines()
@@ -118,39 +104,63 @@ for line in lines:
         vec[score] = vec[score] + 1
         uquests[pair] = list(vec)
 
-outfile.write('Method(Stud,Ques)\tMin\tMedian\tMean\tMax\tSamples\n')
-MIN_ITERS = 5 # The minumum number of samples for a majority to count
-MAX_ITERS = 10000   # The maximum number of samples allowed to find a majority
-NUM_MAJORITIES = 100   # The number of time-to-majorities we'd like
-for pair in uquests.keys():
-    majors = []
-    for a in range(NUM_MAJORITIES):
-        majors.append(findMajor(uquests[pair],MIN_ITERS, MAX_ITERS))
+outfile.write('Method(Stud,Ques),Min,Median,Mean,Max,Std\n')
+
+def draw(v):
+    den = sum(v)
+    r = random.random()
+    k = 0
+    s = float(v[0])/den
+    while s < r:
+        k += 1
+        s += float(v[k])/den
+    return k
+
+def findMajor(dist, lo, hi):
+    n = len(dist)
+    c = [0 for x in range(n)] #Counts
+    it = 0
+    while it < hi:
+        k = draw(dist)
+        c[k] += 1
+        if (it >= lo):
+            for a in range(n):
+                if 2*c[a] > sum(c): # DO we have a majority?
+                    return (it, a) #zero indexed
+        it += 1
+    return (hi, -1)
+
+def print_stuff(majors, res, tag):
     mn = min(majors)
     mx = max(majors)
-    avg = float(sum(majors))/NUM_MAJORITIES
-    smaj = sorted(majors)
-    med = smaj[NUM_MAJORITIES/2]
-    outline = 'Umati'+str(pair) + '\t' + str(mn) + '\t' + str(med) + '\t' + str(avg) + '\t' + str(mx) + '\t'
-    for a in range(NUM_MAJORITIES):
-        outline = outline + str(majors[a])+'\t'
-    outfile.write(outline[:-1]+'\n')
-for pair in mquests.keys():
-    majors = []
-    for a in range(NUM_MAJORITIES):
-        majors.append(findMajor(mquests[pair],MIN_ITERS, MAX_ITERS))
-    mn = min(majors)
-    mx = max(majors)
-    avg = float(sum(majors))/NUM_MAJORITIES
-    smaj = sorted(majors)
-    med = smaj[NUM_MAJORITIES/2]
-    outline = 'MTurk'+str(pair)+ '\t' + str(mn) + '\t' + str(med) + '\t' + str(avg) + '\t' + str(mx) +'\t'
-    for a in range(NUM_MAJORITIES):
-        outline = outline + str(majors[a])+'\t'
-    outfile.write(outline[:-1]+'\n')
+    avg = mean(majors)
+    stddv = std(majors)
+    med = median(majors)
+    outline = tag +str(pair)+ ',' + str(mn) + ',' + str(med) + ',' + str(avg) + ',' + str(mx) + ',' + str(stddv) + '\n'
+    outfile.write(outline)
+    #for a in range(NUM_MAJORITIES):
+    #    outline = outline + str(majors[a])+','
+    #outfile.write(outline[:-1]+'\n')
+    if(res):
+        outfile.write("Results:" + str(res) + '\n') 
 
+umati_majors = []
+mturk_majors = []
+for pair in set(uquests.keys() + mquests.keys()):
+    for (tag, quests, big_major) in [("Umati:", uquests, umati_majors),
+                                     ("MTurk:", mquests, mturk_majors)]:
+        if (pair in quests):
+            majors = []
+            res = [0 for x in range(len(quests[pair]))]
+            for a in range(NUM_MAJORITIES):
+                (major, i) = findMajor(quests[pair],MIN_ITERS, MAX_ITERS)
+                majors.append(major)
+                big_major.append(major)
+                if (i >= 0):
+                    res[i] += 1
+            print_stuff(majors, res, tag)
 
+print_stuff(umati_majors, None, "Umati-All:")
+print_stuff(mturk_majors, None, "MTurk-All:")
+    
 outfile.close()
-    
-    
-
