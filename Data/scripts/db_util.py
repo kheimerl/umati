@@ -28,7 +28,7 @@ def normalizeDB(db):
         if "Grading" in user.tasks_completed:
             for i in range(0, len(user.tasks_completed["Grading"])):
                 cur = user.tasks_completed["Grading"][i]
-                user.tasks_completed["Grading"][i] = (cur[0][-13:], cur[1], cur[2])
+                user.tasks_completed["Grading"][i] = (cur[0][-14:], cur[1], cur[2])
     return db
 
 #filters

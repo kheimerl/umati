@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys, pickle, getopt
+import sys, pickle, getopt, traceback
 from db_util import *
 from umati import UmatiUserDirectory
 
@@ -77,15 +77,19 @@ for db in [umati_db, kurtis_db, turk_db, expert_db]:
             if "Grading" in user.tasks_completed:
                 i = 0
                 for question in user.tasks_completed["Grading"]:
-                    output.write(str(user.tag).strip() + "," +
-                                 get_method(db) + "," +
-                                 question[0] + "," +
-                                 question[0][:-9].split("_")[0][-1] + "," +
-                                 question[0][:-9].split("_")[1] + "," +
-                                 question[1] + "," +
-                                 str(question[2]) + "," +
-                                 str(i) + "," +
-                                 str(user.gold_wrong) + "," +
-                                 str(len(user.tasks_completed["Grading"])) + "," +
-                                 get_survey_data(user) + "\n")
-                    i += 1
+                    try:
+                        output.write(str(user.tag).strip() + "," +
+                                     get_method(db) + "," +
+                                     question[0] + "," +
+                                     question[0][:-9].split("_")[0][-1] + "," +
+                                     question[0][:-9].split("_")[1] + "," +
+                                     question[1] + "," +
+                                     str(question[2]) + "," +
+                                     str(i) + "," +
+                                     str(user.gold_wrong) + "," +
+                                     str(len(user.tasks_completed["Grading"])) + "," +
+                                     get_survey_data(user) + "\n")
+                        i += 1
+                    except:
+                        traceback.print_exc(file=sys.stderr)
+                        exit(2)
