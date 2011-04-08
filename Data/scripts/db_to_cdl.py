@@ -11,7 +11,7 @@ umati_db = None
 kurtis_db = None
 turk_db = None
 expert_db = None
-output = None
+output = sys.stdout
 
 def usage():
     print ("Convert Umati-DBs into CDLs")
@@ -33,14 +33,9 @@ for o,a in opts:
     elif o in ("-e", "--expert_db="):
         expert_db = normalizeDB(ploads(open(a, 'rb')))
     elif o in ("-o", "--output="):
-        output = a
+        output = open(a, 'w')
     else:
         usage()
-
-if not (output):
-    usage()
-else:
-    output = open(output, 'w')
 
 def get_method(db):
     if (db == umati_db):
@@ -82,18 +77,15 @@ for db in [umati_db, kurtis_db, turk_db, expert_db]:
             if "Grading" in user.tasks_completed:
                 i = 0
                 for question in user.tasks_completed["Grading"]:
-                    try:
-                        output.write(user.tag.strip() + "," +
-                                     get_method(db) + "," +
-                                     question[0] + "," +
-                                     question[0][:-9].split("_")[0][-1] + "," +
-                                     question[0][:-9].split("_")[1] + "," +
-                                     question[1] + "," +
-                                     str(question[2]) + "," +
-                                     str(i) + "," +
-                                     str(user.gold_wrong) + "," +
-                                     str(len(user.tasks_completed["Grading"])) + "," +
-                                     get_survey_data(user) + "\n")
-                        i += 1
-                    except:
-                        pass
+                    output.write(str(user.tag).strip() + "," +
+                                 get_method(db) + "," +
+                                 question[0] + "," +
+                                 question[0][:-9].split("_")[0][-1] + "," +
+                                 question[0][:-9].split("_")[1] + "," +
+                                 question[1] + "," +
+                                 str(question[2]) + "," +
+                                 str(i) + "," +
+                                 str(user.gold_wrong) + "," +
+                                 str(len(user.tasks_completed["Grading"])) + "," +
+                                 get_survey_data(user) + "\n")
+                    i += 1
