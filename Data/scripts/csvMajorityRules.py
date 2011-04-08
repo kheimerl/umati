@@ -43,7 +43,7 @@ def findMajor(dist, lo, hi):
         
 
 infile = None
-outfile = None
+outfile = sys.stdout
 
 for o,a in opts:
     if o in ("-c", "--csv="):
@@ -53,7 +53,7 @@ for o,a in opts:
     else:
         usage()
 
-if not (infile and outfile):
+if not (infile):
     usage()
 
 rawlines = infile.readlines()
