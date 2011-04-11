@@ -73,11 +73,10 @@ Kurtis's scores
 """
 
 uraw = {}
+mraw = {}
 for line in rawlines[1:]:
     spline = line.split(',')
     meth = spline[1]
-    if 'mati' not in meth:
-        continue
     stud = string.atoi(spline[3])
     ques = string.atoi(spline[4])
     if ques == 14:  # The 0-10 question
@@ -85,9 +84,14 @@ for line in rawlines[1:]:
     sq = (stud,ques)
     score = string.atoi(spline[5])
     kscore = kscores[sq]
-    vec = list(uraw.get(kscore, [0.5,0.5,0.5,0.5,0.5]))
-    vec[score] = vec[score] + 1
-    uraw[kscore] = list(vec)
+    if 'urk' in meth:
+        vec = list(mraw.get(kscore, [0.5,0.5,0.5,0.5,0.5]))
+        vec[score] = vec[score] + 1
+        mraw[kscore] = list(vec)
+    if 'mati' in meth:
+        vec = list(uraw.get(kscore, [0.5,0.5,0.5,0.5,0.5]))
+        vec[score] = vec[score] + 1
+        uraw[kscore] = list(vec)
 
 once = []
 twice = []
@@ -132,19 +136,22 @@ for line in lines[1:]:
         vec[score] = vec[score] + 1
         turk[kscore] = list(vec)
 
-outfile.write('KScore\tUmati (All)\t\t\t\t\tUmati (Pruned)\t\t\t\t\tMTurk (Pruned)\t\t\t\t\t\n')
+outfile.write('KScore\tUmati (All)\t\t\t\t\tMTurk (All)\t\t\t\t\tUmati (Pruned)\t\t\t\t\tMTurk (Pruned)\t\t\t\t\t\n')
 outfile.write('\t0\t1\t2\t3\t4\t0\t1\t2\t3\t4\t0\t1\t2\t3\t4\n')
 for a in range(5):
     outline = str(a)+'\t'
     vec = list(uraw[a])
     for b in range(5):
-        outline = outline + str(vec[b]/sum(vec)) + '\t'
+        outline = outline + str(round(100*vec[b]/sum(vec))) + '\t'
+    vec = list(mraw[a])
+    for b in range(5):
+        outline = outline + str(round(100*vec[b]/sum(vec))) + '\t'
     vec = list(uprune[a])
     for b in range(5):
-        outline = outline + str(vec[b]/sum(vec)) + '\t'
+        outline = outline + str(round(100*vec[b]/sum(vec))) + '\t'
     vec = list(turk[a])
     for b in range(5):
-        outline = outline + str(vec[b]/sum(vec)) + '\t'
+        outline = outline + str(round(100*vec[b]/sum(vec))) + '\t'
     outfile.write(outline[:-1]+'\n')
 outfile.close()
 
