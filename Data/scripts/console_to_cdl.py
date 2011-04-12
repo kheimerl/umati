@@ -33,8 +33,8 @@ name = sys.stdin.readline().strip()
 
 output.write("Name,Method,File,Student,Question,Result,Time,Index,Gold_Wrong,Total_Answered,Gender,Age,Education,Relationship,Department,Crowdsourcing_Knowledge,Crowdsourcing_Use\n")
 
-for ex in map(lambda x: str(x), range(7,10)):
-    for q in map(lambda x: str(x), range(1,3)):
+for ex in map(lambda x: str(x), range(1,10)):
+    for q in map(lambda x: str(x), range(1,14)):
         print ("Answer to Exam %s Question %s" % (ex, q))
         score = sys.stdin.readline().strip()
         t = "norm"
