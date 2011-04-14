@@ -62,15 +62,15 @@ for line in rawlines[1:]:
     tup = (stud,ques)
     score = string.atoi(spline[5])
     if 'xpert' in meth:
-        vec = xdists.get(tup, [0.5, 0.5, 0.5, 0.5, 0.5])
+        vec = xdists.get(tup, [0,0,0,0,0])
         vec[score] = vec[score] + 1
         xdists[tup] = list(vec)
     if 'mati' in meth:
-        vec = udists.get(tup, [0.5, 0.5, 0.5, 0.5, 0.5])
+        vec = udists.get(tup, [0,0,0,0,0])
         vec[score] = vec[score] + 1
         udists[tup] = list(vec)
     if 'urk' in meth:
-        vec = tdists.get(tup, [0.5, 0.5, 0.5, 0.5, 0.5])
+        vec = tdists.get(tup, [0,0,0,0,0])
         vec[score] = vec[score] + 1
         tdists[tup] = list(vec)
 
@@ -86,10 +86,14 @@ for line in rawlines[1:]:
 ##    if uk != tk or uk != xk or xk != tk:
 ##        print 'ERROR', uk, tk, xk
 
-# Student, Question, N_x, XDist, N_u, UDist, KL_u, N_t, TDist, KL_t
+# Student, Question, XScore (Median), UScore, TScore
 sxks = sorted(xdists.keys())
-chiu = 0
-chit = 0
+ult = 0
+ueq = 0
+ugt = 0
+tlt = 0
+teq = 0
+tgt = 0
 for a in range(len(sxks)):
     sq = sxks[a]
     xdist = xdists[sq]
@@ -97,33 +101,47 @@ for a in range(len(sxks)):
     tdist = tdists[sq]
     stud = sq[0]
     ques = sq[1]
-    klu = 0
-    klt = 0
-    uden = sum(udist)
-    tden = sum(tdist)
-    xden = sum(xdist)
+    n = 0
     for a in range(5):
-        eu = 8*udist[a]/uden
-        chiu = chiu + ((xdist[a]-0.5-eu)**2)/eu
-        et = 8*tdist[a]/tden
-        chit = chit + ((xdist[a]-0.5-et)**2)/et        
-        klu = klu + (udist[a]/uden-xdist[a]/xden)*log((udist[a]/uden)/(xdist[a]/xden))
-        klt = klt + (tdist[a]/tden-xdist[a]/xden)*log((tdist[a]/tden)/(xdist[a]/xden))
-    outline = str(stud)+'\t'+str(ques)+'\t'+str(xden-2.5)+'\t'
+        n = n + xdist[a]
+        if n > 0.5*sum(xdist):
+        #if xdist[a] == max(xdist):
+            xscore = a
+            break
+    n = 0
     for a in range(5):
-        outline = outline + str(xdist[a]/xden)+'\t'
-    outline = outline + str(uden - 2.5) + '\t'
+        n = n + udist[a]
+        if n > 0.5*sum(udist):
+        #if udist[a] == max(udist):
+            uscore = a
+            break
+    n = 0
     for a in range(5):
-        outline = outline + str(udist[a]/uden)+'\t'
-    outline = outline + str(klu)+'\t'
-    outline = outline + str(tden - 2.5) + '\t'
-    for a in range(5):
-        outline = outline + str(tdist[a]/tden)+'\t'
-    outline = outline + str(klt)+'\n'
+        n = n + tdist[a]
+        if n > 0.5*sum(tdist):
+        #if tdist[a] == max(tdist):
+            tscore = a
+            break
+    outline = str(stud)+'\t'+str(ques)+'\t'+str(xscore)+'\t'+str(uscore)+'\t'+str(tscore)+'\n'
     outfile.write(outline)
-
-print 'X2 turk', chit
-print 'X2 umati', chiu
-print 'n', 5*len(sxks)
+    if uscore < xscore:
+        ult = ult + 1
+    elif uscore == xscore:
+        ueq = ueq + 1
+    else:
+        ugt = ugt + 1
+    if tscore < xscore:
+        tlt = tlt + 1
+    elif tscore == xscore:
+        teq = teq + 1
+    else:
+        tgt = tgt + 1
 outfile.close()
+
+print 'Umati LT,EQ,GT', (ult, ueq, ugt)
+print 'Turk LT,EQ,GT', (tlt, teq, tgt)
+    
+    
+    
+        
 
