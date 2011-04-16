@@ -51,12 +51,14 @@ def get_time(line):
     return time.mktime(time.strptime(time_re.match(line).group(0), "%Y-%m-%d %H:%M:%S"))
 
 res = []
+num_tasks = []
 def add_user(user):
     global res, minJobs
     if (cur_user and 
         cur_user.name not in ";019582227=1140?" and
         cur_user.count >= minJobs):
         res.append(cur_user.last - cur_user.start)
+        num_tasks.append(cur_user.count)
 
 cur_user = None
 for row in infile:
@@ -70,3 +72,5 @@ for row in infile:
         cur_user.last = get_time(row)
 
 outfile.write(str((mean(res), median(res), std(res), min(res), max(res))))
+outfile.write("\n")
+outfile.write(str((mean(num_tasks), median(num_tasks), std(num_tasks), min(num_tasks), max(num_tasks))))

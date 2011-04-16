@@ -67,11 +67,16 @@ def start():
     if (umati_db):
         ops.append((umati_db, remove_kurtis, "Umati-All:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_kurtis, remove_cheaters]), "Umati-NC-All:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["cs_only"], remove_kurtis]), "Umati-CSOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["cs_only"], remove_kurtis]), "Umati-NC-CSOnly:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["ugrad_only"], remove_kurtis]), "Umati-UGradOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["ugrad_only"], remove_kurtis]), "Umati-NC-UGradOnly:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["grad_only"], remove_kurtis]), "Umati-GradOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["grad_only"], remove_kurtis]), "Umati-NC-GradOnly:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["staff_only"], remove_kurtis]), "Umati-StaffOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["staff_only"], remove_kurtis]), "Umati-NC-StaffOnly:"))
-        ops.append((umati_db, partial(chain_filters, filters=[filters["knows_crowdsourcing"], filters["new_to_crowdsourcing"], remove_kurtis]), "Umati-Doesn'tKnowCrowd:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["new_to_crowdsourcing"], remove_kurtis]), "Umati-Hasn'tCrowd:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["knows_crowdsourcing"], filters["new_to_crowdsourcing"], remove_kurtis]), "Umati-KnowsButDoesn'tUse:"))
 
     if (kurtis_db):
         ops.append((kurtis_db, lambda x: True, "Kurtis:"))
