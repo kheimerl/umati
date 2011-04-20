@@ -55,10 +55,11 @@ count = 0
 outfile.write("Users,Time\n")
 for t in task_times:
     if (last_time - t > 0): #time went backwards
-        res.append(count)
+        res.append((count, cur_time))
         count = 0
         cur_time = t
-        print ("Resetting")
+    last_time = t
+    
     if (t <= cur_time + time_dif):
         count += 1
     else:
@@ -67,4 +68,5 @@ for t in task_times:
         count = 0
 
 for item in res:
+    print (item)
     outfile.write(str(item[0]) + "," + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(item[1])) + "\n")
