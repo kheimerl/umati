@@ -122,6 +122,11 @@ for (func, expect, name) in [(get_department, "CS", "cs_only"),
                              (get_relationship, "Undergraduate Student", "ugrad_only"),
                              (get_relationship, "Graduate Student", "grad_only"),
                              (get_relationship, "Staff", "staff_only"),
+                             (get_relationship, "Professor", "prof_only"),
+                             (get_department, "EE", "EE_only"),
+                             (get_department, "CS", "CS_only"),
+                             (get_department, "Business School", "biz_only"),
+                             (get_department, "Other Department on Campus", "other_dept_only"),
                              (get_crowdsourcing_knowledge, "Yes", "knows_crowdsourcing"),
                              (get_crowdsourcing_use, "No", "new_to_crowdsourcing")]:
     filters[name] = partial(basic_filter, func=func, expect=expect)

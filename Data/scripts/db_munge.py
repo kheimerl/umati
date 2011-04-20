@@ -76,7 +76,11 @@ def start():
         ops.append((umati_db, partial(chain_filters, filters=[filters["staff_only"], remove_kurtis]), "Umati-StaffOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[remove_cheaters, filters["staff_only"], remove_kurtis]), "Umati-NC-StaffOnly:"))
         ops.append((umati_db, partial(chain_filters, filters=[filters["new_to_crowdsourcing"], remove_kurtis]), "Umati-Hasn'tCrowd:"))
-        ops.append((umati_db, partial(chain_filters, filters=[filters["knows_crowdsourcing"], filters["new_to_crowdsourcing"], remove_kurtis]), "Umati-KnowsButDoesn'tUse:"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["knows_crowdsourcing"], remove_kurtis]), "Umati-KnowsCrowdsourcing"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["EE_only"], remove_kurtis]), "Umati-EE"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["CS_only"], remove_kurtis]), "Umati-CS"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["biz_only"], remove_kurtis]), "Umati-Biz"))
+        ops.append((umati_db, partial(chain_filters, filters=[filters["other_dept_only"], remove_kurtis]), "Umati-OtherDept"))
 
     if (kurtis_db):
         ops.append((kurtis_db, lambda x: True, "Kurtis:"))
