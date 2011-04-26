@@ -173,3 +173,9 @@ class TaskGui(UmatiWidget.Widget):
         
     def available(self):
         return True
+
+    def getValue(self):
+        if (self.curTask):
+            return str(self.curTask.getValue())
+        else:
+            return ""

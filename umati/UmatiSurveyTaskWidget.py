@@ -152,6 +152,8 @@ class TaskGui(UmatiWidget.Widget):
         for i in range(0,5):
             self.ui.__getattribute__('pushButton_' + str(i)).clicked.connect(self.next)
 
+        self.reset()
+
     def show(self):
         self.reset()
         message = self.cur_task.get_info()
@@ -219,3 +221,9 @@ class TaskGui(UmatiWidget.Widget):
 
     def available(self):
         return True
+
+    def getValue(self):
+        if (self.cur_task):
+            return str(self.cur_task.getValue())
+        else:
+            return ""

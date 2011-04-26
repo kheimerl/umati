@@ -17,30 +17,47 @@ class ChooserGui(UmatiWidget.Widget):
         self.tasks = []
         for task_list in conf:
             for task in task_list.getElementsByTagName("task"):
-                c = task.getAttribute("class")
-                mod = __import__("umati." + c, fromlist='').__dict__[c]
-                if (task.getAttribute("xml") == ''):
-                    taskgui = mod.TaskGui(Util.childNode(task), 
-                                          parent=parent)
-                else:
-                    taskgui = mod.TaskGui(xml.dom.minidom.parse(
-                            task.getAttribute("xml")).documentElement, 
-                                          parent=parent)
-                taskgui.hide()
-                b = QtGui.QPushButton(task.getAttribute("title"))
-                #shits super annoying
-                x = b.sizePolicy()
-                x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)
-                b.setSizePolicy(x)
-                #again again
-                x = b.font()
-                x.setPointSize(30)
-                b.setFont(x)
-                #and that ugliness is done
+                self.__add_task(task, parent)
+
+    def __add_task(self, task, parent):
+        c = task.getAttribute("class")
+        mod = __import__("umati." + c, fromlist='').__dict__[c]
+        if (task.getAttribute("xml") == ''):
+            taskgui = mod.TaskGui(Util.childNode(task), 
+                                  parent=parent)
+        else:
+            taskgui = mod.TaskGui(xml.dom.minidom.parse(
+                    task.getAttribute("xml")).documentElement, 
+                                  parent=parent)
+        taskgui.hide()
+        b = QtGui.QPushButton(task.getAttribute("title"))
+        #shits super annoying
+        x = b.sizePolicy()
+        x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)
+        b.setSizePolicy(x)
+        #again again
+        x = b.font()
+        x.setPointSize(30)
+        b.setFont(x)
+        #and that ugliness is done
+        
+        l = QtGui.QLabel(taskgui.getValue())
+        l.setFixedWidth(60)
+        x = l.sizePolicy()
+        x.setHorizontalPolicy(QtGui.QSizePolicy.Fixed)
+        l.setSizePolicy(x)
+        
+        x = l.font()
+        x.setPointSize(30)
+        l.setFont(x)
+
+        h = QtGui.QHBoxLayout(self)
+        h.addWidget(b)
+        h.addWidget(l)
                 
-                b.clicked.connect(partial(self.select_task, len(self.tasks)))
-                self.ui.layout.insertWidget(0, b)
-                self.tasks.append((taskgui,b))
+        b.clicked.connect(partial(self.select_task, len(self.tasks)))
+        self.ui.layout.addLayout(h)
+        self.tasks.append((taskgui,b))
 
     def select_task(self, task):
         self.hide()

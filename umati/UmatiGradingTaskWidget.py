@@ -257,3 +257,6 @@ class TaskGui(UmatiWidget.Widget):
         except NoQuestionsException:
             return False
         return True
+
+    def getValue(self):
+        return str(self.value)

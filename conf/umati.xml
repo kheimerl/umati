@@ -10,15 +10,13 @@
       <task class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
     </prelim_tasks>
     <main_tasks>
-      <!--
       <task title="Calculate Primes" class="UmatiMathTaskWidget" >
-	<math name="Primes" value="1" instructions="When given a number, calculate all of the primes and select them (in any order) on the calculator. For example, when given 15, you may enter 53 or 35."/>
+	<math name="Primes" value="0" instructions="When given a number, calculate all of the primes and select them (in any order) on the calculator. For example, when given 15, you may enter 53 or 35."/>
       </task>
       <task title="Add Two Numbers" class="UmatiMathTaskWidget">
-	<math name="Addition" value="1" />
+	<math name="Addition" value="0" />
       </task>
       <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget" xml="conf/cs_gre.xml" />
-      -->
       <task title="CS61B Grading" class="UmatiGradingTaskWidget" xml="conf/61b_official.xml"/>
     </main_tasks>
   </interface>
