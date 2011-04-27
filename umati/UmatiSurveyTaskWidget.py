@@ -59,8 +59,6 @@ class LinearSurveyTask(UmatiTask.Task):
     def submit(self):
         self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.getType(), str(self.qs), self.getValue()))
         for q in self.qs:
-            print (q.ans)
-            print (q.get_correct())
             if (self.reject and q.ans != q.get_correct()):
                 return False
             elif (q.ans == -1):
@@ -69,7 +67,7 @@ class LinearSurveyTask(UmatiTask.Task):
     
     def next(self):
         self.index += 1
-        if (self.index >= len(self.qs) - 1):
+        if (self.index > len(self.qs) - 1):
             self.index = len(self.qs) - 1
             return None
         return self.qs[self.index]

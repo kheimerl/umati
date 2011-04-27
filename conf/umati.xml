@@ -10,6 +10,7 @@
       <task class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
     </prelim_tasks>
     <main_tasks>
+      <task title="Survey" class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
       <task title="Calculate Primes" class="UmatiMathTaskWidget" >
 	<math name="Primes" value="0" reject="True" instructions="When given a number, calculate all of the primes and select them (in any order) on the calculator. For example, when given 15, you may enter 53 or 35."/>
       </task>
