@@ -50,6 +50,7 @@ class LinearSurveyTask(UmatiTask.Task):
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.LinearSurveyTask")
         self.value = int(head.getAttribute("value"))
         self.task_name = head.getAttribute("name")
+        self.reject = (head.getAttribute("reject") == "True")
         self.index = -1
         self.qs = []
         for q in head.getElementsByTagName("question"):
@@ -58,14 +59,18 @@ class LinearSurveyTask(UmatiTask.Task):
     def submit(self):
         self.log.info("Survey Submission: T:%s R:%s V:%d" % (self.getType(), str(self.qs), self.getValue()))
         for q in self.qs:
-            if (q.ans == -1):
+            print (q.ans)
+            print (q.get_correct())
+            if (self.reject and q.ans != q.get_correct()):
+                return False
+            elif (q.ans == -1):
                 return False
         return True
     
     def next(self):
         self.index += 1
-        if (self.index >= len(self.qs)):
-            self.index = len(self.qs)
+        if (self.index >= len(self.qs) - 1):
+            self.index = len(self.qs) - 1
             return None
         return self.qs[self.index]
 
@@ -208,7 +213,10 @@ class TaskGui(UmatiWidget.Widget):
                                self.cur_task.getValue(),
                                self.cur_task.getName(),
                                self.cur_task.getAns()))
-                self.controller.task_completed(self.cur_task)
+                if (self.cur_task.submit()):
+                    self.controller.task_completed(self.cur_task)
+                else:
+                    UmatiMessageDialog.information(self, "Incorrect Answer!")
 
     def back(self):
         res = self.getChecked()

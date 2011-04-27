@@ -9,11 +9,12 @@ class MathTask(UmatiTask.Task):
         self.value = int(conf.getAttribute("value"))
         self.name = conf.getAttribute("name")
         self.inst = conf.getAttribute("instructions")
+        self.reject = (conf.getAttribute("reject") == "True")
 
     def get_ans(self):
         return str(self.ans)
 
-    def check_res(self):
+    def check_res(self, ans):
         raise Exception("Unimplemented")
 
     def getName(self):
@@ -40,7 +41,7 @@ class AdditionTask(MathTask):
         self.cmd = "%d + %d = ?" % (x,y)
         self.ans = x+y
 
-    def check_res(self, ans):
+    def __check_res_noReject(self, ans):
         #modified hamming distance
         diffs = 0
         #well this is awkward
@@ -48,6 +49,15 @@ class AdditionTask(MathTask):
                              zip(str(ans),str(self.ans))):
             diffs += abs(ch1 - ch2)
         return (diffs < len(str(self.ans)))
+
+    def __check_res_reject(self, ans):
+        return (str(self.ans) == str(ans))
+    
+    def check_res(self, ans):
+        if self.reject:
+            return self.__check_res_reject(ans)
+        else:
+            return self.__check_res_noReject(ans)
 
     def getType(self):
         return self.task_type
@@ -83,7 +93,7 @@ class PrimeFactorTask(MathTask):
         self.cmd = "Provide all prime factors of %d" % res
         self.ans.sort()
 
-    def check_res(self, ans):
+    def __check_res_noReject(self, ans):
         temp = []
         for i  in list(str(ans)):
             i = int(i)
@@ -96,6 +106,17 @@ class PrimeFactorTask(MathTask):
             self.log.debug("Too may or too few primes")
             return False
         return True
+
+    def __check_res_reject(self, ans):
+        z = map(lambda x: int(x), list(str(ans)))
+        z.sort()
+        return (self.ans == z)
+    
+    def check_res(self, ans):
+        if self.reject:
+            return self.__check_res_reject(ans)
+        else:
+            return self.__check_res_noReject(ans)
 
     def getName(self):
         return MathTask.getName(self) + str(self.ans)
@@ -157,10 +178,7 @@ class TaskGui(UmatiWidget.Widget):
                 self.log.info("Math Task FAILED. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(),
                                res, val))
-                UmatiMessageDialog.information(self,"Answer is clearly incorrect")
-                #QtGui.QMessageBox.information(self, "Good Try",
-                #                              "Answer is clearly incorrect",
-                #                              QtGui.QMessageBox.Ok)
+                UmatiMessageDialog.information(self,"Answer is incorrect")
                 
             self.reset()
 
