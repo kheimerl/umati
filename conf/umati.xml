@@ -1,7 +1,7 @@
 <umati>
   <vending loc="umati_vend_db"/>
   <user_directory loc="umati_user_db" max_fails="2"/>
-  <updater type="Keyboard" timeout="120"/>
+  <updater type="Network" timeout="120"/>
   <interface>
     <splash text="Scan your card to start getting snacks!!"
 	    gif="umatiCardScan.gif"/>
@@ -10,15 +10,16 @@
       <task class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
     </prelim_tasks>
     <main_tasks>
-      <task title="Survey" class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
+      <task title="Image Labeling" class="UmatiImageLabelingTaskWidget" xml="conf/image_labeling.xml"/>
+     
       <task title="Calculate Primes" class="UmatiMathTaskWidget" >
 	<math name="Primes" value="0" reject="True" instructions="When given a number, calculate all of the primes and select them (in any order) on the calculator. For example, when given 15, you may enter 53 or 35."/>
-      </task>
+      </task>  
+      <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget" xml="conf/cs_gre.xml" />
+      <task title="CS61B Grading" class="UmatiGradingTaskWidget" xml="conf/61b_official.xml"/>
       <task title="Add Two Numbers" class="UmatiMathTaskWidget">
 	<math name="Addition" reject="True" value="0" />
       </task>
-      <task title="CSGRE Quiz" class="UmatiSurveyTaskWidget" xml="conf/cs_gre.xml" />
-      <task title="CS61B Grading" class="UmatiGradingTaskWidget" xml="conf/61b_official.xml"/>
     </main_tasks>
   </interface>
 </umati>
