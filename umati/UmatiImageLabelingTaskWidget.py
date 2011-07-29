@@ -28,8 +28,7 @@ class ImageLabelingTask(UmatiTask.Task):
         
 		#shortcut for everythingabove for testing:
         userCompleted = self.controller.get_completed_tasks(self.getType())
-        print(userCompleted)
-        print(images)
+        
 
         temp_set = sets.Set()
         for i in userCompleted:
