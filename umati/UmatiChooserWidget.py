@@ -88,3 +88,4 @@ class ChooserGui(UmatiWidget.Widget):
     def __hide_tasks(self):
         for (t,b) in self.tasks:
             t.hide()
+            b.hide()

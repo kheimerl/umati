@@ -1,12 +1,11 @@
 import sys
 import pickle
 import os.path
-import sets
 
 from PyQt4 import QtGui, uic, QtCore
 from PyQt4.QtGui import *
 import logging, xml.dom.minidom, random, re
-from . import UmatiMessageDialog, UmatiWidget, UmatiTask , mainapp
+from . import UmatiMessageDialog, UmatiWidget, UmatiTask
 
 
 
@@ -30,7 +29,7 @@ class ImageLabelingTask(UmatiTask.Task):
         userCompleted = self.controller.get_completed_tasks(self.getType())
         
 
-        temp_set = sets.Set()
+        temp_set = set()
         for i in userCompleted:
             temp_set.add(i[0])
         for i in images:

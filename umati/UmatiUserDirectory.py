@@ -59,7 +59,7 @@ class UserDirectory:
 
     FILE_LOC = "umati_user_db"
 
-    CAL_ID_RE = re.compile("(\s*);(\d+)=(/d+)?")
+    CAL_ID_RE = re.compile("(\s*);(\d{9})=(/d+)?")
 
     UPDATE_TIMEOUT = 60*10
 
