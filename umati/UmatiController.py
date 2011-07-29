@@ -17,6 +17,7 @@ class Controller(QtCore.QObject):
         else:
             module_built = True
         self.log = logging.getLogger("umati.UmatiController.Controller")
+        self.log.info("Starting...")
         Util.setUmatiController(self)
         self.app = QtGui.QApplication(sys.argv)
         self.up = UmatiUpdater.Updater(self, Util.get_tag(conf, "updater"))
