@@ -1,6 +1,6 @@
 <umati>
   <vending loc="umati_vend_db"/>
-  <user_directory loc="umati_user_db" max_fails="2" re="(\s*);(\d{9})=(/d+)?"/>
+  <user_directory loc="umati_user_db" max_fails="2" />
   <updater type="Network" timeout="120"/>
   <interface>
     <splash text="Scan your card to start getting snacks!!"
