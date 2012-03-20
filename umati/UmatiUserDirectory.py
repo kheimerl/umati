@@ -59,13 +59,15 @@ class UserDirectory:
 
     FILE_LOC = "umati_user_db"
 
-    CAL_ID_RE = re.compile("(\s*);(\d{9})=(/d+)?")
-
     UPDATE_TIMEOUT = 60*10
 
     def __init__(self, conf):
         self.path = conf.getAttribute("loc")
         self.max_wrong = int(conf.getAttribute("max_fails"))
+        temp_re = re.compile(conf.getAttribute("re"))
+        if (not re):
+            temp_re = ".*"
+        self.re = re.compile(temp_re)
         self.log = logging.getLogger("umati.UmatiUserDirectory.UserDirectory")
         if (self.path == ""):
             self.path = UserDirectory.FILE_LOC
@@ -85,7 +87,7 @@ class UserDirectory:
     def get_user(self, tag):
         QMutexLocker(self.__lock)
         res = None
-        if not(UserDirectory.CAL_ID_RE.match(tag) or len(tag) == 2):
+        if not(self.re.match(tag) or len(tag) == 2):
             self.log.warn("Invalid card scanned:%s" % tag)
         else:
             if tag not in self.db:
