@@ -110,7 +110,11 @@ class TaskGui(UmatiWidget.Widget):
         if (random):
             self.cur_task.randomize()
         self.image_browser.setUrl(QtCore.QUrl("file://" + self.cur_task.get_image()))
-        self.ui.listEdit.setText(self.cur_task.getTags())
+        cur_tags = self.cur_task.getTags()
+        if (cur_tags != ""):
+            self.ui.listEdit.setText("Taboo Words:" + cur_tags)
+        else:
+            self.ui.listEdit.setText(cur_tags)
         UmatiWidget.Widget.show(self)
 
     def available(self):
