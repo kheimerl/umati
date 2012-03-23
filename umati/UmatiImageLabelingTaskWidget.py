@@ -18,7 +18,7 @@ class ImageLabelingTask(UmatiTask.Task):
         self.value = int(head.getAttribute("value"))
         for f in os.listdir(self.loc):
             #all non txt (tag) files
-            if (f[-4:] != ".txt" and f[0] != "."):
+            if (f[-3:] not in ["txt", "ini", ".py"]  and f[0] != "."):
                 self.images.append(f)
         self.randomize()
 	      
@@ -109,7 +109,8 @@ class TaskGui(UmatiWidget.Widget):
             return
         if (random):
             self.cur_task.randomize()
-        self.image_browser.setUrl(QtCore.QUrl("file://" + self.cur_task.get_image()))
+        print (self.cur_task.get_image())
+        self.image_browser.setUrl(QtCore.QUrl("file:///" + self.cur_task.get_image()))
         cur_tags = self.cur_task.getTags()
         if (cur_tags != ""):
             self.ui.listEdit.setText("Taboo Words:" + cur_tags)
