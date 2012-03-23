@@ -3,7 +3,7 @@ import pickle
 import os
 import functools
 
-from PyQt4 import QtGui, uic, QtCore
+from PyQt4 import QtGui, uic, QtCorepr
 from PyQt4.QtGui import *
 import logging, xml.dom.minidom, random, re
 from . import UmatiMessageDialog, UmatiWidget, UmatiTask
@@ -109,7 +109,6 @@ class TaskGui(UmatiWidget.Widget):
             return
         if (random):
             self.cur_task.randomize()
-        print (self.cur_task.get_image())
         self.image_browser.setUrl(QtCore.QUrl("file:///" + self.cur_task.get_image()))
         cur_tags = self.cur_task.getTags()
         if (cur_tags != ""):
