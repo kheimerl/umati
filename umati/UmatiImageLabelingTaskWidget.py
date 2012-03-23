@@ -3,7 +3,7 @@ import pickle
 import os
 import functools
 
-from PyQt4 import QtGui, uic, QtCorepr
+from PyQt4 import QtGui, uic, QtCore
 from PyQt4.QtGui import *
 import logging, xml.dom.minidom, random, re
 from . import UmatiMessageDialog, UmatiWidget, UmatiTask
