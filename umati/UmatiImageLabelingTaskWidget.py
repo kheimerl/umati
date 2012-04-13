@@ -18,7 +18,7 @@ class ImageLabelingTask(UmatiTask.Task):
         self.value = int(head.getAttribute("value"))
         for f in os.listdir(self.loc):
             #all non txt (tag) files
-            if (f[-3:] not in ["txt", "ini", ".py"]  and f[0] != "."):
+            if (f[-3:] in ["jpg", "png"]):
                 self.images.append(f)
         self.randomize()
 	      
@@ -69,6 +69,18 @@ class ImageLabelingTask(UmatiTask.Task):
     def get_image(self):
         return self.loc + self.images[self.index]
 
+    def get_html(self):
+        html = '<html><body><img src="%s"/><p>%s</p></body></html>' % ("file:///"+self.get_image(), self.get_attrib())
+        return html
+
+    def get_attrib(self):
+        attrib_file = self.get_image()[:-4] + ".txt"
+        if (os.path.exists(attrib_file)):
+            f = open(attrib_file, 'r')
+            return f.read()
+        else:
+            return ""
+
     def get_tag_file(self):
         return self.get_image() + ".txt"
 
@@ -104,12 +116,15 @@ class TaskGui(UmatiWidget.Widget):
                 self.show(False)
         
     def show(self, random=True):
+        #print (self.cur_task.get_html())
+        #print (self.cur_task.get_attrib())
         if (not self.cur_task.get_image()):
             self.controller.choose_task()
             return
         if (random):
             self.cur_task.randomize()
-        self.image_browser.setUrl(QtCore.QUrl("file:///" + self.cur_task.get_image()))
+        #self.image_browser.setUrl(QtCore.QUrl("file:///" + self.cur_task.get_image()))
+        self.image_browser.setHtml(self.cur_task.get_html())
         cur_tags = self.cur_task.getTags()
         if (cur_tags != ""):
             self.ui.listEdit.setText("Taboo Words:" + cur_tags)
