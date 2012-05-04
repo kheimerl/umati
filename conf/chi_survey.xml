@@ -1,0 +1,97 @@
+<survey value="5" mode="linear" prelim="true" name="Intro2">
+	
+	<question text="Which types of sessions did you or do you plan to ATTEND this year?" style="multiple" id="0">
+       <answer text="Papers and Notes"/>
+       <answer text="Case Studies"/>
+       <answer text="Panels"/>
+       <answer text="Posters""/>
+       <answer text="Keynotes""/>
+       <answer text="Works in Progress""/>
+       <answer text="Exhibits""/>
+       <answer text="Demos"/>
+       <answer text="SIGs"/>
+		<answer text="Alt.CHI"/>
+       <answer text="Posters"/>
+       <answer text="Videos"/>
+       <answer text="Workshops"/>
+       <answer text="Courses"/>
+       <answer text="Interactivity"/>
+       <answer text="CHI Madness"/>
+       <answer text="Reception"/>
+       <answer text="Lab visits"/>
+       <answer text="Community events"/>
+       <answer text="Doctoral Consortium"/>
+    </question>
+  
+  <question text="What is your age?" id="1">
+    <answer text="0-18"/>
+    <answer text="18-20"/>
+    <answer text="21-24"/>
+    <answer text="25-39"/>
+    <answer text="40+"/>
+  </question>
+  
+  <question text="What is the highest level of education you have completed?" id="2">
+    <answer text="High School"/>
+    <answer text="Associates"/>
+    <answer text="Bachelors"/>
+    <answer text="Masters"/>
+    <answer text="PhD"/>
+  </question>
+  
+  <question text="What is your current relationship with UC Berkeley?" id="3">
+    <answer text="Undergraduate Student"/>
+    <answer text="Graduate Student"/>
+    <answer text="Professor"/>
+    <answer text="Staff"/>
+    <answer text="Other"/>
+  </question>
+  
+  <question text="What UC Berkeley Department, if any, are you most closely related to?" id="4">
+    <answer text="EE"/>
+    <answer text="CS"/>
+    <answer text="Business School"/>
+    <answer text="Other Department on Campus"/>
+    <answer text="Not Related"/>
+  </question>
+  
+  <question text="Do you know what crowdsourcing is?" id="5">
+    <answer text="Yes"/>
+    <answer text="No"/>
+  </question>
+  
+  <question text="Have you ever used Mechanical Turk (or any other crowdsourcing engine) and if so, what did you do?" id="6">
+    <answer text="Yes, created tasks"/>
+    <answer text="Yes, completed tasks"/>
+    <answer text="Yes, created and completed tasks"/>
+    <answer text="No"/>
+    <answer text="Maybe, Not Sure"/>
+  </question>
+  
+  <question text="What is your primary motivation for using this machine" id="7">
+    <answer text="Interested in crowdsourcing"/>
+    <answer text="Want food"/>
+    <answer text="Have free/down time"/>
+    <answer text="Other"/>
+  </question>
+
+  <question text="What brought you to this hall?" id="8">
+    <answer text="This machine, of course"/>
+    <answer text="Taking a class nearby"/>
+    <answer text="Passing through"/>
+    <answer text="Other work nearby"/>
+  </question>
+
+  <question text="How do you feel about the food selection in the machine?" id="9">
+    <answer text="I like it"/>
+    <answer text="Needs more healthy items"/>
+    <answer text="Needs more variety"/>
+    <answer text="Needs less healthy items"/>
+    <answer text="Needs cheaper items"/>
+  </question>
+
+  <question text="Lastly, if you have any problems (e.g., items don't fall), do you know who to contact?" id="10">
+    <answer text="kheimerl@cs.berkeley.edu"/>
+  </question>
+
+</survey>
