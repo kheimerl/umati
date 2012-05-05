@@ -64,7 +64,8 @@ class MainWindow(QtGui.QMainWindow):
 
     def __setItemVisible(self, item, others):
         for other in others:
-            other.hide()
+            if (other):
+                other.hide()
         item.show()
 
     def setChooserVisible(self):

@@ -6,10 +6,13 @@
     <splash text="Scan your card to start getting snacks!!"
 	    gif="umatiCardScan.gif"/>
     <vend_gui/>
+    <!--
     <prelim_tasks>
-      <task class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
     </prelim_tasks>
+    -->
     <main_tasks>
+      <task title="CHI '13 Survey" class="UmatiSurveyTaskWidget" xml="conf/chi_survey.xml" />
+      <task title="UCB Survey" class="UmatiSurveyTaskWidget" xml="conf/intro_survey.xml" />
       <task title="Image Labeling" class="UmatiImageLabelingTaskWidget" xml="conf/image_labeling.xml"/>
      
       <task title="Calculate Primes" class="UmatiMathTaskWidget" >

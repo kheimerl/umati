@@ -2,8 +2,22 @@ from PyQt4 import QtGui, uic
 import logging, xml.dom.minidom, random, re
 from . import UmatiMessageDialog, UmatiWidget, UmatiTask
 
-class Question:
+#util function
+def getLayoutChildren(layout):
+    x = []
+    for i in range(0,layout.count()):
+        x.append(layout.itemAt(i).widget())
+    return x
+
+def emptyLayout(layout):
+    x = layout.takeAt(0)
+    while (x):
+        x.widget().close()
+        layout.removeItem(x)
+        x.widget().deleteLater()
+        x = layout.takeAt(0)
     
+class Question:
     index_re = re.compile("(I+\.)")
 
     word_wrap = 50 #characters
@@ -12,6 +26,9 @@ class Question:
         self.ans = -1
         self.q = self.__add_newlines(node.getAttribute("text"))
         self.id = node.getAttribute("id")
+        self.style = node.getAttribute("style")
+        if (not self.style or self.style == ""):
+            self.style = "single"
         self.right = ''
         self.opts = []
         opt_count = 0
@@ -35,7 +52,7 @@ class Question:
         return Question.index_re.sub(lambda x: "\n" + x.group(1), text)
 
     def set_answer(self, ans):
-        self.ans = ans
+        self.ans = str(ans)
 
     def get_correct(self):
         return self.right
@@ -51,7 +68,8 @@ class LinearSurveyTask(UmatiTask.Task):
         self.value = int(head.getAttribute("value"))
         self.task_name = head.getAttribute("name")
         self.reject = (head.getAttribute("reject") == "True")
-        self.index = -1
+        self.req_all = (head.getAttribute("req_all") == "True")
+        self.index = 0
         self.qs = []
         for q in head.getElementsByTagName("question"):
             self.qs.append(Question(q))
@@ -61,12 +79,14 @@ class LinearSurveyTask(UmatiTask.Task):
         for q in self.qs:
             if (self.reject and q.ans != q.get_correct()):
                 return False
-            elif (q.ans == -1):
+            elif (self.req_all and q.ans == -1):
                 return False
         return True
     
     def next(self):
         self.index += 1
+
+    def getQ(self):
         if (self.index > len(self.qs) - 1):
             self.index = len(self.qs) - 1
             return None
@@ -143,17 +163,18 @@ class TaskGui(UmatiWidget.Widget):
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.ui.questionBox.setReadOnly(True)
+        self.ui.pushButton_back.hide()
 
         #little hack here, we insert a fake radio button
         #to deal with qt not allowing there to be none selected sometimes
-        self.fake_radio = QtGui.QRadioButton(self.ui.pushButton_0.parent())
-        self.fake_radio.hide()
+        #self.fake_radio = QtGui.QRadioButton(parent=self)
+        #self.ui.fake_radio.hide()
         
         self.ui.pushButton_back.clicked.connect(self.back)
         self.ui.pushButton_next.clicked.connect(self.next)
 
-        for i in range(0,5):
-            self.ui.__getattribute__('pushButton_' + str(i)).clicked.connect(self.next)
+        #for i in range(0,5):
+        #    self.ui.__getattribute__('pushButton_' + str(i)).clicked.connect(self.next)
 
         self.reset()
 
@@ -167,25 +188,24 @@ class TaskGui(UmatiWidget.Widget):
     def setButtons(self, q):
         self.ui.questionBox.clear()
         self.ui.questionBox.insertPlainText(q.q)
-        self.fake_radio.setChecked(True)
-        for i in range(0,5):
-            b = self.ui.__getattribute__('pushButton_' + str(i))
-            if (i < len(q.opts)):
-                b.setText(q.opts[i])
-                b.setCheckable(True)
-                if (q.ans == i):
-                    b.setChecked(True)
-                else:
-                    b.setChecked(False)
-            else:
-                b.setText("")
-                b.setCheckable(False)
+        emptyLayout(self.ui.buttonLayout)
+        if (q.style == "single"):
+            self.setButtonsSingle(q)
+        elif (q.style == "multiple"):
+            self.setButtonsMultiple(q)
+        elif (q.style == "text"):
+            self.setButtonsText(q)
+        elif (q.style == "audio"):
+            self.setButtonsAudio(q)
+        else:
+            self.log.error("XML File has unknown style type")
 
     def getChecked(self):
-        for i in range(0,5):
-            b = self.ui.__getattribute__('pushButton_' + str(i))
-            if (b.isChecked()):
-                return i
+        if (self.cur_task.getQ().style == "single"):
+            bs = getLayoutChildren(self.ui.buttonLayout)
+            for b in bs:
+                if b.isChecked():
+                    return b.text()
         return -1
 
     def reset(self):
@@ -193,28 +213,35 @@ class TaskGui(UmatiWidget.Widget):
             self.cur_task = LinearSurveyTask(self.conf)
         else: #default to this
             self.cur_task = RandomSurveyTask(self.conf)
-        self.setButtons(self.cur_task.next())
+        self.setButtons(self.cur_task.getQ())
     
     def next(self):
-        res = self.getChecked()
-        if (res == -1):
-            UmatiMessageDialog.information(self, "Please Complete All Questions!")
-            return
+        self.cur_task.next()
+        q = self.cur_task.getQ()
+        if (q): #not finished
+            self.setButtons(q)
         else:
-            self.cur_task.set_q_answer(res)
-            q = self.cur_task.next()
-            if (q): #not finished
-                self.setButtons(q)
+            self.log.info("Survey Task COMPLETE. T: %s V:%d N:%s A: %s" %
+                          (self.cur_task.getType(), 
+                           self.cur_task.getValue(),
+                           self.cur_task.getName(),
+                           self.cur_task.getAns()))
+            if (self.cur_task.submit()):
+                self.controller.task_completed(self.cur_task)
             else:
-                self.log.info("Survey Task COMPLETE. T: %s V:%d N:%s A: %s" %
-                              (self.cur_task.getType(), 
-                               self.cur_task.getValue(),
-                               self.cur_task.getName(),
-                               self.cur_task.getAns()))
-                if (self.cur_task.submit()):
-                    self.controller.task_completed(self.cur_task)
-                else:
-                    UmatiMessageDialog.information(self, "Incorrect Answer!")
+                UmatiMessageDialog.information(self, "Incorrect Answer!")
+
+    def complete(self):
+        if (self.cur_task.getQ().style == "single"):
+            res = self.getChecked()
+            self.cur_task.set_q_answer(res)
+            self.next()
+        elif(self.cur_task.getQ().style == "multiple"):
+            pass
+        elif(self.cur_task.getQ().style == "text"):
+            pass
+        elif(self.cur_task.getQ().style == "audio"):
+            pass
 
     def back(self):
         res = self.getChecked()
@@ -226,6 +253,11 @@ class TaskGui(UmatiWidget.Widget):
             pass
 
     def available(self):
+        complete = self.controller.get_completed_tasks(self.cur_task.getType())
+        print (complete)
+        for t in complete:
+            if t[0] == self.cur_task.getName():
+                return False
         return True
 
     def getValue(self):
@@ -233,3 +265,32 @@ class TaskGui(UmatiWidget.Widget):
             return str(self.cur_task.getValue())
         else:
             return ""
+
+    def setButtonsSingle(self, q):
+        #self.ui.fake_radio.setChecked(True)
+        for i in range(0,len(q.opts)):
+            b = QtGui.QPushButton(parent=self)
+            b.setCheckable(True)
+            x = b.sizePolicy()
+            x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)
+            b.setSizePolicy(x)
+            x = b.font()
+            x.setPointSize(15)
+            b.setFont(x)
+            self.ui.buttonLayout.addWidget(b)
+            b.clicked.connect(self.complete)
+            b.setText(q.opts[i])
+            if (q.ans == i):
+                b.setChecked(True)
+            else:
+                b.setChecked(False)
+
+    def setButtonsMultiple(self, q):
+        pass
+
+    def setButtonsText(self, q):
+        pass
+
+    def setButtonsAudio(self, q):
+        pass
+

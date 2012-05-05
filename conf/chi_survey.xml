@@ -1,138 +1,140 @@
-<survey value="5" mode="linear" prelim="true" name="Intro2">
-	
-	<question text="Which types of sessions did you or do you plan to ATTEND this year?" style="multiple" id="0">
-       <answer text="Papers and Notes"/>
-       <answer text="Case Studies"/>
-       <answer text="Panels"/>
-       <answer text="Posters"/>
-       <answer text="Keynotes"/>
-       <answer text="Works in Progress"/>
-       <answer text="Exhibits"/>
-       <answer text="Demos"/>
-       <answer text="SIGs"/>
-		<answer text="Alt.CHI"/>
-       <answer text="Posters"/>
-       <answer text="Videos"/>
-       <answer text="Workshops"/>
-       <answer text="Courses"/>
-       <answer text="Interactivity"/>
-       <answer text="CHI Madness"/>
-       <answer text="Reception"/>
-       <answer text="Lab visits"/>
-       <answer text="Community events"/>
-       <answer text="Doctoral Consortium"/>
-    </question>
+<survey value="3" mode="linear" prelim="true" name="chi">
+  
+  <question text="Which types of sessions did you or do you plan to ATTEND this year?" style="multiple" id="0">
+    <answer text="Papers and Notes"/>
+    <answer text="Case Studies"/>
+    <answer text="Panels"/>
+    <answer text="Posters"/>
+    <answer text="Keynotes"/>
+    <answer text="Works in Progress"/>
+    <answer text="Exhibits"/>
+    <answer text="Demos"/>
+    <answer text="SIGs"/>
+    <answer text="Alt.CHI"/>
+    <answer text="Posters"/>
+    <answer text="Videos"/>
+    <answer text="Workshops"/>
+    <answer text="Courses"/>
+    <answer text="Interactivity"/>
+    <answer text="CHI Madness"/>
+    <answer text="Reception"/>
+    <answer text="Lab visits"/>
+    <answer text="Community events"/>
+    <answer text="Doctoral Consortium"/>
+  </question>
+  
+  <question text="Which types of sessions are ESSENTIAL for a CHI conference?" style="multiple" id="1">
+    <answer text="Papers and Notes"/>
+    <answer text="Case Studies"/>
+    <answer text="Panels"/>
+    <answer text="Posters"/>
+    <answer text="Keynotes"/>
+    <answer text="Works in Progress"/>
+    <answer text="Exhibits"/>
+    <answer text="Demos"/>
+    <answer text="SIGs"/>
+    <answer text="Alt.CHI"/>
+    <answer text="Posters"/>
+    <answer text="Videos"/>
+    <answer text="Workshops"/>
+    <answer text="Courses"/>
+    <answer text="Interactivity"/>
+    <answer text="CHI Madness"/>
+    <answer text="Reception"/>
+    <answer text="Lab visits"/>
+    <answer text="Community events"/>
+    <answer text="Doctoral Consortium"/>
+  </question>
+  
+  <question text="You are a:" style="single" id="2">
+    <answer text="Student in Human-Computer Interaction"/>
+    <answer text="Student in another field"/>
+    <answer text="HCI researcher (academia)"/>
+    <answer text="HCI researcher (industry)"/>
+    <answer text="Researcher in another field"/>
+    <answer text="HCI independent consultant"/>
+    <answer text="HCI practitioner (industry)"/>
+    <answer text="Other HCI profession"/>
+    <answer text="Other: QQQ FILL IN THE BLANK"/>
+  </question>
+  
+  <question text="Have you volunteered for, written or organized something for CHI'12?" style="multiple" id="3">
+    <answer text="Author of a research paper"/>
+    <answer text="Organized a panel, workshop or SIG"/>
+    <answer text="Participated in a panel, workshop or SIG"/>
+    <answer text="Reviewer or program committee member"/>
+    <answer text="CHI conference committee"/>
+    <answer text="Student volunteer"/>
+    <answer text="Staff"/>
+    <answer text="Exhibitor"/>
+    <answer text="Other: QQQ FILL IN THE BLANK"/>
+  </question>
+  
+  <question text="Which of the following formats would you like for CHI Madness?" style="multiple" id="4">
+    <answer text="Early morning session with live presentations"/>
+    <answer text="Evening session with live presentations"/>
+    <answer text="Video clips (in conference bag and session-specific displays at the conference)"/>
+    <answer text="Both live and video presentations"/>
+    <answer text="Other: QQQ FILL IN THE BLANK"/>
+  </question>
+  
+  <question text="Which CHI Madness sessions did you attend (or plan to attend)?" style="multiple" id="5">
+    <answer text="Monday"/>
+    <answer text="Tuesday"/>
+    <answer text="Wednesday"/>
+    <answer text="Thursday"/>  
+    <answer text="none"/>
+  </question>
+  
+  <question text="Why do you attend CHI Madness? (check all that apply)" style="multiple" id="6">
+    <answer text="To get an overview of the state of the art"/>
+    <answer text="To identify presentations related to my interests"/>
+    <answer text="To schedule my day"/>
+    <answer text="To decide whether or not to attend particular presentations"/>
+    <answer text="To support my colleagues who are presenting"/>
+    <answer text="Other: QQQ FILL IN THE BLANK"/>
+  </question>
+  
+  
+  <question text="What events should be included in the CHI Madness?" style="multiple" id="7">
+    <answer text="Papers and notes only"/>
+    <answer text="All peer-reviewed presentations (including case studies, panels, etc.)"/>
+    <answer text="All sessions (including SIGs, courses, etc.)"/>
+  </question>
+  
+  <question text="Is the length of the presentations:" style="single" id="8">
+    <answer text="Too short"/>
+    <answer text="A bit short"/>
+    <answer text="About right"/>
+    <answer text="A bit long"/>
+    <answer text="Too long"/>
+  </question>
+  
+  <question text="If you have presented your work at CHI madness, this year or in previous years, what was the experience like?" style="single" id="9">
+    <answer text="Very stressful"/>
+    <answer text="A bit stressful"/>
+    <answer text="OK"/>
+    <answer text="Enjoyable"/>
+    <answer text="Very enjoyable"/>
+    <answer text="Comment QQQ FILL IN THE BLANK"/>
+  </question>
     
-    <question text="Which types of sessions are ESSENTIAL for a CHI conference?" style="multiple" id="1">
-       <answer text="Papers and Notes"/>
-       <answer text="Case Studies"/>
-       <answer text="Panels"/>
-       <answer text="Posters"/>
-       <answer text="Keynotes"/>
-       <answer text="Works in Progress"/>
-       <answer text="Exhibits""/>
-       <answer text="Demos"/>
-       <answer text="SIGs"/>
-		<answer text="Alt.CHI"/>
-       <answer text="Posters"/>
-       <answer text="Videos"/>
-       <answer text="Workshops"/>
-       <answer text="Courses"/>
-       <answer text="Interactivity"/>
-       <answer text="CHI Madness"/>
-       <answer text="Reception"/>
-       <answer text="Lab visits"/>
-       <answer text="Community events"/>
-       <answer text="Doctoral Consortium"/>
-    </question>
-  	
-  	<question text="You are a:" style="single" id="2">
-  		<answer text="Student in Human-Computer Interaction"/>
-       <answer text="Student in another field"/>
-       <answer text="HCI researcher (academia)"/>
-       <answer text="HCI researcher (industry)"/>
-       <answer text="Researcher in another field"/>
-       <answer text="HCI independent consultant"/>
-       <answer text="HCI practitioner (industry)"/>
-       <answer text="Other HCI profession"/>
-       <answer text="Other: QQQ FILL IN THE BLANK"/>
-	</question>
-	
-	<question text="Have you volunteered for, written or organized something for CHI'12?" style="multiple" id="3">
-       <answer text="Author of a research paper"/>
-       <answer text="Organized a panel, workshop or SIG"/>
-       <answer text="Participated in a panel, workshop or SIG"/>
-       <answer text="Reviewer or program committee member"/>
-       <answer text="CHI conference committee"/>
-       <answer text="Student volunteer"/>
-       <answer text="Staff"/>
-       <answer text="Exhibitor"/>
-       <answer text="Other: QQQ FILL IN THE BLANK"/>
-    </question>
-    
-    <question text="Which of the following formats would you like for CHI Madness?" style="multiple" id="4">
-       <answer text="Early morning session with live presentations"/>
-       <answer text="Evening session with live presentations"/>
-       <answer text="Video clips (in conference bag and session-specific displays at the conference)"/>
-       <answer text="Both live and video presentations"/>
-       <answer text="Other: QQQ FILL IN THE BLANK"/>
-    </question>
-    
-    <question text="Which CHI Madness sessions did you attend (or plan to attend)?" style="multiple" id="5">
-       	<answer text="Monday"/>
-        <answer text="Tuesday"/>
-    	<answer text="Wednesday"/>
-    	<answer text="Thursday"/>  
-       	<answer text="none"/>
-    </question>
-    
-    <question text="Why do you attend CHI Madness? (check all that apply)" style="multiple" id="6">
-           <answer text="To get an overview of the state of the art"/>
-       <answer text="To identify presentations related to my interests"/>
-       <answer text="To schedule my day"/>
-       <answer text="To decide whether or not to attend particular presentations"/>
-       <answer text="To support my colleagues who are presenting"/>
-       <answer text="Other: QQQ FILL IN THE BLANK"/>
-    </question>
-    
-    
-    <question text="What events should be included in the CHI Madness?" style="multiple" id="7">
-       <answer text="Papers and notes only"/>
-       <answer text="All peer-reviewed presentations (including case studies, panels, etc.)"/>
-       <answer text="All sessions (including SIGs, courses, etc.)"/>
-    </question>
-    
-    <question text="Is the length of the presentations:" style="single" id="8">
-       <answer text="Too short"/>
-       <answer text="A bit short"/>
-       <answer text="About right"/>
-       <answer text="A bit long"/>
-       <answer text="Too long"/>
-    </question>
-    
-    <question text="If you have presented your work at CHI madness, this year or in previous years, what was the experience like?" style="single" id="9">
-       <answer text="Very stressful"/>
-       <answer text="A bit stressful"/>
-       <answer text="OK"/>
-       <answer text="Enjoyable"/>
-       <answer text="Very enjoyable"/>
-       <answer text="Comment QQQ FILL IN THE BLANK"/>
-       
-    <question text="Do you plan to come to CHI'13 in Paris?" style="single" id="10">
-       <answer text="Yes, definitely"/>
-       <answer text="Yes, if a research paper accepted"/>
-       <answer text="Yes, if another type of contribution is accepted"/>
-       <answer text="Don't know yet"/>
-       <answer text="Probably not"/>
-       <answer text="Definitely not"/>
-    </question>
+  <question text="Do you plan to come to CHI'13 in Paris?" style="single" id="10">
+    <answer text="Yes, definitely"/>
+    <answer text="Yes, if a research paper accepted"/>
+    <answer text="Yes, if another type of contribution is accepted"/>
+    <answer text="Don't know yet"/>
+    <answer text="Probably not"/>
+    <answer text="Definitely not"/>
+  </question>
+  
+  <question text="Think of a specific experience, positive or negative, related to CHI. Tell us the story of what happened, briefly, but with actual details." style="audio" id="11">
+  </question>
+  
+  <question text="Give us one concrete suggestion for improving the conference." style="audio" id="12">
+  </question>
+  
+  <question text="ACM SIGCHI is a volunteer organization: the content is all contributed by members of the CHI community. If you would like to be involved in next year's conference, please leave your email address: QQQ FILL IN THE BLANK" style="text" id="13">     
+  </question>
 
-	<question text="Think of a specific experience, positive or negative, related to CHI. Tell us the story of what happened, briefly, but with actual details." style="audio" id="11">
-	</question>
-	
-	<question text="Give us one concrete suggestion for improving the conference." style="audio" id="12">
-	</question>
-	
-	<question text="ACM SIGCHI is a volunteer organization: the content is all contributed by members of the CHI community. If you would like to be involved in next year's conference, please leave your email address: QQQ FILL IN THE BLANK" style="text" id="13">     
-    </question>
 </survey>
