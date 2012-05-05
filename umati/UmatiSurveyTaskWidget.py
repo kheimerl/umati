@@ -23,7 +23,7 @@ class Question:
     word_wrap = 50 #characters
     
     def __init__(self, node):
-        self.ans = -1
+        self.ans = None
         self.q = self.__add_newlines(node.getAttribute("text"))
         self.id = node.getAttribute("id")
         self.style = node.getAttribute("style")
@@ -79,7 +79,7 @@ class LinearSurveyTask(UmatiTask.Task):
         for q in self.qs:
             if (self.reject and q.ans != q.get_correct()):
                 return False
-            elif (self.req_all and q.ans == -1):
+            elif (self.req_all and q.ans == None):
                 return False
         return True
     
@@ -206,6 +206,13 @@ class TaskGui(UmatiWidget.Widget):
             for b in bs:
                 if b.isChecked():
                     return b.text()
+        elif (self.cur_task.getQ().style == "multiple"):
+            res = ""
+            bs = getLayoutChildren(self.ui.buttonLayout)
+            for b in bs:
+                if b.isChecked():
+                    res += str(b.text()) + ","
+            return res
         return -1
 
     def reset(self):
@@ -237,7 +244,8 @@ class TaskGui(UmatiWidget.Widget):
             self.cur_task.set_q_answer(res)
             self.next()
         elif(self.cur_task.getQ().style == "multiple"):
-            pass
+            res = self.getChecked()
+            self.cur_task.set_q_answer(res)
         elif(self.cur_task.getQ().style == "text"):
             pass
         elif(self.cur_task.getQ().style == "audio"):
@@ -286,7 +294,23 @@ class TaskGui(UmatiWidget.Widget):
                 b.setChecked(False)
 
     def setButtonsMultiple(self, q):
-        pass
+        #self.ui.fake_radio.setChecked(True)
+        for i in range(0,len(q.opts)):
+            b = QtGui.QPushButton(parent=self)
+            b.setCheckable(True)
+            x = b.sizePolicy()
+            x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)
+            b.setSizePolicy(x)
+            x = b.font()
+            x.setPointSize(15)
+            b.setFont(x)
+            self.ui.buttonLayout.addWidget(b)
+            b.clicked.connect(self.complete)
+            b.setText(q.opts[i])
+            if (q.ans and i in q.ans):
+                b.setChecked(True)
+            else:
+                b.setChecked(False)
 
     def setButtonsText(self, q):
         pass
