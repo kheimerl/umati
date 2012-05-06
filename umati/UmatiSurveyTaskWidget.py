@@ -20,7 +20,7 @@ def emptyLayout(layout):
 class Question:
     index_re = re.compile("(I+\.)")
 
-    word_wrap = 50 #characters
+    word_wrap = 43 #characters
     
     def __init__(self, node):
         self.ans = None
@@ -35,13 +35,15 @@ class Question:
         for opt in node.getElementsByTagName("answer"):
             #this is an ungodly fucking hack
             res = opt.getAttribute("text")
-            i = Question.word_wrap
+            i = 0
             while (True):
-                i = res.find(" ", i)
+                if (i+Question.word_wrap > len(res)):
+                    break
+                i = res.rfind(" ",i,i+Question.word_wrap)
                 if (i == -1):
                     break
                 else:
-                    res = res[:i] + "\n" + res[i:]
+                    res = res[:i] + "\n" + res[i+1:]
                 i += Question.word_wrap
             self.opts.append(res)
             if (opt.getAttribute("right") == "T"):
@@ -295,7 +297,7 @@ class TaskGui(UmatiWidget.Widget):
     def setButtonsMultiple(self, q):
         #self.ui.fake_radio.setChecked(True)
         for i in range(0,len(q.opts)):
-            b = QtGui.QPushButton(parent=self)
+            b = QtGui.QCheckBox(parent=self)
             b.setCheckable(True)
             x = b.sizePolicy()
             x.setVerticalPolicy(QtGui.QSizePolicy.Expanding)

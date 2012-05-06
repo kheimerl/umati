@@ -55,7 +55,7 @@
     <answer text="HCI independent consultant"/>
     <answer text="HCI practitioner (industry)"/>
     <answer text="Other HCI profession"/>
-    <answer text="Other: QQQ FILL IN THE BLANK"/>
+    <answer text="Other"/>
   </question>
   
   <question text="Have you volunteered for, written or organized something for CHI'12?" style="multiple" id="3">
@@ -67,7 +67,7 @@
     <answer text="Student volunteer"/>
     <answer text="Staff"/>
     <answer text="Exhibitor"/>
-    <answer text="Other: QQQ FILL IN THE BLANK"/>
+    <answer text="Other"/>
   </question>
   
   <question text="Which of the following formats would you like for CHI Madness?" style="multiple" id="4">
@@ -75,7 +75,7 @@
     <answer text="Evening session with live presentations"/>
     <answer text="Video clips (in conference bag and session-specific displays at the conference)"/>
     <answer text="Both live and video presentations"/>
-    <answer text="Other: QQQ FILL IN THE BLANK"/>
+    <answer text="Other"/>
   </question>
   
   <question text="Which CHI Madness sessions did you attend (or plan to attend)?" style="multiple" id="5">
@@ -92,7 +92,7 @@
     <answer text="To schedule my day"/>
     <answer text="To decide whether or not to attend particular presentations"/>
     <answer text="To support my colleagues who are presenting"/>
-    <answer text="Other: QQQ FILL IN THE BLANK"/>
+    <answer text="Other"/>
   </question>
   
   
