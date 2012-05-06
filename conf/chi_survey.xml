@@ -116,7 +116,6 @@
     <answer text="OK"/>
     <answer text="Enjoyable"/>
     <answer text="Very enjoyable"/>
-    <answer text="Comment QQQ FILL IN THE BLANK"/>
   </question>
     
   <question text="Do you plan to come to CHI'13 in Paris?" style="single" id="10">

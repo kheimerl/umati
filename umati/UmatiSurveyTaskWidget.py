@@ -1,21 +1,29 @@
 from PyQt4 import QtGui, uic
-import logging, xml.dom.minidom, random, re
+import logging, xml.dom.minidom, random, re, functools
 from . import UmatiMessageDialog, UmatiWidget, UmatiTask
 
 #util function
 def getLayoutChildren(layout):
     x = []
     for i in range(0,layout.count()):
-        x.append(layout.itemAt(i).widget())
+        item = layout.itemAt(i)
+        if (item.layout()):
+            x += getLayoutChildren(item.layout())
+        else:
+            x.append(item.widget())
     return x
 
-def emptyLayout(layout):
-    x = layout.takeAt(0)
-    while (x):
-        x.widget().close()
-        layout.removeItem(x)
-        x.widget().deleteLater()
-        x = layout.takeAt(0)
+def hideLayout(layout):
+    x = getLayoutChildren(layout)
+    for w in x:
+        if (w):
+            w.hide()
+
+def showLayout(layout):
+    x = getLayoutChildren(layout)
+    for w in x:
+        if (w):
+            w.show()
     
 class Question:
     index_re = re.compile("(I+\.)")
@@ -162,6 +170,7 @@ class TaskGui(UmatiWidget.Widget):
         UmatiWidget.Widget.__init__(self, parent)
         self.log = logging.getLogger("umati.UmatiSurveyTaskWidget.TaskGui")
         self.conf = conf
+        self.added = []
         self.ui = uic.loadUiType(UI_FILE)[0]()
         self.ui.setupUi(self)
         self.ui.questionBox.setReadOnly(True)
@@ -177,6 +186,7 @@ class TaskGui(UmatiWidget.Widget):
 
         #for i in range(0,5):
         #    self.ui.__getattribute__('pushButton_' + str(i)).clicked.connect(self.next)
+        self.setupKeyboard()
 
         self.reset()
 
@@ -189,8 +199,15 @@ class TaskGui(UmatiWidget.Widget):
 
     def setButtons(self, q):
         self.ui.questionBox.clear()
+        self.ui.textBox.clear()
         self.ui.questionBox.insertPlainText(q.q)
-        emptyLayout(self.ui.buttonLayout)
+        #self.ui.buttonLayout.removeLayout(self.ui.textInputLayout)
+        hideLayout(self.ui.textInputLayout)
+        for b in self.added:
+            self.ui.buttonLayout.removeWidget(b)
+            b.close()
+            b.deleteLater()
+        self.added = []
         if (q.style == "single"):
             self.setButtonsSingle(q)
         elif (q.style == "multiple"):
@@ -206,13 +223,13 @@ class TaskGui(UmatiWidget.Widget):
         if (self.cur_task.getQ().style == "single"):
             bs = getLayoutChildren(self.ui.buttonLayout)
             for b in bs:
-                if b.isChecked():
+                if "isChecked" in dir(b) and b.isChecked():
                     return b.text()
         elif (self.cur_task.getQ().style == "multiple"):
             res = ""
             bs = getLayoutChildren(self.ui.buttonLayout)
             for b in bs:
-                if b.isChecked():
+                if "isChecked" in dir(b) and b.isChecked():
                     res += str(b.text()) + ","
             return res
         return -1
@@ -249,7 +266,9 @@ class TaskGui(UmatiWidget.Widget):
             res = self.getChecked()
             self.cur_task.set_q_answer(res)
         elif(self.cur_task.getQ().style == "text"):
-            pass
+            res = self.ui.textBox.toPlainText()
+            self.cur_task.set_q_answer(res)
+            self.next()
         elif(self.cur_task.getQ().style == "audio"):
             pass
 
@@ -289,6 +308,7 @@ class TaskGui(UmatiWidget.Widget):
             self.ui.buttonLayout.addWidget(b)
             b.clicked.connect(self.complete)
             b.setText(q.opts[i])
+            self.added.append(b)
             if (q.ans == i):
                 b.setChecked(True)
             else:
@@ -308,14 +328,36 @@ class TaskGui(UmatiWidget.Widget):
             self.ui.buttonLayout.addWidget(b)
             b.clicked.connect(self.complete)
             b.setText(q.opts[i])
+            self.added.append(b)
             if (q.ans and i in q.ans):
                 b.setChecked(True)
             else:
                 b.setChecked(False)
 
     def setButtonsText(self, q):
-        self.next()
+        #self.ui.buttonLayout.addLayout(self.ui.textInputLayout)
+        showLayout(self.ui.textInputLayout)
 
     def setButtonsAudio(self, q):
         self.next()
+
+    #keyboard stuff
+    def buttonPress(self, button):
+        self.ui.textBox.setText(self.ui.textBox.toPlainText() + button)
+
+    def backsp(self):
+        if (len(self.ui.textBox.toPlainText()) > 0):
+            self.ui.textBox.setText(self.ui.textBox.toPlainText()[:-1])
+            
+    def setupKeyboard(self):
+        #highlevel ones
+        self.ui.submit.clicked.connect(self.complete)
+        self.ui.clear.clicked.connect(self.ui.textBox.clear)
+        self.ui.backspace.clicked.connect(self.backsp)
+        #and then the whole keyboard
+        for key in ['q','w','e','r','t','y','u','i','o','p',
+                    'a','s','d','f','g','h','j','k','l','z',
+                    'x','c','v','b','n','m']:
+            but = self.ui.__getattribute__(key)
+            but.clicked.connect(functools.partial(self.buttonPress,key))
 
