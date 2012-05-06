@@ -57,7 +57,7 @@ class ChooserGui(UmatiWidget.Widget):
                 
         b.clicked.connect(partial(self.select_task, len(self.tasks)))
         self.ui.layout.addLayout(h)
-        self.tasks.append((taskgui,b))
+        self.tasks.append((taskgui,b,l))
 
     def select_task(self, task):
         self.hide()
@@ -70,9 +70,10 @@ class ChooserGui(UmatiWidget.Widget):
     def show(self):
         self.__hide_tasks()
         avail_tasks = []
-        for (task, but) in self.tasks:
+        for (task, but,l) in self.tasks:
             if(task.available()):
-                but.show()
+                but.show() #kurtis
+                l.show()
                 avail_tasks.append(task)
             else:
                 but.hide()
@@ -86,6 +87,7 @@ class ChooserGui(UmatiWidget.Widget):
             self.parent.parentWidget().parentWidget().setVendVisible()
 
     def __hide_tasks(self):
-        for (t,b) in self.tasks:
+        for (t,b,l) in self.tasks:
             t.hide()
             b.hide()
+            l.hide()
