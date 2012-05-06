@@ -1037,10 +1037,6 @@
     </font>
    </property>
   </widget>
-  <zorder>gridLayoutWidget</zorder>
-  <zorder>gridLayoutWidget_2</zorder>
-  <zorder>questionBox</zorder>
-  <zorder>clear</zorder>
  </widget>
  <resources/>
  <connections/>
