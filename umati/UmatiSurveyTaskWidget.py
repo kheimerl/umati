@@ -262,7 +262,6 @@ class TaskGui(UmatiWidget.Widget):
 
     def available(self):
         complete = self.controller.get_completed_tasks(self.cur_task.getType())
-        print (complete)
         for t in complete:
             if t[0] == self.cur_task.getName():
                 return False
@@ -313,8 +312,8 @@ class TaskGui(UmatiWidget.Widget):
                 b.setChecked(False)
 
     def setButtonsText(self, q):
-        pass
+        self.next()
 
     def setButtonsAudio(self, q):
-        pass
+        self.next()
 
