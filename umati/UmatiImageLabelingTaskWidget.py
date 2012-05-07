@@ -154,6 +154,8 @@ class TaskGui(UmatiWidget.Widget):
             self.ui.inputEdit.setText(self.ui.inputEdit.text()[:-1])
             
     def buttonPress(self, button):
+        if (button == "space"):
+            button = "_"
         self.ui.inputEdit.setText(self.ui.inputEdit.text() + button)
             
     def setupKeyboard(self):
@@ -164,6 +166,6 @@ class TaskGui(UmatiWidget.Widget):
         #and then the whole keyboard
         for key in ['q','w','e','r','t','y','u','i','o','p',
                     'a','s','d','f','g','h','j','k','l','z',
-                    'x','c','v','b','n','m']:
+                    'x','c','v','b','n','m', "space"]:
             but = self.ui.__getattribute__(key)
             but.clicked.connect(functools.partial(self.buttonPress,key))
