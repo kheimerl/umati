@@ -343,6 +343,8 @@ class TaskGui(UmatiWidget.Widget):
 
     #keyboard stuff
     def buttonPress(self, button):
+        if (button == "space"):
+            button = " "
         self.ui.textBox.setText(self.ui.textBox.toPlainText() + button)
 
     def backsp(self):
@@ -357,7 +359,7 @@ class TaskGui(UmatiWidget.Widget):
         #and then the whole keyboard
         for key in ['q','w','e','r','t','y','u','i','o','p',
                     'a','s','d','f','g','h','j','k','l','z',
-                    'x','c','v','b','n','m']:
+                    'x','c','v','b','n','m', "space"]:
             but = self.ui.__getattribute__(key)
             but.clicked.connect(functools.partial(self.buttonPress,key))
 
