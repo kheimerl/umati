@@ -1,5 +1,6 @@
 import os.path
 import pickle
+import logging
 
 class VendItem:
 
@@ -14,12 +15,15 @@ class VendDB:
 
     def __init__(self, conf):
         path = conf.getAttribute("loc")
+        self.log = logging.getLogger("umati.UmatiVendDB.VendDB")
         if (path == ""):
             path = VendDB.FILE_LOC
         
         if (os.path.exists(path)):
             p = pickle.Unpickler(open(path, 'rb'))
             self.db = p.load()
+            for k in self.db.keys():
+                self.log.info("%s:%s" % (k, self.db[k].price))
         else:
             raise Exception("Vend DB Not Found")
 
