@@ -174,13 +174,15 @@ class TaskGui(UmatiWidget.Widget):
                               (self.curTask.cmd, self.curTask.get_ans(), 
                                res, val))
                 self.controller.task_completed(self.curTask, reset=False)
+                self.reset()
             else:
                 self.log.info("Math Task FAILED. Q: %s A: %s G: %d V: %d" % 
                               (self.curTask.cmd, self.curTask.get_ans(),
                                res, val))
                 UmatiMessageDialog.information(self,"Answer is incorrect")
+                self.clear()
                 
-            self.reset()
+
 
     def generateMathTask(self):
         if (self.task_conf.getAttribute("name") == "Primes"):
