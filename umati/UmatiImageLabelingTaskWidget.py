@@ -122,7 +122,7 @@ class TaskGui(UmatiWidget.Widget):
             self.controller.choose_task()
             return
         if (random):
-            self.cur_task.randomize()
+            self.cur_task = ImageLabelingTask(self.conf, self.loc)
         #self.image_browser.setUrl(QtCore.QUrl("file:///" + self.cur_task.get_image()))
         self.image_browser.setHtml(self.cur_task.get_html())
         cur_tags = self.cur_task.getTags()
