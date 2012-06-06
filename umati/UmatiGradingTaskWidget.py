@@ -217,8 +217,12 @@ class TaskGui(UmatiWidget.Widget):
         else:
             self.controller.choose_task()
 
+    def __getHtml(self, img):
+        html = '<html><body><img src="%s"/></body></html>' % (img)
+        return html
+
     def __genNewQuestion(self, ans_loc):
-        self.ui.studentField.setUrl(QtCore.QUrl(ans_loc))
+        self.ui.studentField.setHtml(self.__getHtml(ans_loc))
         self.ui.scroller.setValue(0)
         self.__resetFields()
         for but in [self.ui.questButton, self.ui.profButton,
