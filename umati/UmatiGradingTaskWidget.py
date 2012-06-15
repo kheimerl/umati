@@ -185,6 +185,9 @@ class TaskGui(UmatiWidget.Widget):
                         "QPushButton { background-color: %s }" %
                         col.name())
             obj.setMinimumHeight(275)
+            x = obj.font()
+            x.setPointSize(30)
+            obj.setFont(x)
             layout.addWidget(obj)
             but.clicked.connect(partial(self.__switchField, obj, but))
         self.num_hidden = 0;

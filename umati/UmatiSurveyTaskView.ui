@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,20 +18,20 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>480</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>480</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </size>
   </property>
   <property name="baseSize">
    <size>
-    <width>480</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -40,15 +40,21 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>630</y>
-     <width>481</width>
-     <height>71</height>
+     <x>60</x>
+     <y>1620</y>
+     <width>951</width>
+     <height>131</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="1">
      <widget class="QPushButton" name="pushButton_next">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -57,7 +63,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>45</pointsize>
        </font>
       </property>
       <property name="text">
@@ -70,6 +76,12 @@
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -78,7 +90,7 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>30</pointsize>
+        <pointsize>45</pointsize>
        </font>
       </property>
       <property name="text">
@@ -92,9 +104,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>170</y>
-     <width>481</width>
-     <height>451</height>
+     <y>210</y>
+     <width>1071</width>
+     <height>1411</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="buttonLayout">
@@ -147,13 +159,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -179,13 +191,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -209,9 +221,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -235,9 +253,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -261,9 +285,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -287,9 +317,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -315,13 +351,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -347,13 +383,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777214</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -379,13 +415,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -411,13 +447,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -443,7 +479,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -485,13 +521,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -515,9 +551,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -541,9 +583,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -567,9 +615,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -595,13 +649,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -627,13 +681,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -659,13 +713,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -689,9 +743,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -715,9 +775,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -759,13 +825,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -789,9 +855,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -815,9 +887,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -841,9 +919,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -869,13 +953,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -901,13 +985,13 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
+              <width>140</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -931,9 +1015,15 @@
               <height>0</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -964,7 +1054,7 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>15</pointsize>
+            <pointsize>30</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
@@ -1010,7 +1100,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1036,7 +1126,7 @@
             </property>
             <property name="font">
              <font>
-              <pointsize>15</pointsize>
+              <pointsize>30</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1057,15 +1147,15 @@
   <widget class="QTextEdit" name="questionBox">
    <property name="geometry">
     <rect>
-     <x>-5</x>
-     <y>10</y>
-     <width>491</width>
-     <height>151</height>
+     <x>0</x>
+     <y>20</y>
+     <width>1071</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>30</pointsize>
     </font>
    </property>
   </widget>

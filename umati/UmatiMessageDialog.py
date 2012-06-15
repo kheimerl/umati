@@ -4,7 +4,7 @@ from . import UmatiWidget
 
 UI_FILE = 'umati/UmatiMessageView.ui'
 
-def information(parent, message, title="", fontSize=15):
+def information(parent, message, title="", fontSize=45):
     if (message and message != ""):
         MessageBox(parent, message, title, fontSize).show()
 

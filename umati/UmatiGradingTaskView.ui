@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>481</width>
-    <height>710</height>
+    <width>1075</width>
+    <height>1750</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,7 +31,7 @@
         <widget class="QPushButton" name="questButton">
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
           </font>
          </property>
          <property name="text">
@@ -46,7 +46,7 @@
         <widget class="QPushButton" name="profButton">
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
           </font>
          </property>
          <property name="text">
@@ -61,7 +61,7 @@
         <widget class="QPushButton" name="studentButton">
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
           </font>
          </property>
          <property name="text">
@@ -98,7 +98,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>30</pointsize>
+         <pointsize>45</pointsize>
         </font>
        </property>
        <property name="text">
@@ -114,7 +114,7 @@
        <property name="minimumSize">
         <size>
          <width>280</width>
-         <height>30</height>
+         <height>60</height>
         </size>
        </property>
        <property name="orientation">
@@ -135,7 +135,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>35</pointsize>
         </font>
        </property>
        <property name="text">

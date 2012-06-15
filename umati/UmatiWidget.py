@@ -62,7 +62,7 @@ class ZoomAndPannable():
 
 class PanningTextBrowser(QtGui.QTextBrowser, ZoomAndPannable):
 
-    ZOOM_FACTOR = 2
+    ZOOM_FACTOR = 5
 
     def __init__(self, parent=None):
         QtGui.QTextBrowser.__init__(self, parent)

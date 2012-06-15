@@ -9,26 +9,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>481</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
-    <width>481</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </size>
   </property>
   <property name="baseSize">
    <size>
-    <width>481</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </size>
   </property>
   <property name="palette">
@@ -485,7 +485,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>30</pointsize>
           </font>
          </property>
          <property name="acceptDrops">
@@ -519,9 +519,14 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>30</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>60</pointsize>
+          </font>
          </property>
          <property name="text">
           <string>&lt;</string>
@@ -544,9 +549,14 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>30</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>60</pointsize>
+          </font>
          </property>
          <property name="text">
           <string>&gt;</string>
@@ -576,7 +586,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>45</pointsize>
           </font>
          </property>
          <property name="readOnly">
@@ -614,7 +624,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
@@ -626,7 +636,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -646,7 +656,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
@@ -658,7 +668,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -678,13 +688,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -704,13 +714,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -730,13 +740,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -756,13 +766,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -782,7 +792,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
@@ -794,7 +804,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -814,7 +824,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
@@ -826,7 +836,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -846,7 +856,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
@@ -858,7 +868,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -878,7 +888,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>90</width>
            <height>0</height>
           </size>
          </property>
@@ -890,7 +900,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -916,7 +926,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -952,7 +962,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
@@ -964,7 +974,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -984,13 +994,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1010,13 +1020,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1036,13 +1046,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1062,7 +1072,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
@@ -1074,7 +1084,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1094,7 +1104,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
@@ -1106,7 +1116,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1126,7 +1136,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
@@ -1138,7 +1148,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1158,13 +1168,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1184,13 +1194,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>110</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1226,7 +1236,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
@@ -1238,7 +1248,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1258,13 +1268,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1284,13 +1294,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1310,13 +1320,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1336,7 +1346,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
@@ -1348,7 +1358,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1368,7 +1378,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
@@ -1380,7 +1390,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1400,13 +1410,13 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>140</width>
            <height>0</height>
           </size>
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1426,18 +1436,18 @@
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
          <horstretch>0</horstretch>
-         <verstretch>41</verstretch>
+         <verstretch>100</verstretch>
         </sizepolicy>
        </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>41</height>
+         <height>100</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>15</pointsize>
+         <pointsize>30</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -1483,7 +1493,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -1509,7 +1519,7 @@
          </property>
          <property name="font">
           <font>
-           <pointsize>15</pointsize>
+           <pointsize>30</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>

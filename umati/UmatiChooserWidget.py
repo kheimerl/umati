@@ -37,7 +37,7 @@ class ChooserGui(UmatiWidget.Widget):
         b.setSizePolicy(x)
         #again again
         x = b.font()
-        x.setPointSize(30)
+        x.setPointSize(45)
         b.setFont(x)
         #and that ugliness is done
         
@@ -48,7 +48,7 @@ class ChooserGui(UmatiWidget.Widget):
         l.setSizePolicy(x)
         
         x = l.font()
-        x.setPointSize(30)
+        x.setPointSize(45)
         l.setFont(x)
 
         h = QtGui.QHBoxLayout(self)

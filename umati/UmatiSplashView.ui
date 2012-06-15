@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>481</width>
-    <height>711</height>
+    <width>1075</width>
+    <height>1750</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <rect>
      <x>0</x>
      <y>10</y>
-     <width>481</width>
-     <height>691</height>
+     <width>1071</width>
+     <height>1731</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -27,7 +27,7 @@
      <widget class="QLabel" name="splash">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>40</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
